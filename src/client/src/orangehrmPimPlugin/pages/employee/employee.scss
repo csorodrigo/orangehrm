@@ -50,12 +50,30 @@
 }
 
 .orangehrm-employee-list {
+  ::v-deep(.oxd-table-body) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  ::v-deep(.oxd-table-card) {
+    width: 100%;
+    margin: 0;
+  }
+  ::v-deep(.oxd-table-row) {
+    display: grid;
+    grid-template-columns: minmax(8rem, 1.1fr) minmax(0, 4fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 4.5rem;
+    padding: 0.75rem 1rem;
+  }
   ::v-deep(.card-header-slot) {
-    border-bottom: $oxd-input-control-border--active;
-    margin-bottom: 5px;
+    border-bottom: 0;
+    margin-bottom: 0;
   }
   ::v-deep(.card-header-slot .oxd-table-card-cell) {
     display: flex;
+    align-items: center;
   }
   ::v-deep(.card-header-slot .header) {
     margin-right: 5px;
@@ -66,10 +84,38 @@
     align-items: center;
   }
   ::v-deep(.card-body-slot) {
-    display: unset;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.2rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-gap: 0.35rem 0.75rem;
+  }
+  ::v-deep(.card-body-slot .oxd-table-card-cell) {
+    min-width: 0;
+  }
+  ::v-deep(.oxd-table-card-cell .data) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  ::v-deep(.oxd-table-cell-actions) {
+    justify-content: flex-end;
+  }
+  @include oxd-respond-to('xs') {
+    ::v-deep(.oxd-table-row) {
+      grid-template-columns: 1fr auto;
+    }
+    ::v-deep(.card-body-slot) {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @include oxd-respond-to('md') {
+    ::v-deep(.oxd-table-row) {
+      grid-template-columns: minmax(8rem, 1.1fr) minmax(0, 4fr) auto;
+    }
+    ::v-deep(.card-body-slot) {
+      grid-column: auto;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
   }
 }
 

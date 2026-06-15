@@ -58,7 +58,7 @@ class PIMLeftMenuService
         'viewEmergencyContacts' => [
             'module' => 'pim',
             'data_groups' => ['emergency_contacts', 'emergency_attachment', 'emergency_custom_fields'],
-            'label' => 'Emergency Contacts'
+            'label' => 'Contato de emergência'
         ],
         'viewDependents' => [
             'module' => 'pim',
@@ -141,13 +141,7 @@ class PIMLeftMenuService
      */
     public function getMenuItems(?int $empNumber, bool $self): array
     {
-        $menu = $this->getMenuFromCache($empNumber);
-
-        if (empty($menu)) {
-            $menu = $this->generateMenuItems($empNumber, $self);
-            $this->saveMenuInCache($empNumber, $menu);
-        }
-        return $menu;
+        return $this->generateMenuItems($empNumber, $self);
     }
 
 
@@ -291,6 +285,8 @@ class PIMLeftMenuService
     protected function getAvailableActions(): array
     {
         $availableActions = $this->availableActions;
+        unset($availableActions['viewDependents']);
+
         if (!$this->isTaxMenuEnabled()) {
             unset($availableActions['viewUsTaxExemptions']);
         }
@@ -332,6 +328,9 @@ class PIMLeftMenuService
 
 
         foreach ($menuItems as $screen => $properties) {
+            if ($screen === 'viewDependents') {
+                continue;
+            }
             $url = $baseUrl . '/' . $properties['module'] . '/' . $screen . '/empNumber/' . $empNumber;
             $menus[] = [
                 'name' => $this->getI18NHelper()->transBySource($properties['label']),

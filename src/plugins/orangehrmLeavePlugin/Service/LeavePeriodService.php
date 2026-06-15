@@ -180,9 +180,7 @@ class LeavePeriodService
                 $projectedStartDate = ($i == 0) ? $tempDate : new DateTime(
                     date('Y-m-d', strtotime($tempDate->format('Y-m-d') . '+1 day'))
                 );
-                $projectedEndDate = new DateTime(
-                    date('Y-m-d', strtotime($projectedStartDate->format('Y-m-d') . ' +1 year -1 day'))
-                );
+                $projectedEndDate = $this->getProjectedEndDate($projectedStartDate, $leavePeriodHistoryList[0]);
 
                 foreach ($leavePeriodHistoryList as $leavePeriodHistory) {
                     $createdDate = $leavePeriodHistory->getCreatedAt();
@@ -195,7 +193,7 @@ class LeavePeriodService
                         if ($createdDate < $newStartDate) {
                             $newStartDate->sub(new DateInterval('P1Y'));
                         }
-                        $projectedEndDate = $newStartDate->add(DateInterval::createFromDateString('+1 year -1 day'));
+                        $projectedEndDate = $this->getProjectedEndDate($newStartDate, $leavePeriodHistory);
                     }
                 }
 
@@ -207,6 +205,32 @@ class LeavePeriodService
             $this->leavePeriodList = $leavePeriodList;
         }
         return $this->leavePeriodList;
+    }
+
+    /**
+     * @param DateTime $projectedStartDate
+     * @param LeavePeriodHistory $leavePeriodHistory
+     * @return DateTime
+     */
+    private function getProjectedEndDate(DateTime $projectedStartDate, LeavePeriodHistory $leavePeriodHistory): DateTime
+    {
+        if ($leavePeriodHistory->getEndMonth() === null || $leavePeriodHistory->getEndDay() === null) {
+            return new DateTime(
+                date('Y-m-d', strtotime($projectedStartDate->format('Y-m-d') . ' +1 year -1 day'))
+            );
+        }
+
+        $projectedEndDate = new DateTime(
+            $projectedStartDate->format('Y') . '-' .
+            $leavePeriodHistory->getEndMonth() . '-' .
+            $leavePeriodHistory->getEndDay()
+        );
+
+        if ($projectedEndDate < $projectedStartDate) {
+            $projectedEndDate->add(new DateInterval('P1Y'));
+        }
+
+        return $projectedEndDate;
     }
 
     /**

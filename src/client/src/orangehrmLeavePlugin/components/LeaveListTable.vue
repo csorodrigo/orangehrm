@@ -35,6 +35,41 @@
         @on-action-click="onLeaveActionBulk"
       >
       </leave-list-table-header>
+      <div v-if="quickLeaveRequest" class="ca-leave-confirmation">
+        <div class="ca-leave-confirmation__details">
+          <oxd-text tag="h6" class="ca-leave-confirmation__title">
+            Confirmar solicitação de férias
+          </oxd-text>
+          <div class="ca-leave-confirmation__grid">
+            <span>Colaborador</span>
+            <strong>{{ quickLeaveRequest.employeeName }}</strong>
+            <span>Período</span>
+            <strong>{{ quickLeaveRequest.date }}</strong>
+            <span>Tipo</span>
+            <strong>{{ quickLeaveRequest.leaveType }}</strong>
+            <span>Saldo</span>
+            <strong>{{ quickLeaveRequest.leaveBalance }}</strong>
+            <span>Dias</span>
+            <strong>{{ quickLeaveRequest.days }}</strong>
+            <span>Status</span>
+            <strong>{{ quickLeaveRequest.status }}</strong>
+          </div>
+        </div>
+        <div class="ca-leave-confirmation__actions">
+          <oxd-button
+            v-if="quickActionAvailable('REJECT')"
+            label="Rejeitar"
+            display-type="label-danger"
+            @click="onLeaveAction(quickLeaveRequest.id, 'REJECT')"
+          />
+          <oxd-button
+            v-if="quickActionAvailable('APPROVE')"
+            label="Aprovar"
+            display-type="label-success"
+            @click="onLeaveAction(quickLeaveRequest.id, 'APPROVE')"
+          />
+        </div>
+      </div>
       <div class="orangehrm-container">
         <oxd-card-table
           v-model:selected="checkedItems"
@@ -217,7 +252,7 @@ export default {
           );
         }
         if (item.dates.toDate) {
-          leaveDatePeriod += ` to ${formatDate(
+          leaveDatePeriod += ` até ${formatDate(
             parseDate(item.dates.toDate),
             jsDateFormat,
             {locale},
@@ -240,6 +275,18 @@ export default {
             )
             .join(', ');
         }
+        const hasPendingApproval =
+          Array.isArray(item.leaveBreakdown) &&
+          item.leaveBreakdown.length === 1 &&
+          ['pending approval', 'pendente de aprovação'].includes(
+            item.leaveBreakdown[0]?.name?.toLowerCase(),
+          );
+        const allowedActions =
+          Array.isArray(item.allowedActions) && item.allowedActions.length > 0
+            ? item.allowedActions
+            : !props.myLeaveList && hasPendingApproval
+            ? [{action: 'REJECT'}, {action: 'APPROVE'}]
+            : item.allowedActions ?? [];
         if (Array.isArray(item.leaveBalances)) {
           if (item.leaveBalances.length > 1) {
             leaveBalances = item.leaveBalances
@@ -284,7 +331,7 @@ export default {
           days: parseFloat(item.noOfDays).toFixed(2),
           status: leaveStatuses,
           comment: truncate(item.lastComment?.comment),
-          actions: item.allowedActions,
+          actions: allowedActions,
         };
       });
     };
@@ -353,6 +400,16 @@ export default {
       processLeaveRequestAction,
       processLeaveRequestBulkAction,
     };
+  },
+
+  computed: {
+    quickLeaveRequest() {
+      const data = this.items?.data ?? [];
+      if (this.filters.employee && data.length === 1) {
+        return data[0];
+      }
+      return null;
+    },
   },
 
   data() {
@@ -506,6 +563,13 @@ export default {
         })
         .finally(this.resetDataTable);
     },
+    quickActionAvailable(actionType) {
+      return (
+        this.quickLeaveRequest?.actions?.some(
+          (item) => item.action === actionType,
+        ) ?? false
+      );
+    },
     async onLeaveActionBulk(actionType) {
       this.isLoading = true;
       this.bulkActionModalState = {
@@ -567,6 +631,59 @@ export default {
   }
   .oxd-table-cell-actions > * {
     margin: 0 !important;
+  }
+}
+
+.ca-leave-confirmation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 1.2rem 1rem;
+  padding: 1rem;
+  border: 1px solid $oxd-interface-gray-lighten-2-color;
+  border-radius: 0.5rem;
+  background: $oxd-white-color;
+
+  &__details {
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 0.75rem;
+    color: $oxd-primary-one-color;
+    font-weight: 700;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.35rem 0.75rem;
+    color: $oxd-interface-gray-color;
+    font-size: 0.85rem;
+
+    strong {
+      color: $oxd-interface-gray-darken-1-color;
+      font-weight: 700;
+      word-break: break-word;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+@include oxd-respond-to('xs') {
+  .ca-leave-confirmation {
+    flex-direction: column;
+
+    &__actions {
+      justify-content: flex-start;
+    }
   }
 }
 </style>

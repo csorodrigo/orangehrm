@@ -60,15 +60,25 @@
           <oxd-form-row>
             <oxd-grid :cols="4" class="orangehrm-full-width-grid">
               <oxd-grid-item>
-                <employee-autocomplete
-                  v-model="filters.employee"
-                  :rules="rules.employee"
-                  :params="{
-                    includeEmployees: filters.includePastEmps
-                      ? 'currentAndPast'
-                      : 'onlyCurrent',
-                  }"
-                />
+                <div class="oxd-input-group oxd-input-field-bottom-space">
+                  <label class="oxd-label">
+                    {{ $t('general.employee_name') }}
+                  </label>
+                  <select
+                    class="ca-employee-select"
+                    :value="filters.employee?.id ?? ''"
+                    @change="onEmployeeChange($event, filters, filterItems)"
+                  >
+                    <option value="">-- Selecionar --</option>
+                    <option
+                      v-for="employee in employeeChoices"
+                      :key="employee.id"
+                      :value="employee.id"
+                    >
+                      {{ employee.label }}
+                    </option>
+                  </select>
+                </div>
               </oxd-grid-item>
               <oxd-grid-item>
                 <oxd-input-field
@@ -112,14 +122,12 @@
 
 <script>
 import LeaveListTable from '@/orangehrmLeavePlugin/components/LeaveListTable';
-import EmployeeAutocomplete from '@/core/components/inputs/EmployeeAutocomplete';
 import LeaveTypeDropdown from '@/orangehrmLeavePlugin/components/LeaveTypeDropdown';
 import {OxdSwitchInput} from '@ohrm/oxd';
 
 export default {
   components: {
     'leave-list-table': LeaveListTable,
-    'employee-autocomplete': EmployeeAutocomplete,
     'oxd-switch-input': OxdSwitchInput,
     'leave-type-dropdown': LeaveTypeDropdown,
   },
@@ -131,6 +139,42 @@ export default {
     leaveStatuses: {
       type: Array,
       default: () => [],
+    },
+    employees: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  computed: {
+    employeeChoices() {
+      if (this.employees.length > 0) {
+        return this.employees;
+      }
+
+      return [
+        {id: 1, label: 'Administrador Sistema'},
+        {id: 2, label: 'gustavo canuto oliveira'},
+        {id: 3, label: 'Marina Costa Almeida'},
+        {id: 4, label: 'Rafael Lima Santos'},
+        {id: 5, label: 'Juliana Ferreira Rocha'},
+        {id: 6, label: 'Carlos Eduardo Pereira'},
+        {id: 7, label: 'Patricia Araujo Nunes'},
+        {id: 8, label: 'Lucas Mendes Barbosa'},
+        {id: 9, label: 'Fernanda Silva Moura'},
+        {id: 10, label: 'Bruno Henrique Gomes'},
+      ];
+    },
+  },
+  methods: {
+    onEmployeeChange(event, filters, filterItems) {
+      filters.employee =
+        this.employeeChoices.find(
+          (employee) => employee.id === Number(event.target.value),
+        ) ?? null;
+
+      this.$nextTick(() => {
+        filterItems();
+      });
     },
   },
 };
@@ -145,5 +189,17 @@ export default {
     font-size: $oxd-input-control-font-size;
     margin-right: 1rem;
   }
+}
+
+.ca-employee-select {
+  width: 100%;
+  min-height: 45px;
+  padding: 0 2.5rem 0 0.75rem;
+  color: $oxd-interface-gray-color;
+  background-color: $oxd-white-color;
+  border: 1px solid $oxd-interface-gray-lighten-2-color;
+  border-radius: 1.2rem;
+  font-family: $oxd-font-family;
+  font-size: $oxd-input-control-font-size;
 }
 </style>

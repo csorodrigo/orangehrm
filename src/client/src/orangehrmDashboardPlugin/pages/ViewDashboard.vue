@@ -89,7 +89,9 @@ export default {
 .orangehrm-dashboard-grid {
   margin: 0 auto;
   box-sizing: border-box;
-  max-width: calc(350px * 3);
-  grid-template-columns: repeat(auto-fill, minmax(max(320px, 100%/3), 1fr));
+  width: 100%;
+  max-width: 1280px;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 </style>

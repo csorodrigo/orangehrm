@@ -31,6 +31,7 @@ use OrangeHRM\Framework\Http\Request;
 use OrangeHRM\I18N\Traits\Service\I18NHelperTrait;
 use OrangeHRM\Leave\Traits\Service\LeaveRequestServiceTrait;
 use OrangeHRM\Leave\Traits\Service\LeaveTypeServiceTrait;
+use OrangeHRM\Pim\Dto\EmployeeSearchFilterParams;
 use OrangeHRM\Pim\Traits\Service\EmployeeServiceTrait;
 
 class LeaveListController extends AbstractVueController
@@ -88,9 +89,37 @@ class LeaveListController extends AbstractVueController
 
         $subunits = $this->getCompanyStructureService()->getSubunitArray();
         $component->addProp(new Prop('subunits', Prop::TYPE_ARRAY, $subunits));
+        $component->addProp(new Prop('employees', Prop::TYPE_ARRAY, $this->getEmployeeOptions()));
         $this->addLeaveStatusesProp($component);
 
         $this->setComponent($component);
+    }
+
+    protected function getEmployeeOptions(): array
+    {
+        $employeeParamHolder = new EmployeeSearchFilterParams();
+        $employeeParamHolder->setIncludeEmployees(EmployeeSearchFilterParams::INCLUDE_EMPLOYEES_CURRENT_AND_PAST);
+        $employeeParamHolder->setLimit(100);
+
+        return array_map(
+            fn ($employee) => [
+                'id' => $employee->getEmpNumber(),
+                'label' => trim(
+                    implode(
+                        ' ',
+                        array_filter(
+                            [
+                                $employee->getFirstName(),
+                                $employee->getMiddleName(),
+                                $employee->getLastName(),
+                            ]
+                        )
+                    )
+                ),
+                'isPastEmployee' => !is_null($employee->getEmployeeTerminationRecord()),
+            ],
+            $this->getEmployeeService()->getEmployeeList($employeeParamHolder)
+        );
     }
 
     /**

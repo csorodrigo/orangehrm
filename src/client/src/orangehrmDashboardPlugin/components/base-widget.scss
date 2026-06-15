@@ -16,12 +16,12 @@
 
 .orangehrm-dashboard-widget {
   width: auto;
-  height: 380px;
+  height: 320px;
   margin: 0 auto;
   overflow: hidden;
-  max-width: 350px;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+  max-width: none;
+  padding: 0.65rem;
+  margin-bottom: 0.75rem;
   box-sizing: border-box;
 
   &-header {
@@ -43,7 +43,7 @@
   }
 
   &-body {
-    height: 318px;
+    height: 264px;
     overflow: auto;
     &-nocontent {
       font-size: 10px;

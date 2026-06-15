@@ -19,7 +19,6 @@
 
 namespace OrangeHRM\I18N\Controller;
 
-use OrangeHRM\Config\Config;
 use OrangeHRM\Core\Controller\AbstractFileController;
 use OrangeHRM\Core\Controller\PublicControllerInterface;
 use OrangeHRM\Core\Traits\Service\ConfigServiceTrait;
@@ -65,9 +64,8 @@ class I18NMessagesController extends AbstractFileController implements PublicCon
     private function setCommonHeaders($response, string $contentType)
     {
         $response->headers->set('Content-Type', $contentType);
-        $response->setPublic();
-        $response->setMaxAge(Config::get(Config::MAX_SESSION_IDLE_TIME));
-        $response->headers->addCacheControlDirective('must-revalidate', true);
-        $response->headers->set('Pragma', 'Public');
+        $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+        $response->headers->set('Pragma', 'no-cache');
+        $response->headers->set('Expires', '0');
     }
 }
