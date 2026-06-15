@@ -221,6 +221,23 @@ apiv2_leave_employee_leave:
   defaults:
     _api: OrangeHRM\Leave\Api\EmployeeLeaveAPI
 
+apiv2_leave_vacation_planning:
+  path: /api/v2/leave/vacation-planning
+  controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: OrangeHRM\Leave\Api\VacationPlanningAPI
+
+apiv2_leave_vacation_preferences:
+  path: /api/v2/leave/vacation-preferences/{empNumber}
+  controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: OrangeHRM\Leave\Api\VacationPreferenceAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
 ##########################
 #        Screens
 ##########################
