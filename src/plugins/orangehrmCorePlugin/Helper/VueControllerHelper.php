@@ -153,7 +153,7 @@ class VueControllerHelper
                 self::CLIENT_BANNER_URL => $clientBannerUrl,
                 self::THEME_VARIABLES => $themeVariables,
                 self::HELP_URL => $this->getHelpUrl(),
-                self::SHOW_UPGRADE => $this->getAuthUser()->getUserRoleId() === 1
+                self::SHOW_UPGRADE => false
             ]
         );
         return $this->context->all();

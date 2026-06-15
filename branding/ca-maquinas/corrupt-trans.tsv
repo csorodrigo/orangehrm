@@ -1,0 +1,118 @@
+﻿id	value
+10629	Administra??o
+10631	F?rias
+10637	Diret?rio
+10638	Manuten??o
+10640	Entrada n?o registrada
+10643	Minhas a??es
+10644	Acesso r?pido
+10647	Contatos de emerg?ncia
+10649	Imigra??o
+10651	Matr?cula
+10657	G?nero
+10667	Obrigat?rio
+10669	Usu?rio
+10673	Distribui??o de colaboradores por unidade
+10674	Distribui??o de colaboradores por localidade
+10675	Colaboradores de f?rias hoje
+10681	S?b
+10690	Configura??o de e-mail
+10699	Usar autentica??o SMTP
+10700	Usu?rio SMTP
+10703	Opcional - o servidor de e-mail exige seguran?a TLS.
+10711	Editar status do v?nculo
+10712	Adicionar status do v?nculo
+10713	Descri??o do cargo
+10716	M?dulo de Administra??o
+10717	M?dulo de Pessoas
+10718	M?dulo de F?rias
+10719	M?dulo de Ponto
+10726	Informa??es gerais
+10751	Colaboradores atribu?dos
+10759	Licen?as
+10760	Localiza??o
+10771	N?o
+10790	Associa??es
+10791	Editar compet?ncia
+10792	Adicionar compet?ncia
+10793	Compet?ncias
+10812	Status do v?nculo
+10840	Qualifica??es
+10846	Relat?rios de colaboradores
+10874	Ter?a-feira
+10878	S?bado
+10909	Alterar a senha ?
+10918	Gerenciamento de usu?rios
+10919	Informa??es do projeto
+10920	Organiza??o
+10921	Usu?rios
+10922	Configura??o
+10924	M?dulos
+10928	Relat?rios
+10934	Entrada/Sa?da
+10936	Frequ?ncia
+10939	Relat?rios de projeto
+10943	Gerenciar avalia??es
+10944	Minhas avalia??es
+10956	Resumo de frequ?ncia
+10957	Minhas f?rias
+10969	Tem certeza?
+10970	O registro selecionado será excluído permanentemente. Tem certeza de que deseja continuar?
+10980	Sal?rio
+10988	Exclu?do com sucesso
+11015	Importa??o de dados
+11023	Informa??es do colaborador
+11054	N?mero da CNH
+11080	M?todos de relat?rio
+11170	Per?odo de f?rias
+11188	O direito é situacional?
+11191	Tipos de f?rias
+11197	Solicitar f?rias
+11200	Atribuir f?rias
+11204	Lista de f?rias
+11233	{action, select, APPROVE {{count, plural, =0{Voc? est? prestes a aprovar nenhuma solicita??o de f?rias} =1{Voc? est? prestes a aprovar 1 solicita??o de f?rias} other{Voc? est? prestes a aprovar # solicita??es de f?rias}}} REJECT {{count, plural, =0{Voc? est? prestes a rejeitar nenhuma solicita??o de f?rias} =1{Voc? est? prestes a rejeitar 1 solicita??o de f?rias} other{Voc? est? prestes a rejeitar # solicita??es de f?rias}}} other {{count, plural, =0{Voc? est? prestes a cancelar nenhuma solicita??o de f?rias} =1{Voc? est? prestes a cancelar 1 solicita??o de f?rias} other{Voc? est? prestes a cancelar # solicita??es de f?rias}}}}
+11234	Tem certeza de que deseja continuar?
+11248	F?rias saldo (dias)
+11252	{action, select, APPROVE {Aprovar f?rias} REJECT {Rejeitar f?rias} other {Cancelar f?rias}}
+11261	F?rias aprovação pendente (dias)
+11334	Registrar sa?da
+11339	Registros de frequ?ncia do colaborador
+11350	Você está prestes a expurgar o funcionário permanentemente. Tem certeza de que deseja continuar? Esta operação não pode ser desfeita
+11360	Usu?rio
+11449	Esta ação removerá a vaga anterior. Tem certeza de que deseja continuar?
+11488	Avalia??es de colaboradores
+11528	A revisão será feita somente leitura após a conclusão. Esta ação não pode ser desfeita. Tem certeza de que deseja continuar?
+11547	Mar?o
+11579	Inv?lido
+11593	Você está prestes a eliminar permanentemente os candidatos selecionados. Tem certeza de que deseja continuar? Esta operação não pode ser desfeita
+11656	F?rias aprovações
+11657	F?rias cancelamentos
+11658	F?rias rejeições
+11670	{action, select, APPROVE {{count, plural, =0{Nenhuma solicita??o de f?rias aprovada} =1{1 solicita??o de f?rias aprovada} other{# solicita??es de f?rias aprovadas}}} REJECT {{count, plural, =0{Nenhuma solicita??o de f?rias rejeitada} =1{1 solicita??o de f?rias rejeitada} other{# solicita??es de f?rias rejeitadas}}} other {{count, plural, =0{Nenhuma solicita??o de f?rias cancelada} =1{1 solicita??o de f?rias cancelada} other{# solicita??es de f?rias canceladas}}}}
+11684	{count, plural, =0{Nenhuma falha de importa??o} one{1 registro falhou na importa??o} other{# registros falharam na importa??o}}
+11688	Sa?da registrada
+11689	N?o atribu?do
+11690	Nenhum colaborador est? de f?rias hoje
+11694	{pendingActionsCount, plural, =0{Nenhum registro encontrado} one{(1) solicita??o de f?rias para aprovar} other{(#) solicita??es de f?rias para aprovar}}
+11696	{pendingActionsCount, plural, =0{Nenhum registro encontrado} one{(1) avalia??o de desempenho para avaliar} other{(#) avalia??es de desempenho para avaliar}}
+11698	Nenhuma a??o pendente
+11699	{pendingActionsCount, plural, =0{Nenhum registro encontrado} one{(1) autoavalia??o pendente} other{(#) autoavalia??es pendentes}}
+11700	Configura??es
+11702	N?o dispon?vel
+11710	O que está em sua mente?
+11714	{commentCount, plural, =0{0 coment?rios} one{1 coment?rio} other{# coment?rios}}
+11733	O item selecionado será excluído permanentemente. Tem certeza de que deseja continuar?
+11735	?ltimos comunicados
+11748	{count, plural, one{N?o deve exceder 1 caractere} other{N?o deve exceder # caracteres}}
+11749	{count, plural, one{Sua senha deve conter no m?nimo 1 letra min?scula} other{Sua senha deve conter no m?nimo # letras min?sculas}}
+11750	{count, plural, one{Sua senha deve conter no m?nimo 1 letra mai?scula} other{Sua senha deve conter no m?nimo # letras mai?sculas}}
+11751	{count, plural, one{Sua senha deve conter no m?nimo 1 n?mero} other{Sua senha deve conter no m?nimo # n?meros}}
+11752	{count, plural, one{Sua senha deve conter no m?nimo 1 caractere especial} other{Sua senha deve conter no m?nimo # caracteres especiais}}
+11761	Deseja permitir o acesso?
+11768	Solicita??es
+11780	Enviar solicita??o
+11791	Minhas solicita??es
+11795	Atribuir solicita??o
+11796	Solicita??es de colaboradores
+11834	{count, plural, one{Aceita at? 1 MB} other{Aceita at? # MB}}
+11835	{count, plural, one{Aceita .docx, .doc, .odt, .pdf, .rtf, .txt at? 1 MB} other{Aceita .docx, .doc, .odt, .pdf, .rtf, .txt at? # MB}}

@@ -42,6 +42,8 @@ class MenuService
     public const CORE_MENU_SIDE_PANEL_CACHE_KEY = 'core.menu.side_panel';
     public const CORE_MENU_TOP_RIBBON_CACHE_KEY = 'core.menu.top_ribbon';
     public const CORE_MENU_TOP_RIBBON_KEYS_CACHE_KEY = 'core.menu.top_ribbon_keys';
+    private const HIDDEN_SIDE_PANEL_MODULES = ['buzz', 'directory', 'performance', 'time'];
+    private const HIDDEN_SIDE_PANEL_SCREENS = ['viewMyDetails'];
 
     /**
      * @var MenuDao|null
@@ -180,6 +182,10 @@ class MenuService
         $selectedSidePanelMenuId = null;
 
         foreach ($detailedSidePanelMenuItems as $detailedSidePanelMenuItem) {
+            if ($this->shouldHideSidePanelMenuItem($detailedSidePanelMenuItem)) {
+                continue;
+            }
+
             $active = false;
             if (is_null($selectedSidePanelMenuId) && $active = $this->isActiveSidePanelMenuItem(
                 $detailedSidePanelMenuItem,
@@ -190,6 +196,9 @@ class MenuService
             }
             $normalizedSidePanelMenuItems[] = $this->normalizeMenuItem($detailedSidePanelMenuItem, $baseUrl, $active);
         }
+        usort($normalizedSidePanelMenuItems, function (array $firstItem, array $secondItem): int {
+            return $this->getSidePanelMenuWeight($firstItem['url']) <=> $this->getSidePanelMenuWeight($secondItem['url']);
+        });
 
         $normalizedTopMenuItems = [];
         if (!is_null($selectedSidePanelMenuId)) {
@@ -203,12 +212,55 @@ class MenuService
                 );
                 is_null($normalizedTopMenuItem) ?: $normalizedTopMenuItems[] = $normalizedTopMenuItem;
             }
+            if ($this->isAdminSidePanelSelected($normalizedSidePanelMenuItems, $selectedSidePanelMenuId) &&
+                !$this->hasDirectoryTopMenuItem($normalizedTopMenuItems)) {
+                array_unshift($normalizedTopMenuItems, [
+                    'id' => 93,
+                    'name' => 'Diretório',
+                    'url' => $baseUrl . '/directory/viewDirectory',
+                    'children' => [],
+                ]);
+            }
         }
 
         return [
             $normalizedSidePanelMenuItems,
             $normalizedTopMenuItems,
         ];
+    }
+
+    private function shouldHideSidePanelMenuItem(DetailedMenuItem $menuItem): bool
+    {
+        return in_array($menuItem->getModule(), self::HIDDEN_SIDE_PANEL_MODULES, true) ||
+            in_array($menuItem->getScreen(), self::HIDDEN_SIDE_PANEL_SCREENS, true);
+    }
+
+    private function getSidePanelMenuWeight(string $url): int
+    {
+        if (str_contains($url, '/dashboard/index')) {
+            return 0;
+        }
+        return 100;
+    }
+
+    private function isAdminSidePanelSelected(array $sidePanelMenuItems, int $selectedSidePanelMenuId): bool
+    {
+        foreach ($sidePanelMenuItems as $sidePanelMenuItem) {
+            if ((int)$sidePanelMenuItem['id'] === $selectedSidePanelMenuId) {
+                return str_contains($sidePanelMenuItem['url'], '/admin/');
+            }
+        }
+        return false;
+    }
+
+    private function hasDirectoryTopMenuItem(array $topMenuItems): bool
+    {
+        foreach ($topMenuItems as $topMenuItem) {
+            if (str_contains($topMenuItem['url'], '/directory/viewDirectory')) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -279,7 +331,7 @@ class MenuService
         }
         $menuItem = [
             'id' => $detailedMenuItem->getId(),
-            'name' => $this->getI18NHelper()->transBySource($detailedMenuItem->getMenuTitle()),
+            'name' => $this->getNormalizedMenuTitle($detailedMenuItem),
             'url' => $url,
         ];
 
@@ -292,6 +344,14 @@ class MenuService
             $menuItem['active'] = true;
         }
         return $menuItem;
+    }
+
+    private function getNormalizedMenuTitle(DetailedMenuItem $menuItem): string
+    {
+        if ($menuItem->getModule() === 'pim' && $menuItem->getScreen() === 'viewPimModule') {
+            return 'Colaboradores';
+        }
+        return $this->getI18NHelper()->transBySource($menuItem->getMenuTitle());
     }
 
     /**

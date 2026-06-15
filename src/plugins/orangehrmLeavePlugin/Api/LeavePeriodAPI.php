@@ -50,6 +50,8 @@ class LeavePeriodAPI extends Endpoint implements CrudEndpoint
 
     public const PARAMETER_START_MONTH = 'startMonth';
     public const PARAMETER_START_DAY = 'startDay';
+    public const PARAMETER_END_MONTH = 'endMonth';
+    public const PARAMETER_END_DAY = 'endDay';
 
     public const META_PARAMETER_LEAVE_PERIOD_DEFINED = 'leavePeriodDefined';
     public const META_PARAMETER_CURRENT_LEAVE_PERIOD = 'currentLeavePeriod';
@@ -92,6 +94,8 @@ class LeavePeriodAPI extends Endpoint implements CrudEndpoint
             $leavePeriodHistory = new LeavePeriodHistory();
             $leavePeriodHistory->setStartMonth(1);
             $leavePeriodHistory->setStartDay(1);
+            $leavePeriodHistory->setEndMonth(12);
+            $leavePeriodHistory->setEndDay(31);
             $leavePeriodHistory->setCreatedAt($this->getDateTimeHelper()->getNow());
         }
         return new EndpointResourceResult(
@@ -192,7 +196,9 @@ class LeavePeriodAPI extends Endpoint implements CrudEndpoint
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(property="startDay", type="integer"),
-     *             @OA\Property(property="startMonth", type="integer")
+     *             @OA\Property(property="startMonth", type="integer"),
+     *             @OA\Property(property="endDay", type="integer"),
+     *             @OA\Property(property="endMonth", type="integer")
      *         )
      *     ),
      *     @OA\Response(response="200",
@@ -227,6 +233,12 @@ class LeavePeriodAPI extends Endpoint implements CrudEndpoint
         );
         $leavePeriodHistory->setStartDay(
             $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_START_DAY)
+        );
+        $leavePeriodHistory->setEndMonth(
+            $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_END_MONTH)
+        );
+        $leavePeriodHistory->setEndDay(
+            $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_END_DAY)
         );
         $leavePeriodHistory->setCreatedAt($this->getDateTimeHelper()->getNow());
         $this->getLeavePeriodService()
@@ -271,6 +283,24 @@ class LeavePeriodAPI extends Endpoint implements CrudEndpoint
                         );
                         $allowedDaysForMonth = $this->getLeavePeriodService()->getListOfDates($startMonth, false);
                         return in_array($startDay, $allowedDaysForMonth);
+                    }
+                ])
+            ),
+            new ParamRule(
+                self::PARAMETER_END_MONTH,
+                new Rule(Rules::IN, [$this->getLeavePeriodService()->getMonthNumberList()])
+            ),
+            new ParamRule(
+                self::PARAMETER_END_DAY,
+                new Rule(Rules::POSITIVE),
+                new Rule(Rules::CALLBACK, [
+                    function (int $endDay) {
+                        $endMonth = $this->getRequestParams()->getInt(
+                            RequestParams::PARAM_TYPE_BODY,
+                            self::PARAMETER_END_MONTH
+                        );
+                        $allowedDaysForMonth = $this->getLeavePeriodService()->getListOfDates($endMonth, false);
+                        return in_array($endDay, $allowedDaysForMonth);
                     }
                 ])
             ),

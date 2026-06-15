@@ -205,6 +205,15 @@ class LeaveRequestService
      */
     private function generateLeaveStatusByLeaveType(string $leaveStatus, LeaveType $leaveType): string
     {
+        $leaveStatus = match (mb_strtoupper($leaveStatus)) {
+            'PENDENTE DE APROVAÇÃO', 'PENDENTE DE APROVACAO' => 'PENDING APPROVAL',
+            'AGENDADO' => 'SCHEDULED',
+            'USUFRUÍDO', 'USUFRUIDO' => 'TAKEN',
+            'REJEITADO' => 'REJECTED',
+            'CANCELADO' => 'CANCELLED',
+            default => $leaveStatus,
+        };
+
         if ($leaveType->isDeleted()) {
             $leaveStatus = self::WORKFLOW_LEAVE_TYPE_DELETED_STATUS_PREFIX . ' ' . $leaveStatus;
         }
@@ -363,6 +372,25 @@ class LeaveRequestService
      */
     public function getLeaveStatusByName(string $name): int
     {
+        $statusByCanonicalName = [
+            'REJECTED' => Leave::LEAVE_STATUS_LEAVE_REJECTED,
+            'CANCELLED' => Leave::LEAVE_STATUS_LEAVE_CANCELLED,
+            'PENDING APPROVAL' => Leave::LEAVE_STATUS_LEAVE_PENDING_APPROVAL,
+            'SCHEDULED' => Leave::LEAVE_STATUS_LEAVE_APPROVED,
+            'TAKEN' => Leave::LEAVE_STATUS_LEAVE_TAKEN,
+            'REJEITADO' => Leave::LEAVE_STATUS_LEAVE_REJECTED,
+            'CANCELADO' => Leave::LEAVE_STATUS_LEAVE_CANCELLED,
+            'PENDENTE DE APROVAÇÃO' => Leave::LEAVE_STATUS_LEAVE_PENDING_APPROVAL,
+            'PENDENTE DE APROVACAO' => Leave::LEAVE_STATUS_LEAVE_PENDING_APPROVAL,
+            'AGENDADO' => Leave::LEAVE_STATUS_LEAVE_APPROVED,
+            'CONCLUÍDO' => Leave::LEAVE_STATUS_LEAVE_TAKEN,
+            'CONCLUIDO' => Leave::LEAVE_STATUS_LEAVE_TAKEN,
+        ];
+        $canonicalName = mb_strtoupper($name);
+        if (isset($statusByCanonicalName[$canonicalName])) {
+            return $statusByCanonicalName[$canonicalName];
+        }
+
         $leaveStatuses = array_flip($this->getAllLeaveStatusesAssoc());
         if (isset($leaveStatuses[$name])) {
             return $leaveStatuses[$name];
@@ -376,13 +404,7 @@ class LeaveRequestService
      */
     public function getLeaveStatusesByNames(array $names): array
     {
-        $leaveStatuses = array_flip($this->getAllLeaveStatusesAssoc());
-        return array_map(function (string $name) use ($leaveStatuses) {
-            if (isset($leaveStatuses[$name])) {
-                return $leaveStatuses[$name];
-            }
-            throw new InvalidArgumentException("Invalid status name $name");
-        }, $names);
+        return array_map(fn (string $name) => $this->getLeaveStatusByName($name), $names);
     }
 
     /**

@@ -27,6 +27,11 @@
           {{ $t('general.support') }}
         </a>
       </li>
+      <li>
+        <a :href="myDetailsUrl" role="menuitem" class="oxd-userdropdown-link">
+          Meus Dados
+        </a>
+      </li>
       <li v-if="updatePasswordUrl">
         <a
           :href="updatePasswordUrl"
@@ -99,6 +104,7 @@ export default {
   },
   setup(props) {
     const showAboutModel = ref(false);
+    const myDetailsUrl = `${window.appGlobal.baseUrl}/pim/viewMyDetails`;
     provide('permissions', readonly(props.permissions));
     provide(dateFormatKey, readonly(props.dateFormat));
 
@@ -117,6 +123,7 @@ export default {
     return {
       onClickSupport,
       showAboutModel,
+      myDetailsUrl,
       openAboutModel,
       closeAboutModel,
     };
@@ -130,5 +137,9 @@ export default {
     align-self: center;
     margin-left: unset;
   }
+}
+
+.oxd-main-menu-search {
+  display: none;
 }
 </style>

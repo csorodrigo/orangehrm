@@ -31,9 +31,6 @@
           </div>
         </div>
       </div>
-      <div class="orangehrm-login-logo">
-        <img :src="loginLogoSrc" alt="orangehrm-logo" />
-      </div>
     </div>
   </div>
 </template>

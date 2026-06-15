@@ -58,6 +58,20 @@ class LeavePeriodHistory
     private int $startDay;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="leave_period_end_month", type="integer", nullable=true)
+     */
+    private ?int $endMonth = null;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="leave_period_end_day", type="integer", nullable=true)
+     */
+    private ?int $endDay = null;
+
+    /**
      * @var DateTime
      *
      * @ORM\Column(name="created_at", type="date")
@@ -110,6 +124,38 @@ class LeavePeriodHistory
     public function setStartDay(int $startDay): void
     {
         $this->startDay = $startDay;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getEndMonth(): ?int
+    {
+        return $this->endMonth;
+    }
+
+    /**
+     * @param int|null $endMonth
+     */
+    public function setEndMonth(?int $endMonth): void
+    {
+        $this->endMonth = $endMonth;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getEndDay(): ?int
+    {
+        return $this->endDay;
+    }
+
+    /**
+     * @param int|null $endDay
+     */
+    public function setEndDay(?int $endDay): void
+    {
+        $this->endDay = $endDay;
     }
 
     /**

@@ -909,6 +909,10 @@ class BasicUserRoleManager extends AbstractUserRoleManager
         $fixedName = $roleName;
         if ($roleName == 'ESS' && $workflow != WorkflowStateMachine::FLOW_LEAVE) {
             $fixedName = 'ESS User';
+        } elseif ($roleName == 'Admin' && $workflow == WorkflowStateMachine::FLOW_LEAVE) {
+            $fixedName = 'ADMIN';
+        } elseif ($roleName == 'Supervisor' && $workflow == WorkflowStateMachine::FLOW_LEAVE) {
+            $fixedName = 'SUPERVISOR';
         } elseif ($roleName == 'HiringManager' && $workflow == WorkflowStateMachine::FLOW_RECRUITMENT) {
             $fixedName = 'HIRING MANAGER';
         }

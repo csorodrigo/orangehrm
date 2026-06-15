@@ -29,6 +29,8 @@ use OrangeHRM\Entity\LeavePeriodHistory;
  *     type="object",
  *     @OA\Property(property="startMonth", type="integer"),
  *     @OA\Property(property="startDay", type="integer"),
+ *     @OA\Property(property="endMonth", type="integer"),
+ *     @OA\Property(property="endDay", type="integer"),
  *     @OA\Property(property="createdAt", type="number")
  * )
  */
@@ -46,6 +48,8 @@ class LeavePeriodHistoryModel implements Normalizable
             [
                 'startMonth',
                 'startDay',
+                'endMonth',
+                'endDay',
                 ['getDecorator', 'getCreatedAt'],
             ]
         );
@@ -53,6 +57,8 @@ class LeavePeriodHistoryModel implements Normalizable
             [
                 'startMonth',
                 'startDay',
+                'endMonth',
+                'endDay',
                 'createdAt',
             ]
         );

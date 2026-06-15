@@ -50,20 +50,34 @@
                 required
               />
             </oxd-grid-item>
+
+            <oxd-grid-item>
+              <oxd-input-field
+                v-model="leavePeriod.endMonth"
+                type="select"
+                :options="months"
+                :rules="rules.endMonth"
+                label="Mês de término"
+                required
+              />
+            </oxd-grid-item>
+
+            <oxd-grid-item>
+              <oxd-input-field
+                v-model="leavePeriod.endDay"
+                type="select"
+                :options="endDates"
+                :rules="rules.endDay"
+                :label="$t('general.end_date')"
+                required
+              />
+            </oxd-grid-item>
           </oxd-grid>
         </oxd-form-row>
 
-        <oxd-form-row>
+        <oxd-form-row v-if="leavePeriod.currentPeriod">
           <oxd-grid :cols="4" class="orangehrm-full-width-grid">
             <oxd-grid-item>
-              <oxd-input-group :label="$t('general.end_date')">
-                <oxd-text type="subtitle-2" class="orangehrm-leave-period">
-                  {{ endDay }}
-                </oxd-text>
-              </oxd-input-group>
-            </oxd-grid-item>
-
-            <oxd-grid-item v-if="leavePeriod.currentPeriod">
               <oxd-input-group :label="$t('leave.current_leave_period')">
                 <oxd-text type="subtitle-2" class="orangehrm-leave-period">
                   {{ leavePeriod.currentPeriod }}
@@ -93,13 +107,15 @@
 import {APIService} from '@ohrm/core/util/services/api.service';
 import {reloadPage} from '@ohrm/core/util/helper/navigation';
 import {required} from '@/core/util/validation/rules';
-import {addDays, formatDate, parseDate} from '@/core/util/helper/datefns';
+import {formatDate, parseDate} from '@/core/util/helper/datefns';
 import useDateFormat from '@/core/util/composable/useDateFormat';
 import useLocale from '@/core/util/composable/useLocale';
 
 const leavePeriodModel = {
   startMonth: null,
   startDay: null,
+  endMonth: null,
+  endDay: null,
   currentPeriod: null,
 };
 
@@ -133,6 +149,8 @@ export default {
       rules: {
         startMonth: [required],
         startDay: [required],
+        endMonth: [required],
+        endDay: [required],
       },
     };
   },
@@ -160,25 +178,25 @@ export default {
         },
       );
     },
-    endDay() {
-      const month = this.leavePeriod.startMonth?.id;
-      const date = this.leavePeriod.startDay?.id;
-      const year = new Date().getFullYear();
-      if (month && date) {
-        const endDay = addDays(new Date(year, month - 1, date), 364);
-        const isFollowingYear = endDay.getFullYear() > year;
-        return (
-          formatDate(endDay, 'LLLL dd', {locale: this.locale}) +
-          (isFollowingYear ? ` (${this.$t('leave.following_year')})` : '')
-        );
-      }
-      return '-';
+    endDates() {
+      return (this.monthDates[this.leavePeriod.endMonth?.id] ?? []).map(
+        (day) => {
+          return {
+            id: day,
+            label: String(day).padStart(2, '0'),
+          };
+        },
+      );
     },
   },
 
   watch: {
     'leavePeriod.startMonth': function () {
       this.leavePeriod.startDay = this.dates.length > 0 ? this.dates[0] : null;
+    },
+    'leavePeriod.endMonth': function () {
+      this.leavePeriod.endDay =
+        this.endDates.length > 0 ? this.endDates[0] : null;
     },
   },
 
@@ -208,6 +226,8 @@ export default {
           data: {
             startMonth: this.leavePeriod.startMonth?.id,
             startDay: this.leavePeriod.startDay?.id,
+            endMonth: this.leavePeriod.endMonth?.id,
+            endDay: this.leavePeriod.endDay?.id,
           },
         })
         .then((response) => {
@@ -231,8 +251,10 @@ export default {
 
     resetLeavePeriod() {
       this.leavePeriod.startMonth = leavePeriodModel.startMonth;
+      this.leavePeriod.endMonth = leavePeriodModel.endMonth;
       this.$nextTick(() => {
         this.leavePeriod.startDay = leavePeriodModel.startDay;
+        this.leavePeriod.endDay = leavePeriodModel.endDay;
       });
     },
 
@@ -240,11 +262,27 @@ export default {
       leavePeriodModel.startMonth = this.months.find((m) => {
         return m.id === data.startMonth;
       });
-      this.$nextTick(() => {
-        leavePeriodModel.startDay = this.dates.find((d) => {
-          return d.id === data.startDay;
-        });
+      leavePeriodModel.startDay = this.getDateOption(
+        data.startMonth,
+        data.startDay,
+      );
+      leavePeriodModel.endMonth = this.months.find((m) => {
+        return m.id === data.endMonth;
       });
+      leavePeriodModel.endDay = this.getDateOption(data.endMonth, data.endDay);
+    },
+
+    getDateOption(month, day) {
+      return (this.monthDates[month] ?? [])
+        .map((date) => {
+          return {
+            id: date,
+            label: String(date).padStart(2, '0'),
+          };
+        })
+        .find((date) => {
+          return date.id === day;
+        });
     },
 
     defineLeavePeriod(meta) {

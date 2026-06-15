@@ -1,0 +1,1214 @@
+﻿id	unit_id	value
+1	add_job_title	Add Job Title
+2	edit_job_title	Edit Job Title
+3	job_titles	Job Titles
+4	locations	Locations
+5	number_of_employees	Number of Employees
+6	add_location	Add Location
+7	address	Address
+8	email_configuration	Email Configuration
+9	mail_sent_as	Mail Sent As
+10	sending_method	Sending Method
+11	secure_smtp	SECURE SMTP
+12	smtp	SMTP
+13	sendmail	Sendmail
+14	path_to_sendmail	Path to Sendmail
+15	smtp_host	SMTP Host
+16	smtp_port	SMTP Port
+17	use_smtp_authentication	Use SMTP Authentication
+18	smtp_user	SMTP User
+19	smtp_password	SMTP Password
+20	tls	TLS
+21	optional_the_mail_server_requires_the_use_of_tls_security	Optional - the mail server requires the use of TLS security.
+22	send_test_email	Send Test Mail
+23	test_email_address	Test Email Address
+24	subscribers	Subscribers
+25	edit_subscriber	Edit Subscriber
+26	email_subscriptions	Email Subscriptions
+27	notification_type	Notification Type
+28	add_subscriber	Add Subscriber
+29	edit_employment_status	Edit Employment Status
+30	add_employment_status	Add Employment Status
+31	job_description	Job Description
+32	edit_location	Edit Location
+33	module_configuration	Module Configuration
+34	admin_module	Admin Module
+35	pim_module	Pim Module
+36	leave_module	Leave Module
+37	time_module	Time Module
+38	recruitment_module	Recruitment Module
+39	performance_module	Performance Module
+40	maintenance_module	Maintenance Module
+41	edit_nationality	Edit Nationality
+42	nationalities	Nationalities
+43	add_nationality	Add Nationality
+44	general_information	General Information
+45	organization_name	Organization Name
+46	registration_number	Registration Number
+47	tax_id	Tax ID
+48	edit_organization_unit	Edit Organization Unit
+49	unit_id	Unit Id
+50	organization_structure	Organization Structure
+51	add_organization_unit	Add Organization Unit
+52	this_unit_will_be_added_under	This unit will be added under
+53	add_pay_grade	Add Pay Grade
+54	edit_currency	Edit Currency
+55	minimum_salary	Minimum Salary
+56	maximum_salary	Maximum Salary
+57	edit_pay_grade	Edit Pay Grade
+58	pay_grades	Pay Grades
+59	add_currency	Add Currency
+60	edit_user	Edit User
+61	add_user	Add User
+62	edit_work_shift	Edit Work Shift
+63	shift_name	Shift Name
+64	duration_per_day	Duration Per Day
+65	work_shifts	Work Shifts
+66	hours_per_day	Hours Per Day
+67	test_email_sent	Test Email Sent
+68	test_email_not_sent	Test Email Not Sent
+69	assigned_employees	Assigned Employees
+70	organization_unit_name_should_be_unique	Organization unit name should be unique
+71	should_be_higher_than_minimum_salary	Should be higher than Minimum Salary
+72	job_categories	Job Categories
+73	add_job_category	Add Job Category
+74	edit_job_category	Edit Job Category
+75	system_users	System Users
+76	add_work_shift	Add Work Shift
+77	licenses	Licenses
+78	localization	Localization
+80	date_format	Date Format
+81	working_hours	Working Hours
+82	name	Name
+83	city	City
+84	country	Country
+85	reset	Reset
+86	search	Search
+87	add	Add
+88	phone	Phone
+89	state_province	State/Province
+90	zip_postal_code	Zip/Postal Code
+91	note	Note
+92	cancel	Cancel
+93	yes	Yes
+94	no	No
+95	email	Email
+96	fax	Fax
+97	nationality	Nationality
+98	edit	Edit
+99	address_street_1	Address Street 1
+100	address_street_2	Address Street 2
+101	description	Description
+102	currency	Currency
+103	currencies	Currencies
+104	edit_education	Edit Education
+105	level	Level
+106	education	Education
+107	add_education	Add Education
+108	edit_language	Edit Language
+109	add_language	Add Language
+110	languages	Languages
+111	edit_license	Edit License
+112	add_license	Add License
+113	edit_membership	Edit Membership
+114	add_membership	Add Membership
+115	memberships	Memberships
+116	edit_skill	Edit Skill
+117	add_skill	Add Skill
+118	skills	Skills
+119	user_role	User Role
+120	status	Status
+121	username	Username
+122	employee_name	Employee Name
+123	from	From
+124	to	To
+125	already_exists	Already exists
+126	to_time_should_be_after_from_time	To time should be after from time
+127	failed	Failed
+128	should_be_less_n_characters	Should not exceed {amount} characters
+129	admin	Admin
+130	required	Required
+131	save	Save
+132	should_be_a_valid_date_in_hh:mm_format	Should be a valid date in hh:mm format
+133	job_category	Job Category
+135	should_be_a_valid_date_in_x_format	Should be a valid date in {format} format
+136	should_be_less_than_n	Should be less than {amount}
+137	should_be_a_number	Should be a number
+138	end_date_should_be_after_start_date	End date should be after Start date
+139	end_time_should_be_after_start_time	End time should be after Start time
+140	attachment_size_exceeded	Attachment Size Exceeded
+141	file_type_not_allowed	File type not allowed
+142	employment_status	Employment Status
+143	allows_phone_numbers_only	Allows numbers and only + - / ( )
+144	start_date_should_be_before_end_date	Start date should be before end date
+145	start_time_should_be_before_end_time	Start time should be before end time
+147	should_be_higher_than_minimum_value	Should be higher than minimum value
+148	ess	ESS
+149	enabled	Enabled
+150	disabled	Disabled
+151	edit_attachment	Edit Attachment
+152	actions	Actions
+153	error	Error
+154	type	Type
+155	download	Download
+156	select_file	Select File
+157	browse	Browse
+159	upload	Upload
+160	success	Success
+163	employee_id	Employee Id
+164	id	Id
+165	last_name	Last Name
+166	job_title	Job Title
+167	sub_unit	Sub Unit
+168	current_and_past_employees	Current and Past Employees
+169	past_employees_only	Past Employees Only
+170	current_employees_only	Current Employees Only
+171	mobile	Mobile
+172	expiry_date	Expiry Date
+173	joined_date	Joined Date
+174	location	Location
+175	male	Male
+176	female	Female
+177	qualifications	Qualifications
+178	state	State
+179	should_be_a_positive_number	Should be a positive number
+180	add_employee	Add Employee
+181	report_name	Report Name
+182	warning	Warning
+183	employee_reports	Employee Reports
+184	current_file	Current File
+185	replace_with	Replace With
+186	comment	Comment
+187	type_comment_here	Type comment here
+188	year	Year
+189	start_date	Start Date
+190	end_date	End Date
+191	comments	Comments
+192	type_comments_here	Type Comments here
+193	language	Language
+194	pay_grade	Pay Grade
+195	to_date_should_be_after_from_date	To date should be after From date
+196	past_employee	(Past Employee)
+197	first_name	First name
+198	middle_name	Middle name
+199	employee_full_name	Employee Full Name
+200	job_specification	Job Specification
+201	attachments	Attachments
+202	file_name	File Name
+203	size	Size
+204	accept_jpg_png_upto_1mb_recomended_dimentions_200px_x_200px	Accepts jpg, .png, .gif up to 1MB. Recommended dimensions: 200px X 200px
+205	from_date_should_be_before_to_date	From date should be before to date
+206	should_be_less_than_upper_bound	Should be less than upper bound
+207	include_header	Include Header
+208	add_attachment	Add Attachment
+209	type_here	Type here
+210	date	Date
+211	monday	Monday
+212	tuesday	Tuesday
+213	wednesday	Wednesday
+214	thursday	Thursday
+215	friday	Friday
+216	saturday	Saturday
+217	sunday	Sunday
+218	employee	Employee
+219	generate	Generate
+220	from_date	From Date
+221	to_date	To Date
+222	duration	Duration
+223	apply	Apply
+224	back	Back
+225	confirm	Confirm
+226	no_matching_employees	No matching employees
+227	no_employees_match_filters	No employees match the selected filters
+228	ok	Ok
+229	leave	Leave
+230	comment_here	Comment here
+231	from_time_should_be_before_to_time	From time should be before to time
+232	deleted	 (Deleted)
+233	add_comment	Add Comment
+234	approve	Approve
+235	reject	Reject
+236	n_records_found	{count,plural, =0{No Records Found} one{(1) Record Found} other{ (#) Records Found}}
+237	n_records_selected	{count,plural, =0{No Records Selected} one{(1) Record Selected} other{(#) Records Selected}}
+238	password	Password
+239	password_strength_message	For a strong password, please use a hard to guess combination of text with upper and lower case characters, symbols and numbers
+240	confirm_password	Confirm Password
+241	passwords_do_not_match	Passwords do not match
+242	weak	Weak
+243	very_weak	Very Weak
+244	better	Better
+245	strongest	Strongest
+246	about	About
+247	support	Support
+248	change_password	Change Password
+249	logout	Logout
+250	no_records_found	No Records Found
+251	change_password_question	Change Password ?
+252	type_description_here	Type description here
+253	add_note	Add note
+254	successfully_updated	Successfully Updated
+255	successfully_saved	Successfully Saved
+256	notes	Notes
+257	type_here_message	Type here ...
+258	job	Job
+259	no_cancel	No, Cancel
+260	user_management	User Management
+261	project_info	Project Info
+262	organization	Organization
+263	users	Users
+264	configuration	Configuration
+265	language_packages	Language Packages
+266	modules	Modules
+267	register_oauth_client	Register OAuth Client
+268	social_media_authentication	Social Media Authentication
+269	employee_list	Employee List
+270	reports	Reports
+271	pim	PIM
+272	recruitment	Recruitment
+273	time	Time
+274	my_info	My Info
+275	performance	Performance
+276	dashboard	Dashboard
+277	directory	Directory
+278	buzz	Buzz
+279	maintenance	Maintenance
+280	my_timesheets	My Timesheets
+281	my_records	My Records
+282	employee_timesheets	Employee Timesheets
+283	timesheets	Timesheets
+284	punch_in_out	Punch In/Out
+285	employee_records	Employee Records
+286	attendance	Attendance
+287	customers	Customers
+288	projects	Projects
+289	project_reports	Project Reports
+290	vacancies	Vacancies
+291	candidates	Candidates
+292	kpis	KPIs
+293	manage_reviews	Manage Reviews
+294	my_reviews	My Reviews
+295	my_trackers	My Trackers
+296	review_list	Review List
+297	trackers	Trackers
+298	employee_trackers	Employee Trackers
+299	candidate_records	Candidate Records
+300	access_records	Access Records
+301	purge_records	Purge Records
+302	structure	Structure
+303	sun	Sun
+304	mon	Mon
+305	tue	Tue
+306	wed	Wed
+307	thu	Thu
+308	fri	Fri
+309	sat	Sat
+310	performed_by	Performed By
+311	add_another	Add another
+312	view	View
+313	attendance_summary	Attendance Summary
+314	my_leave	My Leave
+315	my_entitlements	My Entitlements
+316	add_entitlements	Add Entitlements
+317	configure	Configure
+318	employee_entitlements	Employee Entitlements
+319	entitlements	Entitlements
+320	work_email	Work Email
+321	other_email	Other Email
+322	company_name	Company Name
+323	version	Version
+324	active_employees	Active Employees
+325	employees_terminated	Employees Terminated
+326	are_you_sure	Are you Sure?
+327	delete_confirmation_message	The selected record will be permanently deleted. Are you sure you want to continue?
+328	yes_delete	Yes, Delete
+329	keep_current	Keep Current
+330	delete_current	Delete Current
+331	replace_current	Replace Current
+332	module_forbidden	Module Forbidden
+333	module_access_restriction	The page you're trying to access has restricted access
+334	launching_soon	Launching Soon
+337	click_here	Click here
+338	bad_request	Bad Request
+339	personal_details	Personal Details
+340	emergency_contacts	Emergency Contacts
+341	dependents	Dependents
+342	immigration	Immigration
+343	salary	Salary
+344	report_to	Report-to
+345	tax_exemptions	Tax Exemptions
+346	info	Info
+347	expected_email_address_format_not_matched	Expected format: admin@example.com
+348	submit	Submit
+349	date_range	Date Range
+350	date_format	yyyy-mm-dd
+351	cannot_be_deleted	Cannot be deleted
+352	successfully_deleted	Successfully Deleted
+353	total	Total
+354	searching	Searching....
+355	no_file_chosen	No file chosen
+356	no_file_selected	No file selected
+357	type_for_hints	Type for hints...
+358	select	-- Select --
+359	unexpected_error	Unexpected Error!
+360	delete_selected	Delete Selected
+361	corporate_branding	Corporate Branding
+362	more	More
+363	should_be_greater_than_lower_bound	Should be greater than lower bound
+364	less_than	Less Than
+365	greater_than	Greater Than
+366	range	Range
+367	custom_fields	Custom Fields
+368	remaining_no_of_custom_fields	Remaining number of custom fields:
+369	all_custom_fields_in_use	All custom fields are in use
+370	custom_field_name	Custom Field Name
+371	screen	Screen
+372	field_type	Field Type
+373	custom_fields_in_use	Custom field(s) in use
+374	edit_custom_field	Edit Custom Field
+375	field_name	Field Name
+376	select_options	Select Options
+377	enter_allowed_options_separated_by_commas	Enter allowed options separated by commas
+378	add_custom_field	Add Custom Field
+379	data_import	Data Import
+380	column_order_should_not_be_changed	Column order should not be changed
+381	first_name_and_last_name_are_compulsory	First Name and Last Name are compulsory
+382	all_date_fields_should_be_in_yyyy_mm_dd_format	All date fields should be in YYYY-MM-DD format
+383	gender_specified_value_should_be_either_m_or_f	If gender is specified, value should be either Male or Female
+384	each_import_file_should_be_configured_for_100_records_or_less	Each import file should be configured for 100 records or less
+385	multiple_import_files_may_be_required	Multiple import files may be required
+386	sample_csv_file	Sample CSV file
+388	employee_information	Employee Information
+389	include	Include
+390	supervisor_name	Supervisor Name
+391	first_middle_name	First (& Middle) Name
+392	supervisor	Supervisor
+393	contact_details	Contact Details
+394	street1	Street 1
+395	street2	Street 2
+396	telephone	Telephone
+397	home	Home
+398	work	Work
+399	assigned_dependents	Assigned Dependents
+400	relationship	Relationship
+401	date_of_birth	Date of Birth
+402	assigned_emergency_contacts	Assigned Emergency Contacts
+403	home_telephone	Home Telephone
+404	work_telephone	Work Telephone
+405	assigned_immigration_records	Assigned Immigration Records
+406	document	Document
+407	number	Number
+408	issued_by	Issued By
+409	issued_date	Issued Date
+410	job_details	Job Details
+411	include_employment_contract_details	Include Employment Contract Details
+412	contract_start_date	Contract Start Date
+413	contract_end_date	Contract End Date
+414	contract_details	Contract Details
+415	assigned_memberships	Assigned Memberships
+416	membership	Membership
+417	subscription_paid_by	Subscription Paid By
+418	subscription_amount	Subscription Amount
+419	subscription_commence_date	Subscription Commence Date
+420	subscription_renewal_date	Subscription Renewal Date
+421	other_id	Other Id
+422	driver_license_number	Driver License Number
+423	license_expiry_date	License Expiry Date
+424	ssn_number	SSN Number
+425	sin_number	SIN Number
+426	marital_status	Marital Status
+427	gender	Gender
+428	military_service	Military Service
+429	smoker	Smoker
+430	employee_id_exists	Employee Id already exists
+431	change_profile_picture	Change Profile Picture
+432	report_to	Report to
+433	salary_component	Salary Component
+435	pay_frequency	Pay Frequency
+436	direct_deposit_amount	Direct Deposit Amount
+437	federal_income_tax	Federal Income Tax
+438	exemptions	Exemptions
+439	unemployment_state	Unemployment State
+440	work_state	Work State
+441	create_login_details	Create Login Details
+442	optional_fields	Optional Fields
+443	show_deprecated_fields	Show Deprecated Fields
+444	show_nick_name_smoker_and_military_service_in_personal_details	Show Nick Name, Smoker and Military Service in Personal Details
+445	country_specific_information	Country Specific Information
+446	show_ssn_field_in_personal_details	Show SSN field in Personal Details
+447	show_sin_field_in_personal_details	Show SIN field in Personal Details
+448	show_us_tax_exemptions_menu	Show US Tax Exemptions menu
+449	edit_reporting_method	Edit Reporting Method
+450	add_reporting_method	Add Reporting Method
+451	edit_report	Edit Report
+452	reporting_methods	Reporting Methods
+453	reporting_methods_in_use	Reporting Method(s) in Use
+454	selection_criteria	Selection Criteria
+455	display_fields	Display Fields
+456	select_display_field_group	Select Display Field Group
+457	select_display_field	Select Display Field
+458	at_least_one_display_field_should_be_added	At least one display field should be added
+459	add_report	Add Report
+460	edit_termination_reason	Edit Termination Reason
+461	add_termination_reason	Add Termination Reason
+462	termination_reasons	Termination Reasons
+463	termination_reasons_in_use	Termination Reason(s) in Use
+464	update_password	Update Password
+465	current_password	Current Password
+466	current_password_is_incorrect	Current Password is Incorrect
+467	edit_dependent	Edit Dependent
+468	please_specify	Please Specify
+469	child	Child
+470	other	Other
+471	institute	Institute
+472	major_specialization	Major/Specialization
+473	gpa_score	GPA/Score
+474	edit_emergency_contact	Edit Emergency Contact
+475	at_least_one_phone_number_is_required	At least one phone number is required
+476	reporting_method	Reporting Method
+477	edit_immigration	Edit Immigration
+478	passport	Passport
+479	visa	Visa
+480	eligible_status	Eligible Status
+481	eligible_review_date	Eligible Review Date
+482	expiry_date_should_be_after_issued_date	Expiry date should be after issued date
+483	fluency	Fluency
+484	competency	Competency
+485	license_type	License Type
+486	license_number	License Number
+487	renewal_date_should_be_after_the_commencing_date	Renewal date should be after the commencing date
+488	edit_salary_component	Edit Salary Component
+489	assigned_salary_components	Assigned Salary Components
+490	include_direct_deposit_details	Include Direct Deposit Details
+491	account_number	Account Number
+492	account_type	Account Type
+493	routing_number	Routing Number
+494	skill	Skill
+495	years_of_experience	Years of Experience
+496	company	Company
+497	license	License
+498	assigned_subordinates	Assigned Subordinates
+499	assigned_supervisors	Assigned Supervisors
+500	work_experience	Work Experience
+501	add_work_experience	Add Work Experience
+502	date_added	Date Added
+503	added_by	Added By
+504	should_be_within_min_max_values	Should be within Min/Max values
+505	add_immigration	Add Immigration
+506	add_dependent	Add Dependent
+507	save_emergency_contact	Save Emergency Contact
+508	terminate_employment	Terminate Employment
+509	termination_date	Termination Date
+510	termination_reason	Termination Reason
+511	nickname	Nickname
+512	personal	Personal
+513	activate_employment	Activate Employment
+514	employee_last_name	Employee Last Name
+515	employee_first_name	Employee First Name
+516	employee_middle_name	Employee Middle Name
+517	eligibility_status	Eligibility Status
+518	eligibility_review_date	Eligibility Review Date
+519	document_type	Document Type
+520	termination_note	Termination Note
+521	direct_deposit_account_number	Direct Deposit Account Number
+522	direct_deposit_account_type	Direct Deposit Account Type
+524	score	Score
+525	text_or_number	Text or Number
+526	drop_down	Drop Down
+527	supervisors	Supervisors
+528	subordinates	Subordinates
+529	service_period	Service Period
+530	age_group	Age Group
+531	employee_termination_activation	Employee Termination / Activiation
+532	terminated_on	Terminated on
+533	work_email_and_other_email_cannot_be_the_same	Work Email and Other Email cannot be the same
+534	joined_before	Joined before
+535	joined_after	Joined after
+536	joined_in_between	Joined in between
+537	full_day_half_day	Full Day/ Half Day
+538	repeats_annually	Repeats Annually
+539	edit_holiday	Edit Holiday
+540	holidays	Holidays
+541	add_holiday	Add Holiday
+542	full_day	Full Day
+543	leave_period	Leave Period
+544	start_month	Start Month
+545	current_leave_period	Current Leave Period
+546	following_year	Following Year
+547	work_week	Work Week
+548	at_least_one_day_should_be_a_working_day	At least one day should be a working day
+549	add_leave_entitlement	Add Leave Entitlement
+550	add_to	Add to
+551	individual_employee	Individual Employee
+552	multiple_employees	Multiple Employees
+553	matches_emp_count_employees	{empMatchCount,plural, =0{Matches no employee} one{Matches (1) employee} other {matches (#) employees}}
+554	no_leave_types_defined	No leave types defined
+555	should_be_a_number_with_2_decimal_places	Should be a number with upto 2 decimal places
+556	edit_leave_entitlement	Edit Leave Entitlement
+557	entitlement	Entitlement
+558	used_amount_exceeds_the_current_amount	Used amount exceeds the current amount
+559	leave_entitlements	Leave Entitlements
+560	my_leave_entitlements	My Leave Entitlements
+561	is_entitlement_situational	Is Entitlement Situational?
+562	add_leave_type	Add Leave Type
+563	edit_leave_type	Edit Leave Type
+564	leave_types	Leave Types
+565	leave_entitlement_and_usage_report	Leave Entitlements and Usage Report
+566	generate_for	Generate For
+567	leave_type	Leave Type
+568	include_past_employees	Include Past Employees
+569	my_leave_entitlement_and_usage_report	My Leave Entitlements and Usage Report
+570	apply_leave	Apply Leave
+571	no_leave_types_with_leave_balance	No Leave Types with Leave Balance
+572	partial_days	Partial Days
+573	assign_leave	Assign Leave
+574	start_day	Start Day
+575	end_day	End Day
+576	assign	Assign
+577	leave_list	Leave List
+578	show_leave_with_status	Show Leave with Status
+579	my_leave_request_details	My Leave Request Details
+580	leave_request_details	Leave Request Details
+581	my_leave_list	My Leave List
+582	updating_entitlement	Updating Entitlement
+583	matching_employees	Matching Employees
+584	selected_leave_entitlement_applied_to_following_employees	The selected leave entitlement will be applied to the following employees.
+585	old_entitlement	Old Entitlement
+586	new_entitlement	New Entitlement
+587	situational_leave	Situational Leave
+588	entitlement_situational_description	These leave will be excluded from reports unless there's some activity. E.g. maternity leave, jury duty leave.
+589	confirm_leave_assignment	Confirm Leave Assignment
+590	employee_does_not_have_enough_balance_for_leave_request	Employee does not have sufficient leave balance for leave request.
+591	click_ok_to_confirm_leave_assignment	Click OK to confirm leave assignment.
+592	entitlement_value_confirmation_message	Existing Entitlement value {oldvalue} will be updated to {newvalue}
+593	leave_balance	Leave Balance
+594	balance_not_sufficient	Balance not sufficient
+595	insufficient_leave_balance	Insufficient Leave Balance
+596	balance	Balance
+597	days	Days
+598	available_balance	Available Balance
+599	leave_balance_details	Leave Balance Details
+600	as_of_date	As of Date
+601	total_entitlement	Total Entitlement
+602	leave_status	Leave Status
+603	taken	Taken
+604	scheduled	Scheduled
+605	pending_approval	Pending Approval
+606	bulk_leave_action_confirm_message_one	{action, select, APPROVE {{count, plural, =0 {You are about to Approve no Leave Requests} =1 {You are about to Approve 1 Leave Request} other {You are about to Approve # Leave Requests} }} REJECT {{count, plural, =0 {You are about to Reject no Leave Requests} =1 {You are about to Reject 1 Leave Request} other {You are about to Reject # Leave Requests} }} other {{count, plural, =0 {You are about to Cancel no Leave Requests} =1 {You are about to Cancel 1 Leave Request} other {You are about to Cancel # Leave Requests} }} }
+607	bulk_leave_action_confirm_message_two	Are you sure you want to continue?
+608	yes_confirm	Yes, Confirm
+609	leave_request_comments	Leave Request Comments
+610	no_of_hours	No. of Hours
+611	workshift_length_exceeded_due_to_the_following_leave_request	Workshift Length Exceeded Due To the Following Leave Requests
+612	overlapping_leave_request_found	Overlapping Leave Request(s) Found
+613	duration_should_be_less_than_work_shift_length	Duration should be less than work shift length
+614	half_day_morning	Half Day - Morning
+615	half_day_evening	Half Day - Afternoon
+616	specify_time	Specify Time
+617	valid_from	Valid From
+618	valid_to	Valid To
+619	entitlements_will_not_be_deleted_since_already_in_use	Entitlement(s) will not be deleted since it''s already in use
+620	number_of_days	Number of Days
+621	leave_balance_days	Leave Balance (Days)
+622	view_leave_details	View Leave Details
+623	view_pim_info	View PIM Info
+624	cancel_leave	Cancel Leave
+626	leave_action	{action, select, APPROVE {Approve Leave} REJECT {Reject Leave} other {Cancel Leave}}
+627	failed_to_submit	Failed to Submit
+628	failed_to_submit_no_working_days_selected	Failed to Submit: No Working Days Selected
+629	entitlement_added_to_n_employees	{count, plural, =0{No Entitlement added} one{Entitlement added to 1 employee} other {Entitlement added to # employees}}
+630	half_day	Half Day
+631	non_working_day	Non-working Day
+632	rejected	Rejected
+633	cancelled	Cancelled
+634	leave_entitlements_days	Leave Entitlements (Days)
+635	leave_pending_aproval_days	Leave Pending Approval (Days)
+636	leave_scheduled_days	Leave Scheduled (Days)
+637	leave_taken_days	Leave Taken (Days)
+638	requested_for	Leave requested for
+639	all_days	All Days
+640	start_day_only	Start Day Only
+641	end_day_only	End Day Only
+642	start_and_end_day	Start and End Day
+643	activities	Activities
+644	copy_from	Copy From
+645	activity_name	Activity Name
+646	not_allowed_to_delete_project_activities_which_have_time_logged_against	Not Allowed to Delete Project Activities Which Have Time Logged Against
+647	add_customer	Add Customer
+648	add_timesheet	Add Timesheet
+649	select_a_day_to_create_timesheet	Select a Day to Create Timesheet
+650	copy_activity	Copy Activity
+651	project_name	Project Name
+652	no_assigned_activities	No assigned activities
+653	no_activities_selected	No activities selected
+654	customer_name	Customer Name
+655	edit_project_activity	Edit Project Activity
+656	project_admin	Project Admin
+657	project	Project
+658	add_project_activity	Add Project Activity
+659	timesheet_action	Timesheet Action
+660	no_timesheets_found	No Timesheets Found
+661	activity	Activity
+662	add_row	Add Row
+663	select_a_project	Select a Project
+664	select_an_activity	Select an Activity
+665	duplicate_record	Duplicate Record
+666	select_a_project_and_an_activity	Select a Project and an Activity
+667	should_be_less_than_24_and_in_hh_mm_or_decimal_format	Should Be Less Than 24 and in HH:MM or Decimal Format
+668	total_should_be_less_than_24_hours	Total Should Be Less Than 24 Hours
+669	actions_performed_on_the_timesheet	Actions Performed on the Timesheet
+670	timesheets_pending_action	Timesheets Pending Action
+671	timesheet_period	Timesheet Period
+672	timesheet_period_config	Define Timesheet Period
+673	add_timesheet_period_config	First Day of the Week
+674	not_allowed_to_delete_customer_who_have_time_logged_against	Not allowed to delete customer(s) associated with projects that have time logged against them
+675	edit_customer	Edit Customer
+676	project_admins	Project Admins
+677	not_allowed_to_delete_projects_which_have_time_logged	Not allowed to delete project(s) which have time logged against them
+678	edit_project	Edit Project
+679	project_report	Project Report
+680	project_date_range	Project Date Range
+681	only_include_approved_timesheets	Only Include Approved Timesheets
+682	total_duration	Total Duration (Hours)
+683	employee_report	Employee Report
+684	select_employee	Select Employee
+685	timesheet_period_not_defined	Timesheet Period Start Day has not being defined. Please Contact the HR Administrator
+686	my_timesheet	My Timesheet
+687	edit_timesheet	Edit Timesheet
+688	create_timesheet	Create Timesheet
+689	timesheet_for	Timesheet for
+690	edit_timesheet_for	Edit Timesheet for
+691	add_project	Add Project
+692	timesheet_successfully_created	Timesheet Successfully Created
+693	timesheet_rejected	Timesheet Rejected
+694	timesheet_approved	Timesheet Approved
+695	timesheet_reset	Timesheet Reset
+696	punch_out_time_should_be_later_than_punch_in_time	Punch Out Time Should Be Later Than Punch In Time
+697	time_hours	Time (Hours)
+698	timesheet_submitted	Timesheet Submitted
+699	punched_in_time	Punched in time
+700	attendance_configuration	Attendance Configuration
+701	employee_can_change_current_time_when_punching_in_out	Employee can change current time when punching in/out
+702	employee_can_edit_delete_own_attendance_records	Employee can edit/delete own attendance records
+703	supervisor_can_add_edit_delete_attendance_records_of_subordinates	Supervisor can add/edit/delete attendance records of subordinates
+704	attendance_total_summary_report	Attendance Total Summary Report
+705	edit_attendance_records	Edit Attendance Records
+706	punch_in	Punch In
+707	hh_mm	hh:mm
+708	punch_out	Punch Out
+709	overlapping_records_found	Overlapping Records Found
+710	punch_in_note	Punch In Note
+711	punch_out_note	Punch Out Note
+712	duration_hours	Duration (Hours)
+713	employee_attendance_records	Employee Attendance Records
+714	my_attendance_records	My Attendance Records
+715	timezone	Timezone
+716	punched_in_note	Punched In Note
+717	in	In
+718	out	Out
+719	purge_employee_records	Purge Employee Records
+720	past_employee	Past Employee
+721	gdpr_note	Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their requests to Data@orangehrm.com with the subject "Purge Records (Instance Identifier: {instanceIdentifier})"
+722	purge	Purge
+723	purge_employee	Purge Employee
+724	purge_employee_warning	You are about to purge the employee permanently. Are you sure you want to continue? This operation cannot be undone
+725	yes_purge	Yes, Purge
+726	selected_employee	Selected Employee
+727	purge_success	Successfully Purged
+728	download_personal_data	Download Personal Data
+730	customer_support	Customer Support
+731	getting_started_with_orangehrm_message_1	Learning how to use a new application can be challenging. At OrangeHRM, we are committed to providing you with the necessary knowledge and skills required to fully utilize the application thereby allowing you to quickly and efficiently manage your HR processes.
+732	getting_started_with_orangehrm_message_2	The following information repositories are available to help you understand the application:
+733	contact_us_on_message	Should you experience any issues, please do not hesitate to contact us on
+734	we_will_be_delighted_to_help	We will be delighted to help.
+735	login	Login
+736	username	username
+737	password	password
+738	credential_required	Credential Required
+739	admin_access	Administrator Access
+740	admin_access_note	You have requested to access a critical Administrator function in OrangeHRM and are required to validate your credentials below
+744	reset_password	Reset Password
+745	username_identify_reset_note	Please enter your username to identify your account to reset your password
+746	set_new_password	Set a new Password
+747	new_password	New Password
+748	reset_password_token_expired_note	The user account cannot be found or the reset password token has expired
+749	request_new_password_token	to request a new password reset token
+750	reset_password_link_sent_successfully	Reset Password link sent successfully
+751	configured_receive_email_notification_note	The OrangeHRM  system is not configured to receive email notifications. Please contact your OrangeHRM administrator to reset your password
+752	back_to_login	to go back to login page
+753	reset_password_link_via_email	A reset password link has been sent to you via email.
+754	follow_link_to_select_password	You can follow that link and select a new password.
+755	email_not_receive_note	If the email does not arrive, please contact your OrangeHRM Administrator.
+756	forgot_password	Forgot Your Password
+757	invalid_credentials	Invalid credentials
+758	csrf_token_validation_failed	CSRF token validation failed
+759	account_disabled	Account disabled
+760	employee_is_terminated	Employee is terminated
+761	employee_is_assigned	Employee not assigned
+762	view_action_history	View Action History
+763	interviewer	Interviewer
+764	interview_title	Interview Title
+765	schedule_interview	Schedule Interview
+766	shortlist	Shortlist
+767	current_status	Current Status
+768	performed_action	Performed Action
+769	performed_date	Performed Date
+770	vacancy	Vacancy
+771	hiring_manager	Hiring Manager
+772	candidate_name	Candidate Name
+773	keywords	Keywords
+774	date_of_application	Date of Application
+775	method_of_application	Method of Application
+776	enter_comma_seperated_words	Enter comma seperated words
+777	candidate	Candidate
+778	application_initiated	Application Initiated
+779	shortlisted	Shortlisted
+780	interview_scheduled	Interview Scheduled
+781	interview_passed	Interview Passed
+782	interview_failed	Interview Failed
+783	job_offered	Job Offered
+784	offer_declined	Offer Declined
+785	manual	Manual
+786	online	Online
+787	contact_number	Contact Number
+788	consent_to_keep_data	Consent to keep data
+789	resume	Resume
+790	add_candidate	Add Candidate
+791	should_be_current_date_previous_date	Should be the current date or a previous date
+792	application_stage	Application Stage
+793	offer_job	Offer Job
+794	mark_interview_failed	Mark Interview Failed
+795	mark_interview_passed	Mark Interview Passed
+796	decline_offer	Decline Offer
+797	hire	Hire
+799	job_vacancy	Job Vacancy
+801	candidate_profile	Candidate Profile
+802	candidate_history	Candidate History
+803	add_vacancy	Add Vacancy
+804	edit_vacancy	Edit Vacancy
+805	vacancy_name	Vacancy Name
+806	num_of_positions	Number of Positions
+807	rss_feed_url	RSS Feed URL
+808	web_page_url	Web Page URL
+809	publish_in_rss_feed_and_web_page	Publish in RSS Feed and Web Page
+810	employee_added_candidate	{employee} added {candidate}
+811	employee_assigned_vacancy_to_candidate	{employee} assigned the job vacancy {vacancy}
+812	candidate_shortlisted_for_vacancy_by_employee	Shortlisted for {vacancy} by {employee}
+813	employee_schedule_interview_with_interviewers	{employee} scheduled {interview} on {interviewDate} with {interviewers} for {vacancy}
+814	employee_marked_interveiw_passed	{employee} marked {interview} as passed for {vacancy}
+815	employee_marked_interveiw_failed	{employee} marked {interview} as failed for {vacancy}
+816	employee_offered_the_job	{employee} offered the job for {vacancy}
+817	employee_marked_the_offer_declined	{employee} marked the offer as declined for {vacancy}
+818	employee_hired_the_candidate	{employee} hired {candidate} for {vacancy}
+819	employee_rejected_the_candidate	{employee} rejected {candidate} from the {vacancy}
+820	employee_removed_candidate_from_vacancy	{employee} removed {candidate} from the {vacancy}
+821	candidate_applied_for_the_vacancy	{candidate} applied for the vacancy {vacancy}
+822	shortlist_candidate	Shortlist Candidate
+823	hired	Hired
+824	powered_by	Powered By
+825	apply_for_n_vacancy	Apply for {vacancyName}
+826	application_received	Application Received
+827	your_application_has_been_submitted_successfully	Your application has been submitted successfully
+828	hire_candidate	Hire Candidate
+829	reject_candidate	Reject Candidate
+830	candidate_vacancy_change_message	This action will remove previous vacancy. Are you sure you want to continue?
+831	supervisor_reviewer	Supervisor Reviewer
+832	add_review	Add Review
+833	review_period_start_date	Review Period Start Date
+834	review_period_end_date	Review Period End Date
+835	due_date	Due Date
+836	activate	Activate
+837	review_period_start_date_should_be_before_end_date	Review period start date should be before period end date
+838	review_period_end_date_should_be_after_start_date	Review period end date should be after period start date
+839	due_date_should_be_after_review_period_end_date	Due date should be after period end date
+840	cannot_activate_review_without_job_title_subdivision	Cannot activate review for employees who doesn't have Job Title and/or Sub-Division
+841	cannot_activate_review_without_kpi	Cannot activate review without KPIs
+842	reviewers	Reviewers
+843	tracker_name	Tracker Name
+844	edit_performance_tracker	Edit Performance Tracker
+845	add_performance_tracker	Add Performance Tracker
+846	employee_cannot_be_assigned_as_his_own_reviewer	Employee cannot be assigned as his own reviewer
+847	performance_trackers	Performance Trackers
+848	key_performance_indicators_for_job_title	Key Performance Indicators for Job Title
+849	key_performance_indicator	Key Performance Indicator
+850	min_rate	Min Rate
+851	max_rate	Max Rate
+852	is_default	Is Default
+853	add_key_performance_indicator	Add Key Performance Indicator
+854	edit_key_performance_indicator	Edit Key Performance Indicator
+855	minimum_rating	Minimum Rating
+856	maximum_rating	Maximum Rating
+857	make_default_scale	Make Default Scale
+858	minimum_rating_should_be_less_than_maximum_rating	Minimum Rating should be less than Maximum Rating
+859	maximum_rating_should_be_greater_than_minimum_rating	Maximum Rating should be greater than Minimum Rating
+860	employee_performance_trackers	Employee Performance Trackers
+861	modified_date	Modified Date
+862	added_date	Added Date
+863	tracker	Tracker
+864	my_performance_trackers	My Performance Trackers
+865	review_period	Review Period
+866	self_evaluation_status	Self Evaluation Status
+867	review_status	Review Status
+868	evaluate	Evaluate
+869	employee_reviews	Employee Reviews
+870	activated	Activated
+871	in_progress	In Progress
+872	completed	Completed
+873	reviewer	Reviewer
+874	manage_performance_reviews	Manage Performance Reviews
+875	inactive	Inactive
+876	tracker_logs	Tracker Logs
+877	add_log	Add Log
+878	added_on	Added On
+879	modified_on	Modified On
+880	delete	Delete
+881	add_tracker_log	Add Tracker Log
+882	log	Log
+883	positive	Positive
+884	negative	Negative
+885	edit_tracker_log	Edit Tracker Log
+886	performance_review	Performance Review
+887	review_summary	Review Summary
+888	review_due_date	Review Due Date
+889	complete	Complete
+890	review_finalization	Review Finalization
+891	date_of_completion	Date of Completion
+892	final_rating	Final Rating
+893	final_comments	Final Comments
+894	rating_should_be_greater_than_or_equal_to_minValue	Rating should be greater than or equal to {minValue}
+895	rating_should_be_less_than_or_equal_to_maxValue	Rating should be less than or equal to {maxValue}
+896	self_evaluation_by	Self Evaluation by
+897	supervisor_evaluation_by	Supervisor Evaluation by
+898	kpi	KPI
+899	rating	Rating
+900	min	Min
+901	max	Max
+902	evaluation_activated	Evaluation Activated
+903	evaluation_in_progress	Evaluation In Progress
+904	evaluation_completed	Evaluation Completed
+905	cannot_activate_review_for_employee_without_job_title_with_kpi	Cannot activate review for employees who doesn't have a Job Title with KPI
+906	cannot_add_a_past_employee_as_reviewer	Cannot add a past employee as reviewer
+907	selected_supervisor_for_reviewer_is_invalid	Selected supervisor for reviewer is invalid
+908	general_comment	General Comment
+909	confirm_review_submission	Confirm Review Submission
+910	confirm_review_submission_message	The review will be made read-only after completion. This action cannot be undone. Are you sure you want to continue?
+911	cannot_add_a_past_employee_as_a_reviewer	Cannot add a past employee as a reviewer
+912	edit_review	Edit Review
+913	primary_color	Primary Color
+914	secondary_color	Secondary Color
+915	primary_font_color	Primary Font Color
+916	secondary_font_color	Secondary Font Color
+917	primary_gradient_color_one	Primary Gradient Color 1
+918	primary_gradient_color_two	Primary Gradient Color 2
+919	client_logo	Client Logo
+920	client_banner	Client Banner
+921	login_banner	Login Banner
+922	social_media_images	Social Media Images
+923	export	Export
+924	translate	Translate
+926	add_language_package	Add Language Package
+927	directory_module	Directory Module
+928	january	January
+929	february	February
+930	march	March
+931	april	April
+932	may	May
+933	june	June
+934	july	July
+935	august	August
+936	september	September
+937	october	October
+938	november	November
+939	december	December
+940	jan	Jan
+941	feb	Feb
+942	mar	Mar
+943	apr	Apr
+944	jun	Jun
+945	jul	Jul
+946	aug	Aug
+947	sep	Sep
+948	oct	Oct
+949	nov	Nov
+950	dec	Dec
+952	should_be_lower_than_maximum_value	Should be lower than maximum value
+953	should_be_a_number_between_min_and_max	Should be a number between {min}-{max}
+954	active	Active
+955	closed	Closed
+956	file_size	File Size
+957	file_type	File Type
+958	full_name	Full Name
+959	reset_to_default	Reset to Default
+960	preview	Preview
+961	accept_jpg_png_gif_upto_recommended_dimensions	Accepts jpg, .png, .gif, .svg up to {fileSize}. Recommended dimensions: {width}px X {height}px
+962	incorrect_dimensions	Incorrect Dimensions
+963	invalid	Invalid
+964	or_login_with	Or login with
+965	successfully_activated	Successfully Activated
+966	publish	Publish
+967	less_than_or_equal_to_n	Number should be less than or equal to {maxValue}
+968	greater_than_or_equal_to_n	Number should be greater than or equal to {minValue}
+969	purged_employee	Purged Employee
+970	show_more	Show More
+971	show_less	Show Less
+972	upload_n_file	Upload {fileName}
+974	should_be_a_numeric_value	Should be a numeric value
+975	confirmation_required	Confirmation Required
+976	purge_candidate_records	Purge Candidate Records
+977	purge_candidates	Purge Candidates
+978	purge_candidates_warning	You are about to purge selected candidates permanently. Are you sure you want to continue? This operation cannot be undone
+979	purge_all	Purge All
+981	language_package	Language Package
+982	source_language	Source Language
+983	module	Module
+984	source_text	Source Text
+985	translated_text	Translated Text
+986	source_note	Source Note
+987	show	Show
+988	all	All
+989	translated	Translated
+990	not_translated	Not Translated
+991	translate_language_package	Translate Language Package
+992	order	Order
+993	server_settings	Server Settings
+994	bind_settings	Bind Settings
+995	user_lookup_settings	User Lookup Settings
+996	data_mapping	Data Mapping
+997	additional_settings	Additional Settings
+998	host	Host
+999	ldap_host_input_hint	LDAP Server IP or Hostname without the protocol (without ldap:// or ldaps://)
+1000	port	Port
+1001	port_input_hint	If SSL use port 636 by default
+1002	encryption	Encryption
+1003	ldap_implementation	LDAP Implementation
+1004	distinguished_name	Distinguished Name
+1005	base_distinguished_name	Base Distinguished Name
+1006	search_scope	Search Scope
+1007	search_scope_input_hint	Subtree option will allow searching base directory and sub directories. One level will only search within the base directory
+1008	user_name_attribute	User Name Attribute
+1015	test_connection	Test Connection
+1016	bind_anonymously	Bind Anonymously
+1017	sync_interval	Sync Interval (in Hours)
+1023	user_name_input_hint	Attribute field to use when loading the username. Ex: cn, SMA account name
+1024	ssl	SSL
+1025	subtree	Subtree
+1026	one_level	One level
+1027	open_ldap_v3	Open LDAP v3
+1028	ms_active_directory	MS Active Directory
+1029	connection_status	Connection Status
+1030	sync_connection	Sync Connection
+1031	sync_now	Sync Now
+1032	last_synced_on_datetime	Last synced on {datetime}
+1033	last_sync_failed_on_datetime	Last sync failed on {datetime}
+1034	synchronization_successful	Synchronization Successful
+1035	synchronization_failed	Synchronization Failed
+1036	user_search_filter	User Search Filter
+1037	user_unique_id_attribute	User Unique ID Attribute
+1038	merge_ldap_users_with_existing_system_users	Merge LDAP Users With Existing System Users
+1039	please_check_the_settings_for_your_ldap_configuration	Please check the settings for your LDAP configuration
+1040	user_search_filter_input_hint	Attribute field to use when searching user objects. Ex: objectClass=person
+1041	user_unique_attribute_input_hint	Attribute field to use as a unique immutable identifier for user objects. This is used to track username changes. Ex: entryUUID, objectGUID
+1042	field_in_orangehrm	Field in OrangeHRM
+1043	field_in_ldap_directory	Field in LDAP Directory
+1044	use_this_field_as_the_employee_user_mapping_field	Use this field as the employee / user mapping field
+1045	n_users_found	{count} user(s) found
+1046	n_users_will_be_imported	{count} user(s) will be imported
+1047	lookup	Lookup
+1048	user_lookup	User lookup
+1049	authentication	Authentication
+1050	search_results	Search results
+1051	leave_applications	Leave Applications
+1052	leave_assignments	Leave Assignments
+1053	leave_approvals	Leave Approvals
+1054	leave_cancellation	Leave Cancellations
+1055	leave_rejections	Leave Rejections
+1056	ldap_settings_not_configured	LDAP settings not configured
+1057	ldap_sync_not_enabled	LDAP sync not enabled
+1058	ldap_configuration_warning_message	Before activating the LDAP service, make sure that all LDAP settings are functioning properly since incorrect configuration may result in corrupted data. As a precaution, we recommend you to create a backup of your database before continuing.
+1059	ascending	Ascending
+1060	descending	Descending
+1061	ldap_configuration	LDAP Configuration
+1062	enable	Enable
+1063	enter_valid_port_between_a_to_b	Enter a valid port number between {minValue} to {maxValue}
+1064	user_status	User Status
+1065	should_be_least_n_characters	Should be at least {amount} characters
+1066	entitlement_type	Entitlement Type
+1067	leave_requests_action	{action, select, APPROVE {{count, plural, =0 {No Leave Requests Approved} =1 {1 Leave Request Approved} other {# Leave Requests Approved} }} REJECT {{count, plural, =0 {No Leave Requests Rejected} =1 {1 Leave Request Rejected} other {# Leave Requests Rejected} }} other {{count, plural, =0 {No Leave Requests Cancelled} =1 {1 Leave Request Cancelled} other {# Leave Requests Cancelled} }} }
+1068	state_income_tax	State Income Tax
+1069	bi_weekly	Bi Weekly
+1070	hourly	Hourly
+1071	monthly	Monthly
+1072	monthly_on_first_pay	Monthly on first pay of month
+1073	semi_monthly	Semi Monthly
+1074	weekly	Weekly
+1075	savings	Savings
+1076	checking	Checking
+1077	add_supervisor	Add Supervisor
+1078	add_subordinate	Add Subordinate
+1079	username_already_exists	Username already exists
+1080	n_records_successfully_imported	{count,plural, =0{No Records Imported} one{1 Record Successfully Imported} other{ # Records Successfully Imported}}
+1081	n_records_failed_to_import	{count,plural, =0{No Records Failed to Import} one{1 Record Failed to Import} other{ # Records Failed to Import}}
+1082	failed_rows	Failed Rows
+1083	import_details	Import Details
+1084	punched_in	Punched In
+1085	punched_out	Punched Out
+1086	not_punched_in	Not Punched In
+1087	employee_distribution_by_sub_unit	Employee Distribution by Sub Unit
+1088	employee_distribution_by_location	Employee Distribution by Location
+1089	unassigned	Unassigned
+1090	employees_on_leave_today	Employees on Leave Today
+1091	no_employees_are_on_leave_today	No Employees are on Leave Today
+1092	leave_period_not_defined	Leave Period Not Defined
+1093	time_at_work	Time at Work
+1094	today	Today
+1095	this_week	This Week
+1096	state_date_at_time_timezone_offset	{lastState}: {date} at {time} (GMT {timezoneOffset})
+1097	state_today_at_time_timezone_offset	{lastState}: Today at {time} (GMT {timezoneOffset})
+1098	quick_launch	Quick Launch
+1099	my_actions	My Actions
+1100	n_pending_leave_request	{pendingActionsCount,plural, =0{No Records Found} one{(1) Leave Request to Approve} other{ (#) Leave Requests to Approve}}
+1101	n_pending_time_sheet	{pendingActionsCount,plural, =0{No Records Found} one{(1) Timesheet to Approve} other{ (#) Timesheets to Approve}}
+1102	n_pending_performance_evaluate	{pendingActionsCount,plural, =0{No Records Found} one{(1) Performance Review to Evaluate} other{ (#) Performance Reviews to Evaluate}}
+1103	n_pending_candidate_interview	{pendingActionsCount,plural, =0{No Records Found} one{(1) Candidate to Interview} other{ (#) Candidates to Interview}}
+1104	no_pending_actions	No Pending Actions to Perform
+1105	n_pending_self_review	{pendingActionsCount,plural, =0{No Records Found} one{(1) Pending Self Review} other{ (#) Pending Self Reviews}}
+1106	configurations	Configurations
+1107	only_show_accessible_employees_on_leave_for_other_users	Only show accessible employees on leave for other users
+1108	not_available	Not Available
+1109	submitted	Submitted
+1110	not_submitted	Not Submitted
+1111	approved	Approved
+1112	upcoming_anniversaries	Upcoming Anniversaries
+1113	n_year	{yearsCount,plural, =0{} one{Year} other{Years}}
+1114	buzz_newsfeed	Buzz Newsfeed
+1115	post	Post
+1116	post_placeholder	What's on your mind?
+1117	share_photos	Share Photos
+1118	share_video	Share Video
+1120	n_like	{likesCount,plural, =0{0 Likes} one{1 Like} other{# Likes}}
+1121	n_comment	{commentCount,plural, =0{0 Comments} one{1 Comment} other{# Comments}}
+1122	n_share	{shareCount,plural, =0{0 Shares} one{1 Share} other{# Shares}}
+1123	write_your_comment	Write your comment...
+1124	delete_post	Delete Post
+1125	edit_post	Edit Post
+1126	most_recent_posts	Most Recent Posts
+1127	most_liked_posts	Most Liked Posts
+1128	most_commented_posts	Most Commented Posts
+1129	share	Share
+1130	video_url	Video URL
+1131	paste_video_url	Paste Video URL
+1132	add_photos	Add Photos
+1133	file_type_validation_message	Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!
+1134	file_size_validation_message	Maximum allowed file size is 2MB
+1135	share_post	Share Post
+1136	read_more	Read More
+1137	press_esc_to	Press Esc to
+1138	like	Like
+1139	no_posts_available	No Posts Available
+1141	post_delete_confirmation_message	The selected item will be permanently deleted. Are you sure you want to continue?
+1142	invalid_video_url_message	This URL is not a valid URL of a video or it is not supported by the system
+1143	buzz_latest_posts	Buzz Latest Posts
+1144	no_posts_added	No Posts Added
+1145	getting_started_with_orangehrm	Getting Started with OrangeHRM
+1146	client_id	Client ID
+1147	client_secret	Client Secret
+1148	redirect_uri	Redirect URI
+1149	oauth_client_list	OAuth Client List
+1150	add_oauth_client	Add OAuth Client
+1151	edit_oauth_client	Edit OAuth Client
+1152	enable_client	Enable Client
+1153	confidential_client	Confidential Client
+1154	client_secret_warning_message	Make sure to copy the client secret now. You won�t be able to see it again.
+1155	password_min_length	{count,plural, one{Should have at least 1 character} other{Should have at least # characters}}
+1156	password_max_length	{count,plural, one{Should not exceed 1 character} other{Should not exceed # characters}}
+1157	password_n_lowercase_letters	{count,plural, one{Your password must contain minimum 1 lower-case letter} other{Your password must contain minimum # lower-case letters}}
+1158	password_n_uppercase_letters	{count,plural, one{Your password must contain minimum 1 upper-case letter} other{Your password must contain minimum # upper-case letters}}
+1159	password_n_numbers	{count,plural, one{Your password must contain minimum 1 number} other{Your password must contain minimum # numbers}}
+1160	password_n_special_characters	{count,plural, one{Your password must contain minimum 1 special character} other{Your password must contain minimum # special characters}}
+1161	password_spaces_not_allowed	Your password should not contain spaces
+1162	password_could_be_guessable	Your password meets the minimum requirements, but it could be guessable
+1163	change_weak_password	Change Weak Password
+1164	password_not_strong	Your current password is weak. Please choose a stronger password.
+1165	invalid_password_reset_code	Invalid password reset code
+1166	client_name_would_like_to	{clientName} would like to
+1167	access_and_manage_your_data	Access and manage your data
+1168	perform_actions_on_your_behalf	Perform actions on your behalf
+1169	do_you_want_to_allow_access	Do you want to allow access?
+1170	deny	Deny
+1171	allow_access	Allow Access
+1172	this_request_is_invalid	This request is invalid
+1173	mobile_client_disabled_error	Mobile app is not enabled. Please contact your OrangeHRM administrator.
+1174	strong	Strong
+1175	help	Help
+1176	claim	Claim
+1177	events	Events
+1178	add_event	Add Event
+1179	edit_event	Edit Event
+1180	event_name	Event Name
+1181	expense_types	Expense Types
+1182	add_expense_type	Add Expense Type
+1183	edit_expense_type	Edit Expense Type
+1184	event	Event
+1185	create_claim_request	Create Claim Request
+1186	remarks	Remarks
+1187	create	Create
+1188	submit_claim	Submit Claim
+1189	reference_id	Reference Id
+1190	expenses	Expenses
+1191	expense_type	Expense Type
+1192	pay	Pay
+1193	add_expense	Add Expense
+1194	edit_expense	Edit Expense
+1195	should_be_a_valid_number	Should be a valid number (xxx.xx)
+1196	total_amount	Total Amount ({currencyName}) : {totalAmount}
+1197	submitted_date	Submitted Date
+1198	view_details	View Details
+1199	my_claims	My Claims
+1200	claim_module	Claim Module
+1201	initiated	Initiated
+1202	paid	Paid
+1203	assign_claim	Assign Claim
+1204	employee_claims	Employee Claims
+1205	page_under_development	This page is currently under development.
+1206	download_latest_release	to download the latest stable release.
+1207	clear	Clear
+1208	close	Close
+1209	url	Provider URL
+1210	add_provider	Add Provider
+1211	edit_provider	Edit Provider
+1212	provider_list	Provider List
+1213	no_user_found	No User Found
+1214	multiple_user_returned	Multiple User Returned
+1215	amount	Amount
+1216	use_the_sample_template	Use the sample template
+1217	only_edit_the_target_field	Only edit the target field
+1218	do_not_change_the_template	Do not change the template
+1219	sample_xliff	Sample XLIFF
+1220	import_language_package	Import Language Package
+1221	translate_text_manually	The text will not translate automatically. You will either have to import translations or translate within the system.
+1222	should_be_lower_than_maximum_salary	Should be lower than Maximum Salary
+1223	errors_in_import_language_packages	Errors in Import Language Packages
+1224	invalid_syntax	The syntax used is invalid
+1225	placeholder_mismatch	Mismatch found between placeholders
+1226	plural_placeholder_mismatch	Mismatch found between plural expression placeholder
+1227	select_placeholder_mismatch	Mismatch found between select expression placeholder
+1228	n_records_skipped	{count,plural, =0{No Records Skipped} one{1 Record Skipped} other{ # Records Skipped}}
+1229	n_errors_found	{count,plural, =0{No Errors Found} one{(1) Error Found} other{ (#) Errors Found}}
+1230	fix_errors	{count,plural, one{Fix Error} other{ Fix Errors}}
+1231	xliff_file_not_valid	The XLIFF file is not valid
+1232	xliff_file_empty	The XLIFF file is empty
+1233	xliff_file_missing_target_language	The XLIFF file is missing the target language attribute
+1234	target_language_does_not_match	The target language does not match the selected language
+1235	please_save_before_pagination	Please save your changes before moving to the next page
+1236	single	Single
+1237	married	Married
+1238	direct	Direct
+1239	indirect	Indirect
+1240	active_job_vacancies	Active Job Vacancies
+1241	upgrade	Upgrade
+1242	accepts_up_to_n_mb	{count, plural, one {Accepts up to 1MB} other { Accepts up to #MBs}}
+1243	accept_custom_format_file_up_to_n_mb	{count, plural, one {Accepts .docx, .doc, .odt, .pdf, .rtf, .txt up to 1MB} other{ Accepts .docx, .doc, .odt, .pdf, .rtf, .txt up to #MBs}}
+1244	reset_password_link_was_not_sent	Reset password link was not sent
+1245	your_reset_password_link_not_sent_error	Your reset password link was not sent due to an error.
+1246	please_contact_admin_reset_password	Please contact your administrator to reset your password.
+1247	session_expired	Session Expired
+1248	work_email_invalid_characters	Work email contains invalid characters.

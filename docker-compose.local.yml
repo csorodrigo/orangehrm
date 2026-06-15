@@ -1,0 +1,20 @@
+services:
+  orangehrm:
+    build: .
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: orangehrm
+      MYSQL_DATABASE: orangehrm
+      MYSQL_USER: orangehrm
+      MYSQL_PASSWORD: orangehrm
+    volumes:
+      - orangehrm_mysql:/var/lib/mysql
+
+volumes:
+  orangehrm_mysql:
