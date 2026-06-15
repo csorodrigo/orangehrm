@@ -67,7 +67,7 @@ class VacationPlanningDao extends BaseDao
     {
         $this->ensurePreferenceTable();
         $connection = $this->getEntityManager()->getConnection();
-        $where = ['e.emp_deleted = 0'];
+        $where = ['1 = 1'];
         $params = [];
 
         if ($empNumber !== null) {

@@ -18,6 +18,7 @@
  -->
 
 <template>
+  <vacation-planning-panel />
   <leave-list-table :leave-statuses="leaveStatuses">
     <template #default="{filters, filterItems, rules, onReset}">
       <oxd-table-filter :filter-title="$t('leave.leave_list')">
@@ -123,6 +124,7 @@
 <script>
 import LeaveListTable from '@/orangehrmLeavePlugin/components/LeaveListTable';
 import LeaveTypeDropdown from '@/orangehrmLeavePlugin/components/LeaveTypeDropdown';
+import VacationPlanningPanel from '@/orangehrmLeavePlugin/components/VacationPlanningPanel';
 import {OxdSwitchInput} from '@ohrm/oxd';
 
 export default {
@@ -130,6 +132,7 @@ export default {
     'leave-list-table': LeaveListTable,
     'oxd-switch-input': OxdSwitchInput,
     'leave-type-dropdown': LeaveTypeDropdown,
+    'vacation-planning-panel': VacationPlanningPanel,
   },
   props: {
     subunits: {
