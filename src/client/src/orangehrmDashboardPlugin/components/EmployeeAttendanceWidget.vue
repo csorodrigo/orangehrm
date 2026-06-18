@@ -22,6 +22,7 @@
     icon="clock-fill"
     :loading="isLoading"
     :title="$t('dashboard.time_at_work')"
+    class="orangehrm-attendance-widget"
   >
     <div class="orangehrm-attendance-card">
       <div class="orangehrm-attendance-card-profile">

@@ -118,7 +118,9 @@ export class APIService {
   ignoreError(error: AxiosError): boolean {
     if (
       this._ignorePathRegex &&
-      (error.response?.status === 422 || error.response?.status === 400)
+      (error.response?.status === 422 ||
+        error.response?.status === 400 ||
+        error.response?.status === 403)
     ) {
       const url: string = error.response.config.url ?? '';
       return this._ignorePathRegex.test(url);

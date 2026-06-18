@@ -280,6 +280,12 @@ export default {
       },
     };
   },
+  mounted() {
+    document.body.classList.add('orangehrm-pim-employee-list-page');
+  },
+  beforeUnmount() {
+    document.body.classList.remove('orangehrm-pim-employee-list-page');
+  },
   computed: {
     headers() {
       return [

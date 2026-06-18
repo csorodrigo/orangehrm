@@ -26,9 +26,6 @@
       <employee-attendance-widget></employee-attendance-widget>
     </oxd-grid-item>
     <oxd-grid-item class="orangehrm-dashboard-widget">
-      <my-action-summary-widget></my-action-summary-widget>
-    </oxd-grid-item>
-    <oxd-grid-item class="orangehrm-dashboard-widget">
       <quick-launch-widget></quick-launch-widget>
     </oxd-grid-item>
     <oxd-grid-item
@@ -63,7 +60,6 @@ import {APIService} from '@/core/util/services/api.service';
 import QuickLaunchWidget from '@/orangehrmDashboardPlugin/components/QuickLaunchWidget.vue';
 import BuzzLatestPostWidget from '@/orangehrmDashboardPlugin/components/BuzzLatestPostWidget.vue';
 import EmployeeSubunitWidget from '@/orangehrmDashboardPlugin/components/EmployeeSubunitWidget.vue';
-import MyActionSummaryWidget from '@/orangehrmDashboardPlugin/components/MyActionSummaryWidget.vue';
 import EmployeeLocationWidget from '@/orangehrmDashboardPlugin/components/EmployeeLocationWidget.vue';
 import EmployeesOnLeaveWidget from '@/orangehrmDashboardPlugin/components/EmployeesOnLeaveWidget.vue';
 import EmployeeAttendanceWidget from '@/orangehrmDashboardPlugin/components/EmployeeAttendanceWidget.vue';
@@ -73,7 +69,6 @@ export default {
     'quick-launch-widget': QuickLaunchWidget,
     'buzz-latest-post-widget': BuzzLatestPostWidget,
     'employee-subunit-widget': EmployeeSubunitWidget,
-    'my-action-summary-widget': MyActionSummaryWidget,
     'employee-location-widget': EmployeeLocationWidget,
     'employees-on-leave-widget': EmployeesOnLeaveWidget,
     'employee-attendance-widget': EmployeeAttendanceWidget,
