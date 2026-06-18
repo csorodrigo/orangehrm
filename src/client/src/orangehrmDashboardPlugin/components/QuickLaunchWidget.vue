@@ -20,11 +20,12 @@
 <template>
   <base-widget
     icon="lightning-charge-fill"
+    class="orangehrm-quick-launch-widget"
     :empty="isEmpty"
     :loading="isLoading"
     :title="$t('dashboard.quick_launch')"
   >
-    <oxd-grid :cols="3" class="orangehrm-quick-launch">
+    <oxd-grid :cols="4" class="orangehrm-quick-launch">
       <oxd-grid-item
         v-for="action in sortedActions"
         :key="action"

@@ -25,7 +25,7 @@
     :empty="isEmpty"
     :empty-text="emptyText"
     :loading="isLoading"
-    :title="$t('dashboard.employees_on_leave_today')"
+    title="Colaboradores de férias"
   >
     <template
       v-if="$can.update('dashboard_employees_on_leave_today_config')"

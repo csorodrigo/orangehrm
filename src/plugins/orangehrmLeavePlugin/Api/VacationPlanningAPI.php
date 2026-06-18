@@ -30,10 +30,16 @@ class VacationPlanningAPI extends Endpoint implements CollectionEndpoint
             RequestParams::PARAM_TYPE_QUERY,
             CommonParams::PARAMETER_EMP_NUMBER
         );
+        if ($empNumber === 0) {
+            $empNumber = null;
+        }
         $subunitId = $this->getRequestParams()->getIntOrNull(
             RequestParams::PARAM_TYPE_QUERY,
             self::FILTER_SUBUNIT_ID
         );
+        if ($subunitId === 0) {
+            $subunitId = null;
+        }
 
         $employees = $this->getVacationPlanningDao()->getPlanningEmployees($empNumber, $subunitId);
         $plans = $this->getVacationPlanningJudgeService()->buildPlan($employees);
@@ -56,14 +62,18 @@ class VacationPlanningAPI extends Endpoint implements CollectionEndpoint
 
     public function getValidationRuleForGetAll(): ParamRuleCollection
     {
-        return new ParamRuleCollection(
+        $paramRuleCollection = new ParamRuleCollection(
             $this->getValidationDecorator()->notRequiredParamRule(
-                new ParamRule(CommonParams::PARAMETER_EMP_NUMBER, new Rule(Rules::POSITIVE))
+                new ParamRule(CommonParams::PARAMETER_EMP_NUMBER, new Rule(Rules::ZERO_OR_POSITIVE))
             ),
             $this->getValidationDecorator()->notRequiredParamRule(
-                new ParamRule(self::FILTER_SUBUNIT_ID, new Rule(Rules::POSITIVE))
-            )
+                new ParamRule(self::FILTER_SUBUNIT_ID, new Rule(Rules::ZERO_OR_POSITIVE))
+            ),
+            ...$this->getSortingAndPaginationParamsRules([], true)
         );
+
+        $paramRuleCollection->setStrict(false);
+        return $paramRuleCollection;
     }
 
     public function create(): EndpointResult

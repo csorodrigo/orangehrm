@@ -86,9 +86,9 @@ export default {
     const {locale} = useLocale();
     const {jsDateFormat, jsTimeFormat} = useDateFormat();
     const {$tEmpName} = useEmployeeNameTranslate();
-    const {fetchPosts} = useBuzzAPIs(
-      new APIService(window.appGlobal.baseUrl, ''),
-    );
+    const api = new APIService(window.appGlobal.baseUrl, '');
+    const {fetchPosts} = useBuzzAPIs(api);
+    api.setIgnorePath('/api/v2/buzz/feed');
 
     const isEmpty = computed(() => posts.value.length === 0);
 
@@ -132,6 +132,14 @@ export default {
               employeeFullName,
             };
           });
+        })
+        .catch((error) => {
+          const status = error?.response?.status || error?.status;
+          if (status === 403) {
+            posts.value = [];
+            return;
+          }
+          return Promise.reject(error);
         })
         .finally(() => {
           isLoading.value = false;

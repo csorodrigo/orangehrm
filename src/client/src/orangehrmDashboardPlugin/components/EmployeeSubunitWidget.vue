@@ -20,6 +20,7 @@
 <template>
   <base-widget
     icon="pie-chart-fill"
+    class="orangehrm-dashboard-widget-chart"
     :loading="isLoading"
     :title="$t('dashboard.employee_distribution_by_sub_unit')"
   >
@@ -121,6 +122,17 @@ export default {
 <style lang="scss" scoped>
 .emp-distrib-chart {
   width: auto;
-  height: 312px;
+  height: 360px;
+}
+
+.orangehrm-dashboard-widget-chart {
+  height: 450px;
+
+  :deep(.orangehrm-dashboard-widget-body) {
+    height: auto;
+    min-height: 360px;
+    overflow: visible;
+    padding-right: 0;
+  }
 }
 </style>
