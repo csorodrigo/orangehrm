@@ -201,6 +201,95 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background-color: #f3f6fb;
+}
+
+.oxd-layout {
+  background-color: #f3f6fb;
+  min-height: 100vh;
+}
+
+.oxd-layout-navigation {
+  .oxd-sidepanel {
+    margin: 0;
+    min-height: 100vh;
+    border-radius: 0 1.25rem 1.25rem 0;
+    box-shadow: 0 24px 60px rgba(26, 55, 104, 0.12);
+    overflow: visible;
+  }
+
+  .oxd-main-menu-button {
+    right: 0.75rem;
+    z-index: 5;
+  }
+
+  .oxd-main-menu-item {
+    border-radius: 999px;
+    margin: 0.18rem 0.7rem;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .oxd-main-menu-item:hover {
+    background-color: rgba(27, 76, 178, 0.08);
+    transform: translateX(2px);
+  }
+
+  .oxd-main-menu-item.active {
+    background: linear-gradient(135deg, #005eea, #273381);
+    box-shadow: 0 14px 28px rgba(39, 51, 129, 0.24);
+  }
+}
+
+.oxd-topbar {
+  margin: 0;
+  border-radius: 0 0 0 1.15rem;
+  overflow: visible;
+  box-shadow: 0 18px 42px rgba(26, 55, 104, 0.1);
+}
+
+.oxd-topbar-header {
+  background: linear-gradient(135deg, #005eea, #273381);
+}
+
+.oxd-topbar-body {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 0 1.15rem;
+  overflow: visible;
+}
+
+.oxd-topbar-body-nav-slot {
+  padding-right: 0.9rem;
+}
+
+.oxd-layout-context {
+  padding-top: 1.25rem;
+}
+
+.oxd-sheet,
+.orangehrm-paper-container,
+.oxd-table-filter {
+  border-radius: 1.15rem;
+  box-shadow: 0 18px 46px rgba(26, 55, 104, 0.08);
+}
+
+.oxd-button,
+.oxd-topbar-body-nav-tab-item {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.oxd-button:hover,
+.oxd-topbar-body-nav-tab-item:hover {
+  transform: translateY(-1px);
+}
+
 .orangehrm-upgrade-layout {
   .oxd-topbar-header-userarea {
     align-self: center;
