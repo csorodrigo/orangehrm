@@ -64,6 +64,7 @@ class UserAPI extends Endpoint implements CrudEndpoint
     public const PARAM_RULE_USERNAME_MIN_LENGTH = UserService::USERNAME_MIN_LENGTH;
     public const PARAM_RULE_USERNAME_MAX_LENGTH = UserService::USERNAME_MAX_LENGTH;
     public const PARAM_RULE_PASSWORD_MAX_LENGTH = 64;
+    private const ADMIN_USER_ROLE_ID = 1;
 
     /**
      * @OA\Get(
@@ -95,6 +96,9 @@ class UserAPI extends Endpoint implements CrudEndpoint
     {
         $userId = $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_ATTRIBUTE, CommonParams::PARAMETER_ID);
         $user = $this->getUserService()->getSystemUser($userId);
+        if ($user instanceof User && $user->getUserRole()->getId() !== self::ADMIN_USER_ROLE_ID) {
+            $user = null;
+        }
         $this->throwRecordNotFoundExceptionIfNotExist($user, User::class);
 
         return new EndpointResourceResult(UserModel::class, $user);
@@ -190,12 +194,7 @@ class UserAPI extends Endpoint implements CrudEndpoint
                 self::FILTER_EMPLOYEE_NUMBER
             )
         );
-        $userSearchParamHolder->setUserRoleId(
-            $this->getRequestParams()->getIntOrNull(
-                RequestParams::PARAM_TYPE_QUERY,
-                self::FILTER_USER_ROLE_ID
-            )
-        );
+        $userSearchParamHolder->setUserRoleId(self::ADMIN_USER_ROLE_ID);
 
         $users = $this->getUserService()->searchSystemUsers($userSearchParamHolder);
         $count = $this->getUserService()->getSearchSystemUsersCount($userSearchParamHolder);
@@ -284,13 +283,12 @@ class UserAPI extends Endpoint implements CrudEndpoint
     public function setUserParams(User $user, bool $changePassword = true): void
     {
         $username = $this->getRequestParams()->getString(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_USERNAME);
-        $userRoleId = $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_USER_ROLE_ID);
         $empNumber = $this->getRequestParams()->getInt(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_EMPLOYEE_NUMBER);
         $status = $this->getRequestParams()->getBoolean(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_STATUS);
 
         $user->setUserName($username);
         $user->setStatus($status);
-        $user->getDecorator()->setUserRoleById($userRoleId);
+        $user->getDecorator()->setUserRoleById(self::ADMIN_USER_ROLE_ID);
         $user->getDecorator()->setEmployeeByEmpNumber($empNumber);
         if ($changePassword) {
             $password = $this->getRequestParams()->getString(RequestParams::PARAM_TYPE_BODY, self::PARAMETER_PASSWORD);
@@ -411,6 +409,9 @@ class UserAPI extends Endpoint implements CrudEndpoint
         );
 
         $user = $this->getUserService()->getSystemUser($userId);
+        if ($user instanceof User && $user->getUserRole()->getId() !== self::ADMIN_USER_ROLE_ID) {
+            $user = null;
+        }
         $this->throwRecordNotFoundExceptionIfNotExist($user, User::class);
 
         $this->setUserParams($user, $changePassword);
@@ -467,6 +468,10 @@ class UserAPI extends Endpoint implements CrudEndpoint
         $ids = $this->getUserService()->geUserDao()->getExistingSystemUserIds(
             $this->getRequestParams()->getArray(RequestParams::PARAM_TYPE_BODY, CommonParams::PARAMETER_IDS)
         );
+        $ids = array_values(array_filter($ids, function (int $id): bool {
+            $user = $this->getUserService()->getSystemUser($id);
+            return $user instanceof User && $user->getUserRole()->getId() === self::ADMIN_USER_ROLE_ID;
+        }));
         $this->throwRecordNotFoundExceptionIfEmptyIds($ids);
         $this->getUserService()->deleteSystemUsers($ids);
         return new EndpointResourceResult(ArrayModel::class, $ids);

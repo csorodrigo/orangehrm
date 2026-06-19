@@ -128,7 +128,7 @@ import usei18n from '@/core/util/composable/usei18n';
 
 const defaultFilters = {
   username: '',
-  userRoleId: null,
+  userRoleId: {id: 1, label: 'Admin'},
   empNumber: null,
   status: null,
 };
@@ -277,7 +277,6 @@ export default {
       ],
       userRoles: [
         {id: 1, label: this.$t('general.admin')},
-        {id: 2, label: this.$t('general.ess')},
       ],
       userStatuses: [
         {id: 1, label: this.$t('general.enabled')},

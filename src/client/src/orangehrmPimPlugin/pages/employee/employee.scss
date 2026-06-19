@@ -61,9 +61,17 @@
   }
   ::v-deep(.oxd-table-row) {
     display: grid;
-    grid-template-columns: minmax(7rem, auto) 1fr auto;
+    grid-template-columns:
+      minmax(2rem, 0.25fr)
+      minmax(0, 0.8fr)
+      minmax(0, 1.55fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr)
+      minmax(0, 0.95fr)
+      minmax(0, 1fr)
+      auto;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
     min-height: 5rem;
     padding: 0.75rem 1rem;
   }
@@ -100,8 +108,47 @@
     white-space: nowrap;
     min-width: 0;
   }
+  ::v-deep(.oxd-table-row > .oxd-table-cell:nth-child(3) .data),
+  ::v-deep(.card-body-slot .oxd-table-card-cell:nth-child(1) .data) {
+    display: inline-flex;
+    max-width: 100%;
+    min-height: 2.15rem;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 0.65rem;
+    color: $oxd-primary-one-color;
+    font-weight: 800;
+    background-color: $oxd-primary-one-alpha-10-color;
+    border: 1px solid $oxd-primary-one-alpha-15-color;
+    box-shadow: 0 8px 18px rgba(100, 114, 140, 0.1);
+  }
   ::v-deep(.oxd-table-cell-actions) {
     justify-content: flex-end;
+  }
+  ::v-deep(.oxd-table-card.--mobile .oxd-table-row) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    min-height: auto;
+    padding: 1rem;
+  }
+  ::v-deep(.oxd-table-card.--mobile .card-header-slot) {
+    grid-column: 1;
+    min-width: 0;
+  }
+  ::v-deep(.oxd-table-card.--mobile .card-body-slot) {
+    grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  ::v-deep(.oxd-table-card.--mobile .oxd-table-cell-actions) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    justify-self: end;
+    gap: 0.5rem;
+    padding-left: 0.75rem;
   }
   @include oxd-respond-to('xs') {
     ::v-deep(.oxd-table-row) {
@@ -114,7 +161,15 @@
   }
   @include oxd-respond-to('md') {
     ::v-deep(.oxd-table-row) {
-      grid-template-columns: minmax(7rem, auto) 1fr auto;
+      grid-template-columns:
+        minmax(2rem, 0.25fr)
+        minmax(0, 0.8fr)
+        minmax(0, 1.55fr)
+        minmax(0, 1.35fr)
+        minmax(0, 1fr)
+        minmax(0, 0.95fr)
+        minmax(0, 1fr)
+        auto;
     }
     ::v-deep(.card-body-slot) {
       grid-column: 1 / -1;
