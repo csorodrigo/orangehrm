@@ -178,10 +178,14 @@ export default {
         return {
           id: item.empNumber,
           employeeId: item.employeeId,
-          firstAndMiddleName: `${item.firstName} ${item.middleName}`,
-          lastName:
-            item.lastName +
-            (item.terminationId ? ` ${$t('general.past_employee')}` : ''),
+          firstAndMiddleName: [
+            item.firstName,
+            item.middleName,
+            item.lastName,
+          ]
+            .filter(Boolean)
+            .join(' ')
+            .concat(item.terminationId ? ` ${$t('general.past_employee')}` : ''),
           jobTitle: item.jobTitle?.isDeleted
             ? item.jobTitle.title + $t('general.deleted')
             : item.jobTitle?.title,
@@ -298,14 +302,8 @@ export default {
         },
         {
           name: 'firstAndMiddleName',
-          title: this.$t('pim.first_middle_name'),
+          title: 'Nome completo',
           sortField: 'employee.firstName',
-          style: {flex: 1},
-        },
-        {
-          name: 'lastName',
-          title: this.$t('general.last_name'),
-          sortField: 'employee.lastName',
           style: {flex: 1},
         },
         {
