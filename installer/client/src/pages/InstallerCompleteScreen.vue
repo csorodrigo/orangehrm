@@ -17,21 +17,20 @@
  */
  -->
 <template>
-  <div class="orangehrm-installer-page">
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
+  <div class="cia-ferias-installer-page">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
       Installation Complete
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="orangehrm-installer-page-content">
-      OrangeHRM Starter Version {{ productversion }} has been successfully
-      installed.
+    <oxd-text tag="p" class="cia-ferias-installer-page-content">
+      CIA Férias Version {{ productversion }} has been successfully installed.
     </oxd-text>
     <br />
     <br />
     <oxd-button
-      class="orangehrm-installer-complete-button"
+      class="cia-ferias-installer-complete-button"
       display-type="secondary"
-      label="Launch OrangeHRM"
+      label="Launch CIA Férias"
       @click="launch"
     />
   </div>
@@ -57,7 +56,7 @@ export default {
 
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style lang="scss" scoped>
-.orangehrm-installer-complete-button {
+.cia-ferias-installer-complete-button {
   margin-right: auto;
 }
 </style>

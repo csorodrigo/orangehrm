@@ -32,7 +32,10 @@ describe('Leave - leave types', function () {
     it('get leave type list', function () {
       cy.loginTo(this.user, '/leave/leaveTypeList');
       cy.wait('@getLeaveTypes');
-      cy.toast('info', 'No Records Found');
+      cy.getOXD('pageContext').should(
+        'include.text',
+        'Nenhum registro encontrado',
+      );
     });
   });
 
@@ -40,8 +43,8 @@ describe('Leave - leave types', function () {
     it('create snapshot with leave type', function () {
       cy.loginTo(this.user, '/leave/defineLeaveType');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.leaveTypes.leavetype2);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Nome').type(this.strings.leaveTypes.leavetype2);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@saveLeaveType').then(function () {
         cy.task('db:snapshot', {name: 'leaveTypes'});
@@ -53,34 +56,34 @@ describe('Leave - leave types', function () {
     it('add a leave type and save', function () {
       cy.loginTo(this.user, '/leave/defineLeaveType');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.leaveTypes.leavetype1);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Nome').type(this.strings.leaveTypes.leavetype1);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@saveLeaveType');
-      cy.toast('success', 'Successfully Saved');
+      cy.toast('success', 'Salvo com sucesso');
     });
 
     it('add a leave type and cancel', function () {
       cy.loginTo(this.user, '/leave/defineLeaveType');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.leaveTypes.leavetype2);
-        cy.getOXD('button').contains('Cancel').click();
+        cy.getOXDInput('Nome').type(this.strings.leaveTypes.leavetype2);
+        cy.getOXD('button').contains('Cancelar').click();
       });
       cy.wait('@getLeaveTypes');
-      cy.getOXD('pageTitle').should('include.text', 'Leave Types');
+      cy.getOXD('pageTitle').should('include.text', 'Tipos de férias');
     });
 
     it('add leave type form validations', function () {
       cy.task('db:restore', {name: 'leaveTypes'});
       cy.loginTo(this.user, '/leave/defineLeaveType');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).type(this.strings.chars100.text);
-          cy.wrap($input).isInvalid('Should not exceed 50 characters');
+          cy.wrap($input).isInvalid('Não deve exceder caracteres50');
           cy.wrap($input).setValue('');
-          cy.wrap($input).isInvalid('Required');
+          cy.wrap($input).isInvalid('Obrigatório');
           cy.wrap($input).type(this.strings.leaveTypes.leavetype2);
-          cy.wrap($input).isInvalid('Already exists');
+          cy.wrap($input).isInvalid('Já existe');
         });
       });
     });
@@ -95,14 +98,14 @@ describe('Leave - leave types', function () {
         '.oxd-table-body > :nth-child(1) .oxd-table-cell-actions > :nth-child(2)',
       ).click();
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).clear();
           cy.wrap($input).type(this.strings.chars30.text);
         });
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@putLeaveType');
-      cy.toast('success', 'Successfully Updated');
+      cy.toast('success', 'Atualizado com sucesso');
     });
   });
 
@@ -113,9 +116,9 @@ describe('Leave - leave types', function () {
       cy.get(
         '.oxd-table-body > :nth-child(1) .oxd-table-cell-actions > :nth-child(1)',
       ).click();
-      cy.getOXD('button').contains('Yes, Delete').click();
+      cy.getOXD('button').contains('Sim, excluir').click();
       cy.wait('@deleteLeaveType');
-      cy.toast('success', 'Successfully Deleted');
+      cy.toast('success', 'Excluído com sucesso');
     });
   });
 });

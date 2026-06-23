@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Console;
+namespace CiaFerias\Framework\Console;
 
 use Symfony\Component\Console\Input\InputDefinition;
 

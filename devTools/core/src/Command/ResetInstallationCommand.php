@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command;
+namespace CiaFerias\DevTools\Command;
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
-use OrangeHRM\Core\Utility\KeyHandler;
-use OrangeHRM\Framework\Filesystem\Filesystem;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
+use CiaFerias\Core\Utility\KeyHandler;
+use CiaFerias\Framework\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -40,7 +40,7 @@ class ResetInstallationCommand extends Command
      */
     protected function configure()
     {
-        $this->setDescription('Reset OrangeHRM installed instance');
+        $this->setDescription('Reset CIA Férias installed instance');
     }
 
     /**
@@ -71,7 +71,7 @@ class ResetInstallationCommand extends Command
 
         $pathToKey = KeyHandler::getPathToKey();
         $fs->remove($pathToKey);
-        $io->note("Deleted key.ohrm file `$pathToKey`");
+        $io->note("Deleted key.cia-ferias file `$pathToKey`");
 
         try {
             $sm->dropDatabase($testConf->getDbName());

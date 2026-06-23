@@ -16,12 +16,12 @@
  */
 
 import {App} from 'vue';
-import SubmitButton from '@ohrm/components/buttons/SubmitButton.vue';
-import TableHeader from '@ohrm/components/table/TableHeader.vue';
-import RequiredText from '@ohrm/components/labels/RequiredText.vue';
-import Layout from '@ohrm/components/layout/Layout.vue';
-import DateInput from '@ohrm/components/inputs/DateInput.vue';
-import TimeInput from '@ohrm/components/inputs/TimeInput.vue';
+import SubmitButton from '@cia-ferias/components/buttons/SubmitButton.vue';
+import TableHeader from '@cia-ferias/components/table/TableHeader.vue';
+import RequiredText from '@cia-ferias/components/labels/RequiredText.vue';
+import Layout from '@cia-ferias/components/layout/Layout.vue';
+import DateInput from '@cia-ferias/components/inputs/DateInput.vue';
+import TimeInput from '@cia-ferias/components/inputs/TimeInput.vue';
 
 import {
   OxdCardTable,
@@ -38,7 +38,7 @@ import {
   OxdGrid,
   OxdGridItem,
   OxdTableFilter,
-} from '@ohrm/oxd';
+} from '@cia-ferias/oxd';
 
 export default {
   install: (app: App) => {

@@ -17,16 +17,16 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util;
+namespace CiaFerias\Tests\Util;
 
 use Exception;
-use OrangeHRM\Core\Api\V2\Endpoint;
-use OrangeHRM\Core\Api\V2\RequestParams;
-use OrangeHRM\Core\Service\DateTimeHelperService;
-use OrangeHRM\Entity\User;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\Tests\Util\Integration\TestCaseParams;
-use OrangeHRM\Tests\Util\Mock\MockAuthUser;
+use CiaFerias\Core\Api\V2\Endpoint;
+use CiaFerias\Core\Api\V2\RequestParams;
+use CiaFerias\Core\Service\DateTimeHelperService;
+use CiaFerias\Entity\User;
+use CiaFerias\Framework\Services;
+use CiaFerias\Tests\Util\Integration\TestCaseParams;
+use CiaFerias\Tests\Util\Mock\MockAuthUser;
 use ReflectionClass;
 
 abstract class EndpointIntegrationTestCase extends EndpointTestCase

@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 -->
-<project name="OrangeHRM" basedir="." default="dist">
+<project name="CIA Férias" basedir="." default="dist">
 
   <property name="version" value="5.8.1"/>
-  <property name="package.name" value="orangehrm-${version}"/>
+  <property name="package.name" value="cia-ferias-${version}"/>
   <resolvepath propertyName="project.dir" file=".."/>
   <resolvepath propertyName="dist.dir" file="dist"/>
   <property name="package.dir" value="${dist.dir}/${package.name}"/>
@@ -69,12 +69,12 @@
         <exclude name="Dockerfile"/>
         <exclude name="devTools/**"/>
         <exclude name="lib/confs/Conf.php"/>
-        <exclude name="lib/confs/cryptokeys/key.ohrm"/>
-        <exclude name="orangehrm-quick-start-guide.html"/>
+        <exclude name="lib/confs/cryptokeys/key.cia-ferias"/>
+        <exclude name="cia-ferias-quick-start-guide.html"/>
         <exclude name="src/test/**"/>
         <exclude name="src/plugins/**/test/**"/>
 
-        <exclude name="src/plugins/orangehrmRESTPlugin/**"/>
+        <exclude name="src/plugins/ciaFeriasRESTPlugin/**"/>
 
         <!-- 5.x related -->
         <exclude name="src/client/node_modules/**"/>
@@ -95,8 +95,12 @@
 
     <copy todir="${dist.dir}">
       <fileset dir="${project.dir}">
-        <include name="orangehrm-quick-start-guide.html"/>
-        <include name="logo.png"/>
+        <include name="cia-ferias-quick-start-guide.html"/>
+      </fileset>
+    </copy>
+    <copy todir="${dist.dir}">
+      <fileset dir="${project.dir}/web/images">
+        <include name="cia-ferias-logo.svg"/>
       </fileset>
     </copy>
   </target>
@@ -107,8 +111,8 @@
     <zip destfile="${dist.dir}/${package.name}.zip" ignoreLinks="true">
       <fileset dir="${dist.dir}">
         <include name="${package.name}/**"/>
-        <include name="orangehrm-quick-start-guide.html"/>
-        <include name="logo.png"/>
+        <include name="cia-ferias-quick-start-guide.html"/>
+        <include name="cia-ferias-logo.svg"/>
         <exclude name="*.zip"/>
         <exclude name="*.tar.gz"/>
       </fileset>
@@ -116,8 +120,8 @@
     <tar destfile="${dist.dir}/${package.name}.tar.gz" compression="gzip">
       <fileset dir="${dist.dir}">
         <include name="${package.name}/**"/>
-        <include name="orangehrm-quick-start-guide.html"/>
-        <include name="logo.png"/>
+        <include name="cia-ferias-quick-start-guide.html"/>
+        <include name="cia-ferias-logo.svg"/>
         <exclude name="*.zip"/>
         <exclude name="*.tar.gz"/>
       </fileset>

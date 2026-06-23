@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Mock;
+namespace CiaFerias\Tests\Util\Mock;
 
 use Monolog\Handler\TestHandler;
-use OrangeHRM\Framework\Logger\Logger;
+use CiaFerias\Framework\Logger\Logger;
 
 class MockLogger extends Logger
 {

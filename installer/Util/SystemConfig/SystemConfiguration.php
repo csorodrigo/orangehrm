@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\SystemConfig;
+namespace CiaFerias\Installer\Util\SystemConfig;
 
 use DateTime;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\ConfigHelper;
-use OrangeHRM\Installer\Util\Connection;
+use CiaFerias\Installer\Util\ConfigHelper;
+use CiaFerias\Installer\Util\Connection;
 
 class SystemConfiguration
 {
@@ -63,7 +63,7 @@ class SystemConfiguration
     {
         $qb = $this->getConnection()->createQueryBuilder();
         $organizationName = $qb->select('organization.name')
-            ->from('ohrm_organization_gen_info', 'organization')
+            ->from('cia_ferias_organization_gen_info', 'organization')
             ->fetchOne();
         return $organizationName ?: self::NOT_CAPTURED;
     }
@@ -75,7 +75,7 @@ class SystemConfiguration
     {
         $qb = $this->getConnection()->createQueryBuilder();
         $country = $qb->select('organization.country')
-            ->from('ohrm_organization_gen_info', 'organization')
+            ->from('cia_ferias_organization_gen_info', 'organization')
             ->fetchOne();
         return $country ?: self::NOT_CAPTURED;
     }
@@ -152,7 +152,7 @@ class SystemConfiguration
     {
         $qb = $this->getConnection()->createQueryBuilder();
         return $qb->select('user.user_name AS userName')
-            ->from('ohrm_user', 'user')
+            ->from('cia_ferias_user', 'user')
             ->where('user.emp_number = :empNumber')
             ->setParameter('empNumber', $this->getAdminEmployeeNumber())
             ->fetchOne();
@@ -176,7 +176,7 @@ class SystemConfiguration
         if (is_null($this->adminEmpNumber)) {
             $qb = $this->getConnection()->createQueryBuilder();
             $qb->select('user.emp_number')
-                ->from('ohrm_user', 'user');
+                ->from('cia_ferias_user', 'user');
             $this->adminEmpNumber = $qb->andWhere($qb->expr()->isNull('user.created_by'))
                 ->setMaxResults(1)
                 ->fetchOne();
@@ -191,7 +191,7 @@ class SystemConfiguration
      * @param string $adminLastName
      * @param string|null $host
      * @param string $country
-     * @param string $ohrmVersion
+     * @param string $CiaFeriasVersion
      * @param int $currentTimestamp
      */
     public function setInstanceIdentifier(
@@ -201,7 +201,7 @@ class SystemConfiguration
         string $adminLastName,
         ?string $host,
         string $country,
-        string $ohrmVersion,
+        string $CiaFeriasVersion,
         int $currentTimestamp
     ): void {
         $instanceIdentifier = $this->createInstanceIdentifier(
@@ -211,7 +211,7 @@ class SystemConfiguration
             $adminLastName,
             $host,
             $country,
-            $ohrmVersion,
+            $CiaFeriasVersion,
             $currentTimestamp,
         );
         $this->configHelper->setConfigValue(
@@ -227,7 +227,7 @@ class SystemConfiguration
      * @param string $adminLastName
      * @param string|null $host
      * @param string|null $country
-     * @param string $ohrmVersion
+     * @param string $CiaFeriasVersion
      * @param int $currentTimestamp
      * @return string
      */
@@ -238,7 +238,7 @@ class SystemConfiguration
         string $adminLastName,
         ?string $host,
         ?string $country,
-        string $ohrmVersion,
+        string $CiaFeriasVersion,
         int $currentTimestamp
     ): string {
         $host = !is_null($host) ? $host : '';
@@ -251,7 +251,7 @@ class SystemConfiguration
             '_' . $adminLastName .
             '_' . $host .
             '_' . $country .
-            '_' . $ohrmVersion .
+            '_' . $CiaFeriasVersion .
             '_' . $currentTimestamp
         );
     }
@@ -261,7 +261,7 @@ class SystemConfiguration
      */
     public function isRegistrationEventQueueAvailable(): bool
     {
-        return $this->getSchemaManager()->tablesExist(['ohrm_registration_event_queue']);
+        return $this->getSchemaManager()->tablesExist(['cia_ferias_registration_event_queue']);
     }
 
     /**
@@ -279,7 +279,7 @@ class SystemConfiguration
         $eventTime = $eventTime ?? new DateTime();
 
         $qb = $this->getConnection()->createQueryBuilder();
-        $qb->insert('ohrm_registration_event_queue')
+        $qb->insert('cia_ferias_registration_event_queue')
             ->setValue('event_type', ':eventType')
             ->setParameter('eventType', $eventType)
             ->setValue('published', ':published')

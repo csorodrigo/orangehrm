@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Framework;
+namespace CiaFerias\Installer\Framework;
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Framework\Console\Command;
-use OrangeHRM\Installer\Util\Logger;
+use CiaFerias\Config\Config;
+use CiaFerias\Framework\Console\Command;
+use CiaFerias\Installer\Util\Logger;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;

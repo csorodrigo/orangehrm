@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\Service;
+namespace CiaFerias\Installer\Util\Service;
 
-use OrangeHRM\Authentication\Dto\UserCredential;
-use OrangeHRM\Authentication\Service\PasswordStrengthService;
-use OrangeHRM\Core\Service\TextHelperService;
+use CiaFerias\Authentication\Dto\UserCredential;
+use CiaFerias\Authentication\Service\PasswordStrengthService;
+use CiaFerias\Core\Service\TextHelperService;
 
 class InstallerPasswordStrengthService extends PasswordStrengthService
 {

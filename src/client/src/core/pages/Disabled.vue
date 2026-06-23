@@ -18,13 +18,13 @@
  -->
 
 <template>
-  <div class="orangehrm-background-container">
-    <div class="orangehrm-card-container">
-      <div class="orangehrm-module-disabled">
-        <oxd-text tag="h1" class="orangehrm-module-disabled-heading">
+  <div class="cia-ferias-background-container">
+    <div class="cia-ferias-card-container">
+      <div class="cia-ferias-module-disabled">
+        <oxd-text tag="h1" class="cia-ferias-module-disabled-heading">
           403
         </oxd-text>
-        <oxd-text tag="h4" class="orangehrm-module-disabled-sub-heading">
+        <oxd-text tag="h4" class="cia-ferias-module-disabled-sub-heading">
           {{ $t('general.module_forbidden') }}
         </oxd-text>
         <oxd-text tag="h6">
@@ -36,7 +36,7 @@
 </template>
 
 <style lang="scss" scoped>
-.orangehrm-module-disabled {
+.cia-ferias-module-disabled {
   text-align: center;
   margin-bottom: 1.2rem;
   &-heading {

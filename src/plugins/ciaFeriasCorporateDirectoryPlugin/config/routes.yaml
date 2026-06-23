@@ -1,0 +1,25 @@
+apiv2_corporate_directory_employee:
+  path: /api/v2/directory/employees/{empNumber}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\CorporateDirectory\Api\EmployeeDirectoryAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_corporate_directory_employees:
+  path: /api/v2/directory/employees
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\CorporateDirectory\Api\EmployeeDirectoryAPI
+
+##########################
+#        Screens
+##########################
+
+corporate_directory_module:
+  path: /directory/viewDirectory
+  controller: CiaFerias\CorporateDirectory\Controller\CorporateDirectoryModuleController::handle
+  methods: [ GET ]

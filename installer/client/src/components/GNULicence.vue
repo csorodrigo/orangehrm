@@ -245,7 +245,7 @@ The GNU General Public License does not permit incorporating your program into p
 </template>
 
 <script>
-import {OxdTextarea} from '@ohrm/oxd';
+import {OxdTextarea} from '@cia-ferias/oxd';
 
 export default {
   name: 'GNULicence',

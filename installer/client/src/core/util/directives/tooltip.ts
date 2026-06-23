@@ -16,7 +16,7 @@
  */
 
 import {Directive, DirectiveBinding, h, render} from 'vue';
-import {OxdIcon} from '@ohrm/oxd';
+import {OxdIcon} from '@cia-ferias/oxd';
 
 const tooltipDirective: Directive = {
   beforeMount(el: HTMLElement, binding: DirectiveBinding<string>) {

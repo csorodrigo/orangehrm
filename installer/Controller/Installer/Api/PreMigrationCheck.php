@@ -17,8 +17,8 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer\Api;
+namespace CiaFerias\Installer\Controller\Installer\Api;
 
-class PreMigrationCheck extends \OrangeHRM\Installer\Controller\Upgrader\Api\PreMigrationCheck
+class PreMigrationCheck extends \CiaFerias\Installer\Controller\Upgrader\Api\PreMigrationCheck
 {
 }

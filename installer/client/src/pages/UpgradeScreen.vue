@@ -17,15 +17,15 @@
  */
  -->
 <template>
-  <div class="orangehrm-installer-page">
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
-      Upgrading OrangeHRM
+  <div class="cia-ferias-installer-page">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+      Upgrading CIA Férias
     </oxd-text>
     <br />
     <oxd-text
       v-if="!taskFailed"
       tag="p"
-      class="orangehrm-installer-page-content"
+      class="cia-ferias-installer-page-content"
     >
       This may take some time. Please do not close the window till progress
       becomes 100%
@@ -36,7 +36,7 @@
     <oxd-text
       tag="h5"
       :class="{
-        'orangehrm-installer-page-content': true,
+        'cia-ferias-installer-page-content': true,
         '--progress': true,
         '--error': taskFailed,
       }"
@@ -53,7 +53,7 @@
 
     <oxd-form-actions
       v-if="progress === 100"
-      class="orangehrm-installer-page-action"
+      class="cia-ferias-installer-page-action"
     >
       <oxd-button display-type="secondary" label="Next" @click="onClickNext" />
     </oxd-form-actions>
@@ -62,14 +62,13 @@
       v-else
       tag="p"
       :class="{
-        'orangehrm-installer-page-content': true,
+        'cia-ferias-installer-page-content': true,
         '--center': true,
         '--error': taskFailed,
       }"
     >
       <span v-if="taskFailed">
-        {{ errorMessage }}. To learn more, check our FAQ at
-        <a :href="faqUrl" target="_blank"> starterhelp.orangehrm.com </a>
+        {{ errorMessage }}. Check the upgrade logs before trying again.
       </span>
       <span v-else>Please Wait. Upgrading in Progress</span>
     </oxd-text>
@@ -84,7 +83,7 @@ import useBeforeUnload from '@/core/util/composable/useBeforeUnload';
 import useUpgrader from '@/core/util/composable/useUpgrader';
 import {navigate} from '@/core/util/helper/navigation.ts';
 import useProgress from '@/core/util/composable/useProgress';
-import {OxdProgressbar} from '@ohrm/oxd';
+import {OxdProgressbar} from '@cia-ferias/oxd';
 
 export default {
   name: 'UpgradeScreen',
@@ -163,18 +162,12 @@ export default {
       onClickNext,
     };
   },
-  data() {
-    return {
-      faqUrl:
-        'https://starterhelp.orangehrm.com/hc/en-us/categories/360002856800-FAQs',
-    };
-  },
 };
 </script>
 
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style scoped lang="scss">
-.orangehrm-installer-page-content {
+.cia-ferias-installer-page-content {
   &.--center {
     text-align: center;
   }

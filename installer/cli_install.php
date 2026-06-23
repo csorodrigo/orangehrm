@@ -17,18 +17,18 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-use OrangeHRM\Authentication\Dto\UserCredential;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Framework\Http\Session\MemorySessionStorage;
-use OrangeHRM\Framework\Http\Session\Session;
-use OrangeHRM\Framework\ServiceContainer;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\Installer\Framework\HttpKernel;
-use OrangeHRM\Installer\Util\AppSetupUtility;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Authentication\Dto\UserCredential;
+use CiaFerias\Config\Config;
+use CiaFerias\Framework\Http\Session\MemorySessionStorage;
+use CiaFerias\Framework\Http\Session\Session;
+use CiaFerias\Framework\ServiceContainer;
+use CiaFerias\Framework\Services;
+use CiaFerias\Installer\Framework\HttpKernel;
+use CiaFerias\Installer\Util\AppSetupUtility;
+use CiaFerias\Installer\Util\StateContainer;
 use Symfony\Component\Yaml\Yaml;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI;
 
 $pathToAutoload = realpath(__DIR__ . '/../src/vendor/autoload.php');
 
@@ -70,7 +70,7 @@ $cliConfig = Yaml::parseFile(realpath(__DIR__ . '/cli_install_config.yaml'));
 
 if ($cliConfig['license']['agree'] != 'y') {
     $licenseFilePath = realpath(__DIR__ . '/../LICENSE');
-    echo "For continue installation need to accept OrangeHRM license agreement. It is available in '$licenseFilePath'.";
+    echo "For continue installation need to accept the license agreement. It is available in '$licenseFilePath'.";
     die;
 }
 echo "Agreed to license from config file\n";
@@ -81,7 +81,7 @@ $dbPort = $cliConfig['database']['hostPort'];
 $dbUser = $cliConfig['database']['privilegedDatabaseUser'];
 $dbPassword = $cliConfig['database']['privilegedDatabasePassword'];
 $dbName = $cliConfig['database']['databaseName'];
-$useSameDbUserForOrangeHRM = $cliConfig['database']['useSameDbUserForOrangeHRM'] == 'y';
+$useSameDbUserForCiaFerias = $cliConfig['database']['useSameDbUserForCiaFerias'] == 'y';
 $enableDataEncryption = $cliConfig['database']['enableDataEncryption'] == 'y';
 
 $organizationName = $cliConfig['organization']['name'];
@@ -97,11 +97,11 @@ $contact = $cliConfig['admin']['contactNumber'];
 
 
 if ($dbType === AppSetupUtility::INSTALLATION_DB_TYPE_NEW) {
-    $ohrmDbUser = $dbUser;
-    $ohrmDbPassword = $dbPassword;
-    if (!$useSameDbUserForOrangeHRM) {
-        $ohrmDbUser = $cliConfig['database']['orangehrmDatabaseUser'];
-        $ohrmDbPassword = $cliConfig['database']['orangehrmDatabasePassword'];
+    $ciaFeriasDbUser = $dbUser;
+    $ciaFeriasDbPassword = $dbPassword;
+    if (!$useSameDbUserForCiaFerias) {
+        $ciaFeriasDbUser = $cliConfig['database']['ciaFeriasDatabaseUser'];
+        $ciaFeriasDbPassword = $cliConfig['database']['ciaFeriasDatabasePassword'];
     }
 
     StateContainer::getInstance()->storeDbInfo(
@@ -109,7 +109,7 @@ if ($dbType === AppSetupUtility::INSTALLATION_DB_TYPE_NEW) {
         $dbPort,
         new UserCredential($dbUser, $dbPassword),
         $dbName,
-        new UserCredential($ohrmDbUser, $ohrmDbPassword)
+        new UserCredential($ciaFeriasDbUser, $ciaFeriasDbPassword)
     );
     StateContainer::getInstance()->setDbType(AppSetupUtility::INSTALLATION_DB_TYPE_NEW);
 } else {
@@ -144,7 +144,7 @@ echo "Applying database changes\n";
 $appSetupUtility->runMigrations('3.3.3', Config::PRODUCT_VERSION);
 echo "Instance creation & Admin user creation\n";
 $appSetupUtility->insertSystemConfiguration();
-echo "Create OrangeHRM database user\n";
+echo "Create application database user\n";
 $appSetupUtility->createDBUser();
 echo "Creating configuration files\n";
 $appSetupUtility->writeConfFile();

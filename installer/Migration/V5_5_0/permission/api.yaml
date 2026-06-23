@@ -4,7 +4,7 @@
 
 apiv2_claim_event:
   description: 'Claim - Claim Events'
-  api: OrangeHRM\Claim\Api\ClaimEventAPI
+  api: CiaFerias\Claim\Api\ClaimEventAPI
   module: claim
   allowed:
     read: true
@@ -17,7 +17,7 @@ apiv2_claim_event:
 
 apiv2_claim_expense_types:
   description: 'Claim - Claim Expense Types'
-  api: OrangeHRM\Claim\Api\ClaimExpenseTypeAPI
+  api: CiaFerias\Claim\Api\ClaimExpenseTypeAPI
   module: claim
   allowed:
     read: true
@@ -30,7 +30,7 @@ apiv2_claim_expense_types:
 
 apiv2_claim_my_claim_request:
   description: 'Claim - Create Claim Request'
-  api: OrangeHRM\Claim\Api\MyClaimRequestAPI
+  api: CiaFerias\Claim\Api\MyClaimRequestAPI
   module: claim
   allowed:
     read: true
@@ -43,7 +43,7 @@ apiv2_claim_my_claim_request:
 
 apiv2_claim_employee_claim_request:
   description: 'Claim - Create Claim Request'
-  api: OrangeHRM\Claim\Api\EmployeeClaimRequestAPI
+  api: CiaFerias\Claim\Api\EmployeeClaimRequestAPI
   module: claim
   allowed:
     read: true
@@ -57,7 +57,7 @@ apiv2_claim_employee_claim_request:
 
 apiv2_claim_expense:
   description: 'Claim - Claim Expenses'
-  api: OrangeHRM\Claim\Api\ClaimExpenseAPI
+  api: CiaFerias\Claim\Api\ClaimExpenseAPI
   module: claim
   allowed:
     read: true
@@ -70,7 +70,7 @@ apiv2_claim_expense:
 
 apiv2_claim_attachment:
   description: "Claim - Claim Attachment"
-  api: OrangeHRM\Claim\Api\ClaimAttachmentAPI
+  api: CiaFerias\Claim\Api\ClaimAttachmentAPI
   module: claim
   allowed:
     read: true
@@ -83,7 +83,7 @@ apiv2_claim_attachment:
 
 apiv2_claim_claim_request_action:
   description: "Claim - Claim Request Action"
-  api: OrangeHRM\Claim\Api\ClaimRequestActionAPI
+  api: CiaFerias\Claim\Api\ClaimRequestActionAPI
   module: claim
   allowed:
     read: false

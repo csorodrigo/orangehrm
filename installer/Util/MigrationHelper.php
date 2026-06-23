@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util;
+namespace CiaFerias\Installer\Util;
 
 use DateTime;
 use DateTimeZone;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Core\Service\DateTimeHelperService;
-use OrangeHRM\Installer\Util\V1\SchemaHelper;
+use CiaFerias\Core\Service\DateTimeHelperService;
+use CiaFerias\Installer\Util\V1\SchemaHelper;
 
 class MigrationHelper
 {
@@ -47,7 +47,7 @@ class MigrationHelper
         if ($this->connection instanceof Connection) {
             return $this->connection;
         }
-        return \OrangeHRM\Installer\Util\Connection::getConnection();
+        return \CiaFerias\Installer\Util\Connection::getConnection();
     }
 
     /**
@@ -64,8 +64,8 @@ class MigrationHelper
      */
     public function logMigrationStarted(string $version): int
     {
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_migration_log'])) {
-            $this->getSchemaHelper()->createTable('ohrm_migration_log')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_migration_log'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_migration_log')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('version', Types::STRING, ['Length' => 10])
                 ->addColumn('db_version', Types::STRING, ['Length' => 255])
@@ -79,7 +79,7 @@ class MigrationHelper
         $systemCheck = new SystemCheck($this->getConnection());
 
         return $this->getConnection()->createQueryBuilder()
-            ->insert('ohrm_migration_log')
+            ->insert('cia_ferias_migration_log')
             ->setValue('version', ':migrationVersion')
             ->setValue('db_version', ':databaseVersion')
             ->setValue('php_version', ':phpVersion')
@@ -103,18 +103,18 @@ class MigrationHelper
     {
         // Fetching last record, rather than directly run update query
         $id = $this->getConnection()->createQueryBuilder()
-            ->select('ohrm_migration_log.id')
-            ->from('ohrm_migration_log')
-            ->where('ohrm_migration_log.version = :version')
+            ->select('cia_ferias_migration_log.id')
+            ->from('cia_ferias_migration_log')
+            ->where('cia_ferias_migration_log.version = :version')
             ->setParameter('version', $version)
-            ->orderBy('ohrm_migration_log.id', 'DESC')
+            ->orderBy('cia_ferias_migration_log.id', 'DESC')
             ->setMaxResults(1)
             ->executeQuery()
             ->fetchOne();
         return $this->getConnection()->createQueryBuilder()
-            ->update('ohrm_migration_log')
-            ->set('ohrm_migration_log.finished_at', ':finishedAt')
-            ->where('ohrm_migration_log.id = :id')
+            ->update('cia_ferias_migration_log')
+            ->set('cia_ferias_migration_log.finished_at', ':finishedAt')
+            ->where('cia_ferias_migration_log.id = :id')
             ->setParameter('id', $id)
             ->setParameter(
                 'finishedAt',

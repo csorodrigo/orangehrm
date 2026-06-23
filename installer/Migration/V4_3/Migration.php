@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_3;
+namespace CiaFerias\Installer\Migration\V4_3;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -30,7 +30,7 @@ class Migration extends AbstractMigration
     public function up(): void
     {
         $this->createQueryBuilder()
-            ->insert('ohrm_module')
+            ->insert('cia_ferias_module')
             ->values(
                 [
                     'name' => ':name',
@@ -52,7 +52,7 @@ class Migration extends AbstractMigration
                 ]
             )
             ->setParameter('key', 'base_url')
-            ->setParameter('value', 'https://marketplace.orangehrm.com')
+            ->setParameter('value', 'https://cia-ferias.local')
             ->executeQuery();
 
         $this->getDataGroupHelper()->insertDataGroupPermissions(__DIR__ . '/permission/data_group.yaml');
@@ -60,14 +60,14 @@ class Migration extends AbstractMigration
         $dataGroupId = $this->getDataGroupHelper()->getDataGroupIdByName('Marketplace');
         $homeScreenId = $this->createQueryBuilder()
             ->select('screen.id')
-            ->from('ohrm_screen', 'screen')
+            ->from('cia_ferias_screen', 'screen')
             ->where('action_url =:actionUrl')
-            ->setParameter('actionUrl', 'ohrmAddons')
+            ->setParameter('actionUrl', 'CiaFeriasAddons')
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('ohrm_data_group_screen')
+            ->insert('cia_ferias_data_group_screen')
             ->values(
                 [
                     'data_group_id' => ':dataGroupId',
@@ -81,8 +81,8 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
 
-        if (!$this->getSchemaManager()->tablesExist('ohrm_marketplace_addon')) {
-            $this->getSchemaHelper()->createTable('ohrm_marketplace_addon')
+        if (!$this->getSchemaManager()->tablesExist('cia_ferias_marketplace_addon')) {
+            $this->getSchemaHelper()->createTable('cia_ferias_marketplace_addon')
                 ->addColumn('addon_id', Types::INTEGER, ['Length' => 11, 'Autoincrement' => true])
                 ->addColumn('title', Types::STRING, ['Length' => 100])
                 ->addColumn('date', Types::DATETIMETZ_MUTABLE)

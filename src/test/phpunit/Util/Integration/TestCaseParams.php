@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Integration;
+namespace CiaFerias\Tests\Util\Integration;
 
 use DateTime;
 use DateTimeZone;

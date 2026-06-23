@@ -1,0 +1,47 @@
+apiv2_admin_oauth_client:
+  path: /api/v2/admin/oauth-clients/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\OAuth\Api\OAuthClientAPI
+
+apiv2_admin_oauth_clients:
+  path: /api/v2/admin/oauth-clients
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\OAuth\Api\OAuthClientAPI
+
+##########################
+#        Screens
+##########################
+
+admin_view_oauth_client:
+  path: /admin/registerOAuthClient
+  controller: CiaFerias\OAuth\Controller\OAuthClientController::handle
+  methods: [ GET ]
+
+admin_edit_oauth_client:
+  path: /admin/editOAuthClient
+  controller: CiaFerias\OAuth\Controller\SaveOAuthClientController::handle
+  methods: [ GET ]
+
+admin_save_oauth_client:
+  path: /admin/saveOAuthClient
+  controller: CiaFerias\OAuth\Controller\SaveOAuthClientController::handle
+  methods: [ GET ]
+
+auth_oauth2_consent:
+  path: /oauth2/authorize/consent
+  controller: CiaFerias\OAuth\Controller\OAuth2\AuthorizationController::handle
+  methods: [ GET ]
+
+auth_oauth2_authorize:
+  path: /oauth2/authorize
+  controller: CiaFerias\OAuth\Controller\AuthorizationController::handle
+  methods: [ GET ]
+
+auth_oauth2_token:
+  path: /oauth2/token
+  controller: CiaFerias\OAuth\Controller\OAuth2\TokenController::handle
+  methods: [ POST ]

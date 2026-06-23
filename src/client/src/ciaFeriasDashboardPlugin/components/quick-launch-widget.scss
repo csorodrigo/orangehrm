@@ -1,0 +1,75 @@
+// OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
+// all the essential functionalities required for any enterprise.
+// Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+//
+// OrangeHRM is free software: you can redistribute it and/or modify it under the terms of
+// the GNU General Public License as published by the Free Software Foundation, either
+// version 3 of the License, or (at your option) any later version.
+//
+// OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+// without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with OrangeHRM.
+// If not, see <https://www.gnu.org/licenses/>.
+
+.cia-ferias-quick-launch {
+  margin: 0;
+  height: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 0.65rem 0.75rem;
+
+  &-card {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+  &-icon {
+    flex: 0 0 1;
+    padding: 0;
+    margin-bottom: 0.15rem;
+    & ::v-deep(.oxd-icon) {
+      width: 52px;
+      height: 52px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    &:focus,
+    &:hover,
+    &:active {
+      color: $oxd-primary-one-color;
+      background-color: $oxd-primary-one-alpha-15-color;
+    }
+  }
+  &-heading {
+    width: 100%;
+    & .--text {
+      font-size: 10.5px;
+      overflow: hidden;
+      line-height: 1.18;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+.cia-ferias-quick-launch-widget {
+  ::v-deep(.cia-ferias-dashboard-widget-body) {
+    height: 235px;
+    overflow: hidden;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .cia-ferias-quick-launch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

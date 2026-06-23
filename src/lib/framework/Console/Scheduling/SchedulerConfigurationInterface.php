@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Console\Scheduling;
+namespace CiaFerias\Framework\Console\Scheduling;
 
 interface SchedulerConfigurationInterface
 {

@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Filesystem;
+namespace CiaFerias\Framework\Filesystem;
 
 use Symfony\Component\Filesystem\Exception\IOException;
 

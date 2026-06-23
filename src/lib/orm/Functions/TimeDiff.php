@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM\Functions;
+namespace CiaFerias\ORM\Functions;
 
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;

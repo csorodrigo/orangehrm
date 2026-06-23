@@ -18,24 +18,24 @@
  -->
 <template>
   <oxd-form
-    class="orangehrm-installer-page"
+    class="cia-ferias-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
       Current Version Details
     </oxd-text>
     <br />
-    <oxd-text class="orangehrm-installer-page-content">
-      Select your current OrangeHRM version here. You can find the version at
-      the bottom of the OrangeHRM login page. OrangeHRM Upgrader only supports
+    <oxd-text class="cia-ferias-installer-page-content">
+      Select your current CIA Férias version here. You can find the version at
+      the bottom of the CIA Férias login page. The upgrader only supports
       versions listed in the dropdown. Selecting a different version would lead
       to an upgrade failure and a database corruption.
     </oxd-text>
     <br />
 
     <oxd-form-row>
-      <oxd-grid :cols="3" class="orangehrm-full-width-grid">
+      <oxd-grid :cols="3" class="cia-ferias-full-width-grid">
         <oxd-grid-item>
           <version-dropdown
             v-model="version"
@@ -46,15 +46,15 @@
       </oxd-grid>
     </oxd-form-row>
 
-    <oxd-text tag="p" class="orangehrm-installer-page-content">
+    <oxd-text tag="p" class="cia-ferias-installer-page-content">
       Click <b>Next</b> to commence upgrading your instance
     </oxd-text>
 
-    <oxd-form-actions class="orangehrm-installer-page-action">
+    <oxd-form-actions class="cia-ferias-installer-page-action">
       <required-text />
       <oxd-button display-type="ghost" label="Back" @click="onClickBack" />
       <oxd-button
-        class="orangehrm-left-space"
+        class="cia-ferias-left-space"
         display-type="secondary"
         label="Next"
         type="submit"

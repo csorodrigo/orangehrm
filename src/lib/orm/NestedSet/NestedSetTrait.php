@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM\NestedSet;
+namespace CiaFerias\ORM\NestedSet;
 
-use OrangeHRM\ORM\Doctrine;
-use OrangeHRM\ORM\ListSorter;
+use CiaFerias\ORM\Doctrine;
+use CiaFerias\ORM\ListSorter;
 
 trait NestedSetTrait
 {

@@ -1,0 +1,697 @@
+apiv2_pim_employee:
+  path: /api/v2/pim/employees/{empNumber}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees:
+  path: /api/v2/pim/employees
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAPI
+
+apiv2_pim_employees_count:
+  path: /api/v2/pim/employees/count
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeCountAPI
+
+apiv2_pim_employee_picture:
+  path: /api/v2/pim/employees/{empNumber}/picture
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeePictureAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employee_custom_fields:
+  path: /api/v2/pim/employees/{empNumber}/custom-fields
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeCustomFieldAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_personal_details:
+  path: /api/v2/pim/employees/{empNumber}/personal-details
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeePersonalDetailAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_job_details:
+  path: /api/v2/pim/employees/{empNumber}/job-details
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeJobDetailAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_job_employment_contract:
+  path: /api/v2/pim/employees/{empNumber}/employment-contract
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmploymentContractAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_termination:
+  path: /api/v2/pim/employees/{empNumber}/terminations/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeTerminationAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_terminations:
+  path: /api/v2/pim/employees/{empNumber}/terminations
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeTerminationAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employee_contact_details:
+  path: /api/v2/pim/employee/{empNumber}/contact-details
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeContactDetailsAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_dependent:
+  path: /api/v2/pim/employees/{empNumber}/dependents/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeDependentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_dependents:
+  path: /api/v2/pim/employees/{empNumber}/dependents
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeDependentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_salary_component:
+  path: /api/v2/pim/employees/{empNumber}/salary-components/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSalaryComponentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_salary_components:
+  path: /api/v2/pim/employees/{empNumber}/salary-components
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSalaryComponentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_attachment:
+  path: /api/v2/pim/employees/{empNumber}/screen/{screen}/attachments/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAttachmentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_attachments:
+  path: /api/v2/pim/employees/{empNumber}/screen/{screen}/attachments
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAttachmentAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employee_emergency_contact:
+  path: /api/v2/pim/employees/{empNumber}/emergency-contacts/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmpEmergencyContactAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employee_emergency_contacts:
+  path: /api/v2/pim/employees/{empNumber}/emergency-contacts
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST , DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmpEmergencyContactAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_skills:
+  path: /api/v2/pim/employees/{empNumber}/skills
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSkillAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_allowed_skills:
+  path: /api/v2/pim/employees/{empNumber}/skills/allowed
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAllowedSkillAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_skill:
+  path: /api/v2/pim/employees/{empNumber}/skills/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSkillAPI
+  requirements:
+    empNumber: '\d+'
+    id: '\d+'
+
+apiv2_pim_employees_educations:
+  path: /api/v2/pim/employees/{empNumber}/educations
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeEducationAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_education:
+  path: /api/v2/pim/employees/{empNumber}/educations/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeEducationAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_languages:
+  path: /api/v2/pim/employees/{empNumber}/languages
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeLanguageAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_language:
+  path: /api/v2/pim/employees/{empNumber}/languages/{languageId}/fluencies/{fluencyId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _key: fluencyId
+    _api: CiaFerias\Pim\Api\EmployeeLanguageAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_allowed_languages:
+  path: /api/v2/pim/employees/{empNumber}/languages/allowed
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAllowedLanguageAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_work_experiences:
+  path: /api/v2/pim/employees/{empNumber}/work-experiences
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeWorkExperienceAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_work_experience:
+  path: /api/v2/pim/employees/{empNumber}/work-experiences/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeWorkExperienceAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_licenses:
+  path: /api/v2/pim/employees/{empNumber}/licenses
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeLicenseAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_allowed_licenses:
+  path: /api/v2/pim/employees/{empNumber}/licenses/allowed
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAllowedLicenseAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_license:
+  path: /api/v2/pim/employees/{empNumber}/licenses/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeLicenseAPI
+  requirements:
+    empNumber: '\d+'
+    id: '\d+'
+
+apiv2_pim_termination_reason:
+  path: /api/v2/pim/termination-reasons/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\TerminationReasonConfigurationAPI
+
+apiv2_pim_termination_reasons:
+  path: /api/v2/pim/termination-reasons
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\TerminationReasonConfigurationAPI
+
+apiv2_pim_reporting_method:
+  path: /api/v2/pim/reporting-methods/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\ReportingMethodConfigurationAPI
+
+apiv2_pim_reporting_methods:
+  path: /api/v2/pim/reporting-methods
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\ReportingMethodConfigurationAPI
+
+apiv2_pim_custom_fields:
+  path: /api/v2/pim/custom-fields
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\CustomFieldAPI
+
+apiv2_pim_custom_field:
+  path: /api/v2/pim/custom-fields/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\CustomFieldAPI
+  requirements:
+    id: '\d+'
+
+apiv2_pim_optional_field:
+  path: /api/v2/pim/optional-field
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Pim\Api\OptionalFieldAPI
+
+apiv2_pim_employees_immigration:
+  path: /api/v2/pim/employees/{empNumber}/immigrations/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeImmigrationRecordAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_immigrations:
+  path: /api/v2/pim/employees/{empNumber}/immigrations
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeImmigrationRecordAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_report_to_supervisors:
+  path: /api/v2/pim/employees/{empNumber}/supervisors
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSupervisorAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_report_to_supervisor:
+  path: /api/v2/pim/employees/{empNumber}/supervisors/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSupervisorAPI
+  requirements:
+    empNumber: '\d+'
+    id: '\d+'
+
+apiv2_pim_report_to_subordinate:
+  path: /api/v2/pim/employees/{empNumber}/subordinates/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSubordinateAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_report_to_subordinates:
+  path: /api/v2/pim/employees/{empNumber}/subordinates
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeSubordinateAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_report_to_allowed_employees:
+  path: /api/v2/pim/employees/{empNumber}/report-to/allowed
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeAllowedReportToEmployeeAPI
+
+apiv2_pim_employees_memberships:
+  path: /api/v2/pim/employees/{empNumber}/memberships
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeMembershipAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_membership:
+  path: /api/v2/pim/employees/{empNumber}/memberships/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeMembershipAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_us_tax_exemption:
+  path: /api/v2/pim/employees/{empNumber}/tax-exemption
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Pim\Api\EmpUsTaxExemptionAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_work_shift:
+  path: /api/v2/pim/employees/{empNumber}/work-shift
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: empNumber
+    _api: CiaFerias\Pim\Api\EmployeeWorkShiftAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_employees_import:
+  path: /api/v2/pim/csv-import
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ POST ]
+  defaults:
+    _api: CiaFerias\Pim\Api\EmployeeCSVImportAPI
+
+apiv2_pim_reports:
+  path: /api/v2/pim/reports
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Pim\Api\PimReportAPI
+    _key: name
+
+apiv2_pim_reports_data:
+  path: /api/v2/pim/reports/data
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Pim\Api\PimReportDataAPI
+
+apiv2_pim_defined_reports:
+  path: /api/v2/pim/reports/defined
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Pim\Api\PimDefinedReportAPI
+
+apiv2_pim_defined_report:
+  path: /api/v2/pim/reports/defined/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Pim\Api\PimDefinedReportAPI
+
+apiv2_pim_update_password:
+  path: /api/v2/pim/update-password
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Pim\Api\UpdatePasswordAPI
+
+apiv2_pim_validate_employee_email:
+  path: /api/v2/pim/employees/{empNumber}/contact-details/validation/work-emails
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: workEmail
+    _api: CiaFerias\Pim\Api\ValidationEmployeeEmailAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_validate_employee_other_email:
+  path: /api/v2/pim/employees/{empNumber}/contact-details/validation/other-emails
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: otherEmail
+    _api: CiaFerias\Pim\Api\ValidationEmployeeOtherEmailAPI
+  requirements:
+    empNumber: '\d+'
+
+apiv2_pim_my_info:
+  path: /api/v2/pim/myself
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Pim\Api\MyInfoAPI
+
+##########################
+#        Files
+##########################
+
+pim_employee_picture:
+  path: /pim/viewPhoto/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\File\EmployeePictureController::handle
+  methods: [ GET ]
+
+pim_employee_attachment:
+  path: /pim/viewAttachment/empNumber/{empNumber}/attachId/{attachId}
+  controller: CiaFerias\Pim\Controller\File\EmployeeAttachmentController::handle
+  methods: [ GET ]
+
+pim_employee_csv_import_sample_attachment:
+  path: /pim/sampleCsvDownload
+  controller: CiaFerias\Pim\Controller\File\EmployeeCsvImportSampleAttachmentController::handle
+  methods: [ GET ]
+
+##########################
+#        Screens
+##########################
+
+pim_module:
+  path: /pim/viewPimModule
+  controller: CiaFerias\Pim\Controller\PimModuleController::handle
+  methods: [ GET ]
+
+pim_view_my_details:
+  path: /pim/viewMyDetails
+  controller: CiaFerias\Pim\Controller\ViewMyDetailsController::handle
+  methods: [ GET ]
+
+pim_view_employee_list:
+  path: /pim/viewEmployeeList
+  controller: CiaFerias\Pim\Controller\EmployeeController::handle
+  methods: [ GET ]
+
+pim_add_employee:
+  path: /pim/addEmployee
+  controller: CiaFerias\Pim\Controller\SaveEmployeeController::handle
+  methods: [ GET ]
+
+pim_employee_personal_details:
+  path: /pim/viewPersonalDetails/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeePersonalDetailController::handle
+  methods: [ GET ]
+
+pim_employee_contact_details:
+  path: /pim/contactDetails/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeContactDetailsController::handle
+  methods: [ GET ]
+
+pim_employee_emergency_contacts:
+  path: /pim/viewEmergencyContacts/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeEmergencyContactsController::handle
+  methods: [ GET ]
+
+pim_employee_dependents:
+  path: /pim/viewDependents/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeDependentsController::handle
+  methods: [ GET ]
+
+pim_employee_salary:
+  path: /pim/viewSalaryList/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeSalaryController::handle
+  methods: [ GET ]
+
+pim_employee_profile_picture:
+  path: /pim/viewPhotograph/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeProfilePictureController::handle
+  methods: [ GET ]
+
+pim_employee_job:
+  path: /pim/viewJobDetails/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeJobController::handle
+  methods: [ GET ]
+
+pim_employee_qualifications:
+  path: /pim/viewQualifications/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeQualificationsController::handle
+  methods: [ GET ]
+
+pim_employee_report_to:
+  path: /pim/viewReportToDetails/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeReportToController::handle
+  methods: [ GET ]
+
+view_termination_reason:
+  path: /pim/viewTerminationReasons
+  controller: CiaFerias\Pim\Controller\TerminationReasonController::handle
+  methods: [ GET ]
+
+save_termination_reason:
+  path: /pim/saveTerminationReasons
+  controller: CiaFerias\Pim\Controller\SaveTerminationReasonController::handle
+  methods: [ GET ]
+
+edit_termination_reason:
+  path: /pim/saveTerminationReasons/{id}
+  controller: CiaFerias\Pim\Controller\SaveTerminationReasonController::handle
+
+view_reporting_method:
+  path: /pim/viewReportingMethods
+  controller: CiaFerias\Pim\Controller\ReportingMethodController::handle
+  methods: [ GET ]
+
+save_reporting_method:
+  path: /pim/saveReportingMethod
+  controller: CiaFerias\Pim\Controller\SaveReportingMethodController::handle
+  methods: [ GET ]
+
+edit_reporting_method:
+  path: /pim/saveReportingMethod/{id}
+  controller: CiaFerias\Pim\Controller\SaveReportingMethodController::handle
+  methods: [ GET ]
+
+view_custom_fields:
+  path: /pim/listCustomFields
+  controller: CiaFerias\Pim\Controller\CustomFieldController::handle
+  methods: [ GET ]
+
+save_custom_fields:
+  path: /pim/saveCustomFields
+  controller: CiaFerias\Pim\Controller\SaveCustomFieldController::handle
+  methods: [ GET ]
+
+edit_custom_fields:
+  path: /pim/saveCustomFields/{id}
+  controller: CiaFerias\Pim\Controller\SaveCustomFieldController::handle
+
+view_optional_field:
+  path: /pim/configurePim
+  controller: CiaFerias\Pim\Controller\OptionalFieldController::handle
+  methods: [ GET ]
+
+pim_employee_immigration:
+  path: /pim/viewImmigration/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeImmigrationController::handle
+
+pim_employee_membership:
+  path: /pim/viewMemberships/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmployeeMembershipController::handle
+  methods: [ GET ]
+
+pim_employee_tax_exemption:
+  path: /pim/viewUsTaxExemptions/empNumber/{empNumber}
+  controller: CiaFerias\Pim\Controller\EmpUsTaxExemptionController::handle
+  methods: [ GET ]
+
+pim_employee_csv_import:
+  path: /pim/pimCsvImport
+  controller: CiaFerias\Pim\Controller\EmployeeCsvImportController::handle
+  methods: [ GET ]
+
+pim_view_employee_reports:
+  path: /pim/viewDefinedPredefinedReports
+  controller: CiaFerias\Pim\Controller\EmployeeReportController::handle
+  methods: [ GET ]
+
+pim_save_employee_reports:
+  path: /pim/definePredefinedReport
+  controller: CiaFerias\Pim\Controller\SaveEmployeeReportController::handle
+  methods: [ GET ]
+
+pim_edit_employee_reports:
+  path: /pim/definePredefinedReport/{id}
+  controller: CiaFerias\Pim\Controller\SaveEmployeeReportController::handle
+  methods: [ GET ]
+
+pim_display_employee_report:
+  path: /pim/displayPredefinedReport/{id}
+  controller: CiaFerias\Pim\Controller\EmployeeReportController::handle
+  methods: [ GET ]
+
+update_password:
+  path: /pim/updatePassword
+  controller: CiaFerias\Pim\Controller\UpdatePasswordController::handle
+  methods: [ GET ]

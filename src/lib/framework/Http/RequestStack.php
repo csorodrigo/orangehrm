@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Http;
+namespace CiaFerias\Framework\Http;
 
 use Symfony\Component\HttpFoundation\RequestStack as HttpRequestStack;
 

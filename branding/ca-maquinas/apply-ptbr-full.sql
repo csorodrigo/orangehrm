@@ -1,10 +1,10 @@
 SET NAMES utf8mb4;
-UPDATE ohrm_i18n_language SET added=1, enabled=1 WHERE code='pt_BR';
-SET @ptbr := (SELECT id FROM ohrm_i18n_language WHERE code='pt_BR' LIMIT 1);
+UPDATE cia_ferias_i18n_language SET added=1, enabled=1 WHERE code='pt_BR';
+SET @ptbr := (SELECT id FROM cia_ferias_i18n_language WHERE code='pt_BR' LIMIT 1);
 UPDATE hs_hr_config SET value='pt_BR' WHERE name='admin.localization.default_language';
 UPDATE hs_hr_config SET value='No' WHERE name='admin.localization.use_browser_language';
 UPDATE hs_hr_config SET value='d/m/Y' WHERE name='admin.localization.default_date_format';
-INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized, version, modified_at) VALUES
+INSERT INTO cia_ferias_i18n_translate (lang_string_id, language_id, value, customized, version, modified_at) VALUES
 (1, @ptbr, 'Adicionar cargo', 1, 'custom', NOW()),
 (2, @ptbr, 'Editar cargo', 1, 'custom', NOW()),
 (3, @ptbr, 'Cargos', 1, 'custom', NOW()),
@@ -713,7 +713,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (718, @ptbr, 'Fora', 1, 'custom', NOW()),
 (719, @ptbr, 'Limpar registros de funcionários', 1, 'custom', NOW()),
 (720, @ptbr, '(Colaborador antigo)', 1, 'custom', NOW()),
-(721, @ptbr, 'Os usuários que desejam acessar seus dados, ou que desejam corrigir, alterar ou excluir as informações fornecidas devem direcionar suas solicitações para Data@orangehrm.com com o assunto "Purge Records (Instance Identifier:{instanceIdentifier})"', 1, 'custom', NOW()),
+(721, @ptbr, 'Os usuários que desejam acessar seus dados, ou que desejam corrigir, alterar ou excluir as informações fornecidas devem direcionar suas solicitações para suporte@cia-ferias.local com o assunto "Purge Records (Instance Identifier:{instanceIdentifier})"', 1, 'custom', NOW()),
 (722, @ptbr, 'Purga', 1, 'custom', NOW()),
 (723, @ptbr, 'Expurgar funcionário', 1, 'custom', NOW()),
 (724, @ptbr, 'Você está prestes a expurgar o funcionário permanentemente. Tem certeza de que deseja continuar? Esta operação não pode ser desfeita', 1, 'custom', NOW()),
@@ -722,7 +722,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (727, @ptbr, 'Purgado com sucesso', 1, 'custom', NOW()),
 (728, @ptbr, 'Baixar dados pessoais', 1, 'custom', NOW()),
 (730, @ptbr, 'Suporte ao Cliente', 1, 'custom', NOW()),
-(731, @ptbr, 'Aprender como usar um novo aplicativo pode ser um desafio. Na OrangeHRM, temos o compromisso de fornecer a você o conhecimento e as habilidades necessárias para utilizar totalmente o aplicativo, permitindo que você gerencie seus processosHRde forma rápida e eficiente.', 1, 'custom', NOW()),
+(731, @ptbr, 'Aprender como usar um novo aplicativo pode ser um desafio. Na CIA Férias, temos o compromisso de fornecer a você o conhecimento e as habilidades necessárias para utilizar totalmente o aplicativo, permitindo que você gerencie seus processosHRde forma rápida e eficiente.', 1, 'custom', NOW()),
 (732, @ptbr, 'Os seguintes repositórios de informações estão disponíveis para ajudá-lo a entender o aplicativo:', 1, 'custom', NOW()),
 (733, @ptbr, 'Se você tiver algum problema, não hesite em nos contatar em', 1, 'custom', NOW()),
 (734, @ptbr, 'Teremos o maior prazer em ajudar.', 1, 'custom', NOW()),
@@ -731,7 +731,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (737, @ptbr, 'Senha', 1, 'custom', NOW()),
 (738, @ptbr, 'Credencial necessária', 1, 'custom', NOW()),
 (739, @ptbr, 'Acesso de Administrador', 1, 'custom', NOW()),
-(740, @ptbr, 'Você solicitou acesso a uma função crítica de administrador no OrangeHRM e deve validar suas credenciais abaixo', 1, 'custom', NOW()),
+(740, @ptbr, 'Você solicitou acesso a uma função crítica de administrador no CIA Férias e deve validar suas credenciais abaixo', 1, 'custom', NOW()),
 (744, @ptbr, 'Redefinir senha', 1, 'custom', NOW()),
 (745, @ptbr, 'Por favor, digite seu nome de usuário para identificar sua conta e redefinir sua senha', 1, 'custom', NOW()),
 (746, @ptbr, 'Defina uma nova senha', 1, 'custom', NOW()),
@@ -739,11 +739,11 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (748, @ptbr, 'A conta do usuário não pode ser encontrada ou o token de redefinição de senha expirou', 1, 'custom', NOW()),
 (749, @ptbr, 'para solicitar um novo token de redefinição de senha', 1, 'custom', NOW()),
 (750, @ptbr, 'Link de redefinição de senha enviado com sucesso', 1, 'custom', NOW()),
-(751, @ptbr, 'O sistema OrangeHRM não está configurado para receber notificações por email. Entre em contato com o administrador do OrangeHRM para redefinir sua senha', 1, 'custom', NOW()),
+(751, @ptbr, 'O sistema CIA Férias não está configurado para receber notificações por email. Entre em contato com o administrador do CIA Férias para redefinir sua senha', 1, 'custom', NOW()),
 (752, @ptbr, 'para voltar à página de login', 1, 'custom', NOW()),
 (753, @ptbr, 'Um link de redefinição de senha foi enviado a você por e-mail.', 1, 'custom', NOW()),
 (754, @ptbr, 'Você pode seguir esse link e selecionar uma nova senha.', 1, 'custom', NOW()),
-(755, @ptbr, 'Se o e-mail não chegar, entre em contato com o administrador do OrangeHRM.', 1, 'custom', NOW()),
+(755, @ptbr, 'Se o e-mail não chegar, entre em contato com o administrador do CIA Férias.', 1, 'custom', NOW()),
 (756, @ptbr, 'Esqueci sua senha', 1, 'custom', NOW()),
 (757, @ptbr, 'Credenciais inválidas', 1, 'custom', NOW()),
 (758, @ptbr, 'Falha na validação do tokenCSRF', 1, 'custom', NOW()),
@@ -1013,7 +1013,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (1039, @ptbr, 'Por favor, verifique as configurações da sua configuraçãoLDAP', 1, 'custom', NOW()),
 (1040, @ptbr, 'Campo de atributo a ser usado ao pesquisar objetos de usuário. Ex: objectClass=pessoa', 1, 'custom', NOW()),
 (1041, @ptbr, 'Campo de atributo a ser usado como um identificador imutável exclusivo para objetos de usuário. Isso é usado para rastrear alterações de nome de usuário. Ex: entradaUUID, objectGUID', 1, 'custom', NOW()),
-(1042, @ptbr, 'Campo em OrangeHRM', 1, 'custom', NOW()),
+(1042, @ptbr, 'Campo em CIA Férias', 1, 'custom', NOW()),
 (1043, @ptbr, 'Campo no diretórioLDAP', 1, 'custom', NOW()),
 (1044, @ptbr, 'Use este campo como campo de mapeamento de funcionário/usuário', 1, 'custom', NOW()),
 (1045, @ptbr, 'Usuário(s){count}encontrados', 1, 'custom', NOW()),
@@ -1114,7 +1114,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (1142, @ptbr, 'EsteURLnão é umURLválido de um vídeo ou não é suportado pelo sistema', 1, 'custom', NOW()),
 (1143, @ptbr, '?ltimos comunicados', 1, 'custom', NOW()),
 (1144, @ptbr, 'Nenhuma postagem adicionada', 1, 'custom', NOW()),
-(1145, @ptbr, 'Primeiros passos com OrangeHRM', 1, 'custom', NOW()),
+(1145, @ptbr, 'Primeiros passos com CIA Férias', 1, 'custom', NOW()),
 (1146, @ptbr, 'ClienteID', 1, 'custom', NOW()),
 (1147, @ptbr, 'Segredo do cliente', 1, 'custom', NOW()),
 (1148, @ptbr, 'RedirecionarURI', 1, 'custom', NOW()),
@@ -1142,7 +1142,7 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (1170, @ptbr, 'Negar', 1, 'custom', NOW()),
 (1171, @ptbr, 'Permitir acesso', 1, 'custom', NOW()),
 (1172, @ptbr, 'Esta solicitação é inválida', 1, 'custom', NOW()),
-(1173, @ptbr, 'O aplicativo móvel não está ativado. Entre em contato com o administrador do OrangeHRM.', 1, 'custom', NOW()),
+(1173, @ptbr, 'O aplicativo móvel não está ativado. Entre em contato com o administrador do CIA Férias.', 1, 'custom', NOW()),
 (1174, @ptbr, 'Forte', 1, 'custom', NOW()),
 (1175, @ptbr, 'Ajuda', 1, 'custom', NOW()),
 (1176, @ptbr, 'Solicita??es', 1, 'custom', NOW()),
@@ -1219,99 +1219,99 @@ INSERT INTO ohrm_i18n_translate (lang_string_id, language_id, value, customized,
 (1247, @ptbr, 'Sessão expirada', 1, 'custom', NOW()),
 (1248, @ptbr, 'O e-mail comercial contém caracteres inválidos.', 1, 'custom', NOW())
 ON DUPLICATE KEY UPDATE value=VALUES(value), customized=1, version='custom', modified_at=NOW();
-UPDATE ohrm_menu_item SET menu_title='Administra??o' WHERE menu_title='Admin';
-UPDATE ohrm_menu_item SET menu_title='Pessoas' WHERE menu_title='PIM';
-UPDATE ohrm_menu_item SET menu_title='F?rias' WHERE menu_title='Leave';
-UPDATE ohrm_menu_item SET menu_title='Ponto' WHERE menu_title='Time';
-UPDATE ohrm_menu_item SET menu_title='Recrutamento' WHERE menu_title='Recruitment';
-UPDATE ohrm_menu_item SET menu_title='Meus Dados' WHERE menu_title='My Info';
-UPDATE ohrm_menu_item SET menu_title='Desempenho' WHERE menu_title='Performance';
-UPDATE ohrm_menu_item SET menu_title='Painel' WHERE menu_title='Dashboard';
-UPDATE ohrm_menu_item SET menu_title='Diret?rio' WHERE menu_title='Directory';
-UPDATE ohrm_menu_item SET menu_title='Manuten??o' WHERE menu_title='Maintenance';
-UPDATE ohrm_menu_item SET menu_title='Solicita??es' WHERE menu_title='Claim';
-UPDATE ohrm_menu_item SET menu_title='Comunicados' WHERE menu_title='Buzz';
-UPDATE ohrm_menu_item SET menu_title='Gerenciamento de usu?rios' WHERE menu_title='User Management';
-UPDATE ohrm_menu_item SET menu_title='Cargos' WHERE menu_title='Job';
-UPDATE ohrm_menu_item SET menu_title='Organiza??o' WHERE menu_title='Organization';
-UPDATE ohrm_menu_item SET menu_title='Qualifica??es' WHERE menu_title='Qualifications';
-UPDATE ohrm_menu_item SET menu_title='Nacionalidades' WHERE menu_title='Nationalities';
-UPDATE ohrm_menu_item SET menu_title='Identidade visual' WHERE menu_title='Corporate Branding';
-UPDATE ohrm_menu_item SET menu_title='Configura??o' WHERE menu_title='Configuration';
-UPDATE ohrm_menu_item SET menu_title='Usu?rios' WHERE menu_title='Users';
-UPDATE ohrm_menu_item SET menu_title='Clientes' WHERE menu_title='Customers';
-UPDATE ohrm_menu_item SET menu_title='Projetos' WHERE menu_title='Projects';
-UPDATE ohrm_menu_item SET menu_title='Cargos' WHERE menu_title='Job Titles';
-UPDATE ohrm_menu_item SET menu_title='Faixas salariais' WHERE menu_title='Pay Grades';
-UPDATE ohrm_menu_item SET menu_title='Situa??o do v?nculo' WHERE menu_title='Employment Status';
-UPDATE ohrm_menu_item SET menu_title='Categorias de cargo' WHERE menu_title='Job Categories';
-UPDATE ohrm_menu_item SET menu_title='Turnos de trabalho' WHERE menu_title='Work Shifts';
-UPDATE ohrm_menu_item SET menu_title='Informa??es gerais' WHERE menu_title='General Information';
-UPDATE ohrm_menu_item SET menu_title='Locais' WHERE menu_title='Locations';
-UPDATE ohrm_menu_item SET menu_title='Estrutura' WHERE menu_title='Structure';
-UPDATE ohrm_menu_item SET menu_title='Compet?ncias' WHERE menu_title='Skills';
-UPDATE ohrm_menu_item SET menu_title='Escolaridade' WHERE menu_title='Education';
-UPDATE ohrm_menu_item SET menu_title='Licen?as' WHERE menu_title='Licenses';
-UPDATE ohrm_menu_item SET menu_title='Idiomas' WHERE menu_title='Languages';
-UPDATE ohrm_menu_item SET menu_title='Associa??es' WHERE menu_title='Memberships';
-UPDATE ohrm_menu_item SET menu_title='Configura??o de e-mail' WHERE menu_title='Email Configuration';
-UPDATE ohrm_menu_item SET menu_title='Assinaturas de e-mail' WHERE menu_title='Email Subscriptions';
-UPDATE ohrm_menu_item SET menu_title='Localiza??o' WHERE menu_title='Localization';
-UPDATE ohrm_menu_item SET menu_title='Pacotes de idioma' WHERE menu_title='Language Packages';
-UPDATE ohrm_menu_item SET menu_title='M?dulos' WHERE menu_title='Modules';
-UPDATE ohrm_menu_item SET menu_title='Autentica??o por rede social' WHERE menu_title='Social Media Authentication';
-UPDATE ohrm_menu_item SET menu_title='Registrar cliente OAuth' WHERE menu_title='Register OAuth Client';
-UPDATE ohrm_menu_item SET menu_title='Configura??o LDAP' WHERE menu_title='LDAP Configuration';
-UPDATE ohrm_menu_item SET menu_title='Lista de colaboradores' WHERE menu_title='Employee List';
-UPDATE ohrm_menu_item SET menu_title='Adicionar colaborador' WHERE menu_title='Add Employee';
-UPDATE ohrm_menu_item SET menu_title='Relat?rios' WHERE menu_title='Reports';
-UPDATE ohrm_menu_item SET menu_title='Campos opcionais' WHERE menu_title='Optional Fields';
-UPDATE ohrm_menu_item SET menu_title='Campos personalizados' WHERE menu_title='Custom Fields';
-UPDATE ohrm_menu_item SET menu_title='Importa??o de dados' WHERE menu_title='Data Import';
-UPDATE ohrm_menu_item SET menu_title='M?todos de relat?rio' WHERE menu_title='Reporting Methods';
-UPDATE ohrm_menu_item SET menu_title='Motivos de desligamento' WHERE menu_title='Termination Reasons';
-UPDATE ohrm_menu_item SET menu_title='Solicitar' WHERE menu_title='Apply';
-UPDATE ohrm_menu_item SET menu_title='Minhas f?rias' WHERE menu_title='My Leave';
-UPDATE ohrm_menu_item SET menu_title='Saldos' WHERE menu_title='Entitlements';
-UPDATE ohrm_menu_item SET menu_title='Configurar' WHERE menu_title='Configure';
-UPDATE ohrm_menu_item SET menu_title='Lista de f?rias' WHERE menu_title='Leave List';
-UPDATE ohrm_menu_item SET menu_title='Atribuir f?rias' WHERE menu_title='Assign Leave';
-UPDATE ohrm_menu_item SET menu_title='Per?odo de f?rias' WHERE menu_title='Leave Period';
-UPDATE ohrm_menu_item SET menu_title='Tipos de f?rias' WHERE menu_title='Leave Types';
-UPDATE ohrm_menu_item SET menu_title='Semana de trabalho' WHERE menu_title='Work Week';
-UPDATE ohrm_menu_item SET menu_title='Feriados' WHERE menu_title='Holidays';
-UPDATE ohrm_menu_item SET menu_title='Folhas de ponto' WHERE menu_title='Timesheets';
-UPDATE ohrm_menu_item SET menu_title='Frequ?ncia' WHERE menu_title='Attendance';
-UPDATE ohrm_menu_item SET menu_title='Informa??es do projeto' WHERE menu_title='Project Info';
-UPDATE ohrm_menu_item SET menu_title='Minhas folhas de ponto' WHERE menu_title='My Timesheets';
-UPDATE ohrm_menu_item SET menu_title='Folhas de ponto dos colaboradores' WHERE menu_title='Employee Timesheets';
-UPDATE ohrm_menu_item SET menu_title='Meus registros' WHERE menu_title='My Records';
-UPDATE ohrm_menu_item SET menu_title='Entrada/Sa?da' WHERE menu_title='Punch In/Out';
-UPDATE ohrm_menu_item SET menu_title='Registros de colaboradores' WHERE menu_title='Employee Records';
-UPDATE ohrm_menu_item SET menu_title='Relat?rios de projeto' WHERE menu_title='Project Reports';
-UPDATE ohrm_menu_item SET menu_title='Relat?rios de colaboradores' WHERE menu_title='Employee Reports';
-UPDATE ohrm_menu_item SET menu_title='Resumo de frequ?ncia' WHERE menu_title='Attendance Summary';
-UPDATE ohrm_menu_item SET menu_title='Candidatos' WHERE menu_title='Candidates';
-UPDATE ohrm_menu_item SET menu_title='Vagas' WHERE menu_title='Vacancies';
-UPDATE ohrm_menu_item SET menu_title='Adicionar saldos' WHERE menu_title='Add Entitlements';
-UPDATE ohrm_menu_item SET menu_title='Saldos dos colaboradores' WHERE menu_title='Employee Entitlements';
-UPDATE ohrm_menu_item SET menu_title='Meus saldos' WHERE menu_title='My Entitlements';
-UPDATE ohrm_menu_item SET menu_title='Relat?rio de saldos e uso de f?rias' WHERE menu_title='Leave Entitlements and Usage Report';
-UPDATE ohrm_menu_item SET menu_title='Meu relat?rio de saldos e uso de f?rias' WHERE menu_title='My Leave Entitlements and Usage Report';
-UPDATE ohrm_menu_item SET menu_title='Gerenciar avalia??es' WHERE menu_title='Manage Reviews';
-UPDATE ohrm_menu_item SET menu_title='Meus acompanhamentos' WHERE menu_title='My Trackers';
-UPDATE ohrm_menu_item SET menu_title='Acompanhamentos dos colaboradores' WHERE menu_title='Employee Trackers';
-UPDATE ohrm_menu_item SET menu_title='Indicadores' WHERE menu_title='KPIs';
-UPDATE ohrm_menu_item SET menu_title='Acompanhamentos' WHERE menu_title='Trackers';
-UPDATE ohrm_menu_item SET menu_title='Minhas avalia??es' WHERE menu_title='My Reviews';
-UPDATE ohrm_menu_item SET menu_title='Avalia??es dos colaboradores' WHERE menu_title='Employee Reviews';
-UPDATE ohrm_menu_item SET menu_title='Eliminar registros' WHERE menu_title='Purge Records';
-UPDATE ohrm_menu_item SET menu_title='Acessar registros' WHERE menu_title='Access Records';
-UPDATE ohrm_menu_item SET menu_title='Registros de candidatos' WHERE menu_title='Candidate Records';
-UPDATE ohrm_menu_item SET menu_title='Enviar solicita??o' WHERE menu_title='Submit Claim';
-UPDATE ohrm_menu_item SET menu_title='Minhas solicita??es' WHERE menu_title='My Claims';
-UPDATE ohrm_menu_item SET menu_title='Solicita??es de colaboradores' WHERE menu_title='Employee Claims';
-UPDATE ohrm_menu_item SET menu_title='Atribuir solicita??o' WHERE menu_title='Assign Claim';
-UPDATE ohrm_menu_item SET menu_title='Eventos' WHERE menu_title='Events';
-UPDATE ohrm_menu_item SET menu_title='Tipos de despesa' WHERE menu_title='Expense Types';
+UPDATE cia_ferias_menu_item SET menu_title='Administra??o' WHERE menu_title='Admin';
+UPDATE cia_ferias_menu_item SET menu_title='Pessoas' WHERE menu_title='PIM';
+UPDATE cia_ferias_menu_item SET menu_title='F?rias' WHERE menu_title='Leave';
+UPDATE cia_ferias_menu_item SET menu_title='Ponto' WHERE menu_title='Time';
+UPDATE cia_ferias_menu_item SET menu_title='Recrutamento' WHERE menu_title='Recruitment';
+UPDATE cia_ferias_menu_item SET menu_title='Meus Dados' WHERE menu_title='My Info';
+UPDATE cia_ferias_menu_item SET menu_title='Desempenho' WHERE menu_title='Performance';
+UPDATE cia_ferias_menu_item SET menu_title='Painel' WHERE menu_title='Dashboard';
+UPDATE cia_ferias_menu_item SET menu_title='Diret?rio' WHERE menu_title='Directory';
+UPDATE cia_ferias_menu_item SET menu_title='Manuten??o' WHERE menu_title='Maintenance';
+UPDATE cia_ferias_menu_item SET menu_title='Solicita??es' WHERE menu_title='Claim';
+UPDATE cia_ferias_menu_item SET menu_title='Comunicados' WHERE menu_title='Buzz';
+UPDATE cia_ferias_menu_item SET menu_title='Gerenciamento de usu?rios' WHERE menu_title='User Management';
+UPDATE cia_ferias_menu_item SET menu_title='Cargos' WHERE menu_title='Job';
+UPDATE cia_ferias_menu_item SET menu_title='Organiza??o' WHERE menu_title='Organization';
+UPDATE cia_ferias_menu_item SET menu_title='Qualifica??es' WHERE menu_title='Qualifications';
+UPDATE cia_ferias_menu_item SET menu_title='Nacionalidades' WHERE menu_title='Nationalities';
+UPDATE cia_ferias_menu_item SET menu_title='Identidade visual' WHERE menu_title='Corporate Branding';
+UPDATE cia_ferias_menu_item SET menu_title='Configura??o' WHERE menu_title='Configuration';
+UPDATE cia_ferias_menu_item SET menu_title='Usu?rios' WHERE menu_title='Users';
+UPDATE cia_ferias_menu_item SET menu_title='Clientes' WHERE menu_title='Customers';
+UPDATE cia_ferias_menu_item SET menu_title='Projetos' WHERE menu_title='Projects';
+UPDATE cia_ferias_menu_item SET menu_title='Cargos' WHERE menu_title='Job Titles';
+UPDATE cia_ferias_menu_item SET menu_title='Faixas salariais' WHERE menu_title='Pay Grades';
+UPDATE cia_ferias_menu_item SET menu_title='Situa??o do v?nculo' WHERE menu_title='Employment Status';
+UPDATE cia_ferias_menu_item SET menu_title='Categorias de cargo' WHERE menu_title='Job Categories';
+UPDATE cia_ferias_menu_item SET menu_title='Turnos de trabalho' WHERE menu_title='Work Shifts';
+UPDATE cia_ferias_menu_item SET menu_title='Informa??es gerais' WHERE menu_title='General Information';
+UPDATE cia_ferias_menu_item SET menu_title='Locais' WHERE menu_title='Locations';
+UPDATE cia_ferias_menu_item SET menu_title='Estrutura' WHERE menu_title='Structure';
+UPDATE cia_ferias_menu_item SET menu_title='Compet?ncias' WHERE menu_title='Skills';
+UPDATE cia_ferias_menu_item SET menu_title='Escolaridade' WHERE menu_title='Education';
+UPDATE cia_ferias_menu_item SET menu_title='Licen?as' WHERE menu_title='Licenses';
+UPDATE cia_ferias_menu_item SET menu_title='Idiomas' WHERE menu_title='Languages';
+UPDATE cia_ferias_menu_item SET menu_title='Associa??es' WHERE menu_title='Memberships';
+UPDATE cia_ferias_menu_item SET menu_title='Configura??o de e-mail' WHERE menu_title='Email Configuration';
+UPDATE cia_ferias_menu_item SET menu_title='Assinaturas de e-mail' WHERE menu_title='Email Subscriptions';
+UPDATE cia_ferias_menu_item SET menu_title='Localiza??o' WHERE menu_title='Localization';
+UPDATE cia_ferias_menu_item SET menu_title='Pacotes de idioma' WHERE menu_title='Language Packages';
+UPDATE cia_ferias_menu_item SET menu_title='M?dulos' WHERE menu_title='Modules';
+UPDATE cia_ferias_menu_item SET menu_title='Autentica??o por rede social' WHERE menu_title='Social Media Authentication';
+UPDATE cia_ferias_menu_item SET menu_title='Registrar cliente OAuth' WHERE menu_title='Register OAuth Client';
+UPDATE cia_ferias_menu_item SET menu_title='Configura??o LDAP' WHERE menu_title='LDAP Configuration';
+UPDATE cia_ferias_menu_item SET menu_title='Lista de colaboradores' WHERE menu_title='Employee List';
+UPDATE cia_ferias_menu_item SET menu_title='Adicionar colaborador' WHERE menu_title='Add Employee';
+UPDATE cia_ferias_menu_item SET menu_title='Relat?rios' WHERE menu_title='Reports';
+UPDATE cia_ferias_menu_item SET menu_title='Campos opcionais' WHERE menu_title='Optional Fields';
+UPDATE cia_ferias_menu_item SET menu_title='Campos personalizados' WHERE menu_title='Custom Fields';
+UPDATE cia_ferias_menu_item SET menu_title='Importa??o de dados' WHERE menu_title='Data Import';
+UPDATE cia_ferias_menu_item SET menu_title='M?todos de relat?rio' WHERE menu_title='Reporting Methods';
+UPDATE cia_ferias_menu_item SET menu_title='Motivos de desligamento' WHERE menu_title='Termination Reasons';
+UPDATE cia_ferias_menu_item SET menu_title='Solicitar' WHERE menu_title='Apply';
+UPDATE cia_ferias_menu_item SET menu_title='Minhas f?rias' WHERE menu_title='My Leave';
+UPDATE cia_ferias_menu_item SET menu_title='Saldos' WHERE menu_title='Entitlements';
+UPDATE cia_ferias_menu_item SET menu_title='Configurar' WHERE menu_title='Configure';
+UPDATE cia_ferias_menu_item SET menu_title='Lista de f?rias' WHERE menu_title='Leave List';
+UPDATE cia_ferias_menu_item SET menu_title='Atribuir f?rias' WHERE menu_title='Assign Leave';
+UPDATE cia_ferias_menu_item SET menu_title='Per?odo de f?rias' WHERE menu_title='Leave Period';
+UPDATE cia_ferias_menu_item SET menu_title='Tipos de f?rias' WHERE menu_title='Leave Types';
+UPDATE cia_ferias_menu_item SET menu_title='Semana de trabalho' WHERE menu_title='Work Week';
+UPDATE cia_ferias_menu_item SET menu_title='Feriados' WHERE menu_title='Holidays';
+UPDATE cia_ferias_menu_item SET menu_title='Folhas de ponto' WHERE menu_title='Timesheets';
+UPDATE cia_ferias_menu_item SET menu_title='Frequ?ncia' WHERE menu_title='Attendance';
+UPDATE cia_ferias_menu_item SET menu_title='Informa??es do projeto' WHERE menu_title='Project Info';
+UPDATE cia_ferias_menu_item SET menu_title='Minhas folhas de ponto' WHERE menu_title='My Timesheets';
+UPDATE cia_ferias_menu_item SET menu_title='Folhas de ponto dos colaboradores' WHERE menu_title='Employee Timesheets';
+UPDATE cia_ferias_menu_item SET menu_title='Meus registros' WHERE menu_title='My Records';
+UPDATE cia_ferias_menu_item SET menu_title='Entrada/Sa?da' WHERE menu_title='Punch In/Out';
+UPDATE cia_ferias_menu_item SET menu_title='Registros de colaboradores' WHERE menu_title='Employee Records';
+UPDATE cia_ferias_menu_item SET menu_title='Relat?rios de projeto' WHERE menu_title='Project Reports';
+UPDATE cia_ferias_menu_item SET menu_title='Relat?rios de colaboradores' WHERE menu_title='Employee Reports';
+UPDATE cia_ferias_menu_item SET menu_title='Resumo de frequ?ncia' WHERE menu_title='Attendance Summary';
+UPDATE cia_ferias_menu_item SET menu_title='Candidatos' WHERE menu_title='Candidates';
+UPDATE cia_ferias_menu_item SET menu_title='Vagas' WHERE menu_title='Vacancies';
+UPDATE cia_ferias_menu_item SET menu_title='Adicionar saldos' WHERE menu_title='Add Entitlements';
+UPDATE cia_ferias_menu_item SET menu_title='Saldos dos colaboradores' WHERE menu_title='Employee Entitlements';
+UPDATE cia_ferias_menu_item SET menu_title='Meus saldos' WHERE menu_title='My Entitlements';
+UPDATE cia_ferias_menu_item SET menu_title='Relat?rio de saldos e uso de f?rias' WHERE menu_title='Leave Entitlements and Usage Report';
+UPDATE cia_ferias_menu_item SET menu_title='Meu relat?rio de saldos e uso de f?rias' WHERE menu_title='My Leave Entitlements and Usage Report';
+UPDATE cia_ferias_menu_item SET menu_title='Gerenciar avalia??es' WHERE menu_title='Manage Reviews';
+UPDATE cia_ferias_menu_item SET menu_title='Meus acompanhamentos' WHERE menu_title='My Trackers';
+UPDATE cia_ferias_menu_item SET menu_title='Acompanhamentos dos colaboradores' WHERE menu_title='Employee Trackers';
+UPDATE cia_ferias_menu_item SET menu_title='Indicadores' WHERE menu_title='KPIs';
+UPDATE cia_ferias_menu_item SET menu_title='Acompanhamentos' WHERE menu_title='Trackers';
+UPDATE cia_ferias_menu_item SET menu_title='Minhas avalia??es' WHERE menu_title='My Reviews';
+UPDATE cia_ferias_menu_item SET menu_title='Avalia??es dos colaboradores' WHERE menu_title='Employee Reviews';
+UPDATE cia_ferias_menu_item SET menu_title='Eliminar registros' WHERE menu_title='Purge Records';
+UPDATE cia_ferias_menu_item SET menu_title='Acessar registros' WHERE menu_title='Access Records';
+UPDATE cia_ferias_menu_item SET menu_title='Registros de candidatos' WHERE menu_title='Candidate Records';
+UPDATE cia_ferias_menu_item SET menu_title='Enviar solicita??o' WHERE menu_title='Submit Claim';
+UPDATE cia_ferias_menu_item SET menu_title='Minhas solicita??es' WHERE menu_title='My Claims';
+UPDATE cia_ferias_menu_item SET menu_title='Solicita??es de colaboradores' WHERE menu_title='Employee Claims';
+UPDATE cia_ferias_menu_item SET menu_title='Atribuir solicita??o' WHERE menu_title='Assign Claim';
+UPDATE cia_ferias_menu_item SET menu_title='Eventos' WHERE menu_title='Events';
+UPDATE cia_ferias_menu_item SET menu_title='Tipos de despesa' WHERE menu_title='Expense Types';
 UPDATE hs_hr_employee SET emp_firstname='Administrador', emp_middle_name='', emp_lastname='Sistema' WHERE emp_number=1;

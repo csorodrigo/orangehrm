@@ -40,7 +40,10 @@ describe('Admin - Employment Status', function () {
     it('load emp status list', function () {
       cy.loginTo(this.user, '/admin/employmentStatus');
       cy.wait('@getEmpStatus');
-      cy.toast('info', 'No Records Found');
+      cy.getOXD('pageContext').should(
+        'include.text',
+        'Nenhum registro encontrado',
+      );
     });
   });
 
@@ -48,8 +51,8 @@ describe('Admin - Employment Status', function () {
     it('create snapshot with emp status', function () {
       cy.loginTo(this.user, '/admin/saveEmploymentStatus');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.chars50.text);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Nome').type(this.strings.chars50.text);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@postEmpStatus').then(function () {
         cy.task('db:snapshot', {name: 'empStatus'});
@@ -61,34 +64,34 @@ describe('Admin - Employment Status', function () {
     it('add an emp status and save', function () {
       cy.loginTo(this.user, '/admin/saveEmploymentStatus');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.chars10.text);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Nome').type(this.strings.chars10.text);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@postEmpStatus');
-      cy.toast('success', 'Successfully Saved');
+      cy.toast('success', 'Salvo com sucesso');
     });
 
     it('add an emp status and cancel', function () {
       cy.loginTo(this.user, '/admin/saveEmploymentStatus');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.chars30.text);
-        cy.getOXD('button').contains('Cancel').click();
+        cy.getOXDInput('Nome').type(this.strings.chars30.text);
+        cy.getOXD('button').contains('Cancelar').click();
       });
       cy.wait('@getEmpStatus');
-      cy.getOXD('pageTitle').should('include.text', 'Employment Status');
+      cy.getOXD('pageTitle').should('include.text', 'Status do vínculo');
     });
 
     it('add emp status form validations', function () {
       cy.task('db:restore', {name: 'empStatus'});
       cy.loginTo(this.user, '/admin/saveEmploymentStatus');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).type(this.strings.chars100.text);
-          cy.wrap($input).isInvalid('Should not exceed 50 characters');
+          cy.wrap($input).isInvalid('Não deve exceder caracteres50');
           cy.wrap($input).setValue('');
-          cy.wrap($input).isInvalid('Required');
+          cy.wrap($input).isInvalid('Obrigatório');
           cy.wrap($input).type(this.strings.chars50.text);
-          cy.wrap($input).isInvalid('Already exists');
+          cy.wrap($input).isInvalid('Já existe');
         });
       });
     });
@@ -103,14 +106,14 @@ describe('Admin - Employment Status', function () {
         '.oxd-table-body > :nth-child(1) .oxd-table-cell-actions > :nth-child(2)',
       ).click();
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).clear();
           cy.wrap($input).type(this.strings.chars30.text);
         });
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@putEmpStatus');
-      cy.toast('success', 'Successfully Updated');
+      cy.toast('success', 'Atualizado com sucesso');
     });
   });
 
@@ -122,9 +125,9 @@ describe('Admin - Employment Status', function () {
       cy.get(
         '.oxd-table-body > :nth-child(1) .oxd-table-cell-actions > :nth-child(1)',
       ).click();
-      cy.getOXD('button').contains('Yes, Delete').click();
+      cy.getOXD('button').contains('Sim, excluir').click();
       cy.wait('@deleteEmpStatus');
-      cy.toast('success', 'Successfully Deleted');
+      cy.toast('success', 'Excluído com sucesso');
     });
   });
 });

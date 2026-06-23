@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM\NestedSet;
+namespace CiaFerias\ORM\NestedSet;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Exception;
-use OrangeHRM\ORM\Doctrine;
-use OrangeHRM\ORM\ListSorter;
+use CiaFerias\ORM\Doctrine;
+use CiaFerias\ORM\ListSorter;
 
 class Node implements NodeInterface
 {

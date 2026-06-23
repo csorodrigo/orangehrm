@@ -17,32 +17,32 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util;
+namespace CiaFerias\Tests\Util;
 
 use Doctrine\ORM\EntityManager;
 use Exception;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Service\TextHelperService;
-use OrangeHRM\Entity\Country;
-use OrangeHRM\Entity\DataGroupPermission;
-use OrangeHRM\Entity\DisplayField;
-use OrangeHRM\Entity\FilterField;
-use OrangeHRM\Entity\I18NLangString;
-use OrangeHRM\Entity\MenuItem;
-use OrangeHRM\Entity\Nationality;
-use OrangeHRM\Entity\ReportGroup;
-use OrangeHRM\Entity\WorkflowStateMachine;
-use OrangeHRM\ORM\Doctrine;
-use OrangeHRM\Tests\Util\Fixture\AbstractFixture;
-use OrangeHRM\Tests\Util\Fixture\CountryFixture;
-use OrangeHRM\Tests\Util\Fixture\DataGroupPermissionFixture;
-use OrangeHRM\Tests\Util\Fixture\DisplayFieldFixture;
-use OrangeHRM\Tests\Util\Fixture\FilterFieldFixture;
-use OrangeHRM\Tests\Util\Fixture\I18NLangStringFixture;
-use OrangeHRM\Tests\Util\Fixture\MenuItemFixture;
-use OrangeHRM\Tests\Util\Fixture\NationalityFixture;
-use OrangeHRM\Tests\Util\Fixture\ReportGroupFixture;
-use OrangeHRM\Tests\Util\Fixture\WorkflowStateMachineFixture;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Service\TextHelperService;
+use CiaFerias\Entity\Country;
+use CiaFerias\Entity\DataGroupPermission;
+use CiaFerias\Entity\DisplayField;
+use CiaFerias\Entity\FilterField;
+use CiaFerias\Entity\I18NLangString;
+use CiaFerias\Entity\MenuItem;
+use CiaFerias\Entity\Nationality;
+use CiaFerias\Entity\ReportGroup;
+use CiaFerias\Entity\WorkflowStateMachine;
+use CiaFerias\ORM\Doctrine;
+use CiaFerias\Tests\Util\Fixture\AbstractFixture;
+use CiaFerias\Tests\Util\Fixture\CountryFixture;
+use CiaFerias\Tests\Util\Fixture\DataGroupPermissionFixture;
+use CiaFerias\Tests\Util\Fixture\DisplayFieldFixture;
+use CiaFerias\Tests\Util\Fixture\FilterFieldFixture;
+use CiaFerias\Tests\Util\Fixture\I18NLangStringFixture;
+use CiaFerias\Tests\Util\Fixture\MenuItemFixture;
+use CiaFerias\Tests\Util\Fixture\NationalityFixture;
+use CiaFerias\Tests\Util\Fixture\ReportGroupFixture;
+use CiaFerias\Tests\Util\Fixture\WorkflowStateMachineFixture;
 
 class CoreFixtureService
 {

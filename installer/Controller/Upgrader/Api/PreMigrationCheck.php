@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Upgrader\Api;
+namespace CiaFerias\Installer\Controller\Upgrader\Api;
 
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
-use OrangeHRM\Installer\Util\Connection;
-use OrangeHRM\Installer\Util\DatabaseUserPermissionEvaluator;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\AbstractInstallerRestController;
+use CiaFerias\Installer\Util\Connection;
+use CiaFerias\Installer\Util\DatabaseUserPermissionEvaluator;
+use CiaFerias\Installer\Util\StateContainer;
 
 class PreMigrationCheck extends AbstractInstallerRestController
 {

@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_3_2;
+namespace CiaFerias\Installer\Migration\V4_3_2;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -31,7 +31,7 @@ class Migration extends AbstractMigration
     {
         $q = $this->createQueryBuilder();
         $q->select('email_config.sendmail_path')
-            ->from('ohrm_email_configuration', 'email_config')
+            ->from('cia_ferias_email_configuration', 'email_config')
             ->where('email_config.mail_type = :mailType')
             ->setParameter('mailType', 'sendmail')
             ->andWhere($q->expr()->isNotNull('email_config.sendmail_path'))
@@ -62,9 +62,9 @@ class Migration extends AbstractMigration
                 ->executeQuery();
         }
 
-        $this->getSchemaHelper()->dropColumn('ohrm_email_configuration', 'sendmail_path');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_email_configuration', 'sendmail_path');
 
-        $this->getSchemaHelper()->addColumn('ohrm_marketplace_addon', 'type', Types::STRING, ['Notnull' => false,'Default' => 'free']);
+        $this->getSchemaHelper()->addColumn('cia_ferias_marketplace_addon', 'type', Types::STRING, ['Notnull' => false,'Default' => 'free']);
     }
 
     /**

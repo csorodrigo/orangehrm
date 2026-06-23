@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Cache;
+namespace CiaFerias\Framework\Cache;
 
 use Symfony\Component\Cache\Adapter\FilesystemAdapter as BaseFilesystemAdapter;
 

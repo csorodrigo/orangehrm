@@ -90,7 +90,7 @@ jobs:
           php -f /usr/bin/composer install -d src
           php -f /usr/bin/composer install -d devTools/core
 
-      - name: Install OrangeHRM
+      - name: Install CIA Férias
         run: |
           php installer/cli_install.php
 
@@ -101,7 +101,7 @@ jobs:
 
       - name: Configure LDAP server
         run: |
-          cd src/plugins/orangehrmLDAPAuthenticationPlugin/test/config
+          cd src/plugins/ciaFeriasLDAPAuthenticationPlugin/test/config
           docker run --detach --rm --name openldap \
             --network ${{ job.container.network }} \
             -p 389:1389 \
@@ -169,7 +169,7 @@ jobs:
           php -f /usr/bin/composer install -d src
           php -f /usr/bin/composer install -d devTools/core
 
-      - name: Install OrangeHRM
+      - name: Install CIA Férias
         run: |
           php installer/cli_install.php
           mysqldump -V
@@ -177,7 +177,7 @@ jobs:
 
       - name: Configure LDAP server
         run: |
-          cd src/plugins/orangehrmLDAPAuthenticationPlugin/test/config
+          cd src/plugins/ciaFeriasLDAPAuthenticationPlugin/test/config
           docker run --detach --rm --name openldap \
             --network ${{ job.container.network }} \
             -p 389:1389 \

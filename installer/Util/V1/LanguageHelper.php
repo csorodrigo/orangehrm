@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\V1;
+namespace CiaFerias\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
-use OrangeHRM\Installer\Util\V1\Dto\LangString;
+use CiaFerias\Installer\Util\V1\Dto\LangString;
 use Symfony\Component\Yaml\Yaml;
 
 class LanguageHelper
@@ -70,7 +70,7 @@ class LanguageHelper
         if (!isset($this->groupIds[$groupName])) {
             $qb = $this->getConnection()->createQueryBuilder()
                 ->select('i18nGroup.id')
-                ->from('ohrm_i18n_group', 'i18nGroup')
+                ->from('cia_ferias_i18n_group', 'i18nGroup')
                 ->where('i18nGroup.name = :groupName')
                 ->setParameter('groupName', $groupName)
                 ->setMaxResults(1);
@@ -86,11 +86,11 @@ class LanguageHelper
     public function deleteLangStringByUnitId(string $unitId, ?int $groupId = null)
     {
         $qb = $this->getConnection()->createQueryBuilder()
-            ->delete('ohrm_i18n_lang_string')
-            ->andWhere('ohrm_i18n_lang_string.unit_id = :unitId')
+            ->delete('cia_ferias_i18n_lang_string')
+            ->andWhere('cia_ferias_i18n_lang_string.unit_id = :unitId')
             ->setParameter('unitId', $unitId);
         if (!is_null($groupId)) {
-            $qb->andWhere('ohrm_i18n_lang_string.group_id = :groupId')
+            $qb->andWhere('cia_ferias_i18n_lang_string.group_id = :groupId')
                 ->setParameter('groupId', $groupId);
         }
         $qb->executeQuery();
@@ -104,7 +104,7 @@ class LanguageHelper
     public function insertTranslation(int $langId, int $langStringId, ?string $translation): void
     {
         $this->getConnection()->createQueryBuilder()
-            ->insert('ohrm_i18n_translate')
+            ->insert('cia_ferias_i18n_translate')
             ->values([
                 'lang_string_id' => ':langStringId',
                 'language_id' => ':langId',
@@ -123,9 +123,9 @@ class LanguageHelper
     public function getLanguageIdByLangCode(string $langCode): ?int
     {
         return $this->getConnection()->createQueryBuilder()
-            ->select('ohrm_i18n_language.id')
-            ->from('ohrm_i18n_language')
-            ->where('ohrm_i18n_language.code = :langCode')
+            ->select('cia_ferias_i18n_language.id')
+            ->from('cia_ferias_i18n_language')
+            ->where('cia_ferias_i18n_language.code = :langCode')
             ->setParameter('langCode', $langCode)
             ->executeQuery()
             ->fetchOne() ?: null;
@@ -139,10 +139,10 @@ class LanguageHelper
     public function updateLanguageStatusByLangCode(string $langCode, bool $enable, bool $add): void
     {
         $this->getConnection()->createQueryBuilder()
-            ->update('ohrm_i18n_language')
-            ->set('ohrm_i18n_language.enabled', ':enabled')
-            ->set('ohrm_i18n_language.added', ':added')
-            ->where('ohrm_i18n_language.code = :langCode')
+            ->update('cia_ferias_i18n_language')
+            ->set('cia_ferias_i18n_language.enabled', ':enabled')
+            ->set('cia_ferias_i18n_language.added', ':added')
+            ->where('cia_ferias_i18n_language.code = :langCode')
             ->setParameter('enabled', $enable, ParameterType::BOOLEAN)
             ->setParameter('added', $add, ParameterType::BOOLEAN)
             ->setParameter('langCode', $langCode)
@@ -160,8 +160,8 @@ class LanguageHelper
 
         do {
             $langStrings = $this->getConnection()->createQueryBuilder()
-                ->select('ohrm_i18n_lang_string.id', 'ohrm_i18n_lang_string.value')
-                ->from('ohrm_i18n_lang_string')
+                ->select('cia_ferias_i18n_lang_string.id', 'cia_ferias_i18n_lang_string.value')
+                ->from('cia_ferias_i18n_lang_string')
                 ->setFirstResult($offset)
                 ->setMaxResults($limit)
                 ->executeQuery()
@@ -183,8 +183,8 @@ class LanguageHelper
         $this->updateLanguageStatusByLangCode('zz_ZZ', false, false);
         $testLangId = $this->getLanguageIdByLangCode('zz_ZZ');
         $this->getConnection()->createQueryBuilder()
-            ->delete('ohrm_i18n_translate')
-            ->where('ohrm_i18n_translate.language_id = :languageId')
+            ->delete('cia_ferias_i18n_translate')
+            ->where('cia_ferias_i18n_translate.language_id = :languageId')
             ->setParameter('languageId', $testLangId)
             ->executeQuery();
     }

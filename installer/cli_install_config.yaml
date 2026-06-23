@@ -1,25 +1,25 @@
 database:
   hostName: 127.0.0.1
   hostPort: 3306
-  databaseName: orangehrm_mysql
+  databaseName: cia_ferias
   privilegedDatabaseUser: root
   privilegedDatabasePassword: root
-  useSameDbUserForOrangeHRM: y # y/n, if this field `n` fill `orangehrmDatabaseUser` and `orangehrmDatabasePassword`
-  orangehrmDatabaseUser: ~
-  orangehrmDatabasePassword: ~
+  useSameDbUserForCiaFerias: n # y/n, if this field `n` fill `ciaFeriasDatabaseUser` and `ciaFeriasDatabasePassword`
+  ciaFeriasDatabaseUser: cia_ferias
+  ciaFeriasDatabasePassword: cia_ferias
   isExistingDatabase: n # y/n
   enableDataEncryption: n # y/n
 
 organization:
-  name: OrangeHRM
-  country: US
+  name: CIA Férias
+  country: BR
 
 admin:
   adminUserName: Admin
-  adminPassword: Ohrm@1423
-  adminEmployeeFirstName: OrangeHRM
-  adminEmployeeLastName: Admin
-  workEmail: admin@example.com
+  adminPassword: CiaFerias@2026!
+  adminEmployeeFirstName: Administrador
+  adminEmployeeLastName: Sistema
+  workEmail: admin@cia-ferias.local
   contactNumber: ~
   registrationConsent: true
 

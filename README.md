@@ -1,53 +1,48 @@
-<img width="40%" alt='OrangeHRM' src='https://raw.githubusercontent.com/wiki/orangehrm/orangehrm/logos/logo.svg#gh-light-mode-only'/><img width="40%" alt='OrangeHRM' src='https://raw.githubusercontent.com/wiki/orangehrm/orangehrm/logos/logo_dark_mode.svg#gh-dark-mode-only'/>
+# CIA Férias
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/orangehrm/orangehrm.svg)](https://hub.docker.com/r/orangehrm/orangehrm) [![SourceForge Downloads](https://img.shields.io/sourceforge/dm/orangehrm.svg)](https://sourceforge.net/projects/orangehrm/) [![SourceForge Downloads](https://img.shields.io/sourceforge/dt/orangehrm.svg)](https://sourceforge.net/projects/orangehrm/)
+CIA Férias é o sistema interno para gestão de colaboradores, férias, aprovações e rotinas administrativas.
 
-# OrangeHRM Starter Application
+## Ambiente local
 
-OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures all the essential functionalities required for any enterprise. Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com/
+Suba a aplicação com Docker:
 
-OrangeHRM is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+```bash
+docker compose -f docker-compose.local.yml up -d --build
+```
 
-OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+Acesse a aplicação em:
 
-## Getting started
+```text
+http://localhost:8081/web/index.php/auth/login
+```
 
-- Download the latest version of OrangeHRM Starter [here](https://sourceforge.net/projects/orangehrm/files/latest/download).
+Credenciais iniciais:
 
-- Prerequisites and environment set up for installing OrangeHRM Starter:
-  - [Install on Linux](https://starterhelp.orangehrm.com/hc/en-us/articles/6187572000540-Prerequisites-for-installing-OrangeHRM-Starter-in-Linux)
-  - [Install on Windows](https://starterhelp.orangehrm.com/hc/en-us/articles/6187576427804-Prerequisites-for-installing-OrangeHRM-Starter-in-Windows)
+```text
+Admin / CiaFerias@2026!
+Joao.Colaborador / CiaFerias@2026!
+Maria.Gestora / CiaFerias@2026!
+```
 
-- Install OrangeHRM using the web installer:
-  - [OrangeHRM Starter Installation Guide](https://starterhelp.orangehrm.com/hc/en-us/articles/5295915003666-OrangeHRM-Starter-Installation-Guide)
-  - [OrangeHRM Starter Upgrade Guide](https://starterhelp.orangehrm.com/hc/en-us/articles/6937346912402-OrangeHRM-Starter-Upgrade-Guide-For-5x-versions-)
+## Desenvolvimento
 
-- For further information on how to use the product please refer to the User Guides, Tutorial videos, and FAQs available on [Help Portal](https://starterhelp.orangehrm.com)
+Frontend:
 
-## OrangeHRM Mobile App
+```bash
+cd src/client
+yarn lint
+yarn test:unit
+yarn build
+```
 
-<a href="https://play.google.com/store/apps/details?id=com.orangehrm.opensource" target="_blank">
-<img height="54" alt='Get it on Google Play'
-    src='https://raw.githubusercontent.com/wiki/orangehrm/orangehrm/mobile/play_store_cropped_en_US_2022_08_04.png'/>
-</a>
-<a href="https://apps.apple.com/us/app/orangehrm/id1527247547" target="_blank">
-<img height="54" alt='Download on the App Store'
-    src='https://raw.githubusercontent.com/wiki/orangehrm/orangehrm/mobile/app_store_en_US.svg'/>
-</a>
+Testes funcionais:
 
-## Resources
+```bash
+cd src/test/functional
+yarn lint
+yarn test --config baseUrl=http://localhost:8081/web/index.php
+```
 
-### Demo
-Live demo is available at : https://opensource-demo.orangehrmlive.com
+## Licença
 
-### Releases
-Sourceforge : https://sourceforge.net/p/orangehrm
-
-### Website
-https://www.orangehrm.com/
-
-## Help & Support
-Submit your help requests through [OrangeHRM Help Portal](https://starterhelp.orangehrm.com/hc/en-us/requests/new) or Email to [ossupport@orangehrm.com](mailto:ossupport@orangehrm.com)
-
-## License 
-GNU General Public License
+Este projeto preserva os avisos de licença do software original sob GNU General Public License, incluindo as atribuições obrigatórias mantidas nos arquivos derivados.

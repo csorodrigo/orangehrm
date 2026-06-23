@@ -17,16 +17,16 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer;
+namespace CiaFerias\Installer\Controller\Installer;
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Helper\VueControllerHelper;
-use OrangeHRM\Core\Vue\Component;
-use OrangeHRM\Core\Vue\Prop;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
-use OrangeHRM\Installer\Util\Logger;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Helper\VueControllerHelper;
+use CiaFerias\Core\Vue\Component;
+use CiaFerias\Core\Vue\Prop;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\AbstractInstallerVueController;
+use CiaFerias\Installer\Util\Logger;
+use CiaFerias\Installer\Util\StateContainer;
 
 class InstallerCompleteController extends AbstractInstallerVueController
 {
@@ -44,7 +44,7 @@ class InstallerCompleteController extends AbstractInstallerVueController
         StateContainer::getInstance()->clean();
 
         Logger::getLogger()->info(
-            'OrangeHRM ' . Config::PRODUCT_VERSION . ' status: ' . var_export(Config::isInstalled(), true)
+            'CIA Férias ' . Config::PRODUCT_VERSION . ' status: ' . var_export(Config::isInstalled(), true)
         );
     }
 }

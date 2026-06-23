@@ -1,16 +1,16 @@
 langStrings:
   -
-    value: 'Getting Started with Orangehrm'
-    unitId: getting_started_with_orangehrm
+    value: 'Getting Started with CIA Férias'
+    unitId: getting_started_with_cia_ferias
   -
     value: 'Customer Support'
     unitId: customer_support
   -
-    value: 'Learning how to use a new application can be challenging. At OrangeHRM, we are committed to providing you with the necessary knowledge and skills required to fully utilize the application thereby allowing you to quickly and efficiently manage your HR processes.'
-    unitId: getting_started_with_orangehrm_message_1
+    value: 'Learning how to use a new application can be challenging. At CIA Férias, we are committed to providing you with the necessary knowledge and skills required to fully utilize the application thereby allowing you to quickly and efficiently manage your vacation processes.'
+    unitId: getting_started_with_cia_ferias_message_1
   -
     value: 'The following information repositories are available to help you understand the application:'
-    unitId: getting_started_with_orangehrm_message_2
+    unitId: getting_started_with_cia_ferias_message_2
   -
     value: 'Should you experience any issues, please do not hesitate to contact us on'
     unitId: contact_us_on_message

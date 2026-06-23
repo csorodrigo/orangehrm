@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Exception;
+namespace CiaFerias\Framework\Exception;
 
 use Exception;
 

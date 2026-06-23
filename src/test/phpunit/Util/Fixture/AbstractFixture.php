@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Fixture;
+namespace CiaFerias\Tests\Util\Fixture;
 
 use Doctrine\ORM\EntityManager;
 use Exception;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Service\TextHelperService;
-use OrangeHRM\ORM\Doctrine;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Service\TextHelperService;
+use CiaFerias\ORM\Doctrine;
 use Symfony\Component\Yaml\Yaml;
 
 abstract class AbstractFixture

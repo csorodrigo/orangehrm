@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM;
+namespace CiaFerias\ORM;
 
 use Doctrine\ORM\AbstractQuery;
 use Exception;

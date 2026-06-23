@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util;
+namespace CiaFerias\Tests\Util;
 
-use OrangeHRM\Core\Traits\ORM\EntityManagerTrait;
+use CiaFerias\Core\Traits\ORM\EntityManagerTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use ReflectionClass;

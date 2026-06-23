@@ -1,0 +1,9 @@
+view_help_support:
+  path: /help/support
+  controller: CiaFerias\Help\Controller\ViewSupportController::handle
+  methods: [ GET ]
+
+help_help:
+  path: /help/help
+  controller: CiaFerias\Help\Controller\HelpController::handle
+  methods: [ GET ]

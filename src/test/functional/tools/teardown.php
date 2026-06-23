@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-use OrangeHRM\Config\Config;
+use CiaFerias\Config\Config;
 
 require realpath(__DIR__ . '/../../../vendor/autoload.php');
 
@@ -26,5 +26,5 @@ if (Config::PRODUCT_MODE === Config::MODE_PROD) {
     exit;
 }
 $filesystem = new Symfony\Component\Filesystem\Filesystem();
-$filesystem->remove([Config::get(Config::PLUGINS_DIR) . '/orangehrmFunctionalTestingPlugin']);
-echo "\nSuccessfully deleted `src/plugins/orangehrmFunctionalTestingPlugin`\n";
+$filesystem->remove([Config::get(Config::PLUGINS_DIR) . '/ciaFeriasFunctionalTestingPlugin']);
+echo "\nSuccessfully deleted `src/plugins/ciaFeriasFunctionalTestingPlugin`\n";

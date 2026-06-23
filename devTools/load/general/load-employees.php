@@ -36,8 +36,8 @@ $dbConnection->set_charset("utf8mb4");
 
 // Truncating tables
 if (!mysqli_query($dbConnection,"DELETE from `hs_hr_employee`")) { echo mysqli_error($dbConnection); die; }
-if (!mysqli_query($dbConnection,"DELETE from `ohrm_emp_termination`")) { echo mysqli_error($dbConnection); die; }
-if (!mysqli_query($dbConnection,"DELETE from `ohrm_user`")) { echo mysqli_error($dbConnection); die; }
+if (!mysqli_query($dbConnection,"DELETE from `cia_ferias_emp_termination`")) { echo mysqli_error($dbConnection); die; }
+if (!mysqli_query($dbConnection,"DELETE from `cia_ferias_user`")) { echo mysqli_error($dbConnection); die; }
 
 // Employee data
 $employees[0][0] = "001"; $employees[0][1] = "Abbey"; $employees[0][2] = "Kayla";
@@ -315,7 +315,7 @@ EMPSQLSTR;
 
     if ($i == 0) {
         // Default admin
-        $q = "INSERT INTO `ohrm_user` ( `emp_number`, `user_name`, `user_password`,`user_role_id`) VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1)";
+        $q = "INSERT INTO `cia_ferias_user` ( `emp_number`, `user_name`, `user_password`,`user_role_id`) VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1)";
         if (!mysqli_query($dbConnection, $q)) {
             echo mysqli_error($dbConnection);
             die;
@@ -323,7 +323,7 @@ EMPSQLSTR;
     }
 
     $userSql = <<< USERSQLSTR
-INSERT INTO ohrm_user SET
+INSERT INTO cia_ferias_user SET
   user_role_id = 2,
   emp_number = {$empNum},
   user_name = '{$users[$i][1]}',

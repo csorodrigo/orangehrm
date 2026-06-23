@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {OxdAlert} from '@ohrm/oxd';
+import {OxdAlert} from '@cia-ferias/oxd';
 
 export default {
   components: {

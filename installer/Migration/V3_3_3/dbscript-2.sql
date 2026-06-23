@@ -466,16 +466,16 @@ INSERT INTO `hs_hr_province`(`id`, `province_name`, `province_code`, `cou_code`)
     (64, 'Armed Forces Middle East', 'AE', 'US'),
     (65, 'Armed Forces Pacific', 'AP', 'US');
 
-INSERT INTO `hs_hr_module` VALUES ('MOD001','Admin','OrangeHRM','info@orangehrm.com','VER001','HR Admin'),
-								  ('MOD002','PIM','OrangeHRM','info@orangehrm.com','VER001','HR Functions'),
-								  ('MOD004','Report','OrangeHRM','info@orangehrm.com','VER001','Reporting'),
-								  ('MOD005', 'Leave', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Leave Tracking'),
-								  ('MOD006', 'Time', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Time Tracking'),
-								  ('MOD007', 'Benefits', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Benefits Tracking'),
- 	 							('MOD008', 'Recruitment', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Recruitment'),
- 	 							('MOD009', 'Performance', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Performance');
+INSERT INTO `hs_hr_module` VALUES ('MOD001','Admin','CIA Férias','suporte@cia-ferias.local','VER001','HR Admin'),
+								  ('MOD002','PIM','CIA Férias','suporte@cia-ferias.local','VER001','HR Functions'),
+								  ('MOD004','Report','CIA Férias','suporte@cia-ferias.local','VER001','Reporting'),
+								  ('MOD005', 'Leave', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Leave Tracking'),
+								  ('MOD006', 'Time', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Time Tracking'),
+								  ('MOD007', 'Benefits', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Benefits Tracking'),
+ 	 							('MOD008', 'Recruitment', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Recruitment'),
+ 	 							('MOD009', 'Performance', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Performance');
 
-INSERT INTO `ohrm_work_week` VALUES (1, NULL, 0, 0, 0, 0, 0, 8, 8);
+INSERT INTO `cia_ferias_work_week` VALUES (1, NULL, 0, 0, 0, 0, 0, 8, 8);
 
 INSERT INTO `hs_hr_payperiod`(payperiod_code, payperiod_name) VALUES (1, 'Weekly'),
     (2, 'Bi Weekly'),
@@ -514,7 +514,7 @@ INSERT INTO `hs_hr_config`(`key`, `value`) VALUES ('ldap_server', ''),
     ('admin.default_workshift_end_time', '17:00'),
     ('report.mysql_group_concat_max_len', 2048);
 
-INSERT INTO `ohrm_emp_reporting_method`(`reporting_method_id`, `reporting_method_name`) VALUES(1, 'Direct'),
+INSERT INTO `cia_ferias_emp_reporting_method`(`reporting_method_id`, `reporting_method_name`) VALUES(1, 'Direct'),
       (2, 'Indirect');
 
 
@@ -529,21 +529,21 @@ INSERT INTO `hs_hr_unique_id`(last_id, table_name, field_name) VALUES
     (0, 'hs_hr_pay_period', 'id'),
     (0, 'hs_hr_kpi', 'id'),
     (0, 'hs_hr_performance_review', 'id'),
-    (2, 'ohrm_emp_reporting_method', 'reporting_method_id'),
-    (0, 'ohrm_timesheet', 'timesheet_id'),
-    (0, 'ohrm_timesheet_action_log', 'timesheet_action_log_id'),
-    (0, 'ohrm_timesheet_item', 'timesheet_item_id'),
-    (0,'ohrm_attendance_record', 'id'),
-    (0, 'ohrm_job_vacancy', 'id'),
-    (0, 'ohrm_job_candidate', 'id'),
-    (106,'ohrm_workflow_state_machine', 'id'),
-    (0, 'ohrm_job_candidate_attachment', 'id'),
-    (0, 'ohrm_job_vacancy_attachment', 'id'),
-    (0, 'ohrm_job_candidate_vacancy', 'id'),
-    (0, 'ohrm_job_candidate_history', 'id'),
-    (0, 'ohrm_job_interview', 'id');
+    (2, 'cia_ferias_emp_reporting_method', 'reporting_method_id'),
+    (0, 'cia_ferias_timesheet', 'timesheet_id'),
+    (0, 'cia_ferias_timesheet_action_log', 'timesheet_action_log_id'),
+    (0, 'cia_ferias_timesheet_item', 'timesheet_item_id'),
+    (0,'cia_ferias_attendance_record', 'id'),
+    (0, 'cia_ferias_job_vacancy', 'id'),
+    (0, 'cia_ferias_job_candidate', 'id'),
+    (106,'cia_ferias_workflow_state_machine', 'id'),
+    (0, 'cia_ferias_job_candidate_attachment', 'id'),
+    (0, 'cia_ferias_job_vacancy_attachment', 'id'),
+    (0, 'cia_ferias_job_candidate_vacancy', 'id'),
+    (0, 'cia_ferias_job_candidate_history', 'id'),
+    (0, 'cia_ferias_job_interview', 'id');
 
-INSERT INTO `ohrm_workflow_state_machine`(`id`, `workflow`,`state`,`role`,`action`,`resulting_state`, `roles_to_notify`, `priority`)  
+INSERT INTO `cia_ferias_workflow_state_machine`(`id`, `workflow`,`state`,`role`,`action`,`resulting_state`, `roles_to_notify`, `priority`)  
                             VALUES ('1','0','INITIAL','SYSTEM','7','NOT SUBMITTED', '', 0),
                                    ('2','0','SUBMITTED','ADMIN','2','APPROVED', '', 0),
                                    ('3','0','SUBMITTED','ADMIN','3','REJECTED', '', 0),
@@ -651,34 +651,34 @@ INSERT INTO `ohrm_workflow_state_machine`(`id`, `workflow`,`state`,`role`,`actio
                                     (106, '4', 'LEAVE TYPE DELETED TAKEN', 'ADMIN', 'CANCEL', 'CANCELLED', 'ess,subscriber', 0);
 
                                     
-INSERT INTO `ohrm_report_group` (`report_group_id`, `name`, `core_sql`) VALUES 
-   (1,'timesheet', 'SELECT selectCondition FROM ohrm_project_activity LEFT JOIN (SELECT * FROM ohrm_timesheet_item WHERE whereCondition1) AS ohrm_timesheet_item  ON (ohrm_timesheet_item.activity_id = ohrm_project_activity.activity_id) LEFT JOIN ohrm_project ON (ohrm_project.project_id = ohrm_project_activity.project_id) LEFT JOIN hs_hr_employee ON (hs_hr_employee.emp_number = ohrm_timesheet_item.employee_id) LEFT JOIN ohrm_timesheet ON (ohrm_timesheet.timesheet_id = ohrm_timesheet_item.timesheet_id) LEFT JOIN ohrm_customer ON (ohrm_customer.customer_id = ohrm_project.customer_id) WHERE whereCondition2 groupByClause ORDER BY ohrm_customer.name, ohrm_project.name, ohrm_project_activity.name, hs_hr_employee.emp_lastname, hs_hr_employee.emp_firstname'),
-   (2,'attendance', 'SELECT selectCondition FROM hs_hr_employee LEFT JOIN (SELECT * FROM ohrm_attendance_record WHERE ( ( ohrm_attendance_record.punch_in_user_time BETWEEN "#@fromDate@,@1970-01-01@#" AND #@"toDate"@,@CURDATE()@# ) AND ( ohrm_attendance_record.punch_out_user_time BETWEEN "#@fromDate@,@1970-01-01@#" AND #@"toDate"@,@CURDATE()@# ) ) ) AS ohrm_attendance_record ON (hs_hr_employee.emp_number = ohrm_attendance_record.employee_id) WHERE hs_hr_employee.emp_number = #@employeeId@,@hs_hr_employee.emp_number AND (hs_hr_employee.termination_id is null) @# AND (hs_hr_employee.job_title_code = #@"jobTitle")@,@hs_hr_employee.job_title_code OR hs_hr_employee.job_title_code is null)@# AND (hs_hr_employee.work_station IN (#@subUnit)@,@SELECT id FROM ohrm_subunit) OR hs_hr_employee.work_station is null@#) AND (hs_hr_employee.emp_status = #@"employeeStatus")@,@hs_hr_employee.emp_status OR hs_hr_employee.emp_status is null)@# groupByClause ORDER BY hs_hr_employee.emp_lastname, hs_hr_employee.emp_firstname'),
+INSERT INTO `cia_ferias_report_group` (`report_group_id`, `name`, `core_sql`) VALUES 
+   (1,'timesheet', 'SELECT selectCondition FROM cia_ferias_project_activity LEFT JOIN (SELECT * FROM cia_ferias_timesheet_item WHERE whereCondition1) AS cia_ferias_timesheet_item  ON (cia_ferias_timesheet_item.activity_id = cia_ferias_project_activity.activity_id) LEFT JOIN cia_ferias_project ON (cia_ferias_project.project_id = cia_ferias_project_activity.project_id) LEFT JOIN hs_hr_employee ON (hs_hr_employee.emp_number = cia_ferias_timesheet_item.employee_id) LEFT JOIN cia_ferias_timesheet ON (cia_ferias_timesheet.timesheet_id = cia_ferias_timesheet_item.timesheet_id) LEFT JOIN cia_ferias_customer ON (cia_ferias_customer.customer_id = cia_ferias_project.customer_id) WHERE whereCondition2 groupByClause ORDER BY cia_ferias_customer.name, cia_ferias_project.name, cia_ferias_project_activity.name, hs_hr_employee.emp_lastname, hs_hr_employee.emp_firstname'),
+   (2,'attendance', 'SELECT selectCondition FROM hs_hr_employee LEFT JOIN (SELECT * FROM cia_ferias_attendance_record WHERE ( ( cia_ferias_attendance_record.punch_in_user_time BETWEEN "#@fromDate@,@1970-01-01@#" AND #@"toDate"@,@CURDATE()@# ) AND ( cia_ferias_attendance_record.punch_out_user_time BETWEEN "#@fromDate@,@1970-01-01@#" AND #@"toDate"@,@CURDATE()@# ) ) ) AS cia_ferias_attendance_record ON (hs_hr_employee.emp_number = cia_ferias_attendance_record.employee_id) WHERE hs_hr_employee.emp_number = #@employeeId@,@hs_hr_employee.emp_number AND (hs_hr_employee.termination_id is null) @# AND (hs_hr_employee.job_title_code = #@"jobTitle")@,@hs_hr_employee.job_title_code OR hs_hr_employee.job_title_code is null)@# AND (hs_hr_employee.work_station IN (#@subUnit)@,@SELECT id FROM cia_ferias_subunit) OR hs_hr_employee.work_station is null@#) AND (hs_hr_employee.emp_status = #@"employeeStatus")@,@hs_hr_employee.emp_status OR hs_hr_employee.emp_status is null)@# groupByClause ORDER BY hs_hr_employee.emp_lastname, hs_hr_employee.emp_firstname'),
    (3,'pim', 'SELECT selectCondition FROM hs_hr_employee 
                     LEFT JOIN hs_hr_emp_emergency_contacts ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_emergency_contacts.emp_number) 
-                    LEFT JOIN ohrm_subunit ON 
-                        (hs_hr_employee.work_station = ohrm_subunit.id) 
-                    LEFT JOIN ohrm_employment_status ON 
-                        (hs_hr_employee.emp_status = ohrm_employment_status.id) 
-                    LEFT JOIN ohrm_job_title ON
-                        (hs_hr_employee.job_title_code = ohrm_job_title.id)
-                    LEFT JOIN ohrm_job_category ON 
-                        (hs_hr_employee.eeo_cat_code = ohrm_job_category.id) 
-                    LEFT JOIN ohrm_nationality ON
-                        (hs_hr_employee.nation_code = ohrm_nationality.id)
+                    LEFT JOIN cia_ferias_subunit ON 
+                        (hs_hr_employee.work_station = cia_ferias_subunit.id) 
+                    LEFT JOIN cia_ferias_employment_status ON 
+                        (hs_hr_employee.emp_status = cia_ferias_employment_status.id) 
+                    LEFT JOIN cia_ferias_job_title ON
+                        (hs_hr_employee.job_title_code = cia_ferias_job_title.id)
+                    LEFT JOIN cia_ferias_job_category ON 
+                        (hs_hr_employee.eeo_cat_code = cia_ferias_job_category.id) 
+                    LEFT JOIN cia_ferias_nationality ON
+                        (hs_hr_employee.nation_code = cia_ferias_nationality.id)
                     LEFT JOIN hs_hr_emp_dependents ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_dependents.emp_number)
                     LEFT JOIN hs_hr_emp_locations AS emp_location ON
                         (hs_hr_employee.emp_number = emp_location.emp_number)
-                    LEFT JOIN ohrm_location ON
-                        (emp_location.location_id = ohrm_location.id)
+                    LEFT JOIN cia_ferias_location ON
+                        (emp_location.location_id = cia_ferias_location.id)
                     LEFT JOIN hs_hr_emp_contract_extend ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_contract_extend.emp_number) 
                     LEFT JOIN hs_hr_emp_basicsalary ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_basicsalary.emp_number) 
-                    LEFT JOIN ohrm_pay_grade ON 
-                        (hs_hr_emp_basicsalary.sal_grd_code = ohrm_pay_grade.id) 
+                    LEFT JOIN cia_ferias_pay_grade ON 
+                        (hs_hr_emp_basicsalary.sal_grd_code = cia_ferias_pay_grade.id) 
                     LEFT JOIN hs_hr_currency_type ON 
                         (hs_hr_emp_basicsalary.currency_id = hs_hr_currency_type.currency_id) 
                     LEFT JOIN hs_hr_payperiod ON 
@@ -689,30 +689,30 @@ INSERT INTO `ohrm_report_group` (`report_group_id`, `name`, `core_sql`) VALUES
                         (hs_hr_employee.emp_number = subordinate_list.erep_sup_emp_number) 
                     LEFT JOIN hs_hr_employee AS subordinate ON
                         (subordinate.emp_number = subordinate_list.erep_sub_emp_number)
-                    LEFT JOIN ohrm_emp_reporting_method AS subordinate_reporting_method ON 
+                    LEFT JOIN cia_ferias_emp_reporting_method AS subordinate_reporting_method ON 
                         (subordinate_list.erep_reporting_mode = subordinate_reporting_method.reporting_method_id) 
                     LEFT JOIN hs_hr_emp_work_experience ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_work_experience.emp_number) 
-                    LEFT JOIN ohrm_emp_education ON 
-                        (hs_hr_employee.emp_number = ohrm_emp_education.emp_number) 
-                    LEFT JOIN ohrm_education ON 
-                        (ohrm_emp_education.education_id = ohrm_education.id) 
+                    LEFT JOIN cia_ferias_emp_education ON 
+                        (hs_hr_employee.emp_number = cia_ferias_emp_education.emp_number) 
+                    LEFT JOIN cia_ferias_education ON 
+                        (cia_ferias_emp_education.education_id = cia_ferias_education.id) 
                     LEFT JOIN hs_hr_emp_skill ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_skill.emp_number) 
-                    LEFT JOIN ohrm_skill ON 
-                        (hs_hr_emp_skill.skill_id = ohrm_skill.id) 
+                    LEFT JOIN cia_ferias_skill ON 
+                        (hs_hr_emp_skill.skill_id = cia_ferias_skill.id) 
                     LEFT JOIN hs_hr_emp_language ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_language.emp_number) 
-                    LEFT JOIN ohrm_language ON 
-                        (hs_hr_emp_language.lang_id = ohrm_language.id) 
-                    LEFT JOIN ohrm_emp_license ON 
-                        (hs_hr_employee.emp_number = ohrm_emp_license.emp_number) 
-                    LEFT JOIN ohrm_license ON 
-                        (ohrm_emp_license.license_id = ohrm_license.id) 
+                    LEFT JOIN cia_ferias_language ON 
+                        (hs_hr_emp_language.lang_id = cia_ferias_language.id) 
+                    LEFT JOIN cia_ferias_emp_license ON 
+                        (hs_hr_employee.emp_number = cia_ferias_emp_license.emp_number) 
+                    LEFT JOIN cia_ferias_license ON 
+                        (cia_ferias_emp_license.license_id = cia_ferias_license.id) 
                     LEFT JOIN hs_hr_emp_member_detail ON 
                         (hs_hr_employee.emp_number = hs_hr_emp_member_detail.emp_number) 
-                    LEFT JOIN ohrm_membership ON
-                        (hs_hr_emp_member_detail.membship_code = ohrm_membership.id)
+                    LEFT JOIN cia_ferias_membership ON
+                        (hs_hr_emp_member_detail.membship_code = cia_ferias_membership.id)
                     LEFT JOIN hs_hr_country ON 
                         (hs_hr_employee.coun_code = hs_hr_country.cou_code) 
                     LEFT JOIN hs_hr_emp_directdebit ON 
@@ -721,18 +721,18 @@ INSERT INTO `ohrm_report_group` (`report_group_id`, `name`, `core_sql`) VALUES
                         (hs_hr_employee.emp_number = supervisor_list.erep_sub_emp_number) 
                     LEFT JOIN hs_hr_employee AS supervisor ON
                         (supervisor.emp_number = supervisor_list.erep_sup_emp_number)
-                    LEFT JOIN ohrm_emp_reporting_method AS supervisor_reporting_method ON 
+                    LEFT JOIN cia_ferias_emp_reporting_method AS supervisor_reporting_method ON 
                         (supervisor_list.erep_reporting_mode = supervisor_reporting_method.reporting_method_id) 
-                    LEFT JOIN ohrm_emp_termination ON
-                        (hs_hr_employee.termination_id = ohrm_emp_termination.id)
-                    LEFT JOIN ohrm_emp_termination_reason ON
-                        (ohrm_emp_termination.reason_id = ohrm_emp_termination_reason.id)
+                    LEFT JOIN cia_ferias_emp_termination ON
+                        (hs_hr_employee.termination_id = cia_ferias_emp_termination.id)
+                    LEFT JOIN cia_ferias_emp_termination_reason ON
+                        (cia_ferias_emp_termination.reason_id = cia_ferias_emp_termination_reason.id)
                 WHERE hs_hr_employee.emp_number in (
                     SELECT hs_hr_employee.emp_number FROM hs_hr_employee
                         LEFT JOIN hs_hr_emp_basicsalary ON 
                             (hs_hr_employee.emp_number = hs_hr_emp_basicsalary.emp_number) 
-                        LEFT JOIN ohrm_emp_education ON 
-                            (hs_hr_employee.emp_number = ohrm_emp_education.emp_number) 
+                        LEFT JOIN cia_ferias_emp_education ON 
+                            (hs_hr_employee.emp_number = cia_ferias_emp_education.emp_number) 
                         LEFT JOIN hs_hr_emp_skill ON 
                             (hs_hr_employee.emp_number = hs_hr_emp_skill.emp_number) 
                         LEFT JOIN hs_hr_emp_language ON 
@@ -745,7 +745,7 @@ INSERT INTO `ohrm_report_group` (`report_group_id`, `name`, `core_sql`) VALUES
                      hs_hr_employee.emp_firstname,
                      hs_hr_employee.emp_middle_name,
                      hs_hr_employee.emp_birthday,
-                     ohrm_nationality.name,
+                     cia_ferias_nationality.name,
                      hs_hr_employee.emp_gender,
                      hs_hr_employee.emp_marital_status,
                      hs_hr_employee.emp_dri_lice_num,
@@ -765,37 +765,37 @@ INSERT INTO `ohrm_report_group` (`report_group_id`, `name`, `core_sql`) VALUES
 ORDER BY hs_hr_employee.emp_lastname
 ');
 
-INSERT INTO `ohrm_report` (`report_id`, `name`, `report_group_id`, `use_filter_field`, `type`) VALUES (1, 'Project Report', 1, 1, null),
+INSERT INTO `cia_ferias_report` (`report_id`, `name`, `report_group_id`, `use_filter_field`, `type`) VALUES (1, 'Project Report', 1, 1, null),
     (2, 'Employee Report', 1, 1, null),
     (3, 'Project Activity Details', 1, 1, null),
     (4, 'Attendance Total Summary Report', 2, 0, null),
     (5, 'PIM Sample Report', 3, 1, 'PIM_DEFINED');
 
-INSERT INTO `ohrm_filter_field` (`filter_field_id`, `report_group_id`, `name`, `where_clause_part`, `filter_field_widget`, `condition_no`, `required`) VALUES 
-    (1, 1, 'project_name', 'ohrm_project.project_id', 'ohrmWidgetProjectList', 2, 'true'),
-    (2, 1, 'activity_show_deleted', 'ohrm_project_activity.is_deleted', 'ohrmWidgetInputCheckbox', 2, 'false'),
-    (3, 1, 'project_date_range', 'date', 'ohrmWidgetDateRange', 1, 'false'),
-    (4, 1, 'employee', 'hs_hr_employee.emp_number', 'ohrmReportWidgetEmployeeListAutoFill', 2, 'true'),
-    (5, 1, 'activity_name', 'ohrm_project_activity.activity_id', 'ohrmWidgetProjectActivityList', 2, 'true'),
-    (6, 1, 'project_name', 'ohrm_project.project_id', 'ohrmWidgetProjectListWithAllOption', 2, 'true'),
-    (7, 1, 'only_include_approved_timesheets', 'ohrm_timesheet.state', 'ohrmWidgetApprovedTimesheetInputCheckBox', 2, null),
-    (8, 3, 'employee_name', 'hs_hr_employee.emp_number', 'ohrmReportWidgetEmployeeListAutoFill', 1, null),
-    (9, 3, 'pay_grade', 'hs_hr_emp_basicsalary.sal_grd_code', 'ohrmReportWidgetPayGradeDropDown', 1, null),
-    (10, 3, 'education', 'ohrm_emp_education.education_id', 'ohrmReportWidgetEducationtypeDropDown', 1, null),
-    (11, 3, 'employment_status', 'hs_hr_employee.emp_status', 'ohrmWidgetEmploymentStatusList', 1, null),
-    (12, 3, 'service_period', 'datediff(current_date(), hs_hr_employee.joined_date)/365', 'ohrmReportWidgetServicePeriod', 1, null),
-    (13, 3, 'joined_date', 'hs_hr_employee.joined_date', 'ohrmReportWidgetJoinedDate', 1, null),
-    (14, 3, 'job_title', 'hs_hr_employee.job_title_code', 'ohrmWidgetJobTitleList', 1, null),
-    (15, 3, 'language', 'hs_hr_emp_language.lang_id', 'ohrmReportWidgetLanguageDropDown', 1, null),
-    (16, 3, 'skill', 'hs_hr_emp_skill.skill_id', 'ohrmReportWidgetSkillDropDown', 1, null),
-    (17, 3, 'age_group', 'datediff(current_date(), hs_hr_employee.emp_birthday)/365', 'ohrmReportWidgetAgeGroup', 1, null),
-    (18, 3, 'sub_unit', 'hs_hr_employee.work_station', 'ohrmWidgetSubDivisionList', 1, null),
-    (19, 3, 'gender', 'hs_hr_employee.emp_gender', 'ohrmReportWidgetGenderDropDown', 1, null),
-    (20, 3, 'location', 'ohrm_location.id', 'ohrmReportWidgetOperationalCountryLocationDropDown', 1, null),
-    (21, 1, 'is_deleted', 'ohrm_project_activity.is_deleted', '', 2, null),
-    (22, 3, 'include', 'hs_hr_employee.termination_id', 'ohrmReportWidgetIncludedEmployeesDropDown', 1, 'true');
+INSERT INTO `cia_ferias_filter_field` (`filter_field_id`, `report_group_id`, `name`, `where_clause_part`, `filter_field_widget`, `condition_no`, `required`) VALUES 
+    (1, 1, 'project_name', 'cia_ferias_project.project_id', 'ciaFeriasWidgetProjectList', 2, 'true'),
+    (2, 1, 'activity_show_deleted', 'cia_ferias_project_activity.is_deleted', 'ciaFeriasWidgetInputCheckbox', 2, 'false'),
+    (3, 1, 'project_date_range', 'date', 'ciaFeriasWidgetDateRange', 1, 'false'),
+    (4, 1, 'employee', 'hs_hr_employee.emp_number', 'CiaFeriasReportWidgetEmployeeListAutoFill', 2, 'true'),
+    (5, 1, 'activity_name', 'cia_ferias_project_activity.activity_id', 'ciaFeriasWidgetProjectActivityList', 2, 'true'),
+    (6, 1, 'project_name', 'cia_ferias_project.project_id', 'ciaFeriasWidgetProjectListWithAllOption', 2, 'true'),
+    (7, 1, 'only_include_approved_timesheets', 'cia_ferias_timesheet.state', 'ciaFeriasWidgetApprovedTimesheetInputCheckBox', 2, null),
+    (8, 3, 'employee_name', 'hs_hr_employee.emp_number', 'CiaFeriasReportWidgetEmployeeListAutoFill', 1, null),
+    (9, 3, 'pay_grade', 'hs_hr_emp_basicsalary.sal_grd_code', 'CiaFeriasReportWidgetPayGradeDropDown', 1, null),
+    (10, 3, 'education', 'cia_ferias_emp_education.education_id', 'CiaFeriasReportWidgetEducationtypeDropDown', 1, null),
+    (11, 3, 'employment_status', 'hs_hr_employee.emp_status', 'ciaFeriasWidgetEmploymentStatusList', 1, null),
+    (12, 3, 'service_period', 'datediff(current_date(), hs_hr_employee.joined_date)/365', 'CiaFeriasReportWidgetServicePeriod', 1, null),
+    (13, 3, 'joined_date', 'hs_hr_employee.joined_date', 'CiaFeriasReportWidgetJoinedDate', 1, null),
+    (14, 3, 'job_title', 'hs_hr_employee.job_title_code', 'ciaFeriasWidgetJobTitleList', 1, null),
+    (15, 3, 'language', 'hs_hr_emp_language.lang_id', 'CiaFeriasReportWidgetLanguageDropDown', 1, null),
+    (16, 3, 'skill', 'hs_hr_emp_skill.skill_id', 'CiaFeriasReportWidgetSkillDropDown', 1, null),
+    (17, 3, 'age_group', 'datediff(current_date(), hs_hr_employee.emp_birthday)/365', 'CiaFeriasReportWidgetAgeGroup', 1, null),
+    (18, 3, 'sub_unit', 'hs_hr_employee.work_station', 'ciaFeriasWidgetSubDivisionList', 1, null),
+    (19, 3, 'gender', 'hs_hr_employee.emp_gender', 'CiaFeriasReportWidgetGenderDropDown', 1, null),
+    (20, 3, 'location', 'cia_ferias_location.id', 'CiaFeriasReportWidgetOperationalCountryLocationDropDown', 1, null),
+    (21, 1, 'is_deleted', 'cia_ferias_project_activity.is_deleted', '', 2, null),
+    (22, 3, 'include', 'hs_hr_employee.termination_id', 'CiaFeriasReportWidgetIncludedEmployeesDropDown', 1, 'true');
 
-INSERT INTO `ohrm_display_field_group`(`id`, `report_group_id`, `name`, `is_list`) VALUES
+INSERT INTO `cia_ferias_display_field_group`(`id`, `report_group_id`, `name`, `is_list`) VALUES
     (1, 3, 'Personal', false),
     (2, 3, 'Contact Details', false),
     (3, 3, 'Emergency Contacts', true),
@@ -813,21 +813,21 @@ INSERT INTO `ohrm_display_field_group`(`id`, `report_group_id`, `name`, `is_list
     (15, 3, 'Memberships', true),
     (16, 3, 'Custom Fields', false);
 
-INSERT INTO `ohrm_display_field` (`display_field_id`, `report_group_id`, `name`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`, `is_encrypted`, `is_meta`) VALUES
-    (1, 1, 'ohrm_project.name', 'Project Name',                'projectname',  'false', null, null, 'label', '<xml><getter>projectname</getter></xml>', 200, '0', null, false, null, null, false, false),
-    (2, 1, 'ohrm_project_activity.name', 'Activity Name',      'activityname', 'false', null, null, 'link', '<xml><labelGetter>activityname</labelGetter><placeholderGetters><id>activity_id</id><total>totalduration</total><projectId>projectId</projectId><from>fromDate</from><to>toDate</to><approved>onlyIncludeApprovedTimesheets</approved></placeholderGetters><urlPattern>../../displayProjectActivityDetailsReport?reportId=3#activityId={id}#total={total}#from={from}#to={to}#projectId={projectId}#onlyIncludeApprovedTimesheets={approved}</urlPattern></xml>', 200, '0', null, false, null, null, false, false),
-    (3, 1, 'ohrm_project_activity.project_id', 'Project Id',    null, 'false', null, null, 'label', '<xml><getter>project_id</getter></xml>', 75, '0', 'right', false, null, null, false, true),
-    (4, 1, 'ohrm_project_activity.activity_id', 'Activity Id',  null,  'false', null, null, 'label', '<xml><getter>activity_id</getter></xml>', 75, '0', 'right', false, null, null, false, true),
-    (5, 1, 'ohrm_timesheet_item.duration', 'Time (hours)',       null, 'false', null, null, 'label', '<xml><getter>duration</getter></xml>', 75, '0', 'right', false, null, null, false, false),
+INSERT INTO `cia_ferias_display_field` (`display_field_id`, `report_group_id`, `name`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`, `is_encrypted`, `is_meta`) VALUES
+    (1, 1, 'cia_ferias_project.name', 'Project Name',                'projectname',  'false', null, null, 'label', '<xml><getter>projectname</getter></xml>', 200, '0', null, false, null, null, false, false),
+    (2, 1, 'cia_ferias_project_activity.name', 'Activity Name',      'activityname', 'false', null, null, 'link', '<xml><labelGetter>activityname</labelGetter><placeholderGetters><id>activity_id</id><total>totalduration</total><projectId>projectId</projectId><from>fromDate</from><to>toDate</to><approved>onlyIncludeApprovedTimesheets</approved></placeholderGetters><urlPattern>../../displayProjectActivityDetailsReport?reportId=3#activityId={id}#total={total}#from={from}#to={to}#projectId={projectId}#onlyIncludeApprovedTimesheets={approved}</urlPattern></xml>', 200, '0', null, false, null, null, false, false),
+    (3, 1, 'cia_ferias_project_activity.project_id', 'Project Id',    null, 'false', null, null, 'label', '<xml><getter>project_id</getter></xml>', 75, '0', 'right', false, null, null, false, true),
+    (4, 1, 'cia_ferias_project_activity.activity_id', 'Activity Id',  null,  'false', null, null, 'label', '<xml><getter>activity_id</getter></xml>', 75, '0', 'right', false, null, null, false, true),
+    (5, 1, 'cia_ferias_timesheet_item.duration', 'Time (hours)',       null, 'false', null, null, 'label', '<xml><getter>duration</getter></xml>', 75, '0', 'right', false, null, null, false, false),
     (6, 1, 'hs_hr_employee.emp_firstname', 'Employee First Name', null,  'false', null, null, 'label', '<xml><getter>emp_firstname</getter></xml>', 200, '0', null, false, null, null, false, false),
     (7, 1, 'hs_hr_employee.emp_lastname', 'Employee Last Name',   null, 'false', null, null, 'label', '<xml><getter>emp_lastname</getter></xml>', 200, '0', null, false, null, null, false, false),
-    (8, 1, 'ohrm_project_activity.name', 'Activity Name',       'activityname', 'false', null, null, 'label', '<xml><getter>activityname</getter></xml>', 200, '0', null, false, null, null, false, false),
+    (8, 1, 'cia_ferias_project_activity.name', 'Activity Name',       'activityname', 'false', null, null, 'label', '<xml><getter>activityname</getter></xml>', 200, '0', null, false, null, null, false, false),
     (9, 3, 'hs_hr_employee.employee_id', 'Employee Id',          'employeeId',  'false', null, null, 'label', '<xml><getter>employeeId</getter></xml>', 100, '0', null, false, 1, '---', false, false),
     (10, 3, 'hs_hr_employee.emp_lastname', 'Employee Last Name',  'employeeLastname',  'false', null, null, 'label', '<xml><getter>employeeLastname</getter></xml>', 200, '0', null, false, 1, '---', false, false),
     (11, 3, 'hs_hr_employee.emp_firstname', 'Employee First Name','employeeFirstname',  'false', null, null, 'label', '<xml><getter>employeeFirstname</getter></xml>', 200, '0', null, false, 1, '---', false, false),
     (12, 3, 'hs_hr_employee.emp_middle_name', 'Employee Middle Name', 'employeeMiddlename',  'false', null, null, 'label', '<xml><getter>employeeMiddlename</getter></xml>', 200, '0', null, false, 1, '---', false, false),
     (13, 3, 'hs_hr_employee.emp_birthday', 'Date of Birth',           'empBirthday',  'false', null, null, 'labelDate', '<xml><getter>empBirthday</getter></xml>', 100, '0', null, false, 1, '---', false, false),
-    (14, 3, 'ohrm_nationality.name', 'Nationality',              'nationality',  'false', null, null, 'label', '<xml><getter>nationality</getter></xml>', 200, '0', null, false, 1, '---', false, false),
+    (14, 3, 'cia_ferias_nationality.name', 'Nationality',              'nationality',  'false', null, null, 'label', '<xml><getter>nationality</getter></xml>', 200, '0', null, false, 1, '---', false, false),
     (15, 3, 'CASE hs_hr_employee.emp_gender WHEN 1 THEN "Male" WHEN 2 THEN "Female" WHEN 3 THEN "Other" END', 'Gender', 'empGender',  'false', null, null, 'label', '<xml><getter>empGender</getter></xml>', 80, '0', null, false, 1, '---', false, false),
     (17, 3, 'hs_hr_employee.emp_marital_status', 'Marital Status',    'maritalStatus',  'false', null, null, 'label', '<xml><getter>maritalStatus</getter></xml>', 100, '0', null, false, 1, '---', false, false),
     (18, 3, 'hs_hr_employee.emp_dri_lice_num', 'Driver License Number', 'driversLicenseNumber',  'false', null, null, 'label', '<xml><getter>driversLicenseNumber</getter></xml>', 240, '0', null, false, 1, '---', false, false),
@@ -846,7 +846,7 @@ INSERT INTO `ohrm_display_field` (`display_field_id`, `report_group_id`, `name`,
     (31, 3, 'hs_hr_emp_dependents.ed_name', 'Name', 'dependentName',  'false', null, null, 'label', '<xml><getter>dependentName</getter></xml>', 200, '0', null, true, 4, '---', false, false),
     (32, 3, 'IF (hs_hr_emp_dependents.ed_relationship_type = \'other\', hs_hr_emp_dependents.ed_relationship, hs_hr_emp_dependents.ed_relationship_type)', 'Relationship', 'dependentRelationship',  'false', null, null, 'label', '<xml><getter>dependentRelationship</getter></xml>', 200, '0', null, true, 4, '---', false, false),
     (33, 3, 'hs_hr_emp_dependents.ed_date_of_birth', 'Date of Birth', 'dependentDateofBirth',  'false', null, null, 'labelDate', '<xml><getter>dependentDateofBirth</getter></xml>', 100, '0', null, true, 4, '---', false, false),
-    (35, 3, 'ohrm_membership.name', 'Membership', 'name',  'false', null, null, 'label', '<xml><getter>name</getter></xml>', 200, '0', null, true, 15, '---', false, false),
+    (35, 3, 'cia_ferias_membership.name', 'Membership', 'name',  'false', null, null, 'label', '<xml><getter>name</getter></xml>', 200, '0', null, true, 15, '---', false, false),
     (36, 3, 'hs_hr_emp_member_detail.ememb_subscript_ownership', 'Subscription Paid By', 'subscriptionPaidBy',  'false', null, null, 'label', '<xml><getter>subscriptionPaidBy</getter></xml>', 200, '0', null, true, 15, '---', false, false),
     (37, 3, 'hs_hr_emp_member_detail.ememb_subscript_amount', 'Subscription Amount', 'subscriptionAmount',  'false', null, null, 'label', '<xml><getter>subscriptionAmount</getter></xml>', 200, '0', null, true, 15, '---', false, false),
     (38, 3, 'hs_hr_emp_member_detail.ememb_subs_currency', 'Currency', 'membershipCurrency',  'false', null, null, 'label', '<xml><getter>membershipCurrency</getter></xml>', 200, '0', null, true, 15, '---', false, false),
@@ -857,22 +857,22 @@ INSERT INTO `ohrm_display_field` (`display_field_id`, `report_group_id`, `name`,
     (43, 3, 'hs_hr_emp_work_experience.eexp_from_date', 'From', 'expFrom',  'false', null, null, 'labelDate', '<xml><getter>expFrom</getter></xml>', 100, '0', null, true, 10, '---', false, false),
     (44, 3, 'hs_hr_emp_work_experience.eexp_to_date', 'To', 'expTo',  'false', null, null, 'labelDate', '<xml><getter>expTo</getter></xml>', 100, '0', null, true, 10, '---', false, false),
     (45, 3, 'hs_hr_emp_work_experience.eexp_comments', 'Comment', 'expComment',  'false', null, null, 'label', '<xml><getter>expComment</getter></xml>', 200, '0', null, true, 10, '---', false, false),
-    (47, 3, 'ohrm_education.name', 'Level', 'eduProgram',  'false', null, null, 'label', '<xml><getter>eduProgram</getter></xml>', 200, '0', null, true, 11, '---', false, false),
-    (48, 3, 'ohrm_emp_education.year', 'Year', 'eduYear',  'false', null, null, 'label', '<xml><getter>eduYear</getter></xml>', 100, '0', null, true, 11, '---', false, false),
-    (49, 3, 'ohrm_emp_education.score', 'Score', 'eduGPAOrScore',  'false', null, null, 'label', '<xml><getter>eduGPAOrScore</getter></xml>', 80, '0', null, true, 11, '---', false, false),
-    (52, 3, 'ohrm_skill.name', 'Skill', 'skill',  'false', null, null, 'label', '<xml><getter>skill</getter></xml>', 200, '0', null, true, 12, '---', false, false),
+    (47, 3, 'cia_ferias_education.name', 'Level', 'eduProgram',  'false', null, null, 'label', '<xml><getter>eduProgram</getter></xml>', 200, '0', null, true, 11, '---', false, false),
+    (48, 3, 'cia_ferias_emp_education.year', 'Year', 'eduYear',  'false', null, null, 'label', '<xml><getter>eduYear</getter></xml>', 100, '0', null, true, 11, '---', false, false),
+    (49, 3, 'cia_ferias_emp_education.score', 'Score', 'eduGPAOrScore',  'false', null, null, 'label', '<xml><getter>eduGPAOrScore</getter></xml>', 80, '0', null, true, 11, '---', false, false),
+    (52, 3, 'cia_ferias_skill.name', 'Skill', 'skill',  'false', null, null, 'label', '<xml><getter>skill</getter></xml>', 200, '0', null, true, 12, '---', false, false),
     (53, 3, 'hs_hr_emp_skill.years_of_exp', 'Years of Experience', 'skillYearsOfExperience',  'false', null, null, 'label', '<xml><getter>skillYearsOfExperience</getter></xml>', 135, '0', null, true, 12, '---', false, false),
     (54, 3, 'hs_hr_emp_skill.comments', 'Comments', 'skillComments',  'false', null, null, 'label', '<xml><getter>skillComments</getter></xml>', 200, '0', null, true, 12, '---', false, false),
-    (55, 3, 'ohrm_language.name', 'Language', 'langName',  'false', null, null, 'label', '<xml><getter>langName</getter></xml>', 200, '0', null, true, 13, '---', false, false),
+    (55, 3, 'cia_ferias_language.name', 'Language', 'langName',  'false', null, null, 'label', '<xml><getter>langName</getter></xml>', 200, '0', null, true, 13, '---', false, false),
     (57, 3, 'CASE hs_hr_emp_language.competency WHEN 1 THEN "Poor" WHEN 2 THEN "Basic" WHEN 3 THEN "Good" WHEN 4 THEN "Mother Tongue" END', 'Competency', 'langCompetency',  'false', null, null, 'label', '<xml><getter>langCompetency</getter></xml>', 130, '0', null, true, 13, '---', false, false),
     (58, 3, 'hs_hr_emp_language.comments', 'Comments', 'langComments',  'false', null, null, 'label', '<xml><getter>langComments</getter></xml>', 200, '0', null, true, 13, '---', false, false),
-    (59, 3, 'ohrm_license.name', 'License Type', 'empLicenseType',  'false', null, null, 'label', '<xml><getter>empLicenseType</getter></xml>', 200, '0', null, true, 14, '---', false, false),
-    (60, 3, 'ohrm_emp_license.license_issued_date', 'Issued Date', 'empLicenseIssuedDate',  'false', null, null, 'labelDate', '<xml><getter>empLicenseIssuedDate</getter></xml>', 100, '0', null, true, 14, '---', false, false),
-    (61, 3, 'ohrm_emp_license.license_expiry_date', 'Expiry Date', 'empLicenseExpiryDate',  'false', null, null, 'labelDate', '<xml><getter>empLicenseExpiryDate</getter></xml>', 100, '0', null, true, 14, '---', false, false),
+    (59, 3, 'cia_ferias_license.name', 'License Type', 'empLicenseType',  'false', null, null, 'label', '<xml><getter>empLicenseType</getter></xml>', 200, '0', null, true, 14, '---', false, false),
+    (60, 3, 'cia_ferias_emp_license.license_issued_date', 'Issued Date', 'empLicenseIssuedDate',  'false', null, null, 'labelDate', '<xml><getter>empLicenseIssuedDate</getter></xml>', 100, '0', null, true, 14, '---', false, false),
+    (61, 3, 'cia_ferias_emp_license.license_expiry_date', 'Expiry Date', 'empLicenseExpiryDate',  'false', null, null, 'labelDate', '<xml><getter>empLicenseExpiryDate</getter></xml>', 100, '0', null, true, 14, '---', false, false),
     (62, 3, 'supervisor.emp_firstname', 'First Name', 'supervisorFirstName',  'false', null, null, 'label', '<xml><getter>supervisorFirstName</getter></xml>', 200, '0', null, true, 9, '---', false, false),
     (63, 3, 'subordinate.emp_firstname', 'First Name', 'subordinateFirstName',  'false', null, null, 'label', '<xml><getter>subordinateFirstName</getter></xml>', 200, '0', null, true, 8, '---', false, false),
     (64, 3, 'supervisor.emp_lastname', 'Last Name', 'supervisorLastName',  'false', null, null, 'label', '<xml><getter>supervisorLastName</getter></xml>', 200, '0', null, true, 9, '---', false, false),
-    (65, 3, 'ohrm_pay_grade.name', 'Pay Grade', 'salPayGrade',  'false', null, null, 'label', '<xml><getter>salPayGrade</getter></xml>', 200, '0', null, true, 7, '---', false, false),
+    (65, 3, 'cia_ferias_pay_grade.name', 'Pay Grade', 'salPayGrade',  'false', null, null, 'label', '<xml><getter>salPayGrade</getter></xml>', 200, '0', null, true, 7, '---', false, false),
     (66, 3, 'hs_hr_emp_basicsalary.salary_component', 'Salary Component', 'salSalaryComponent',  'false', null, null, 'label', '<xml><getter>salSalaryComponent</getter></xml>', 200, '0', null, true, 7, '---', false, false),
     (67, 3, 'hs_hr_emp_basicsalary.ebsal_basic_salary', 'Amount', 'salAmount',  'false', null, null, 'label', '<xml><getter>salAmount</getter></xml>', 200, '0', null, true, 7, '---', true, false),
     (68, 3, 'hs_hr_emp_basicsalary.comments', 'Comments', 'salComments',  'false', null, null, 'label', '<xml><getter>salComments</getter></xml>', 200, '0', null, true, 7, '---', false, false),
@@ -884,12 +884,12 @@ INSERT INTO `ohrm_display_field` (`display_field_id`, `report_group_id`, `name`,
     (74, 3, 'hs_hr_emp_directdebit.dd_amount', 'Direct Deposit Amount', 'ddAmount',  'false', null, null, 'label', '<xml><getter>ddAmount</getter></xml>', 200, '0', null, true, 7, '---', false, false),
     (75, 3, 'hs_hr_emp_contract_extend.econ_extend_start_date', 'Contract Start Date', 'empContStartDate',  'false', null, null, 'labelDate', '<xml><getter>empContStartDate</getter></xml>', 200, '0', null, true, 6, '---', false, false),
     (76, 3, 'hs_hr_emp_contract_extend.econ_extend_end_date', 'Contract End Date', 'empContEndDate',  'false', null, null, 'labelDate', '<xml><getter>empContEndDate</getter></xml>', 200, '0', null, true, 6, '---', false, false),
-    (77, 3, 'ohrm_job_title.job_title', 'Job Title', 'empJobTitle',  'false', null, null, 'label', '<xml><getter>empJobTitle</getter></xml>', 200, '0', null, true, 6, '---', false, false),
-    (78, 3, 'ohrm_employment_status.name', 'Employment Status', 'empEmploymentStatus',  'false', null, null, 'label', '<xml><getter>empEmploymentStatus</getter></xml>', 200, '0', null, true, 6, '---', false, false),
-    (80, 3, 'ohrm_job_category.name', 'Job Category', 'empJobCategory',  'false', null, null, 'label', '<xml><getter>empJobCategory</getter></xml>', 200, '0', null, true, 6, '---', false, false),
+    (77, 3, 'cia_ferias_job_title.job_title', 'Job Title', 'empJobTitle',  'false', null, null, 'label', '<xml><getter>empJobTitle</getter></xml>', 200, '0', null, true, 6, '---', false, false),
+    (78, 3, 'cia_ferias_employment_status.name', 'Employment Status', 'empEmploymentStatus',  'false', null, null, 'label', '<xml><getter>empEmploymentStatus</getter></xml>', 200, '0', null, true, 6, '---', false, false),
+    (80, 3, 'cia_ferias_job_category.name', 'Job Category', 'empJobCategory',  'false', null, null, 'label', '<xml><getter>empJobCategory</getter></xml>', 200, '0', null, true, 6, '---', false, false),
     (81, 3, 'hs_hr_employee.joined_date', 'Joined Date', 'empJoinedDate',  'false', null, null, 'labelDate', '<xml><getter>empJoinedDate</getter></xml>', 100, '0', null, true, 6, '---', false, false),
-    (82, 3, 'ohrm_subunit.name', 'Sub Unit', 'empSubUnit',  'false', null, null, 'label', '<xml><getter>empSubUnit</getter></xml>', 200, '0', null, true, 6, '---', false, false),
-    (83, 3, 'ohrm_location.name', 'Location', 'empLocation',  'false', null, null, 'label', '<xml><getter>empLocation</getter></xml>', 200, '0', null, true, 6, '---', false, false),
+    (82, 3, 'cia_ferias_subunit.name', 'Sub Unit', 'empSubUnit',  'false', null, null, 'label', '<xml><getter>empSubUnit</getter></xml>', 200, '0', null, true, 6, '---', false, false),
+    (83, 3, 'cia_ferias_location.name', 'Location', 'empLocation',  'false', null, null, 'label', '<xml><getter>empLocation</getter></xml>', 200, '0', null, true, 6, '---', false, false),
     (84, 3, 'hs_hr_emp_passport.ep_passport_num', 'Number', 'empPassportNo',  'false', null, null, 'label', '<xml><getter>empPassportNo</getter></xml>', 200, '0', null, true, 5, '---', false, false),
     (85, 3, 'hs_hr_emp_passport.ep_passportissueddate', 'Issued Date', 'empPassportIssuedDate',  'false', null, null, 'labelDate', '<xml><getter>empPassportIssuedDate</getter></xml>', 100, '0', null, true, 5, '---', false, false),
     (86, 3, 'hs_hr_emp_passport.ep_passportexpiredate', 'Expiry Date', 'empPassportExpiryDate',  'false', null, null, 'labelDate', '<xml><getter>empPassportExpiryDate</getter></xml>', 100, '0', null, true, 5, '---', false, false),
@@ -910,28 +910,28 @@ INSERT INTO `ohrm_display_field` (`display_field_id`, `report_group_id`, `name`,
     (102, 3, 'subordinate.emp_number', 'subordinateId', 'subordinateId',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 8, '---', false, true),
     (103, 3, 'supervisor.emp_number', 'supervisorId', 'supervisorId',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 9, '---', false, true),
     (104, 3, 'hs_hr_emp_work_experience.eexp_seqno', 'workExpSeqNo', 'workExpSeqNo',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 10, '---', false, true),
-    (105, 3, 'ohrm_emp_education.education_id', 'empEduCode', 'empEduCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 11, '---', false, true),
+    (105, 3, 'cia_ferias_emp_education.education_id', 'empEduCode', 'empEduCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 11, '---', false, true),
     (106, 3, 'hs_hr_emp_skill.skill_id', 'empSkillCode', 'empSkillCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 12, '---', false, true),
     (107, 3, 'hs_hr_emp_language.lang_id', 'empLangCode', 'empLangCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 13, '---', false, true),
     (108, 3, 'hs_hr_emp_language.fluency', 'empLangType', 'empLangType',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 13, '---', false, true),
-    (109, 3, 'ohrm_emp_license.license_id', 'empLicenseCode', 'empLicenseCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 14, '---', false, true),
+    (109, 3, 'cia_ferias_emp_license.license_id', 'empLicenseCode', 'empLicenseCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 14, '---', false, true),
     (110, 3, 'hs_hr_emp_member_detail.membship_code', 'membershipCode', 'membershipCode',  'false', null, null, 'label', '<xml><getter>ecMobile</getter></xml>', 100, '0', null, true, 15, '---', false, true),
     (112, 3, 'ROUND(DATEDIFF(hs_hr_emp_work_experience.eexp_to_date, hs_hr_emp_work_experience.eexp_from_date)/365,1)', 'Duration', 'expDuration',  'false', null, null, 'label', '<xml><getter>expDuration</getter></xml>', 100, '0', null, true, 10, '---', false, false),
-    (113, 3, 'ohrm_emp_termination.termination_date', 'Termination Date', 'terminationDate',  'false', null, null, 'labelDate', '<xml><getter>terminationDate</getter></xml>', 100, '0', null, true, 6, '---', false, false),
-    (114, 3, 'ohrm_emp_termination_reason.name', 'Termination Reason', 'terminationReason',  'false', null, null, 'label', '<xml><getter>terminationReason</getter></xml>', 100, '0', null, true, 6, '---', false, false),
-    (115, 3, 'ohrm_emp_education.institute', 'Institute', 'getInstitute',  'false', null, null, 'label', '<xml><getter>getInstitute</getter></xml>', 80, '0', null, true, 11, '---', false, false),
-    (116, 3, 'ohrm_emp_education.major', 'Major/Specialization', 'getMajor',  'false', null, null, 'label', '<xml><getter>getMajor</getter></xml>', 80, '0', null, true, 11, '---', false, false),
-    (117, 3, 'ohrm_emp_education.start_date', 'Start Date', 'getStartDate',  'false', null, null, 'labelDate', '<xml><getter>getStartDate</getter></xml>', 80, '0', null, true, 11, '---', false, false),
-    (118, 3, 'ohrm_emp_education.end_date', 'End Date', 'getEndDate',  'false', null, null, 'labelDate', '<xml><getter>getEndDate</getter></xml>', 80, '0', null, true, 11, '---', false, false),
-    (119, 3, 'ohrm_emp_license.license_no', 'License Number', 'getLicenseNo',  'false', null, null, 'label', '<xml><getter>getLicenseNo</getter></xml>', 200, '0', null, true, 14, '---', false, false),
-    (120, 3, 'ohrm_emp_termination.note', 'Termination Note', 'getNote',  'false', null, null, 'label', '<xml><getter>getNote</getter></xml>', 100, '0', null, true, 6, '---', false, false);
+    (113, 3, 'cia_ferias_emp_termination.termination_date', 'Termination Date', 'terminationDate',  'false', null, null, 'labelDate', '<xml><getter>terminationDate</getter></xml>', 100, '0', null, true, 6, '---', false, false),
+    (114, 3, 'cia_ferias_emp_termination_reason.name', 'Termination Reason', 'terminationReason',  'false', null, null, 'label', '<xml><getter>terminationReason</getter></xml>', 100, '0', null, true, 6, '---', false, false),
+    (115, 3, 'cia_ferias_emp_education.institute', 'Institute', 'getInstitute',  'false', null, null, 'label', '<xml><getter>getInstitute</getter></xml>', 80, '0', null, true, 11, '---', false, false),
+    (116, 3, 'cia_ferias_emp_education.major', 'Major/Specialization', 'getMajor',  'false', null, null, 'label', '<xml><getter>getMajor</getter></xml>', 80, '0', null, true, 11, '---', false, false),
+    (117, 3, 'cia_ferias_emp_education.start_date', 'Start Date', 'getStartDate',  'false', null, null, 'labelDate', '<xml><getter>getStartDate</getter></xml>', 80, '0', null, true, 11, '---', false, false),
+    (118, 3, 'cia_ferias_emp_education.end_date', 'End Date', 'getEndDate',  'false', null, null, 'labelDate', '<xml><getter>getEndDate</getter></xml>', 80, '0', null, true, 11, '---', false, false),
+    (119, 3, 'cia_ferias_emp_license.license_no', 'License Number', 'getLicenseNo',  'false', null, null, 'label', '<xml><getter>getLicenseNo</getter></xml>', 200, '0', null, true, 14, '---', false, false),
+    (120, 3, 'cia_ferias_emp_termination.note', 'Termination Note', 'getNote',  'false', null, null, 'label', '<xml><getter>getNote</getter></xml>', 100, '0', null, true, 6, '---', false, false);
 
     
-INSERT INTO `ohrm_group_field` (`group_field_id`, `name`, `group_by_clause`, `group_field_widget`) VALUES 
-    (1, 'activity id', 'GROUP BY ohrm_project_activity.activity_id', null),
+INSERT INTO `cia_ferias_group_field` (`group_field_id`, `name`, `group_by_clause`, `group_field_widget`) VALUES 
+    (1, 'activity id', 'GROUP BY cia_ferias_project_activity.activity_id', null),
     (2, 'employee number', 'GROUP BY hs_hr_employee.emp_number', null);
 
-INSERT INTO `ohrm_selected_filter_field` (`report_id`, `filter_field_id`, `filter_field_order`, `value1`, `value2`, `where_condition`, `type`) VALUES
+INSERT INTO `cia_ferias_selected_filter_field` (`report_id`, `filter_field_id`, `filter_field_order`, `value1`, `value2`, `where_condition`, `type`) VALUES
     (1, 1, 1, null, null, null, 'Runtime'),
     (1, 3, 2, null, null, null, 'Runtime'),
     (1, 7, 3, null, null, null, 'Runtime'),
@@ -946,7 +946,7 @@ INSERT INTO `ohrm_selected_filter_field` (`report_id`, `filter_field_id`, `filte
     (3, 7, 3, null, null, null, 'Runtime'),
     (5, 22, 1, null, null, 'IS NULL', 'Predefined');
 
-INSERT INTO `ohrm_selected_display_field` (`id`, `display_field_id`, `report_id`) VALUES 
+INSERT INTO `cia_ferias_selected_display_field` (`id`, `display_field_id`, `report_id`) VALUES 
     (2, 2, 1),
     (4, 8, 2),
     (5, 9, 5),
@@ -1032,7 +1032,7 @@ INSERT INTO `ohrm_selected_display_field` (`id`, `display_field_id`, `report_id`
     (93, 97, 5);
 
     
-INSERT INTO `ohrm_selected_display_field_group`(`id`, `report_id`, `display_field_group_id`) VALUES
+INSERT INTO `cia_ferias_selected_display_field_group`(`id`, `report_id`, `display_field_group_id`) VALUES
     (1, 5, 1),
     (2, 5, 2),
     (3, 5, 3),
@@ -1049,25 +1049,25 @@ INSERT INTO `ohrm_selected_display_field_group`(`id`, `report_id`, `display_fiel
     (14, 5, 14),
     (15, 5, 15);
 
-INSERT INTO `ohrm_composite_display_field` (`composite_display_field_id`, `report_group_id`, `name`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`, `is_encrypted`, `is_meta`) VALUES (1, 1, 'IF(hs_hr_employee.termination_id IS NULL, CONCAT(hs_hr_employee.emp_firstname, " " ,hs_hr_employee.emp_lastname), CONCAT(hs_hr_employee.emp_firstname, " " ,hs_hr_employee.emp_lastname, " (Past Employee)"))', 'Employee Name', 'employeeName', 'false', null, null, 'label', '<xml><getter>employeeName</getter></xml>', 300, '0', null, false, null, 'Deleted Employee', false, false),
-                                                  (2, 1, 'CONCAT(ohrm_customer.name, " - " ,ohrm_project.name)', 'Project Name', 'projectname', 'false', null, null, 'label', '<xml><getter>projectname</getter></xml>', 300, '0', null, false, null, null, false, false);
+INSERT INTO `cia_ferias_composite_display_field` (`composite_display_field_id`, `report_group_id`, `name`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`, `is_encrypted`, `is_meta`) VALUES (1, 1, 'IF(hs_hr_employee.termination_id IS NULL, CONCAT(hs_hr_employee.emp_firstname, " " ,hs_hr_employee.emp_lastname), CONCAT(hs_hr_employee.emp_firstname, " " ,hs_hr_employee.emp_lastname, " (Past Employee)"))', 'Employee Name', 'employeeName', 'false', null, null, 'label', '<xml><getter>employeeName</getter></xml>', 300, '0', null, false, null, 'Deleted Employee', false, false),
+                                                  (2, 1, 'CONCAT(cia_ferias_customer.name, " - " ,cia_ferias_project.name)', 'Project Name', 'projectname', 'false', null, null, 'label', '<xml><getter>projectname</getter></xml>', 300, '0', null, false, null, null, false, false);
 
-INSERT INTO `ohrm_selected_composite_display_field` (`id`, `composite_display_field_id`, `report_id`) VALUES (1, 1, 3),
+INSERT INTO `cia_ferias_selected_composite_display_field` (`id`, `composite_display_field_id`, `report_id`) VALUES (1, 1, 3),
                                                            (2, 1, 4),
                                                            (3, 2, 2);
 
-INSERT INTO `ohrm_summary_display_field` (`summary_display_field_id`, `function`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`) VALUES (1, 'ROUND(COALESCE(sum(duration)/3600, 0),2)', 'Time (Hours)', 'totalduration', 'false', null, null, 'label', '<xml><getter>totalduration</getter></xml>', 100, 'false', 'right', false, null, null),
-                                                (2, 'ROUND(COALESCE(sum(TIMESTAMPDIFF(SECOND , ohrm_attendance_record.punch_in_utc_time , ohrm_attendance_record.punch_out_utc_time))/3600, 0),2)', 'Time (Hours)', 'totalduration', 'false', null, null, 'label', '<xml><getter>totalduration</getter></xml>', 100, 'false', 'right', false, null, null);
+INSERT INTO `cia_ferias_summary_display_field` (`summary_display_field_id`, `function`, `label`, `field_alias`, `is_sortable`, `sort_order`, `sort_field`, `element_type`, `element_property`, `width`, `is_exportable`, `text_alignment_style`, `is_value_list`, `display_field_group_id`, `default_value`) VALUES (1, 'ROUND(COALESCE(sum(duration)/3600, 0),2)', 'Time (Hours)', 'totalduration', 'false', null, null, 'label', '<xml><getter>totalduration</getter></xml>', 100, 'false', 'right', false, null, null),
+                                                (2, 'ROUND(COALESCE(sum(TIMESTAMPDIFF(SECOND , cia_ferias_attendance_record.punch_in_utc_time , cia_ferias_attendance_record.punch_out_utc_time))/3600, 0),2)', 'Time (Hours)', 'totalduration', 'false', null, null, 'label', '<xml><getter>totalduration</getter></xml>', 100, 'false', 'right', false, null, null);
 
-INSERT INTO `ohrm_selected_group_field` (`group_field_id`, `summary_display_field_id`, `report_id`) VALUES (1, 1, 1),
+INSERT INTO `cia_ferias_selected_group_field` (`group_field_id`, `summary_display_field_id`, `report_id`) VALUES (1, 1, 1),
                                                (1, 1, 2),
                                                (2, 1, 3),
                                                (2, 2, 4);
 
-INSERT INTO `ohrm_subunit` VALUES (1, 'Organization', '', '', 1, 2, 0);
+INSERT INTO `cia_ferias_subunit` VALUES (1, 'Organization', '', '', 1, 2, 0);
 
 
-INSERT INTO `ohrm_emp_termination_reason` VALUES (1, 'Other'),
+INSERT INTO `cia_ferias_emp_termination_reason` VALUES (1, 'Other'),
 (2, 'Retired'),
 (3, 'Contract Not Renewed'),
 (4, 'Resigned - Company Requested'),
@@ -1078,7 +1078,7 @@ INSERT INTO `ohrm_emp_termination_reason` VALUES (1, 'Other'),
 (9, 'Laid-off'),
 (10, 'Dismissed');
 
-INSERT INTO `ohrm_user_role` (`id`, `name`, `display_name`, `is_assignable`, `is_predefined`) VALUES
+INSERT INTO `cia_ferias_user_role` (`id`, `name`, `display_name`, `is_assignable`, `is_predefined`) VALUES
 (1, 'Admin', 'Admin', 1, 1),
 (2, 'ESS', 'ESS', 1, 1),
 (3, 'Supervisor', 'Supervisor', 0, 1),
@@ -1087,7 +1087,7 @@ INSERT INTO `ohrm_user_role` (`id`, `name`, `display_name`, `is_assignable`, `is
 (6, 'HiringManager', 'HiringManager', 0, 1),
 (7, 'Reviewer', 'Reviewer', 0, 1);
 
-INSERT INTO `ohrm_nationality` (`id`, `name`) VALUES
+INSERT INTO `cia_ferias_nationality` (`id`, `name`) VALUES
 (1, 'Afghan'),
 (2, 'Albanian'),
 (3, 'Algerian'),
@@ -1282,14 +1282,14 @@ INSERT INTO `ohrm_nationality` (`id`, `name`) VALUES
 (192, 'Zambian'),
 (193, 'Zimbabwean');
 
-INSERT INTO `ohrm_email_notification` (`id`, `name`, `is_enable`) VALUES
+INSERT INTO `cia_ferias_email_notification` (`id`, `name`, `is_enable`) VALUES
 (1, 'Leave Applications', 0),
 (2, 'Leave Assignments', 0),
 (3, 'Leave Approvals', 0),
 (4, 'Leave Cancellations', 0),
 (5, 'Leave Rejections', 0);
 
-INSERT INTO `ohrm_module` (`id`, `name`, `status`) VALUES
+INSERT INTO `cia_ferias_module` (`id`, `name`, `status`) VALUES
 (1, 'core', 1),
 (2, 'admin', 1),
 (3, 'pim', 1),
@@ -1299,7 +1299,7 @@ INSERT INTO `ohrm_module` (`id`, `name`, `status`) VALUES
 (7, 'recruitment', 1),
 (8, 'recruitmentApply', 1);
 
-INSERT INTO ohrm_screen (`id`, `name`, `module_id`, `action_url`) VALUES
+INSERT INTO cia_ferias_screen (`id`, `name`, `module_id`, `action_url`) VALUES
 (1, 'User List', 2, 'viewSystemUsers'),
 (2, 'Add/Edit System User', 2, 'saveSystemUser'),
 (3, 'Delete System Users', 2, 'deleteSystemUsers'),
@@ -1396,7 +1396,7 @@ INSERT INTO ohrm_screen (`id`, `name`, `module_id`, `action_url`) VALUES
 (101, 'View Attendance Summary Report', 5, 'displayAttendanceSummaryReport'),
 (102, 'View Project Activity Details Report', 5, 'displayProjectActivityDetailsReport');
 
-INSERT INTO ohrm_menu_item (`id`, `menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
+INSERT INTO cia_ferias_menu_item (`id`, `menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
 (1, 'Admin', 74, NULL, 1, 100, NULL, 1),
 (2, 'User Management', NULL, 1, 2, 100, NULL, 1),
 (3, 'Project Info', NULL, 52, 2, 400, NULL, 0),
@@ -1470,7 +1470,7 @@ INSERT INTO ohrm_menu_item (`id`, `menu_title`, `screen_id`, `parent_id`, `level
 (80, 'My Leave Entitlements and Usage Report', 79, 78, 3, 200, NULL, 0),
 (81, 'Users', 1, 2, 3, 100, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (1, 1, 1, 1, 1, 1),
 (1, 2, 1, 1, 1, 1),
 (2, 2, 0, 0, 0, 0),
@@ -1609,7 +1609,7 @@ INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create
 (1, 102, 1, 1, 1, 1),
 (4, 102, 1, 1, 1, 1);
 
-INSERT INTO `ohrm_data_group` (`id`, `name`, `description`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES
+INSERT INTO `cia_ferias_data_group` (`id`, `name`, `description`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES
 (1, 'personal_information', 'PIM - Personal Details', 1, NULL, 1, NULL),
 (2, 'personal_attachment', 'PIM - Personal Details - Attachments', 1, 1, 1, 1),
 (3, 'personal_custom_fields', 'PIM - Personal Details - Custom Fields', 1, NULL, 1, NULL),
@@ -1671,7 +1671,7 @@ INSERT INTO `ohrm_data_group` (`id`, `name`, `description`, `can_read`, `can_cre
 (59, 'leave_list', 'Leave - Leave List', 1, 0, 0, 0),
 (60, 'leave_list_comments', 'Leave - Leave List - Comments', 0, 1, 0, 0);
 
-INSERT INTO `ohrm_user_role_data_group` (`user_role_id`, `data_group_id`, `can_read`, `can_create`, `can_update`, `can_delete`, `self`) VALUES
+INSERT INTO `cia_ferias_user_role_data_group` (`user_role_id`, `data_group_id`, `can_read`, `can_create`, `can_update`, `can_delete`, `self`) VALUES
 (1, 1, 1, NULL, 1, NULL, 0),
 (1, 2, 1, 1, 1, 1, 0),
 (1, 3, 1, NULL, 1, NULL, 0),
@@ -1923,7 +1923,7 @@ INSERT INTO `ohrm_user_role_data_group` (`user_role_id`, `data_group_id`, `can_r
 (2, 60, 0, 1, 0, 0, 1),
 (3, 60, 0, 1, 0, 0, 0);
 
-INSERT INTO `ohrm_data_group_screen`(`data_group_id`, `screen_id`, `permission`) VALUES
+INSERT INTO `cia_ferias_data_group_screen`(`data_group_id`, `screen_id`, `permission`) VALUES
 (40, 69, 1),
 (40, 72, 2),
 (40, 73, 3),
@@ -2021,7 +2021,7 @@ INSERT INTO `ohrm_data_group_screen`(`data_group_id`, `screen_id`, `permission`)
 (59, 98, 1),
 (59, 99, 1);
 
-INSERT INTO `ohrm_job_category` (`name`) VALUES ('Officials and Managers'),
+INSERT INTO `cia_ferias_job_category` (`name`) VALUES ('Officials and Managers'),
                                                 ('Professionals'),
                                                 ('Technicians'),
                                                 ('Sales Workers'),
@@ -2031,7 +2031,7 @@ INSERT INTO `ohrm_job_category` (`name`) VALUES ('Officials and Managers'),
                                                 ('Service Workers'),
                                                 ('Laborers and Helpers');
 
-INSERT INTO ohrm_email(`id`, `name`) VALUES 
+INSERT INTO cia_ferias_email(`id`, `name`) VALUES 
     (1, 'leave.apply'),
     (2, 'leave.assign'),
     (3, 'leave.approve'),
@@ -2039,24 +2039,24 @@ INSERT INTO ohrm_email(`id`, `name`) VALUES
     (5, 'leave.reject'),
     (6, 'leave.change');
 
-INSERT INTO ohrm_email_template(`id`, `email_id`, `locale`, `performer_role`, `recipient_role`,`body`, `subject`) VALUES 
-    (1, 1, 'en_US', NULL, 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt'),
-    (2, 1, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt'),
-    (3, 3, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubject.txt'),
-    (4, 3, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberSubject.txt'),
-    (5, 2, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubject.txt'),
-    (6, 2, 'en_US', NULL, 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBodyForSupervisors.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubjectForSupervisors.txt'),
-    (7, 2, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberSubject.txt'),
-    (8, 4, 'en_US', 'ess', 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubject.txt'),
-    (9, 4, 'en_US', 'ess', 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt'),
-    (10, 4, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubject.txt'),
-    (11, 4, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberSubject.txt'),
-    (12, 5, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubject.txt'),
-    (13, 5, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberSubject.txt'),
-    (14, 6, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubject.txt'),
-    (15, 6, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberBody.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberSubject.txt');
+INSERT INTO cia_ferias_email_template(`id`, `email_id`, `locale`, `performer_role`, `recipient_role`,`body`, `subject`) VALUES 
+    (1, 1, 'en_US', NULL, 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt'),
+    (2, 1, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt'),
+    (3, 3, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubject.txt'),
+    (4, 3, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberSubject.txt'),
+    (5, 2, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubject.txt'),
+    (6, 2, 'en_US', NULL, 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBodyForSupervisors.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubjectForSupervisors.txt'),
+    (7, 2, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberSubject.txt'),
+    (8, 4, 'en_US', 'ess', 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubject.txt'),
+    (9, 4, 'en_US', 'ess', 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt'),
+    (10, 4, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubject.txt'),
+    (11, 4, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberSubject.txt'),
+    (12, 5, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubject.txt'),
+    (13, 5, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberSubject.txt'),
+    (14, 6, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubject.txt'),
+    (15, 6, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberBody.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberSubject.txt');
 
-INSERT INTO  ohrm_email_processor(`id`, `email_id`, `class_name`) VALUES 
+INSERT INTO  cia_ferias_email_processor(`id`, `email_id`, `class_name`) VALUES 
     (1, 1, 'LeaveEmailProcessor'),
     (2, 2, 'LeaveEmailProcessor'),
     (3, 3, 'LeaveEmailProcessor'),
@@ -2064,10 +2064,10 @@ INSERT INTO  ohrm_email_processor(`id`, `email_id`, `class_name`) VALUES
     (5, 5, 'LeaveEmailProcessor'),
     (6, 6, 'LeaveChangeMailProcessor');
 
-INSERT INTO ohrm_leave_entitlement_type(`id`,`name`,`is_editable`) VALUES
+INSERT INTO cia_ferias_leave_entitlement_type(`id`,`name`,`is_editable`) VALUES
     (1,'Added',1);
 
-INSERT INTO ohrm_advanced_report (id, name, definition) VALUES
+INSERT INTO cia_ferias_advanced_report (id, name, definition) VALUES
 (1, 'Leave Entitlements and Usage Report', '
 <report>
     <settings>
@@ -2084,32 +2084,32 @@ INSERT INTO ohrm_advanced_report (id, name, definition) VALUES
 </filter_fields> 
 
 <sub_report type="sql" name="mainTable">       
-    <query>FROM ohrm_leave_type WHERE (deleted = 0) OR (SELECT count(l.id) FROM ohrm_leave l WHERE l.status = 3 AND l.leave_type_id = ohrm_leave_type.id) > 0 ORDER BY ohrm_leave_type.id</query>
+    <query>FROM cia_ferias_leave_type WHERE (deleted = 0) OR (SELECT count(l.id) FROM cia_ferias_leave l WHERE l.status = 3 AND l.leave_type_id = cia_ferias_leave_type.id) > 0 ORDER BY cia_ferias_leave_type.id</query>
     <id_field>leaveTypeId</id_field>
     <display_groups>
         <display_group name="leavetype" type="one" display="true">
             <group_header></group_header>
             <fields>
                 <field display="false">
-                    <field_name>ohrm_leave_type.id</field_name>
+                    <field_name>cia_ferias_leave_type.id</field_name>
                     <field_alias>leaveTypeId</field_alias>
                     <display_name>Leave Type ID</display_name>
                     <width>1</width>	
                 </field>   
                 <field display="false">
-                    <field_name>ohrm_leave_type.exclude_in_reports_if_no_entitlement</field_name>
+                    <field_name>cia_ferias_leave_type.exclude_in_reports_if_no_entitlement</field_name>
                     <field_alias>exclude_if_no_entitlement</field_alias>
                     <display_name>Exclude</display_name>
                     <width>1</width>	
                 </field>  
                 <field display="false">
-                    <field_name>ohrm_leave_type.deleted</field_name>
+                    <field_name>cia_ferias_leave_type.deleted</field_name>
                     <field_alias>leave_type_deleted</field_alias>
                     <display_name>Leave Type Deleted</display_name>
                     <width>1</width>	
                 </field>  
                 <field display="true">
-                    <field_name>ohrm_leave_type.name</field_name>
+                    <field_name>cia_ferias_leave_type.name</field_name>
                     <field_alias>leaveType</field_alias>
                     <display_name>Leave Type</display_name>
                     <width>160</width>	
@@ -2123,26 +2123,26 @@ INSERT INTO ohrm_advanced_report (id, name, definition) VALUES
                     <query>
 
 FROM (
-SELECT ohrm_leave_entitlement.id as id, 
-       ohrm_leave_entitlement.leave_type_id as leave_type_id,
-       ohrm_leave_entitlement.no_of_days as no_of_days,
-       sum(IF(ohrm_leave.status = 2, ohrm_leave_leave_entitlement.length_days, 0)) AS scheduled,
-       sum(IF(ohrm_leave.status = 3, ohrm_leave_leave_entitlement.length_days, 0)) AS taken
+SELECT cia_ferias_leave_entitlement.id as id, 
+       cia_ferias_leave_entitlement.leave_type_id as leave_type_id,
+       cia_ferias_leave_entitlement.no_of_days as no_of_days,
+       sum(IF(cia_ferias_leave.status = 2, cia_ferias_leave_leave_entitlement.length_days, 0)) AS scheduled,
+       sum(IF(cia_ferias_leave.status = 3, cia_ferias_leave_leave_entitlement.length_days, 0)) AS taken
        
-FROM ohrm_leave_entitlement LEFT JOIN ohrm_leave_leave_entitlement ON
-    ohrm_leave_entitlement.id = ohrm_leave_leave_entitlement.entitlement_id
-    LEFT JOIN ohrm_leave ON ohrm_leave.id = ohrm_leave_leave_entitlement.leave_id AND 
-    ( $X{&gt;,ohrm_leave.date,toDate} OR $X{&lt;,ohrm_leave.date,fromDate} )
+FROM cia_ferias_leave_entitlement LEFT JOIN cia_ferias_leave_leave_entitlement ON
+    cia_ferias_leave_entitlement.id = cia_ferias_leave_leave_entitlement.entitlement_id
+    LEFT JOIN cia_ferias_leave ON cia_ferias_leave.id = cia_ferias_leave_leave_entitlement.leave_id AND 
+    ( $X{&gt;,cia_ferias_leave.date,toDate} OR $X{&lt;,cia_ferias_leave.date,fromDate} )
 
-WHERE ohrm_leave_entitlement.deleted=0 AND $X{=,ohrm_leave_entitlement.emp_number,empNumber} AND 
-    $X{IN,ohrm_leave_entitlement.leave_type_id,leaveTypeId} AND
+WHERE cia_ferias_leave_entitlement.deleted=0 AND $X{=,cia_ferias_leave_entitlement.emp_number,empNumber} AND 
+    $X{IN,cia_ferias_leave_entitlement.leave_type_id,leaveTypeId} AND
     (
-      ( $X{&lt;=,ohrm_leave_entitlement.from_date,fromDate} AND $X{&gt;=,ohrm_leave_entitlement.to_date,fromDate} ) OR
-      ( $X{&lt;=,ohrm_leave_entitlement.from_date,toDate} AND $X{&gt;=,ohrm_leave_entitlement.to_date,toDate} ) OR 
-      ( $X{&gt;=,ohrm_leave_entitlement.from_date,fromDate} AND $X{&lt;=,ohrm_leave_entitlement.to_date,toDate} ) 
+      ( $X{&lt;=,cia_ferias_leave_entitlement.from_date,fromDate} AND $X{&gt;=,cia_ferias_leave_entitlement.to_date,fromDate} ) OR
+      ( $X{&lt;=,cia_ferias_leave_entitlement.from_date,toDate} AND $X{&gt;=,cia_ferias_leave_entitlement.to_date,toDate} ) OR 
+      ( $X{&gt;=,cia_ferias_leave_entitlement.from_date,fromDate} AND $X{&lt;=,cia_ferias_leave_entitlement.to_date,toDate} ) 
     )
     
-GROUP BY ohrm_leave_entitlement.id
+GROUP BY cia_ferias_leave_entitlement.id
 ) AS A
 
 GROUP BY A.leave_type_id
@@ -2175,17 +2175,17 @@ ORDER BY A.leave_type_id
 
 <sub_report type="sql" name="pendingQuery">
 <query>
-FROM ohrm_leave_type LEFT JOIN 
-ohrm_leave ON ohrm_leave_type.id = ohrm_leave.leave_type_id AND
-$X{=,ohrm_leave.emp_number,empNumber} AND
-ohrm_leave.status = 1 AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+FROM cia_ferias_leave_type LEFT JOIN 
+cia_ferias_leave ON cia_ferias_leave_type.id = cia_ferias_leave.leave_type_id AND
+$X{=,cia_ferias_leave.emp_number,empNumber} AND
+cia_ferias_leave.status = 1 AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 WHERE
-ohrm_leave_type.deleted = 0 AND
-$X{IN,ohrm_leave_type.id,leaveTypeId}
+cia_ferias_leave_type.deleted = 0 AND
+$X{IN,cia_ferias_leave_type.id,leaveTypeId}
 
-GROUP BY ohrm_leave_type.id
-ORDER BY ohrm_leave_type.id
+GROUP BY cia_ferias_leave_type.id
+ORDER BY cia_ferias_leave_type.id
 </query>
     <id_field>leaveTypeId</id_field>
     <display_groups>
@@ -2193,7 +2193,7 @@ ORDER BY ohrm_leave_type.id
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave_type.id</field_name>
+                        <field_name>cia_ferias_leave_type.id</field_name>
                         <field_alias>leaveTypeId</field_alias>
                         <display_name>Leave Type ID</display_name>
                         <width>1</width>
@@ -2213,17 +2213,17 @@ ORDER BY ohrm_leave_type.id
 
 <sub_report type="sql" name="scheduledQuery">
 <query>
-FROM ohrm_leave_type LEFT JOIN 
-ohrm_leave ON ohrm_leave_type.id = ohrm_leave.leave_type_id AND
-$X{=,ohrm_leave.emp_number,empNumber} AND
-ohrm_leave.status = 2 AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+FROM cia_ferias_leave_type LEFT JOIN 
+cia_ferias_leave ON cia_ferias_leave_type.id = cia_ferias_leave.leave_type_id AND
+$X{=,cia_ferias_leave.emp_number,empNumber} AND
+cia_ferias_leave.status = 2 AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 WHERE
-ohrm_leave_type.deleted = 0 AND
-$X{IN,ohrm_leave_type.id,leaveTypeId}
+cia_ferias_leave_type.deleted = 0 AND
+$X{IN,cia_ferias_leave_type.id,leaveTypeId}
 
-GROUP BY ohrm_leave_type.id
-ORDER BY ohrm_leave_type.id
+GROUP BY cia_ferias_leave_type.id
+ORDER BY cia_ferias_leave_type.id
 </query>
     <id_field>leaveTypeId</id_field>
     <display_groups>
@@ -2231,7 +2231,7 @@ ORDER BY ohrm_leave_type.id
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave_type.id</field_name>
+                        <field_name>cia_ferias_leave_type.id</field_name>
                         <field_alias>leaveTypeId</field_alias>
                         <display_name>Leave Type ID</display_name>
                         <width>1</width>
@@ -2251,12 +2251,12 @@ ORDER BY ohrm_leave_type.id
 
 <sub_report type="sql" name="takenQuery">
 <query>
-FROM ohrm_leave WHERE $X{=,emp_number,empNumber} AND
+FROM cia_ferias_leave WHERE $X{=,emp_number,empNumber} AND
 status = 3 AND
-$X{IN,ohrm_leave.leave_type_id,leaveTypeId} AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+$X{IN,cia_ferias_leave.leave_type_id,leaveTypeId} AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 GROUP BY leave_type_id
-ORDER BY ohrm_leave.leave_type_id
+ORDER BY cia_ferias_leave.leave_type_id
 </query>
     <id_field>leaveTypeId</id_field>
     <display_groups>
@@ -2264,7 +2264,7 @@ ORDER BY ohrm_leave.leave_type_id
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave.leave_type_id</field_name>
+                        <field_name>cia_ferias_leave.leave_type_id</field_name>
                         <field_alias>leaveTypeId</field_alias>
                         <display_name>Leave Type ID</display_name>
                         <width>1</width>
@@ -2283,20 +2283,20 @@ ORDER BY ohrm_leave.leave_type_id
     </sub_report>
 
 <sub_report type="sql" name="unused">       
-    <query>FROM ohrm_leave_type WHERE deleted = 0 AND $X{IN,ohrm_leave_type.id,leaveTypeId} ORDER BY ohrm_leave_type.id</query>
+    <query>FROM cia_ferias_leave_type WHERE deleted = 0 AND $X{IN,cia_ferias_leave_type.id,leaveTypeId} ORDER BY cia_ferias_leave_type.id</query>
     <id_field>leaveTypeId</id_field>
     <display_groups>
         <display_group name="unused" type="one" display="true">
             <group_header></group_header>
             <fields>
                 <field display="false">
-                    <field_name>ohrm_leave_type.id</field_name>
+                    <field_name>cia_ferias_leave_type.id</field_name>
                     <field_alias>leaveTypeId</field_alias>
                     <display_name>Leave Type ID</display_name>
                     <width>1</width>	
                 </field>   
                 <field display="true">
-                    <field_name>ohrm_leave_type.name</field_name>
+                    <field_name>cia_ferias_leave_type.name</field_name>
                     <field_alias>unused</field_alias>
                     <display_name>Leave Balance (Days)</display_name>
                     <width>160</width>	
@@ -2320,7 +2320,7 @@ ORDER BY ohrm_leave.leave_type_id
     <page_limit>100</page_limit>        
 </report>'); 
 
-INSERT INTO ohrm_advanced_report (id, name, definition) VALUES
+INSERT INTO cia_ferias_advanced_report (id, name, definition) VALUES
 (2, 'Leave Entitlements and Usage Report', '
 <report>
     <settings>
@@ -2382,26 +2382,26 @@ INSERT INTO ohrm_advanced_report (id, name, definition) VALUES
                     <query>
 
 FROM (
-SELECT ohrm_leave_entitlement.id as id, 
-       ohrm_leave_entitlement.emp_number as emp_number,
-       ohrm_leave_entitlement.no_of_days as no_of_days,
-       sum(IF(ohrm_leave.status = 2, ohrm_leave_leave_entitlement.length_days, 0)) AS scheduled,
-       sum(IF(ohrm_leave.status = 3, ohrm_leave_leave_entitlement.length_days, 0)) AS taken
+SELECT cia_ferias_leave_entitlement.id as id, 
+       cia_ferias_leave_entitlement.emp_number as emp_number,
+       cia_ferias_leave_entitlement.no_of_days as no_of_days,
+       sum(IF(cia_ferias_leave.status = 2, cia_ferias_leave_leave_entitlement.length_days, 0)) AS scheduled,
+       sum(IF(cia_ferias_leave.status = 3, cia_ferias_leave_leave_entitlement.length_days, 0)) AS taken
        
-FROM ohrm_leave_entitlement LEFT JOIN ohrm_leave_leave_entitlement ON
-    ohrm_leave_entitlement.id = ohrm_leave_leave_entitlement.entitlement_id
-    LEFT JOIN ohrm_leave ON ohrm_leave.id = ohrm_leave_leave_entitlement.leave_id AND 
-    ( $X{&gt;,ohrm_leave.date,toDate} OR $X{&lt;,ohrm_leave.date,fromDate} )
+FROM cia_ferias_leave_entitlement LEFT JOIN cia_ferias_leave_leave_entitlement ON
+    cia_ferias_leave_entitlement.id = cia_ferias_leave_leave_entitlement.entitlement_id
+    LEFT JOIN cia_ferias_leave ON cia_ferias_leave.id = cia_ferias_leave_leave_entitlement.leave_id AND 
+    ( $X{&gt;,cia_ferias_leave.date,toDate} OR $X{&lt;,cia_ferias_leave.date,fromDate} )
 
-WHERE ohrm_leave_entitlement.deleted=0 AND $X{=,ohrm_leave_entitlement.leave_type_id,leaveType}
-    AND $X{IN,ohrm_leave_entitlement.emp_number,empNumber} AND
+WHERE cia_ferias_leave_entitlement.deleted=0 AND $X{=,cia_ferias_leave_entitlement.leave_type_id,leaveType}
+    AND $X{IN,cia_ferias_leave_entitlement.emp_number,empNumber} AND
     (
-      ( $X{&lt;=,ohrm_leave_entitlement.from_date,fromDate} AND $X{&gt;=,ohrm_leave_entitlement.to_date,fromDate} ) OR
-      ( $X{&lt;=,ohrm_leave_entitlement.from_date,toDate} AND $X{&gt;=,ohrm_leave_entitlement.to_date,toDate} ) OR 
-      ( $X{&gt;=,ohrm_leave_entitlement.from_date,fromDate} AND $X{&lt;=,ohrm_leave_entitlement.to_date,toDate} ) 
+      ( $X{&lt;=,cia_ferias_leave_entitlement.from_date,fromDate} AND $X{&gt;=,cia_ferias_leave_entitlement.to_date,fromDate} ) OR
+      ( $X{&lt;=,cia_ferias_leave_entitlement.from_date,toDate} AND $X{&gt;=,cia_ferias_leave_entitlement.to_date,toDate} ) OR 
+      ( $X{&gt;=,cia_ferias_leave_entitlement.from_date,fromDate} AND $X{&lt;=,cia_ferias_leave_entitlement.to_date,toDate} ) 
     )
     
-GROUP BY ohrm_leave_entitlement.id
+GROUP BY cia_ferias_leave_entitlement.id
 ) AS A
 
 GROUP BY A.emp_number
@@ -2434,12 +2434,12 @@ ORDER BY A.emp_number
 
 <sub_report type="sql" name="pendingQuery">
 <query>
-FROM ohrm_leave WHERE $X{=,ohrm_leave.leave_type_id,leaveType} AND
+FROM cia_ferias_leave WHERE $X{=,cia_ferias_leave.leave_type_id,leaveType} AND
 status = 1 AND
-$X{IN,ohrm_leave.emp_number,empNumber} AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+$X{IN,cia_ferias_leave.emp_number,empNumber} AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 GROUP BY emp_number
-ORDER BY ohrm_leave.emp_number
+ORDER BY cia_ferias_leave.emp_number
 </query>
     <id_field>empNumber</id_field>
     <display_groups>
@@ -2447,7 +2447,7 @@ ORDER BY ohrm_leave.emp_number
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave.emp_number</field_name>
+                        <field_name>cia_ferias_leave.emp_number</field_name>
                         <field_alias>empNumber</field_alias>
                         <display_name>Emp Number</display_name>
                         <width>1</width>
@@ -2468,12 +2468,12 @@ ORDER BY ohrm_leave.emp_number
 
 <sub_report type="sql" name="scheduledQuery">
 <query>
-FROM ohrm_leave WHERE $X{=,ohrm_leave.leave_type_id,leaveType} AND
+FROM cia_ferias_leave WHERE $X{=,cia_ferias_leave.leave_type_id,leaveType} AND
 status = 2 AND
-$X{IN,ohrm_leave.emp_number,empNumber} AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+$X{IN,cia_ferias_leave.emp_number,empNumber} AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 GROUP BY emp_number
-ORDER BY ohrm_leave.emp_number
+ORDER BY cia_ferias_leave.emp_number
 </query>
     <id_field>empNumber</id_field>
     <display_groups>
@@ -2481,7 +2481,7 @@ ORDER BY ohrm_leave.emp_number
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave.emp_number</field_name>
+                        <field_name>cia_ferias_leave.emp_number</field_name>
                         <field_alias>empNumber</field_alias>
                         <display_name>Emp Number</display_name>
                         <width>1</width>
@@ -2501,12 +2501,12 @@ ORDER BY ohrm_leave.emp_number
 
 <sub_report type="sql" name="takenQuery">
 <query>
-FROM ohrm_leave WHERE $X{=,ohrm_leave.leave_type_id,leaveType} AND
+FROM cia_ferias_leave WHERE $X{=,cia_ferias_leave.leave_type_id,leaveType} AND
 status = 3 AND
-$X{IN,ohrm_leave.emp_number,empNumber} AND
-$X{&gt;=,ohrm_leave.date,fromDate} AND $X{&lt;=,ohrm_leave.date,toDate}
+$X{IN,cia_ferias_leave.emp_number,empNumber} AND
+$X{&gt;=,cia_ferias_leave.date,fromDate} AND $X{&lt;=,cia_ferias_leave.date,toDate}
 GROUP BY emp_number
-ORDER BY ohrm_leave.emp_number
+ORDER BY cia_ferias_leave.emp_number
 </query>
     <id_field>empNumber</id_field>
     <display_groups>
@@ -2514,7 +2514,7 @@ ORDER BY ohrm_leave.emp_number
                 <group_header></group_header>
                 <fields>
                     <field display="false">
-                        <field_name>ohrm_leave.emp_number</field_name>
+                        <field_name>cia_ferias_leave.emp_number</field_name>
                         <field_alias>empNumber</field_alias>
                         <display_name>Emp Number</display_name>
                         <width>1</width>
@@ -2568,7 +2568,7 @@ ORDER BY ohrm_leave.emp_number
 </report>'); 
  
 
-INSERT INTO `ohrm_leave_status` (`status`,`name`) VALUES
+INSERT INTO `cia_ferias_leave_status` (`status`,`name`) VALUES
 (-1, 'REJECTED'),
 (0, 'CANCELLED'),
 (1, 'PENDING APPROVAL'),
@@ -2577,11 +2577,11 @@ INSERT INTO `ohrm_leave_status` (`status`,`name`) VALUES
 (4, 'WEEKEND'),
 (5, 'HOLIDAY');
 
-INSERT INTO ohrm_home_page (`user_role_id`, `action`, `enable_class`, `priority`) VALUES 
+INSERT INTO cia_ferias_home_page (`user_role_id`, `action`, `enable_class`, `priority`) VALUES 
 (1, 'pim/viewEmployeeList', NULL, 10),
 (2, 'pim/viewMyDetails', NULL, 0);
 
-INSERT INTO ohrm_module_default_page (`module_id`, `user_role_id`, `action`, `enable_class`, `priority`) VALUES 
+INSERT INTO cia_ferias_module_default_page (`module_id`, `user_role_id`, `action`, `enable_class`, `priority`) VALUES 
 (2, 1, 'admin/viewSystemUsers', NULL, 20),
 (3, 1, 'pim/viewEmployeeList', NULL, 20),
 (3, 3, 'pim/viewEmployeeList', NULL, 10),
@@ -2611,100 +2611,100 @@ INSERT INTO `hs_hr_config`(`key`,`value`) VALUES
 
 
 
-INSERT INTO `ohrm_module` (`name`,`status`) VALUES
+INSERT INTO `cia_ferias_module` (`name`,`status`) VALUES
 ('communication',1);
-INSERT INTO `ohrm_datapoint_type`(`id`,`name`,`action_class`)  VALUES 
+INSERT INTO `cia_ferias_datapoint_type`(`id`,`name`,`action_class`)  VALUES 
 (1,'config','configDatapointProcessor'),
 (2,'count','countDatapointProcessor'),
 (3, 'session', 'sessionDatapointProcessor'),
 (4,'organization','OrganizationDataProcessor');
 
-SET @admin_user_role_id := (SELECT id FROM ohrm_user_role WHERE name = 'Admin' LIMIT 1);
-SET @ess_user_role_id := (SELECT id FROM ohrm_user_role WHERE name = 'ESS' LIMIT 1);
+SET @admin_user_role_id := (SELECT id FROM cia_ferias_user_role WHERE name = 'Admin' LIMIT 1);
+SET @ess_user_role_id := (SELECT id FROM cia_ferias_user_role WHERE name = 'ESS' LIMIT 1);
 
-SET @admin_home_page := (SELECT id FROM ohrm_home_page WHERE user_role_id = @admin_user_role_id LIMIT 1);
-SET @ess_home_page := (SELECT id FROM ohrm_home_page WHERE user_role_id = @ess_user_role_id LIMIT 1);
+SET @admin_home_page := (SELECT id FROM cia_ferias_home_page WHERE user_role_id = @admin_user_role_id LIMIT 1);
+SET @ess_home_page := (SELECT id FROM cia_ferias_home_page WHERE user_role_id = @ess_user_role_id LIMIT 1);
 
-UPDATE ohrm_home_page SET action = 'dashboard/index', priority = '15' WHERE user_role_id = @admin_home_page;
-UPDATE ohrm_home_page SET action = 'dashboard/index', priority = '5' WHERE user_role_id = @ess_home_page;
+UPDATE cia_ferias_home_page SET action = 'dashboard/index', priority = '15' WHERE user_role_id = @admin_home_page;
+UPDATE cia_ferias_home_page SET action = 'dashboard/index', priority = '5' WHERE user_role_id = @ess_home_page;
 
-INSERT INTO ohrm_module (name, status) VALUES ('dashboard', 1);
-SET @dashboard_module := (SELECT id FROM ohrm_module WHERE name = 'dashboard' LIMIT 1);
+INSERT INTO cia_ferias_module (name, status) VALUES ('dashboard', 1);
+SET @dashboard_module := (SELECT id FROM cia_ferias_module WHERE name = 'dashboard' LIMIT 1);
 
-INSERT INTO ohrm_screen (name, module_id, action_url) VALUES ('Dashboard', @dashboard_module, 'index');
-SET @dashboard_screen := (SELECT id FROM ohrm_screen WHERE name = 'Dashboard' LIMIT 1);
+INSERT INTO cia_ferias_screen (name, module_id, action_url) VALUES ('Dashboard', @dashboard_module, 'index');
+SET @dashboard_screen := (SELECT id FROM cia_ferias_screen WHERE name = 'Dashboard' LIMIT 1);
 
-INSERT INTO ohrm_menu_item (menu_title, screen_id, parent_id, level, order_hint, url_extras, status) VALUES
+INSERT INTO cia_ferias_menu_item (menu_title, screen_id, parent_id, level, order_hint, url_extras, status) VALUES
 ('Dashboard', @dashboard_screen, NULL, 1, 800, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (@admin_user_role_id, @dashboard_screen, 1, 0, 0, 0),
 (@ess_user_role_id, @dashboard_screen, 1, 0, 0, 0);
 
-INSERT INTO `ohrm_reviewer_group` (`id`, `name`,`piority`) VALUES
+INSERT INTO `cia_ferias_reviewer_group` (`id`, `name`,`piority`) VALUES
 (1, 'Supervisor',1),
 (2, 'Employee',2);
 
-SET @admin_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = 'Admin');  
-SET @ess_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = 'ESS');
-SET @supervisor_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = 'Supervisor');
+SET @admin_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = 'Admin');  
+SET @ess_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = 'ESS');
+SET @supervisor_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = 'Supervisor');
 
-INSERT INTO `ohrm_module` (`name`, `status`) VALUES ('performance', 1);  
+INSERT INTO `cia_ferias_module` (`name`, `status`) VALUES ('performance', 1);  
 
 SET @module_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Save KPI', @module_id, 'saveKpi');  
 SET @save_kpi_screen_id := (SELECT LAST_INSERT_ID());   
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Saearch KPI', @module_id, 'searchKpi');  
 SET @search_kpi_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('My Reviews', @module_id, 'myPerformanceReview');  
 SET @my_reviews_screen_id := (SELECT LAST_INSERT_ID());  
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Add Review', @module_id, 'saveReview');  
 SET @add_review_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Review Evaluate', @module_id, 'reviewEvaluate');  
 SET @review_evaluate_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Review Evaluate By Admin', @module_id, 'reviewEvaluateByAdmin');  
 SET @review_evaluate_admin_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Search Evaluate Performance', @module_id, 'searchEvaluatePerformancReview');  
 SET @search_evaluate_performance_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Search Performance Review', @module_id, 'searchPerformancReview');  
 SET @search_performance_review_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
 ('Performance', NULL, NULL, 1, 700, '', 1);
-SET @performance_menu_id := (SELECT `id` FROM ohrm_menu_item WHERE `menu_title` = 'Performance' AND `level` = 1); 
+SET @performance_menu_id := (SELECT `id` FROM cia_ferias_menu_item WHERE `menu_title` = 'Performance' AND `level` = 1); 
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
 ('Configure', NULL, @performance_menu_id, 2, 100, '', 1);
 SET @ConfigureKPI_screen_id := (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
 ('Manage Reviews', NULL, @performance_menu_id, 2, 200, '', 1);
 SET @Manage_Reviews_screen_id := (SELECT LAST_INSERT_ID());
 
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
 ('KPIs', @search_kpi_screen_id, @ConfigureKPI_screen_id, 3, 100, '', 1),
 ('Manage Reviews', @search_performance_review_screen_id, @Manage_Reviews_screen_id, 3, 100, '', 1),
 ('My Reviews', @my_reviews_screen_id, @Manage_Reviews_screen_id, 3, 200, '', 1),
 ('Review List', @search_evaluate_performance_screen_id, @Manage_Reviews_screen_id, 3, 300, '', 1);
       
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
 (@admin_role_id, @save_kpi_screen_id, 1, 1, 1, 0),
 (@admin_role_id, @search_kpi_screen_id, 1, 1, 1, 1),
 (@admin_role_id, @add_review_screen_id, 1, 1, 1, 0),
@@ -2716,75 +2716,75 @@ INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create
 (@supervisor_role_id, @review_evaluate_admin_screen_id, 1, 1, 1, 0),
 (@ess_role_id, @review_evaluate_admin_screen_id, 1, 1, 1, 0);
 
-SET @admin_user_role := (SELECT id FROM ohrm_user_role WHERE name = 'Admin');
-SET @ess_user_role := (SELECT id FROM ohrm_user_role WHERE name = 'ESS');
+SET @admin_user_role := (SELECT id FROM cia_ferias_user_role WHERE name = 'Admin');
+SET @ess_user_role := (SELECT id FROM cia_ferias_user_role WHERE name = 'ESS');
 
-SET @performance_module_id:= (SELECT `id` FROM `ohrm_module` WHERE `name` = 'performance');
+SET @performance_module_id:= (SELECT `id` FROM `cia_ferias_module` WHERE `name` = 'performance');
 
 -- Admin Section. Manage Trackers.
-INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES
+INSERT INTO `cia_ferias_screen` (`name`, `module_id`, `action_url`) VALUES
 ( 'Manage_Trackers', @performance_module_id, 'addPerformanceTracker');
 SET @manage_performance_trackers_screen_id :=  (SELECT LAST_INSERT_ID());
 
-SET @performance_menu_id:= (SELECT id FROM ohrm_menu_item where menu_title = 'Performance');
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
+SET @performance_menu_id:= (SELECT id FROM cia_ferias_menu_item where menu_title = 'Performance');
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
 ('Trackers', @manage_performance_trackers_screen_id, @ConfigureKPI_screen_id, 3, 200, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (@admin_user_role, @manage_performance_trackers_screen_id, 1, 1, 1, 1),
 (@ess_user_role, @manage_performance_trackers_screen_id, 0, 0, 0, 0);
 
 -- Admin/ ESS Section Employee Trackers.
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES
 ( 'Employee_Trackers', @performance_module_id, 'viewEmployeePerformanceTrackerList');
 SET @employee_trackers_screen_id :=  (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
 ('Employee Trackers', @employee_trackers_screen_id, @performance_menu_id, 2, 800, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (@admin_user_role, @employee_trackers_screen_id, 1, 1, 1, 1),
 (@ess_user_role, @employee_trackers_screen_id, 1, 1, 1, 0);
 
 -- ESS secetion. My Trackers.
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES
 ( 'My_Trackers', @performance_module_id, 'viewMyPerformanceTrackerList');
 SET @my_trackers_screen_id :=  (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES
 ('My Trackers', @my_trackers_screen_id, @performance_menu_id, 2, 700, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (@admin_user_role, @my_trackers_screen_id, 0, 0, 0, 0),
 (@ess_user_role, @my_trackers_screen_id, 1, 0, 1, 0);
 
 -- Tracker Logs. (No menu item)
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES
 ( 'Employee_Tracker_Logs', @performance_module_id, 'addPerformanceTrackerLog');
 SET @employee_tracker_logs_screen_id :=  (SELECT LAST_INSERT_ID());
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES
 (@admin_user_role, @employee_tracker_logs_screen_id, 1, 1, 1, 0),
 (@ess_user_role, @employee_tracker_logs_screen_id, 1, 0, 0, 0);
 
 -- Install CorporateDirectory --
-INSERT INTO `ohrm_module` (`name`, `status`) VALUES ('directory', 1);  
+INSERT INTO `cia_ferias_module` (`name`, `status`) VALUES ('directory', 1);  
 
 SET @module_id := (SELECT LAST_INSERT_ID());  
   
-INSERT INTO ohrm_screen (`name`, `module_id`, `action_url`) VALUES  
+INSERT INTO cia_ferias_screen (`name`, `module_id`, `action_url`) VALUES  
 ('Directory', @module_id, 'viewDirectory'); 
 
 SET @directory_configuration_screen_id := (SELECT LAST_INSERT_ID());
   
-INSERT INTO ohrm_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
+INSERT INTO cia_ferias_menu_item (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES  
 ('Directory', @directory_configuration_screen_id, null, 1, 1000, '/reset/1', 1);  
   
-SET @admin_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = 'Admin'); 
+SET @admin_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = 'Admin'); 
 
-SET @ess_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = 'ESS'); 
+SET @ess_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = 'ESS'); 
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
 (@admin_role_id, @directory_configuration_screen_id, 1, 1, 1, 1),
 (@ess_role_id, @directory_configuration_screen_id, 1, 1, 1, 1);  
 
@@ -2793,17 +2793,17 @@ INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create
 
 INSERT INTO `hs_hr_config` (`key` ,`value`) VALUES ('domain.name',  'localhost');
 
-INSERT INTO ohrm_screen ( `name`, `module_id`, `action_url`) VALUES ( 'Manage OpenId', 2, 'openIdProvider');
+INSERT INTO cia_ferias_screen ( `name`, `module_id`, `action_url`) VALUES ( 'Manage OpenId', 2, 'openIdProvider');
 SET @opnid_screen_id := (SELECT LAST_INSERT_ID());
 
-SET @admin_menu_id := (SELECT `id` FROM ohrm_menu_item WHERE `menu_title` = 'Admin' AND `level` = 1);
-SET @configuration_id := (SELECT `id` FROM ohrm_menu_item WHERE `menu_title` = 'Configuration' AND `level` = 2 AND parent_id = @admin_menu_id);
-SET @max_order := (SELECT MAX(`order_hint`) FROM ohrm_menu_item WHERE parent_id = @configuration_id);
+SET @admin_menu_id := (SELECT `id` FROM cia_ferias_menu_item WHERE `menu_title` = 'Admin' AND `level` = 1);
+SET @configuration_id := (SELECT `id` FROM cia_ferias_menu_item WHERE `menu_title` = 'Configuration' AND `level` = 2 AND parent_id = @admin_menu_id);
+SET @max_order := (SELECT MAX(`order_hint`) FROM cia_ferias_menu_item WHERE parent_id = @configuration_id);
 
-INSERT INTO ohrm_menu_item ( `menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES 
+INSERT INTO cia_ferias_menu_item ( `menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `url_extras`, `status`) VALUES 
 ('Social Media Authentication', @opnid_screen_id, @configuration_id, 3, @max_order+100, NULL, 1);
 
-INSERT INTO ohrm_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
+INSERT INTO cia_ferias_user_role_screen (user_role_id, screen_id, can_read, can_create, can_update, can_delete) VALUES  
 (1, @opnid_screen_id, 1, 1, 1, 0);
 
 INSERT INTO hs_hr_config (`key`, `value`) VALUES  

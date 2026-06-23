@@ -1,0 +1,141 @@
+apiv2_attendance_configuration:
+  path: /api/v2/attendance/configs
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\AttendanceConfigurationAPI
+
+apiv2_employee_latest_attendance_record:
+  path: /api/v2/attendance/records/latest
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\EmployeeLatestAttendanceRecordAPI
+
+apiv2_attendance_punch_in_record_overlap:
+  path: /api/v2/attendance/punch-in/overlaps
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\AttendancePunchInRecordOverlapAPI
+
+apiv2_attendance_punch_out_record_overlap:
+  path: /api/v2/attendance/punch-out/overlaps
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\AttendancePunchOutRecordOverlapAPI
+
+apiv2_attendance_my_attendance_records:
+  path: /api/v2/attendance/records
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, PUT, DELETE ]
+  defaults:
+    _api: CiaFerias\Attendance\Api\MyAttendanceRecordAPI
+
+apiv2_attendance_employee_attendance_records:
+  path: /api/v2/attendance/employees/{empNumber}/records
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, PUT, DELETE ]
+  defaults:
+    _api: CiaFerias\Attendance\Api\EmployeeAttendanceRecordAPI
+
+apiv2_attendance_employee_attendance_record_summary:
+  path: /api/v2/attendance/employees/summary
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Attendance\Api\EmployeeAttendanceSummaryAPI
+
+apiv2_attendance_timezones:
+ path: /api/v2/attendance/timezones
+ controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+ methods: [ GET ]
+ defaults:
+   _api: CiaFerias\Attendance\Api\TimezonesAPI
+
+apiv2_attendance_current_datetime:
+  path: /api/v2/attendance/current-datetime
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\CurrentDateTimeAPI
+
+apiv2_attendance_edit_punch_in_record_overlap:
+  path: /api/v2/attendance/records/punch-in-overlaps
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\AttendanceEditPunchInRecordOverlapAPI
+
+apiv2_attendance_edit_punch_out_record_overlap:
+  path: /api/v2/attendance/records/punch-out-overlaps
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Attendance\Api\AttendanceEditPunchOutRecordOverlapAPI
+    
+apiv2_attendance_employee_attendance_record:
+  path: /api/v2/attendance/records/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Attendance\Api\AttendanceRecordAPI
+  requirements:
+    id: '\d+'
+
+##########################
+#        Screens
+##########################
+
+attendance_punch_in:
+  path: /attendance/punchIn
+  controller: CiaFerias\Attendance\Controller\PunchInController::handle
+  methods: [ GET ]
+
+attendance_punch_out:
+  path: /attendance/punchOut
+  controller: CiaFerias\Attendance\Controller\PunchOutController::handle
+  methods: [ GET ]
+
+attendance_configure:
+  path: /attendance/configure
+  controller: CiaFerias\Attendance\Controller\AttendanceConfigurationController::handle
+  methods: [ GET ]
+
+attendance_view_employee_attendance:
+  path: /attendance/viewAttendanceRecord
+  controller: CiaFerias\Attendance\Controller\ViewEmployeeAttendanceController::handle
+  methods: [ GET ]
+
+attendance_view_my_attendance:
+  path: /attendance/viewMyAttendanceRecord
+  controller: CiaFerias\Attendance\Controller\ViewMyAttendanceController::handle
+  methods: [ GET ]
+
+attendance_edit_attendance:
+  path: /attendance/editAttendanceRecord/{id}
+  controller: CiaFerias\Attendance\Controller\EditAttendanceController::handle
+  methods: [ GET ]
+
+attendance_summary_report:
+  path: /time/displayAttendanceSummaryReportCriteria
+  controller: CiaFerias\Attendance\Controller\AttendanceSummaryReportController::handle
+  methods: [ GET ]  
+
+attendance_employee_punch_in_out:
+  path: /attendance/proxyPunchInPunchOut
+  controller: CiaFerias\Attendance\Controller\EmployeePunchInOutController::handle
+  methods: [ GET ]
+
+attendance_employee_edit_attendance:
+  path: /attendance/editEmployeeAttendanceRecord/{id}
+  controller: CiaFerias\Attendance\Controller\EditEmployeeAttendanceController::handle
+  methods: [ GET ]

@@ -1,0 +1,24 @@
+GetAll:
+  'Get all reviewers with empNumber':
+    userId: 1
+    services:
+      performance.performance_tracker_service: \CiaFerias\Performance\Service\PerformanceTrackerService
+      core.config_service: \CiaFerias\Core\Service\ConfigService
+      admin.user_service: \CiaFerias\Admin\Service\UserService
+      pim.employee_service: \CiaFerias\Pim\Service\EmployeeService
+    factories:
+      core.authorization.user_role_manager: [ '\CiaFerias\Core\Authorization\Manager\UserRoleManagerFactory', 'getNewUserRoleManager' ]
+    attributes: [ ]
+    query:
+      empNumber: 2
+      nameOrId: 'Abbey'
+    data:
+      0:
+        empNumber: 1
+        lastName: 'Abbey'
+        firstName: 'Kayla'
+        middleName: 'T'
+        employeeId: 'E001'
+        terminationId: null
+    meta:
+      total: 1

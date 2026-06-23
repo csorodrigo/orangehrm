@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util;
+namespace CiaFerias\Installer\Util;
 
 use DateTime;
-use OrangeHRM\Authentication\Dto\UserCredential;
-use OrangeHRM\Framework\Http\Session\Session;
-use OrangeHRM\Framework\ServiceContainer;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
+use CiaFerias\Authentication\Dto\UserCredential;
+use CiaFerias\Framework\Http\Session\Session;
+use CiaFerias\Framework\ServiceContainer;
+use CiaFerias\Framework\Services;
+use CiaFerias\Installer\Controller\AbstractInstallerVueController;
 
 class StateContainer
 {
@@ -33,8 +33,8 @@ class StateContainer
     public const DB_PORT = 'dbPort';
     public const DB_USER = 'dbUser';
     public const DB_PASSWORD = 'dbPass';
-    public const ORANGEHRM_DB_USER = 'ohrmDbUser';
-    public const ORANGEHRM_DB_PASSWORD = 'ohrmDbPassword';
+    public const CIA_FERIAS_DB_USER = 'ciaFeriasDbUser';
+    public const CIA_FERIAS_DB_PASSWORD = 'ciaFeriasDbPassword';
     public const IS_SET_DB_INFO = 'isSetDbInfo';
     public const INSTALLATION_DB_TYPE = 'dbType';
     public const ENABLE_DATA_ENCRYPTION = 'enableDataEncryption';
@@ -143,14 +143,14 @@ class StateContainer
      * @param string $dbPort
      * @param UserCredential $dbUserCredential
      * @param string $dbName
-     * @param UserCredential|null $ohrmDbUserCredential
+     * @param UserCredential|null $ciaFeriasDbUserCredential
      */
     public function storeDbInfo(
         string $dbHost,
         string $dbPort,
         UserCredential $dbUserCredential,
         string $dbName,
-        ?UserCredential $ohrmDbUserCredential = null,
+        ?UserCredential $ciaFeriasDbUserCredential = null,
         bool $enableDataEncryption = false
     ): void {
         $this->clearDbInfo();
@@ -160,9 +160,9 @@ class StateContainer
         $this->getSession()->set(self::DB_HOST, $dbHost);
         $this->getSession()->set(self::DB_PORT, $dbPort);
         $this->getSession()->set(self::ENABLE_DATA_ENCRYPTION, $enableDataEncryption);
-        if ($ohrmDbUserCredential instanceof UserCredential) {
-            $this->getSession()->set(self::ORANGEHRM_DB_USER, $ohrmDbUserCredential->getUsername());
-            $this->getSession()->set(self::ORANGEHRM_DB_PASSWORD, $ohrmDbUserCredential->getPassword() ?? '');
+        if ($ciaFeriasDbUserCredential instanceof UserCredential) {
+            $this->getSession()->set(self::CIA_FERIAS_DB_USER, $ciaFeriasDbUserCredential->getUsername());
+            $this->getSession()->set(self::CIA_FERIAS_DB_PASSWORD, $ciaFeriasDbUserCredential->getPassword() ?? '');
         }
         $this->getSession()->set(self::IS_SET_DB_INFO, true);
     }
@@ -180,9 +180,9 @@ class StateContainer
             self::DB_PORT => $this->getSession()->get(self::DB_PORT),
             self::ENABLE_DATA_ENCRYPTION => $this->getSession()->get(self::ENABLE_DATA_ENCRYPTION),
         ];
-        if ($this->getSession()->has(self::ORANGEHRM_DB_USER)) {
-            $dbInfo[self::ORANGEHRM_DB_USER] = $this->getSession()->get(self::ORANGEHRM_DB_USER);
-            $dbInfo[self::ORANGEHRM_DB_PASSWORD] = $this->getSession()->get(self::ORANGEHRM_DB_PASSWORD);
+        if ($this->getSession()->has(self::CIA_FERIAS_DB_USER)) {
+            $dbInfo[self::CIA_FERIAS_DB_USER] = $this->getSession()->get(self::CIA_FERIAS_DB_USER);
+            $dbInfo[self::CIA_FERIAS_DB_PASSWORD] = $this->getSession()->get(self::CIA_FERIAS_DB_PASSWORD);
         }
         return $dbInfo;
     }
@@ -197,8 +197,8 @@ class StateContainer
         $this->getSession()->remove(self::DB_PASSWORD);
         $this->getSession()->remove(self::DB_HOST);
         $this->getSession()->remove(self::DB_PORT);
-        $this->getSession()->remove(self::ORANGEHRM_DB_USER);
-        $this->getSession()->remove(self::ORANGEHRM_DB_PASSWORD);
+        $this->getSession()->remove(self::CIA_FERIAS_DB_USER);
+        $this->getSession()->remove(self::CIA_FERIAS_DB_PASSWORD);
         $this->getSession()->remove(self::ENABLE_DATA_ENCRYPTION);
         $this->getSession()->set(self::IS_SET_DB_INFO, false);
         DatabaseServerConnection::reset();

@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Upgrader;
+namespace CiaFerias\Installer\Controller\Upgrader;
 
-use OrangeHRM\Core\Vue\Component;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Core\Vue\Component;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\AbstractInstallerVueController;
+use CiaFerias\Installer\Util\StateContainer;
 
 class UpgraderController extends AbstractInstallerVueController
 {

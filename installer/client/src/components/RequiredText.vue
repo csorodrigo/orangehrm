@@ -18,7 +18,7 @@
  -->
 
 <template>
-  <oxd-text tag="p" class="orangehrm-form-hint"> * Required </oxd-text>
+  <oxd-text tag="p" class="cia-ferias-form-hint"> * Required </oxd-text>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.orangehrm-form-hint {
+.cia-ferias-form-hint {
   margin-right: auto;
   font-weight: 600;
   font-size: 0.75rem;

@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util;
+namespace CiaFerias\Installer\Util;
 
 use DateTime;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Installer\Util\Service\DataRegistrationService;
-use OrangeHRM\Installer\Util\SystemConfig\SystemConfiguration;
+use CiaFerias\Config\Config;
+use CiaFerias\Installer\Util\Service\DataRegistrationService;
+use CiaFerias\Installer\Util\SystemConfig\SystemConfiguration;
 
 class DataRegistrationUtility
 {

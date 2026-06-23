@@ -4,7 +4,7 @@
 
 apiv2_buzz_upcoming_anniversaries:
   description: 'Buzz - Upcoming Anniversaries'
-  api: OrangeHRM\Buzz\Api\EmployeeAnniversaryAPI
+  api: CiaFerias\Buzz\Api\EmployeeAnniversaryAPI
   module: buzz
   allowed:
     read: true
@@ -17,7 +17,7 @@ apiv2_buzz_upcoming_anniversaries:
 
 apiv2_buzz_feed:
   description: 'Buzz - Feed'
-  api: OrangeHRM\Buzz\Api\BuzzFeedAPI
+  api: CiaFerias\Buzz\Api\BuzzFeedAPI
   module: buzz
   allowed:
     read: true
@@ -30,7 +30,7 @@ apiv2_buzz_feed:
 
 apiv2_buzz_posts:
   description: 'Buzz - Posts'
-  api: OrangeHRM\Buzz\Api\BuzzPostAPI
+  api: CiaFerias\Buzz\Api\BuzzPostAPI
   module: buzz
   allowed:
     read: true
@@ -43,7 +43,7 @@ apiv2_buzz_posts:
 
 apiv2_buzz_shares:
   description: 'Buzz - Shares'
-  api: OrangeHRM\Buzz\Api\BuzzShareAPI
+  api: CiaFerias\Buzz\Api\BuzzShareAPI
   module: buzz
   allowed:
     read: true
@@ -56,7 +56,7 @@ apiv2_buzz_shares:
 
 apiv2_buzz_comments:
   description: 'Buzz - Comments'
-  api: OrangeHRM\Buzz\Api\BuzzCommentAPI
+  api: CiaFerias\Buzz\Api\BuzzCommentAPI
   module: buzz
   allowed:
     read: true
@@ -69,7 +69,7 @@ apiv2_buzz_comments:
 
 apiv2_buzz_like_on_share:
   description: 'Buzz - Likes on Share'
-  api: OrangeHRM\Buzz\Api\BuzzLikeOnShareAPI
+  api: CiaFerias\Buzz\Api\BuzzLikeOnShareAPI
   module: buzz
   allowed:
     read: true
@@ -82,7 +82,7 @@ apiv2_buzz_like_on_share:
 
 apiv2_buzz_like_on_comment:
   description: 'Buzz - Likes on Comment'
-  api: OrangeHRM\Buzz\Api\BuzzLikeOnCommentAPI
+  api: CiaFerias\Buzz\Api\BuzzLikeOnCommentAPI
   module: buzz
   allowed:
     read: true
@@ -95,7 +95,7 @@ apiv2_buzz_like_on_comment:
 
 apiv2_buzz_video_url_validation:
   description: 'Buzz - Validate URL of Video Post'
-  api: OrangeHRM\Buzz\Api\BuzzVideoURLValidationAPI
+  api: CiaFerias\Buzz\Api\BuzzVideoURLValidationAPI
   module: buzz
   allowed:
     read: true
@@ -108,7 +108,7 @@ apiv2_buzz_video_url_validation:
 
 apiv2_buzz_post_share:
   description: 'Buzz - Post Share'
-  api: OrangeHRM\Buzz\Api\BuzzPostShareAPI
+  api: CiaFerias\Buzz\Api\BuzzPostShareAPI
   module: buzz
   allowed:
     read: true

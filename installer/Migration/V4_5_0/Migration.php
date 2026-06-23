@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_5_0;
+namespace CiaFerias\Installer\Migration\V4_5_0;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -29,28 +29,28 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_oauth_scope'])) {
-            $this->getSchemaHelper()->createTable('ohrm_oauth_scope')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_oauth_scope'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_oauth_scope')
                 ->addColumn('scope', Types::TEXT)
                 ->addColumn('is_default', Types::BOOLEAN, ['Notnull' => true, 'Default' => false])
                 ->create();
         }
 
         $this->getSchemaHelper()->addColumn(
-            'ohrm_oauth_client',
+            'cia_ferias_oauth_client',
             'grant_types',
             Types::STRING,
             ['Length' => 80, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'ohrm_oauth_client',
+            'cia_ferias_oauth_client',
             'scope',
             Types::STRING,
             ['Length' => 4000, 'Notnull' => false, 'Default' => null]
         );
 
         $this->createQueryBuilder()
-            ->update('ohrm_oauth_client', 'oauth_client')
+            ->update('cia_ferias_oauth_client', 'oauth_client')
             ->set('grant_types', ':grantTypes')
             ->setParameter('grantTypes', 'client_credentials')
             ->set('scope', ':scope')
@@ -59,14 +59,14 @@ class Migration extends AbstractMigration
 
         $clientId = $this->createQueryBuilder()
             ->select('oauth_client.client_id')
-            ->from('ohrm_oauth_client', 'oauth_client')
+            ->from('cia_ferias_oauth_client', 'oauth_client')
             ->where('oauth_client.client_id = :clientId')
-            ->setParameter('clientId', 'orangehrm_mobile_app')
+            ->setParameter('clientId', 'cia_ferias_mobile_app')
             ->executeQuery()
             ->fetchOne();
-        if ($clientId != 'orangehrm_mobile_app') {
+        if ($clientId != 'cia_ferias_mobile_app') {
             $this->createQueryBuilder()
-                ->insert('ohrm_oauth_client')
+                ->insert('cia_ferias_oauth_client')
                 ->values(
                     [
                         'client_id' => ':clientId',
@@ -76,7 +76,7 @@ class Migration extends AbstractMigration
                         'scope' => ':scope'
                     ]
                 )
-                ->setParameter('clientId', 'orangehrm_mobile_app')
+                ->setParameter('clientId', 'cia_ferias_mobile_app')
                 ->setParameter('clientSecret', '')
                 ->setParameter('redirectUri', '')
                 ->setParameter('grantTypes', 'password refresh_token')
@@ -84,8 +84,8 @@ class Migration extends AbstractMigration
                 ->executeQuery();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_rest_api_usage'])) {
-            $this->getSchemaHelper()->createTable('ohrm_rest_api_usage')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_rest_api_usage'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_rest_api_usage')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('client_id', Types::STRING, ['Length' => 255, 'Notnull' => false, 'Default' => null])
                 ->addColumn('user_id', Types::STRING, ['Length' => 255, 'Notnull' => false, 'Default' => null])

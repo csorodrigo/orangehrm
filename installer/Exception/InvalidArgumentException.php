@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Exception;
+namespace CiaFerias\Installer\Exception;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {

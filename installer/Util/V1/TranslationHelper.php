@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\V1;
+namespace CiaFerias\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Query\QueryBuilder;
-use OrangeHRM\Installer\Util\V1\Dto\TransUnit;
+use CiaFerias\Installer\Util\V1\Dto\TransUnit;
 use Symfony\Component\Yaml\Yaml;
 
 class TranslationHelper
@@ -81,7 +81,7 @@ class TranslationHelper
             // TODO hanldle customized translations
         } else {
             $insetQuery = $this->createQueryBuilder();
-            $insetQuery->insert('ohrm_i18n_translate')
+            $insetQuery->insert('cia_ferias_i18n_translate')
                 ->values(
                     [
                         'lang_string_id' => ':langStringId',
@@ -116,7 +116,7 @@ class TranslationHelper
     {
         $searchQuery = $this->createQueryBuilder();
         $searchQuery->select('language.id')
-            ->from('ohrm_i18n_language', 'language')
+            ->from('cia_ferias_i18n_language', 'language')
             ->where('language.code = :langCode')
             ->setParameter('langCode', $langCode);
         return $searchQuery->executeQuery()->fetchOne();
@@ -139,7 +139,7 @@ class TranslationHelper
     {
         $searchQuery = $this->createQueryBuilder();
         $searchQuery->select('translate.id')
-            ->from('ohrm_i18n_translate', 'translate')
+            ->from('cia_ferias_i18n_translate', 'translate')
             ->where('translate.language_id = :langCode')
             ->andWhere('translate.lang_string_id = :langStringId')
             ->setParameter('langCode', $langId)

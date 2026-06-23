@@ -4,13 +4,13 @@ create table `hs_hr_config` (
 	primary key (`key`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_employment_status` (
+create table `cia_ferias_employment_status` (
 	`id` int not null auto_increment,
 	`name` varchar(60) not null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_job_category` (
+create table `cia_ferias_job_category` (
 	`id` int not null auto_increment,
 	`name` varchar(60) default null,
   primary key  (`id`)
@@ -38,7 +38,7 @@ create table `hs_hr_currency_type` (
   primary key  (`currency_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_license` (
+create table `cia_ferias_license` (
 	`id` int not null auto_increment,
 	`name` varchar(100) not null,
   primary key  (`id`)
@@ -155,7 +155,7 @@ create table `hs_hr_emp_history_of_ealier_pos` (
 ) engine=innodb default charset=utf8;
 
 
-create table `ohrm_emp_license` (
+create table `cia_ferias_emp_license` (
   `emp_number` int not null,
   `license_id` int not null,
   `license_no` varchar(50) default null,
@@ -221,7 +221,7 @@ create table `hs_hr_emp_picture` (
 ) engine=innodb default charset=utf8;
 
 
-create table `ohrm_emp_education` (
+create table `cia_ferias_emp_education` (
   `id` int not null auto_increment,
   `emp_number` int not null,
   `education_id` int not null,
@@ -242,7 +242,7 @@ create table `hs_hr_emp_reportto` (
   primary key  (`erep_sup_emp_number`,`erep_sub_emp_number`, `erep_reporting_mode`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_emp_reporting_method` (
+create table `cia_ferias_emp_reporting_method` (
   `reporting_method_id` int(7) not null auto_increment,
   `reporting_method_name` varchar(100) not null,
   primary key  (`reporting_method_id`)
@@ -312,14 +312,14 @@ create table `hs_hr_employee` (
 ) engine=innodb default charset=utf8;
 
 
-create table `ohrm_language` (
+create table `cia_ferias_language` (
   `id` int not null auto_increment,
   `name` varchar(120) default null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
 
-create table `ohrm_location` (
+create table `cia_ferias_location` (
   `id` int not null auto_increment,
   `name` varchar(110) not null,
   `country_code` varchar(3) not null,
@@ -333,7 +333,7 @@ create table `ohrm_location` (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-CREATE  TABLE `ohrm_operational_country` (
+CREATE  TABLE `cia_ferias_operational_country` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `country_code` CHAR(2) DEFAULT NULL,
   PRIMARY KEY (`id`)    
@@ -357,20 +357,20 @@ create table `hs_hr_province` (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_education` (
+create table `cia_ferias_education` (
 	`id` int not null auto_increment,
 	`name` varchar(100) not null,
 	primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_skill` (
+create table `cia_ferias_skill` (
   `id` int not null auto_increment,
   `name` varchar(120) default null,
   `description` text default null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_pay_grade_currency` (
+create table `cia_ferias_pay_grade_currency` (
   `pay_grade_id` int not null ,
   `currency_id` varchar(6) not null default '',
   `min_salary` double default null,
@@ -378,13 +378,13 @@ create table `ohrm_pay_grade_currency` (
   primary key  (`pay_grade_id`,`currency_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_pay_grade` (
+create table `cia_ferias_pay_grade` (
   `id` int not null auto_increment,
   `name` varchar(60) default null unique,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-CREATE TABLE `ohrm_holiday` (
+CREATE TABLE `cia_ferias_holiday` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `description` TEXT DEFAULT NULL,
   `date` DATE DEFAULT NULL,
@@ -394,7 +394,7 @@ CREATE TABLE `ohrm_holiday` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-CREATE  TABLE IF NOT EXISTS `ohrm_work_week` (
+CREATE  TABLE IF NOT EXISTS `cia_ferias_work_week` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `operational_country_id` INT(10) UNSIGNED NULL DEFAULT NULL ,
   `mon` TINYINT UNSIGNED NOT NULL DEFAULT 0 ,
@@ -416,7 +416,7 @@ create table `hs_hr_mailnotifications` (
 	KEY `notification_type_id` (`notification_type_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_customer` (
+create table `cia_ferias_customer` (
   `customer_id` int(11) not null auto_increment,
   `name` varchar(100) not null,
   `description` varchar(255) default null,
@@ -424,7 +424,7 @@ create table `ohrm_customer` (
   primary key  (`customer_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_project` (
+create table `cia_ferias_project` (
   `project_id` int(11) not null auto_increment,
   `customer_id` int(11) not null,
   `name` varchar(100) default null,
@@ -434,7 +434,7 @@ create table `ohrm_project` (
   key `customer_id` (`customer_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_project_activity` (
+create table `cia_ferias_project_activity` (
   `activity_id` int(11) not null auto_increment,
   `project_id` int(11) not null,
   `name` varchar(110) default null,
@@ -443,7 +443,7 @@ create table `ohrm_project_activity` (
   key `project_id` (`project_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_project_admin` (
+create table `cia_ferias_project_admin` (
   `project_id` int(11) not null,
   `emp_number` int(11) not null,
   primary key  (`project_id`,`emp_number`),
@@ -459,7 +459,7 @@ create table `hs_hr_unique_id` (
   unique key `table_field` (`table_name`, `field_name`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_work_shift` (
+create table `cia_ferias_work_shift` (
   `id` int(11) not null auto_increment,
   `name` varchar(250) not null,
   `hours_per_day` decimal(4,2) not null,
@@ -468,7 +468,7 @@ create table `ohrm_work_shift` (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_employee_work_shift` (
+create table `cia_ferias_employee_work_shift` (
   `work_shift_id` int(11) not null auto_increment,
   `emp_number` int(11) not null,
   primary key  (`work_shift_id`,`emp_number`),
@@ -520,7 +520,7 @@ create table `hs_hr_emp_locations` (
   primary key  (`emp_number`, `location_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_timesheet`(
+create table `cia_ferias_timesheet`(
   `timesheet_id` bigint(20) not null,
   `state` varchar(255) not null,
   `start_date` date not null,
@@ -529,7 +529,7 @@ create table `ohrm_timesheet`(
   primary key  (`timesheet_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_timesheet_item`(
+create table `cia_ferias_timesheet_item`(
   `timesheet_item_id` bigint(20) not null,
   `timesheet_id` bigint(20) not null,
   `date` date not null,
@@ -543,7 +543,7 @@ create table `ohrm_timesheet_item`(
   key `activity_id` (`activity_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_timesheet_action_log`(
+create table `cia_ferias_timesheet_action_log`(
   `timesheet_action_log_id` bigint(20) not null,
   `comment` varchar(255) default null,
   `action` varchar(255),
@@ -555,7 +555,7 @@ create table `ohrm_timesheet_action_log`(
   key `performed_by`(`performed_by`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_workflow_state_machine`(
+create table `cia_ferias_workflow_state_machine`(
   `id` bigint(20) not null auto_increment,
   `workflow` varchar(255) not null,
   `state` varchar(255) not null,
@@ -567,7 +567,7 @@ create table `ohrm_workflow_state_machine`(
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_attendance_record`(
+create table `cia_ferias_attendance_record`(
   `id` bigint(20) not null,
   `employee_id` bigint(20) not null,
   `punch_in_utc_time` datetime ,
@@ -584,14 +584,14 @@ create table `ohrm_attendance_record`(
   KEY `emp_id_time` (`employee_id`,`punch_in_utc_time`,`punch_out_utc_time`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_report_group` (
+create table `cia_ferias_report_group` (
   `report_group_id` bigint(20) not null,
   `name` varchar(255) not null,
   `core_sql` mediumtext not null,
   primary key (`report_group_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_report` (
+create table `cia_ferias_report` (
   `report_id` bigint(20) not null auto_increment,
   `name` varchar(255) not null,
   `report_group_id` bigint(20) not null,
@@ -601,7 +601,7 @@ create table `ohrm_report` (
   key `report_group_id` (`report_group_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_filter_field` (
+create table `cia_ferias_filter_field` (
   `filter_field_id` bigint(20) not null,
   `report_group_id` bigint(20) not null,
   `name` varchar(255) not null,
@@ -613,7 +613,7 @@ create table `ohrm_filter_field` (
   key `report_group_id` (`report_group_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_selected_filter_field` (
+create table `cia_ferias_selected_filter_field` (
   `report_id` bigint(20) not null,
   `filter_field_id` bigint(20) not null,
   `filter_field_order` bigint(20) not null,
@@ -626,7 +626,7 @@ create table `ohrm_selected_filter_field` (
   key `filter_field_id` (`filter_field_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_display_field` (
+create table `cia_ferias_display_field` (
   `display_field_id` bigint(20) not null auto_increment,
   `report_group_id` bigint(20) not null,
   `name` varchar(255) not null,
@@ -649,7 +649,7 @@ create table `ohrm_display_field` (
   key `report_group_id` (`report_group_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_composite_display_field` (
+create table `cia_ferias_composite_display_field` (
   `composite_display_field_id` bigint(20) not null auto_increment,
   `report_group_id` bigint(20) not null,
   `name` varchar(1000) not null,
@@ -672,7 +672,7 @@ create table `ohrm_composite_display_field` (
   key `report_group_id` (`report_group_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_group_field` (
+create table `cia_ferias_group_field` (
   `group_field_id` bigint(20) not null,
   `name` varchar(255) not null,
   `group_by_clause` mediumtext not null,
@@ -680,7 +680,7 @@ create table `ohrm_group_field` (
   primary key (`group_field_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_available_group_field` (
+create table `cia_ferias_available_group_field` (
   `report_group_id` bigint(20) not null,
   `group_field_id` bigint(20) not null,
   primary key (`report_group_id`,`group_field_id`),
@@ -688,7 +688,7 @@ create table `ohrm_available_group_field` (
   key `group_field_id` (`group_field_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_selected_display_field` (
+create table `cia_ferias_selected_display_field` (
   `id` bigint(20) not null auto_increment,
   `display_field_id` bigint(20) not null,
   `report_id` bigint(20) not null,
@@ -697,7 +697,7 @@ create table `ohrm_selected_display_field` (
   key `report_id` (`report_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_selected_composite_display_field` (
+create table `cia_ferias_selected_composite_display_field` (
   `id` bigint(20) not null,
   `composite_display_field_id` bigint(20) not null,
   `report_id` bigint(20) not null,
@@ -706,7 +706,7 @@ create table `ohrm_selected_composite_display_field` (
   key `report_id` (`report_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_summary_display_field` (
+create table `cia_ferias_summary_display_field` (
   `summary_display_field_id` bigint(20) not null,
   `function` varchar(1000) not null,
   `label` varchar(255) not null,
@@ -725,7 +725,7 @@ create table `ohrm_summary_display_field` (
   primary key (`summary_display_field_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_selected_group_field` (
+create table `cia_ferias_selected_group_field` (
   `group_field_id` bigint(20) not null,
   `summary_display_field_id` bigint(20) not null,
   `report_id` bigint(20) not null,
@@ -735,7 +735,7 @@ create table `ohrm_selected_group_field` (
   key `report_id` (`report_id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_display_field_group` (
+create table `cia_ferias_display_field_group` (
   `id` int unsigned not null auto_increment,
   `report_group_id` bigint not null,
   `name` varchar(255) not null,
@@ -743,14 +743,14 @@ create table `ohrm_display_field_group` (
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_selected_display_field_group` (
+create table `cia_ferias_selected_display_field_group` (
   `id` int unsigned not null auto_increment,
   `report_id` bigint not null,
   `display_field_group_id` int unsigned not null,
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_job_vacancy`(
+create table `cia_ferias_job_vacancy`(
 	`id` int(13) not null,
 	`job_title_code` int(4) not null,
         `hiring_manager_id` int(13) default null,
@@ -764,7 +764,7 @@ create table `ohrm_job_vacancy`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_candidate`(
+create table `cia_ferias_job_candidate`(
 	`id` int(13) not null,
 	`first_name` varchar(30) not null,
 	`middle_name` varchar(30) default null,
@@ -782,7 +782,7 @@ create table `ohrm_job_candidate`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_candidate_vacancy`(
+create table `cia_ferias_job_candidate_vacancy`(
         `id` int(13) default null unique,
 	`candidate_id` int(13) not null,
         `vacancy_id` int(13) not null,
@@ -791,7 +791,7 @@ create table `ohrm_job_candidate_vacancy`(
 	primary key (`candidate_id`, `vacancy_id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_candidate_attachment`(
+create table `cia_ferias_job_candidate_attachment`(
 	`id` int(13) not null auto_increment,
 	`candidate_id` int(13) not null,
 	`file_name` varchar(200) not null,
@@ -802,7 +802,7 @@ create table `ohrm_job_candidate_attachment`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_vacancy_attachment`(
+create table `cia_ferias_job_vacancy_attachment`(
 	`id` int(13) not null auto_increment,
 	`vacancy_id` int(13) not null,
 	`file_name` varchar(200) not null,
@@ -814,7 +814,7 @@ create table `ohrm_job_vacancy_attachment`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_interview_attachment`(
+create table `cia_ferias_job_interview_attachment`(
 	`id` int(13) not null auto_increment,
 	`interview_id` int(13) not null,
 	`file_name` varchar(200) not null,
@@ -826,7 +826,7 @@ create table `ohrm_job_interview_attachment`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_candidate_history`(
+create table `cia_ferias_job_candidate_history`(
 	`id` int(13) not null auto_increment,
 	`candidate_id` int(13) not null,
 	`vacancy_id` int(13) default null,
@@ -840,7 +840,7 @@ create table `ohrm_job_candidate_history`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_interview`(
+create table `cia_ferias_job_interview`(
 	`id` int(13) not null auto_increment,
 	`candidate_vacancy_id` int(13) default null,
         `candidate_id` int(13) default null,
@@ -851,13 +851,13 @@ create table `ohrm_job_interview`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_job_interview_interviewer`(
+create table `cia_ferias_job_interview_interviewer`(
 	`interview_id` int(13) not null,
 	`interviewer_id` int(13) not null,
 	primary key (`interview_id`, `interviewer_id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_subunit` (
+create table `cia_ferias_subunit` (
   `id` int(6) not null auto_increment,
   `name` varchar(100) not null unique,
   `unit_id` varchar(100) default null,
@@ -868,7 +868,7 @@ create table `ohrm_subunit` (
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_organization_gen_info` (
+create table `cia_ferias_organization_gen_info` (
   `id` int(4) not null auto_increment,
   `name` varchar(100) not null,
   `tax_id` varchar(30) default null,
@@ -886,7 +886,7 @@ create table `ohrm_organization_gen_info` (
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_job_title` (
+create table `cia_ferias_job_title` (
   `id` int(13) not null auto_increment,
   `job_title` varchar(100) not null,
   `job_description` varchar(400) default null,
@@ -895,7 +895,7 @@ create table `ohrm_job_title` (
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_job_specification_attachment`(
+create table `cia_ferias_job_specification_attachment`(
 	`id` int(13) not null auto_increment,
 	`job_title_id` int(13) not null,
 	`file_name` varchar(200) not null,
@@ -905,7 +905,7 @@ create table `ohrm_job_specification_attachment`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_emp_termination`(
+create table `cia_ferias_emp_termination`(
 	`id` int(4) not null auto_increment,
 	`emp_number` int(4) default null,
         `reason_id` int(4) default null,
@@ -914,13 +914,13 @@ create table `ohrm_emp_termination`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_emp_termination_reason`(
+create table `cia_ferias_emp_termination_reason`(
 	`id` int(4) not null auto_increment,
     `name` varchar(100) default null,
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_user`(
+create table `cia_ferias_user`(
         `id` int(10) not null auto_increment,
         `user_role_id` int(10) not null,
         `emp_number` int(13) DEFAULT NULL,
@@ -939,7 +939,7 @@ create table `ohrm_user`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_user_role`(
+create table `cia_ferias_user_role`(
 	`id` int(10) not null auto_increment,
 	`name` varchar(255) not null,
 	`display_name` varchar(255) not null,
@@ -949,7 +949,7 @@ create table `ohrm_user_role`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_user_selection_rule`(
+create table `cia_ferias_user_selection_rule`(
 	`id` int(10) not null auto_increment,
 	`name` varchar(255) not null,
         `description` varchar(255) ,
@@ -958,33 +958,33 @@ create table `ohrm_user_selection_rule`(
 	primary key (`id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_role_user_selection_rule`(
+create table `cia_ferias_role_user_selection_rule`(
 	`user_role_id` int(10) not null,
         `selection_rule_id` int(10) not null,
         `configurable_params` text,
 	primary key (`user_role_id`,`selection_rule_id`)
 )engine=innodb default charset=utf8;
 
-create table `ohrm_membership` (
+create table `cia_ferias_membership` (
   `id` int(6) not null auto_increment,
   `name` varchar(100) not null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_nationality` (
+create table `cia_ferias_nationality` (
   `id` int(6) not null auto_increment,
   `name` varchar(100) not null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_email_notification` (
+create table `cia_ferias_email_notification` (
   `id` int(6) not null auto_increment,
   `name` varchar(100) not null,
   `is_enable` int(6) not null,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_email_subscriber` (
+create table `cia_ferias_email_subscriber` (
   `id` int(6) not null auto_increment,
   `notification_id` int(6) not null,
   `name` varchar(100) not null,
@@ -992,14 +992,14 @@ create table `ohrm_email_subscriber` (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_email` (
+create table `cia_ferias_email` (
   `id` int(6) not null auto_increment,
   `name` varchar(100) not null unique,
   primary key  (`id`),
-  unique key ohrm_email_name(`name`)
+  unique key cia_ferias_email_name(`name`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_email_template` (
+create table `cia_ferias_email_template` (
   `id` int(6) not null auto_increment,
   `email_id` int(6) not null,
   `locale` varchar(20),
@@ -1010,21 +1010,21 @@ create table `ohrm_email_template` (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_email_processor` (
+create table `cia_ferias_email_processor` (
   `id` int(6) not null auto_increment,
   `email_id` int(6) not null,
   `class_name` varchar(100),
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_module` (
+create table `cia_ferias_module` (
   `id` int not null auto_increment,
   `name` varchar(120) default null,
   `status` tinyint default 1,
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-create table ohrm_screen (
+create table cia_ferias_screen (
   `id` int not null auto_increment, 
    `name` varchar(100) not null, 
    `module_id` int not null, 
@@ -1032,7 +1032,7 @@ create table ohrm_screen (
    primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table ohrm_user_role_screen (
+create table cia_ferias_user_role_screen (
   id int not null auto_increment,
   user_role_id int not null, 
   screen_id int not null, 
@@ -1043,7 +1043,7 @@ create table ohrm_user_role_screen (
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_menu_item` (
+create table `cia_ferias_menu_item` (
    `id` int not null auto_increment, 
    `menu_title` varchar(255) not null, 
    `screen_id` int default null,
@@ -1055,7 +1055,7 @@ create table `ohrm_menu_item` (
    primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table `ohrm_upgrade_history` (
+create table `cia_ferias_upgrade_history` (
   `id` int(10) not null auto_increment,
   `start_version` varchar(30) DEFAULT NULL,
   `end_version` varchar(30) DEFAULT NULL,
@@ -1066,7 +1066,7 @@ create table `ohrm_upgrade_history` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-create table `ohrm_email_configuration` (
+create table `cia_ferias_email_configuration` (
   `id` int(10) not null auto_increment,
   `mail_type` varchar(50) DEFAULT NULL,
   `sent_as` varchar(250) NOT NULL,
@@ -1081,7 +1081,7 @@ create table `ohrm_email_configuration` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE ohrm_data_group (
+CREATE TABLE cia_ferias_data_group (
     `id` int AUTO_INCREMENT, 
     `name` VARCHAR(255) NOT NULL UNIQUE, 
     description VARCHAR(255), 
@@ -1091,7 +1091,7 @@ CREATE TABLE ohrm_data_group (
     PRIMARY KEY(`id`)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_user_role_data_group (
+CREATE TABLE cia_ferias_user_role_data_group (
     id int AUTO_INCREMENT, 
     user_role_id int, 
     data_group_id int, 
@@ -1103,7 +1103,7 @@ CREATE TABLE ohrm_user_role_data_group (
     PRIMARY KEY(id)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_leave_type (
+CREATE TABLE cia_ferias_leave_type (
   `id` int unsigned not null auto_increment,
   `name` varchar(50) not null,
   `deleted` tinyint(1) not null default 0,
@@ -1112,14 +1112,14 @@ CREATE TABLE ohrm_leave_type (
   primary key  (`id`)
 ) engine=innodb default charset=utf8;
 
-CREATE TABLE ohrm_leave_entitlement_type(
+CREATE TABLE cia_ferias_leave_entitlement_type(
   `id` int unsigned not null auto_increment,
   `name` varchar(50) not null,
   `is_editable`  tinyint(1) not null default 0,
   PRIMARY KEY(`id`)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_leave_entitlement (
+CREATE TABLE cia_ferias_leave_entitlement (
   `id` int unsigned not null auto_increment,
   emp_number int(7) not null,
   no_of_days decimal(19,15) not null,
@@ -1136,7 +1136,7 @@ CREATE TABLE ohrm_leave_entitlement (
   PRIMARY KEY(`id`)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_leave_adjustment (
+CREATE TABLE cia_ferias_leave_adjustment (
   `id` int unsigned not null auto_increment,
   emp_number int(7) not null,
   no_of_days decimal(19,15) not null,
@@ -1153,7 +1153,7 @@ CREATE TABLE ohrm_leave_adjustment (
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
 -- Do we need the field duplication here (leave_request and leave)?
-CREATE TABLE `ohrm_leave_request` (
+CREATE TABLE `cia_ferias_leave_request` (
   `id` int unsigned NOT NULL auto_increment,
   `leave_type_id` int unsigned NOT NULL,
   `date_applied` date NOT NULL,
@@ -1162,7 +1162,7 @@ CREATE TABLE `ohrm_leave_request` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_leave` (
+CREATE TABLE `cia_ferias_leave` (
   `id` int(11) NOT NULL  auto_increment,
   `date` date default NULL,
   `length_hours` decimal(6,2) unsigned default NULL,
@@ -1180,7 +1180,7 @@ CREATE TABLE `ohrm_leave` (
   KEY `request_status` (`leave_request_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_leave_comment` (
+CREATE TABLE `cia_ferias_leave_comment` (
   `id` int(11) NOT NULL  auto_increment,
   `leave_id` int(11) NOT NULL,
   `created` datetime default NULL,
@@ -1191,7 +1191,7 @@ CREATE TABLE `ohrm_leave_comment` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_leave_request_comment` (
+CREATE TABLE `cia_ferias_leave_request_comment` (
   `id` int(11) NOT NULL  auto_increment,
   `leave_request_id` int unsigned NOT NULL,
   `created` datetime default NULL,
@@ -1202,7 +1202,7 @@ CREATE TABLE `ohrm_leave_request_comment` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create TABLE `ohrm_leave_leave_entitlement` (
+create TABLE `cia_ferias_leave_leave_entitlement` (
     `id` int(11) NOT NULL   auto_increment,
     `leave_id` int(11) NOT NULL,
     `entitlement_id` int unsigned NOT NULL,
@@ -1210,7 +1210,7 @@ create TABLE `ohrm_leave_leave_entitlement` (
     PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create TABLE `ohrm_leave_entitlement_adjustment` (
+create TABLE `cia_ferias_leave_entitlement_adjustment` (
     `id` int(11) NOT NULL   auto_increment,
     `adjustment_id` int unsigned NOT NULL,
     `entitlement_id` int unsigned NOT NULL,
@@ -1218,7 +1218,7 @@ create TABLE `ohrm_leave_entitlement_adjustment` (
     PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_leave_period_history` (
+CREATE TABLE `cia_ferias_leave_period_history` (
   `id` int(11) NOT NULL auto_increment,
   `leave_period_start_month` int NOT NULL,
   `leave_period_start_day` int NOT NULL,
@@ -1226,21 +1226,21 @@ CREATE TABLE `ohrm_leave_period_history` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_leave_status` (
+CREATE TABLE `cia_ferias_leave_status` (
   `id` int(11) NOT NULL auto_increment,
   `status` smallint(6) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
-create table `ohrm_advanced_report` (
+create table `cia_ferias_advanced_report` (
   `id` int(10) not null,
   `name` varchar(100) not null,
   `definition` longtext not null,
   primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table ohrm_home_page (
+create table cia_ferias_home_page (
     `id` int(11) not null auto_increment,
     `user_role_id` int not null,
     `action` varchar(255),
@@ -1249,7 +1249,7 @@ create table ohrm_home_page (
     primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table ohrm_module_default_page (
+create table cia_ferias_module_default_page (
     `id` int(11) not null auto_increment,
     `module_id` int not null,
     `user_role_id` int not null,
@@ -1259,7 +1259,7 @@ create table ohrm_module_default_page (
     primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-CREATE TABLE ohrm_data_group_screen (
+CREATE TABLE cia_ferias_data_group_screen (
     `id` int AUTO_INCREMENT, 
     `data_group_id` int, 
     `screen_id` int, 
@@ -1267,7 +1267,7 @@ CREATE TABLE ohrm_data_group_screen (
     PRIMARY KEY(`id`)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_plugin (
+CREATE TABLE cia_ferias_plugin (
     `id` int not null auto_increment,
     `name` varchar(100) not null,
     `version` varchar(32),
@@ -1275,332 +1275,332 @@ CREATE TABLE ohrm_plugin (
     key (`name`)
 ) engine=innodb default charset=utf8;
 
-alter table ohrm_home_page 
-    add foreign key (user_role_id) references ohrm_user_role(id) on delete cascade;
+alter table cia_ferias_home_page 
+    add foreign key (user_role_id) references cia_ferias_user_role(id) on delete cascade;
 
-alter table ohrm_module_default_page 
-    add foreign key (user_role_id) references ohrm_user_role(id) on delete cascade,
-    add foreign key (module_id) references ohrm_module(id) on delete cascade;
+alter table cia_ferias_module_default_page 
+    add foreign key (user_role_id) references cia_ferias_user_role(id) on delete cascade,
+    add foreign key (module_id) references cia_ferias_module(id) on delete cascade;
 
-alter table ohrm_leave_type
+alter table cia_ferias_leave_type
     add foreign key (operational_country_id)
-        references ohrm_operational_country(id) on delete set null;
+        references cia_ferias_operational_country(id) on delete set null;
 
-alter table ohrm_leave_entitlement
+alter table cia_ferias_leave_entitlement
     add foreign key (leave_type_id)
-        references ohrm_leave_type(id) on delete cascade;
+        references cia_ferias_leave_type(id) on delete cascade;
 
-alter table ohrm_leave_entitlement
+alter table cia_ferias_leave_entitlement
     add foreign key (emp_number)
         references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_leave_entitlement
+alter table cia_ferias_leave_entitlement
     add foreign key (entitlement_type)
-        references ohrm_leave_entitlement_type(id) on delete cascade;
+        references cia_ferias_leave_entitlement_type(id) on delete cascade;
 
-alter table ohrm_leave_entitlement
+alter table cia_ferias_leave_entitlement
     add foreign key (created_by_id)
-        references ohrm_user(`id`) on delete set null;
+        references cia_ferias_user(`id`) on delete set null;
 
-alter table ohrm_leave_adjustment
+alter table cia_ferias_leave_adjustment
     add foreign key (leave_type_id)
-        references ohrm_leave_type(id) on delete cascade;
+        references cia_ferias_leave_type(id) on delete cascade;
 
-alter table ohrm_leave_adjustment
+alter table cia_ferias_leave_adjustment
     add foreign key (emp_number)
         references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_leave_adjustment
+alter table cia_ferias_leave_adjustment
     add foreign key (created_by_id)
-        references ohrm_user(`id`) on delete set null;
+        references cia_ferias_user(`id`) on delete set null;
 
-alter table ohrm_leave_adjustment
+alter table cia_ferias_leave_adjustment
     add foreign key (adjustment_type)
-        references ohrm_leave_entitlement_type(id) on delete cascade;
+        references cia_ferias_leave_entitlement_type(id) on delete cascade;
 
-alter table ohrm_leave_request
+alter table cia_ferias_leave_request
     add constraint foreign key (emp_number)
         references hs_hr_employee (emp_number) on delete cascade;
 
-alter table ohrm_leave_request
+alter table cia_ferias_leave_request
     add constraint foreign key (leave_type_id)
-        references ohrm_leave_type (id) on delete cascade;
+        references cia_ferias_leave_type (id) on delete cascade;
 
-alter table ohrm_leave
+alter table cia_ferias_leave
     add foreign key (leave_request_id)
-        references ohrm_leave_request(id) on delete cascade;
+        references cia_ferias_leave_request(id) on delete cascade;
 
-alter table ohrm_leave
+alter table cia_ferias_leave
     add constraint foreign key (leave_type_id)
-        references ohrm_leave_type (id) on delete cascade;
+        references cia_ferias_leave_type (id) on delete cascade;
 
-alter table ohrm_leave_leave_entitlement
+alter table cia_ferias_leave_leave_entitlement
     add constraint foreign key (entitlement_id)
-        references ohrm_leave_entitlement (id) on delete cascade;
+        references cia_ferias_leave_entitlement (id) on delete cascade;
 
-alter table ohrm_leave_leave_entitlement
+alter table cia_ferias_leave_leave_entitlement
     add constraint foreign key (leave_id)
-        references ohrm_leave (id) on delete cascade;
+        references cia_ferias_leave (id) on delete cascade;
 
-alter table ohrm_leave_entitlement_adjustment
+alter table cia_ferias_leave_entitlement_adjustment
     add constraint foreign key (entitlement_id)
-        references ohrm_leave_entitlement (id) on delete cascade;
+        references cia_ferias_leave_entitlement (id) on delete cascade;
 
-alter table ohrm_leave_entitlement_adjustment
+alter table cia_ferias_leave_entitlement_adjustment
     add constraint foreign key (adjustment_id)
-        references ohrm_leave_adjustment (id) on delete cascade;
+        references cia_ferias_leave_adjustment (id) on delete cascade;
 
-alter table ohrm_leave_comment
+alter table cia_ferias_leave_comment
     add constraint foreign key (leave_id)
-        references ohrm_leave(id) on delete cascade;
+        references cia_ferias_leave(id) on delete cascade;
 
-alter table ohrm_leave_comment
+alter table cia_ferias_leave_comment
     add constraint foreign key (created_by_id)
-        references ohrm_user(`id`) on delete set NULL;
+        references cia_ferias_user(`id`) on delete set NULL;
 
-alter table ohrm_leave_comment
+alter table cia_ferias_leave_comment
     add constraint foreign key (created_by_emp_number)
         references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_leave_request_comment
+alter table cia_ferias_leave_request_comment
     add constraint foreign key (leave_request_id)
-        references ohrm_leave_request(id) on delete cascade;
+        references cia_ferias_leave_request(id) on delete cascade;
 
-alter table ohrm_leave_request_comment
+alter table cia_ferias_leave_request_comment
     add constraint foreign key (created_by_id)
-        references ohrm_user(`id`) on delete set NULL;
+        references cia_ferias_user(`id`) on delete set NULL;
 
-alter table ohrm_leave_request_comment
+alter table cia_ferias_leave_request_comment
     add constraint foreign key (created_by_emp_number)
         references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_menu_item 
+alter table cia_ferias_menu_item 
        add constraint foreign key (screen_id)
-                             references ohrm_screen(id) on delete cascade;
+                             references cia_ferias_screen(id) on delete cascade;
 
-alter table ohrm_user_role_data_group 
+alter table cia_ferias_user_role_data_group 
        add constraint foreign key (user_role_id)
-                             references ohrm_user_role(id) on delete cascade;
+                             references cia_ferias_user_role(id) on delete cascade;
 
-alter table ohrm_user_role_data_group 
+alter table cia_ferias_user_role_data_group 
        add constraint foreign key (data_group_id)
-                             references ohrm_data_group(id) on delete cascade;
+                             references cia_ferias_data_group(id) on delete cascade;
 
-alter table ohrm_email_subscriber
+alter table cia_ferias_email_subscriber
        add constraint foreign key (notification_id)
-                             references ohrm_email_notification(id) on delete cascade;
+                             references cia_ferias_email_notification(id) on delete cascade;
 
-alter table ohrm_email_template
+alter table cia_ferias_email_template
     add foreign key (email_id)
-        references ohrm_email(id) on delete cascade;
+        references cia_ferias_email(id) on delete cascade;
 
-alter table ohrm_email_processor
+alter table cia_ferias_email_processor
     add foreign key (email_id)
-        references ohrm_email(id) on delete cascade;
+        references cia_ferias_email(id) on delete cascade;
 
-alter table ohrm_emp_termination
+alter table cia_ferias_emp_termination
        add constraint foreign key (reason_id)
-                             references ohrm_emp_termination_reason(id) on delete set null;
+                             references cia_ferias_emp_termination_reason(id) on delete set null;
 
-alter table ohrm_emp_termination
+alter table cia_ferias_emp_termination
        add constraint foreign key (emp_number)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_job_specification_attachment
+alter table cia_ferias_job_specification_attachment
        add constraint foreign key (job_title_id)
-                             references ohrm_job_title(id) on delete cascade;
+                             references cia_ferias_job_title(id) on delete cascade;
 
-alter table ohrm_available_group_field
+alter table cia_ferias_available_group_field
        add constraint foreign key (group_field_id)
-                             references ohrm_group_field(group_field_id);
+                             references cia_ferias_group_field(group_field_id);
 
-alter table ohrm_filter_field
+alter table cia_ferias_filter_field
        add constraint foreign key (report_group_id)
-                             references ohrm_report_group(report_group_id) on delete cascade;
+                             references cia_ferias_report_group(report_group_id) on delete cascade;
 
-alter table ohrm_display_field
+alter table cia_ferias_display_field
        add constraint foreign key (report_group_id)
-                             references ohrm_report_group(report_group_id) on delete cascade;
+                             references cia_ferias_report_group(report_group_id) on delete cascade;
 
-alter table ohrm_display_field
+alter table cia_ferias_display_field
        add constraint foreign key (display_field_group_id)
-                             references ohrm_display_field_group(id) on delete set null;
+                             references cia_ferias_display_field_group(id) on delete set null;
 
-alter table ohrm_composite_display_field
+alter table cia_ferias_composite_display_field
        add constraint foreign key (report_group_id)
-                             references ohrm_report_group(report_group_id) on delete cascade;
+                             references cia_ferias_report_group(report_group_id) on delete cascade;
 
-alter table ohrm_composite_display_field
+alter table cia_ferias_composite_display_field
        add constraint foreign key (display_field_group_id)
-                             references ohrm_display_field_group(id) on delete set null;
+                             references cia_ferias_display_field_group(id) on delete set null;
 
-alter table ohrm_summary_display_field
+alter table cia_ferias_summary_display_field
        add constraint foreign key (display_field_group_id)
-                             references ohrm_display_field_group(id) on delete set null;
+                             references cia_ferias_display_field_group(id) on delete set null;
 
-alter table ohrm_selected_group_field
+alter table cia_ferias_selected_group_field
        add constraint foreign key (report_id)
-                             references ohrm_report(report_id) on delete cascade;
+                             references cia_ferias_report(report_id) on delete cascade;
 
-alter table ohrm_selected_group_field
+alter table cia_ferias_selected_group_field
        add constraint foreign key (group_field_id)
-                             references ohrm_group_field(group_field_id) on delete cascade;
+                             references cia_ferias_group_field(group_field_id) on delete cascade;
 
-alter table ohrm_selected_group_field
+alter table cia_ferias_selected_group_field
        add constraint foreign key (summary_display_field_id)
-                             references ohrm_summary_display_field(summary_display_field_id);
+                             references cia_ferias_summary_display_field(summary_display_field_id);
 
-alter table ohrm_selected_filter_field
+alter table cia_ferias_selected_filter_field
        add constraint foreign key (report_id)
-                             references ohrm_report(report_id) on delete cascade;
+                             references cia_ferias_report(report_id) on delete cascade;
 
-alter table ohrm_selected_filter_field
+alter table cia_ferias_selected_filter_field
        add constraint foreign key (filter_field_id)
-                             references ohrm_filter_field(filter_field_id) on delete cascade;
+                             references cia_ferias_filter_field(filter_field_id) on delete cascade;
 
-alter table ohrm_selected_display_field
+alter table cia_ferias_selected_display_field
        add constraint foreign key (report_id)
-                             references ohrm_report(report_id) on delete cascade;
+                             references cia_ferias_report(report_id) on delete cascade;
 
-alter table ohrm_selected_display_field
+alter table cia_ferias_selected_display_field
        add constraint foreign key (display_field_id)
-                             references ohrm_display_field(display_field_id) on delete cascade;
+                             references cia_ferias_display_field(display_field_id) on delete cascade;
 
-alter table ohrm_selected_composite_display_field
+alter table cia_ferias_selected_composite_display_field
        add constraint foreign key (report_id)
-                             references ohrm_report(report_id) on delete cascade;
+                             references cia_ferias_report(report_id) on delete cascade;
 
-alter table ohrm_selected_composite_display_field
+alter table cia_ferias_selected_composite_display_field
        add constraint foreign key (composite_display_field_id)
-                             references ohrm_composite_display_field(composite_display_field_id) on delete cascade;
+                             references cia_ferias_composite_display_field(composite_display_field_id) on delete cascade;
 
-alter table ohrm_report
+alter table cia_ferias_report
        add constraint foreign key (report_group_id)
-                             references ohrm_report_group(report_group_id) on delete cascade;
+                             references cia_ferias_report_group(report_group_id) on delete cascade;
 
-alter table ohrm_display_field_group
+alter table cia_ferias_display_field_group
        add constraint foreign key (report_group_id)
-                             references ohrm_report_group(report_group_id) on delete cascade;
+                             references cia_ferias_report_group(report_group_id) on delete cascade;
 
-alter table ohrm_selected_display_field_group
+alter table cia_ferias_selected_display_field_group
        add constraint foreign key (report_id)
-                             references ohrm_report(report_id) on delete cascade;
+                             references cia_ferias_report(report_id) on delete cascade;
 
-alter table ohrm_selected_display_field_group
+alter table cia_ferias_selected_display_field_group
        add constraint foreign key (display_field_group_id)
-                             references ohrm_display_field_group(id) on delete cascade;
+                             references cia_ferias_display_field_group(id) on delete cascade;
 
-alter table ohrm_timesheet_action_log
+alter table cia_ferias_timesheet_action_log
        add constraint foreign key (performed_by)
-                             references ohrm_user(id) on delete cascade;
+                             references cia_ferias_user(id) on delete cascade;
 
-alter table ohrm_job_interview
+alter table cia_ferias_job_interview
        add constraint foreign key (candidate_vacancy_id)
-                             references ohrm_job_candidate_vacancy(id) on delete set null;
+                             references cia_ferias_job_candidate_vacancy(id) on delete set null;
 
-alter table ohrm_job_interview
+alter table cia_ferias_job_interview
        add constraint foreign key (candidate_id)
-                             references ohrm_job_candidate(id) on delete cascade;
+                             references cia_ferias_job_candidate(id) on delete cascade;
 
-alter table ohrm_job_interview_interviewer
+alter table cia_ferias_job_interview_interviewer
        add constraint foreign key (interview_id)
-                             references ohrm_job_interview(id) on delete cascade;
+                             references cia_ferias_job_interview(id) on delete cascade;
 
-alter table ohrm_job_interview_interviewer
+alter table cia_ferias_job_interview_interviewer
        add constraint foreign key (interviewer_id)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_job_candidate_attachment
+alter table cia_ferias_job_candidate_attachment
        add constraint foreign key (candidate_id)
-                             references ohrm_job_candidate(id) on delete cascade;
+                             references cia_ferias_job_candidate(id) on delete cascade;
 
-alter table ohrm_job_vacancy_attachment
+alter table cia_ferias_job_vacancy_attachment
        add constraint foreign key (vacancy_id)
-                             references ohrm_job_vacancy(id) on delete cascade;
+                             references cia_ferias_job_vacancy(id) on delete cascade;
 
-alter table ohrm_job_interview_attachment
+alter table cia_ferias_job_interview_attachment
        add constraint foreign key (interview_id)
-                             references ohrm_job_interview(id) on delete cascade;
+                             references cia_ferias_job_interview(id) on delete cascade;
 
-alter table ohrm_job_candidate_history
+alter table cia_ferias_job_candidate_history
        add constraint foreign key (candidate_id)
-                             references ohrm_job_candidate(id) on delete cascade;
+                             references cia_ferias_job_candidate(id) on delete cascade;
 
-alter table ohrm_job_candidate_history
+alter table cia_ferias_job_candidate_history
        add constraint foreign key (vacancy_id)
-                             references ohrm_job_vacancy(id) on delete set null;
+                             references cia_ferias_job_vacancy(id) on delete set null;
 
-alter table ohrm_job_candidate_history
+alter table cia_ferias_job_candidate_history
        add constraint foreign key (interview_id)
-                             references ohrm_job_interview(id) on delete set null;
+                             references cia_ferias_job_interview(id) on delete set null;
 
-alter table ohrm_job_candidate_history
+alter table cia_ferias_job_candidate_history
        add constraint foreign key (performed_by)
                              references hs_hr_employee(emp_number) on delete set null;
 
-alter table ohrm_job_vacancy
+alter table cia_ferias_job_vacancy
        add constraint foreign key (job_title_code)
-                             references ohrm_job_title(id) on delete cascade;
+                             references cia_ferias_job_title(id) on delete cascade;
 
-alter table ohrm_job_vacancy
+alter table cia_ferias_job_vacancy
        add constraint foreign key (hiring_manager_id)
                              references hs_hr_employee(emp_number) on delete set null;
 
-alter table ohrm_job_candidate
+alter table cia_ferias_job_candidate
        add constraint foreign key (added_person)
                              references hs_hr_employee(emp_number) on delete set null;
 
-alter table ohrm_job_candidate_vacancy
+alter table cia_ferias_job_candidate_vacancy
        add constraint foreign key (candidate_id)
-                             references ohrm_job_candidate(id) on delete cascade;
+                             references cia_ferias_job_candidate(id) on delete cascade;
 
-alter table ohrm_job_candidate_vacancy
+alter table cia_ferias_job_candidate_vacancy
        add constraint foreign key (vacancy_id)
-                             references ohrm_job_vacancy(id) on delete cascade;
+                             references cia_ferias_job_vacancy(id) on delete cascade;
 
-alter table ohrm_pay_grade_currency
+alter table cia_ferias_pay_grade_currency
        add constraint foreign key (currency_id)
                              references hs_hr_currency_type(currency_id) on delete cascade;
 
-alter table ohrm_pay_grade_currency
+alter table cia_ferias_pay_grade_currency
        add constraint foreign key (pay_grade_id)
-                             references ohrm_pay_grade(id) on delete cascade;
+                             references cia_ferias_pay_grade(id) on delete cascade;
 
-alter table ohrm_location
+alter table cia_ferias_location
        add constraint foreign key (country_code)
                              references hs_hr_country(cou_code) on delete cascade;
 
 alter table hs_hr_jobtit_empstat
        add constraint foreign key (jobtit_code)
-                             references ohrm_job_title(id) on delete cascade;
+                             references cia_ferias_job_title(id) on delete cascade;
 
 alter table hs_hr_jobtit_empstat
        add constraint foreign key (estat_code)
-                             references ohrm_employment_status(id) on delete cascade;
+                             references cia_ferias_employment_status(id) on delete cascade;
 
 alter table hs_hr_employee
        add constraint foreign key (work_station)
-                             references ohrm_subunit(id) on delete set null;
+                             references cia_ferias_subunit(id) on delete set null;
 
 alter table hs_hr_employee
        add constraint foreign key (nation_code)
-                             references ohrm_nationality(id) on delete set null;
+                             references cia_ferias_nationality(id) on delete set null;
 
 alter table hs_hr_employee
        add constraint foreign key (job_title_code)
-                             references ohrm_job_title(id) on delete set null;
+                             references cia_ferias_job_title(id) on delete set null;
 
 alter table hs_hr_employee
        add constraint foreign key (emp_status)
-                             references ohrm_employment_status(id) on delete set null;
+                             references cia_ferias_employment_status(id) on delete set null;
 
 alter table hs_hr_employee
        add constraint foreign key (eeo_cat_code)
-                             references ohrm_job_category(id) on delete set null;
+                             references cia_ferias_job_category(id) on delete set null;
 
 alter table hs_hr_employee
        add constraint foreign key (termination_id)
-                             references ohrm_emp_termination(id) on delete set null;
+                             references cia_ferias_emp_termination(id) on delete set null;
 
 alter table hs_hr_emp_children
        add constraint foreign key (emp_number)
@@ -1618,13 +1618,13 @@ alter table hs_hr_emp_history_of_ealier_pos
        add constraint foreign key (emp_number)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_emp_license
+alter table cia_ferias_emp_license
        add constraint foreign key (emp_number)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_emp_license
+alter table cia_ferias_emp_license
        add constraint foreign key (license_id)
-                             references ohrm_license(id) on delete cascade;
+                             references cia_ferias_license(id) on delete cascade;
 
 alter table hs_hr_emp_skill
        add constraint foreign key (emp_number)
@@ -1632,7 +1632,7 @@ alter table hs_hr_emp_skill
 
 alter table hs_hr_emp_skill
        add constraint foreign key (skill_id)
-                             references ohrm_skill(id) on delete cascade;
+                             references cia_ferias_skill(id) on delete cascade;
 
 alter table hs_hr_emp_attachment
        add constraint foreign key (emp_number)
@@ -1642,13 +1642,13 @@ alter table hs_hr_emp_picture
        add constraint foreign key (emp_number)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_emp_education
+alter table cia_ferias_emp_education
        add constraint foreign key (emp_number)
                              references hs_hr_employee(emp_number) on delete cascade;
 
-alter table ohrm_emp_education
+alter table cia_ferias_emp_education
        add constraint foreign key (education_id)
-                             references ohrm_education(id) on delete cascade;
+                             references cia_ferias_education(id) on delete cascade;
 
 alter table hs_hr_emp_work_experience
        add constraint foreign key (emp_number)
@@ -1664,7 +1664,7 @@ alter table hs_hr_emp_directdebit
 
 alter table hs_hr_emp_member_detail
        add constraint foreign key (membship_code)
-                             references ohrm_membership(id) on delete cascade;
+                             references cia_ferias_membership(id) on delete cascade;
 
 alter table hs_hr_emp_member_detail
        add constraint foreign key (emp_number)
@@ -1680,11 +1680,11 @@ alter table hs_hr_emp_reportto
 
 alter table hs_hr_emp_reportto
        add constraint foreign key (erep_reporting_mode)
-                             references ohrm_emp_reporting_method(reporting_method_id) on delete cascade;
+                             references cia_ferias_emp_reporting_method(reporting_method_id) on delete cascade;
 
 alter table hs_hr_emp_basicsalary
        add constraint foreign key (sal_grd_code)
-                             references ohrm_pay_grade(id) on delete cascade;
+                             references cia_ferias_pay_grade(id) on delete cascade;
 
 alter table hs_hr_emp_basicsalary
        add constraint foreign key (currency_id)
@@ -1704,7 +1704,7 @@ alter table hs_hr_emp_language
 
 alter table hs_hr_emp_language
        add constraint foreign key (lang_id)
-                             references ohrm_language(id) on delete cascade;
+                             references cia_ferias_language(id) on delete cascade;
 
 alter table hs_hr_emp_us_tax
        add constraint foreign key (emp_number)
@@ -1716,71 +1716,71 @@ alter table hs_hr_emp_contract_extend
        						
 alter table hs_hr_mailnotifications
        add constraint foreign key (user_id)
-       						references ohrm_user(id) on delete cascade;
+       						references cia_ferias_user(id) on delete cascade;
 
-alter table `ohrm_project_activity`
-  add constraint foreign key (`project_id`) references `ohrm_project` (`project_id`) on delete cascade;
+alter table `cia_ferias_project_activity`
+  add constraint foreign key (`project_id`) references `cia_ferias_project` (`project_id`) on delete cascade;
 
-alter table `ohrm_project_admin`
-  add constraint foreign key (`project_id`) references `ohrm_project` (`project_id`) on delete cascade,
+alter table `cia_ferias_project_admin`
+  add constraint foreign key (`project_id`) references `cia_ferias_project` (`project_id`) on delete cascade,
   add constraint foreign key (`emp_number`) references `hs_hr_employee` (`emp_number`) on delete cascade;
 
-alter table `ohrm_employee_work_shift`
-  add constraint foreign key (`work_shift_id`) references `ohrm_work_shift` (`id`) on delete cascade,
+alter table `cia_ferias_employee_work_shift`
+  add constraint foreign key (`work_shift_id`) references `cia_ferias_work_shift` (`id`) on delete cascade,
   add constraint foreign key (`emp_number`) references `hs_hr_employee` (`emp_number`) on delete cascade;
 
 alter table `hs_hr_emp_locations`
     add constraint foreign key (`location_id`)
-        references ohrm_location(`id`) on delete cascade,
+        references cia_ferias_location(`id`) on delete cascade,
     add constraint foreign key (`emp_number`)
         references hs_hr_employee(`emp_number`) on delete cascade;
 
-alter table `ohrm_user`
+alter table `cia_ferias_user`
     add constraint foreign key (`emp_number`)
         references hs_hr_employee(`emp_number`) on delete cascade;
 
-alter table `ohrm_user`
+alter table `cia_ferias_user`
     add constraint foreign key (`user_role_id`)
-        references ohrm_user_role(`id`) on delete restrict;
+        references cia_ferias_user_role(`id`) on delete restrict;
 
-ALTER TABLE `ohrm_operational_country`
-ADD CONSTRAINT `fk_ohrm_operational_country_hs_hr_country`
+ALTER TABLE `cia_ferias_operational_country`
+ADD CONSTRAINT `fk_cia_ferias_operational_country_hs_hr_country`
     FOREIGN KEY (`country_code`)
     REFERENCES `hs_hr_country` (`cou_code`)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
-ALTER TABLE `ohrm_work_week`
-ADD CONSTRAINT `fk_ohrm_work_week_ohrm_operational_country`
+ALTER TABLE `cia_ferias_work_week`
+ADD CONSTRAINT `fk_cia_ferias_work_week_cia_ferias_operational_country`
     FOREIGN KEY (`operational_country_id`)
-    REFERENCES `ohrm_operational_country` (`id`)
+    REFERENCES `cia_ferias_operational_country` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
-ALTER TABLE `ohrm_holiday`
-ADD CONSTRAINT `fk_ohrm_holiday_ohrm_operational_country`
+ALTER TABLE `cia_ferias_holiday`
+ADD CONSTRAINT `fk_cia_ferias_holiday_cia_ferias_operational_country`
     FOREIGN KEY (`operational_country_id`)
-    REFERENCES `ohrm_operational_country` (`id`)
+    REFERENCES `cia_ferias_operational_country` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
-alter table ohrm_screen
+alter table cia_ferias_screen
        add constraint foreign key (module_id)
-                             references ohrm_module(id) on delete cascade;
-alter table ohrm_user_role_screen
+                             references cia_ferias_module(id) on delete cascade;
+alter table cia_ferias_user_role_screen
        add constraint foreign key (user_role_id)
-                             references ohrm_user_role(id) on delete cascade;
-alter table ohrm_user_role_screen
+                             references cia_ferias_user_role(id) on delete cascade;
+alter table cia_ferias_user_role_screen
        add constraint foreign key (screen_id)
-                             references ohrm_screen(id) on delete cascade;
+                             references cia_ferias_screen(id) on delete cascade;
 
-alter table ohrm_data_group_screen
-    add foreign key (data_group_id) references ohrm_data_group(id) on delete cascade;
+alter table cia_ferias_data_group_screen
+    add foreign key (data_group_id) references cia_ferias_data_group(id) on delete cascade;
 
-alter table ohrm_data_group_screen
-    add foreign key (screen_id) references ohrm_screen(id) on delete cascade;
+alter table cia_ferias_data_group_screen
+    add foreign key (screen_id) references cia_ferias_screen(id) on delete cascade;
 
-CREATE TABLE `ohrm_datapoint_type` (
+CREATE TABLE `cia_ferias_datapoint_type` (
     `id` INT AUTO_INCREMENT, 
     `name` VARCHAR(100) NOT NULL, 
     `action_class` VARCHAR(100) NOT NULL, 
@@ -1788,23 +1788,23 @@ CREATE TABLE `ohrm_datapoint_type` (
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `ohrm_datapoint` (
+CREATE TABLE `cia_ferias_datapoint` (
     `id` INT AUTO_INCREMENT, 
     `name` VARCHAR(100), 
     `datapoint_type_id` INT NOT NULL, 
     `definition` LONGTEXT NOT NULL, 
     PRIMARY KEY(`id`),
-    FOREIGN KEY (`datapoint_type_id`) REFERENCES `ohrm_datapoint_type` (`id`) ON DELETE CASCADE
+    FOREIGN KEY (`datapoint_type_id`) REFERENCES `cia_ferias_datapoint_type` (`id`) ON DELETE CASCADE
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_beacon_notification` (
+CREATE TABLE `cia_ferias_beacon_notification` (
     `id` INT AUTO_INCREMENT, 
     `name` VARCHAR(100) NOT NULL, 
     `expiry_date` TIMESTAMP NOT NULL, 
     `definition` LONGTEXT NOT NULL, PRIMARY KEY(id)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_login` (
+CREATE TABLE `cia_ferias_login` (
     `id` INT AUTO_INCREMENT, 
     `user_id` BIGINT NOT NULL, 
     `user_name` VARCHAR(255), 
@@ -1813,7 +1813,7 @@ CREATE TABLE `ohrm_login` (
     `login_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(id)
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
         
-CREATE TABLE `ohrm_kpi` (
+CREATE TABLE `cia_ferias_kpi` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `job_title_code` varchar(10) DEFAULT NULL,
   `kpi_indicators` varchar(255) DEFAULT NULL,
@@ -1825,7 +1825,7 @@ CREATE TABLE `ohrm_kpi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
-CREATE TABLE `ohrm_performance_review` (
+CREATE TABLE `cia_ferias_performance_review` (
   `id` int(7) NOT NULL AUTO_INCREMENT,
   `status_id` int(7) DEFAULT NULL,
   `employee_number` int(7) DEFAULT NULL,
@@ -1842,7 +1842,7 @@ CREATE TABLE `ohrm_performance_review` (
   KEY `employee_number` (`employee_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE `ohrm_reviewer` (
+CREATE TABLE `cia_ferias_reviewer` (
   `id` int(7) NOT NULL AUTO_INCREMENT,
   `review_id` int(7) DEFAULT NULL,
   `employee_number` int(7) DEFAULT NULL,
@@ -1854,14 +1854,14 @@ CREATE TABLE `ohrm_reviewer` (
   KEY `review_id` (`review_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE `ohrm_reviewer_group` (
+CREATE TABLE `cia_ferias_reviewer_group` (
   `id` int(7) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `piority` int(7) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE `ohrm_reviewer_rating` (
+CREATE TABLE `cia_ferias_reviewer_rating` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rating` DECIMAL(18, 2) DEFAULT NULL,
   `kpi_id` int(7) DEFAULT NULL,
@@ -1873,19 +1873,19 @@ CREATE TABLE `ohrm_reviewer_rating` (
   KEY `reviewer_id` (`reviewer_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-ALTER TABLE `ohrm_performance_review`
+ALTER TABLE `cia_ferias_performance_review`
   ADD CONSTRAINT FOREIGN KEY (`employee_number`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ;
 
-ALTER TABLE `ohrm_reviewer`
-  ADD CONSTRAINT FOREIGN KEY (`review_id`) REFERENCES `ohrm_performance_review` (`id`) ON DELETE CASCADE ;
+ALTER TABLE `cia_ferias_reviewer`
+  ADD CONSTRAINT FOREIGN KEY (`review_id`) REFERENCES `cia_ferias_performance_review` (`id`) ON DELETE CASCADE ;
 
-ALTER TABLE `ohrm_reviewer_rating`
-  ADD CONSTRAINT FOREIGN KEY (`reviewer_id`) REFERENCES `ohrm_reviewer` (`id`) ON DELETE CASCADE ;
+ALTER TABLE `cia_ferias_reviewer_rating`
+  ADD CONSTRAINT FOREIGN KEY (`reviewer_id`) REFERENCES `cia_ferias_reviewer` (`id`) ON DELETE CASCADE ;
 
-ALTER TABLE `ohrm_reviewer_rating`
-  ADD CONSTRAINT FOREIGN KEY (`review_id`) REFERENCES `ohrm_performance_review` (`id`) ON DELETE CASCADE ;
+ALTER TABLE `cia_ferias_reviewer_rating`
+  ADD CONSTRAINT FOREIGN KEY (`review_id`) REFERENCES `cia_ferias_performance_review` (`id`) ON DELETE CASCADE ;
 
-CREATE TABLE `ohrm_performance_track` ( 
+CREATE TABLE `cia_ferias_performance_track` ( 
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `emp_number` int(7) NOT NULL, 
   `tracker_name` varchar(200) NOT NULL,
@@ -1894,14 +1894,14 @@ CREATE TABLE `ohrm_performance_track` (
   `status` int(11) DEFAULT NULL, 
   `modified_date` timestamp NULL DEFAULT NULL, 
   PRIMARY KEY (`id`), 
-  KEY `ohrm_performance_track_fk1_idx` (`emp_number`), 
-  KEY `ohrm_performance_track_fk2_idx` (`added_by`), 
-  CONSTRAINT `ohrm_performance_track_fk1` FOREIGN KEY (`emp_number`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE, 
-  CONSTRAINT `ohrm_performance_track_fk2` FOREIGN KEY (`added_by`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
+  KEY `cia_ferias_performance_track_fk1_idx` (`emp_number`), 
+  KEY `cia_ferias_performance_track_fk2_idx` (`added_by`), 
+  CONSTRAINT `cia_ferias_performance_track_fk1` FOREIGN KEY (`emp_number`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE, 
+  CONSTRAINT `cia_ferias_performance_track_fk2` FOREIGN KEY (`added_by`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `ohrm_performance_tracker_log` ( 
+CREATE TABLE `cia_ferias_performance_tracker_log` ( 
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `performance_track_id` int(11) DEFAULT NULL, 
   `log` varchar(150) DEFAULT NULL, 
@@ -1913,29 +1913,29 @@ CREATE TABLE `ohrm_performance_tracker_log` (
   `achievement` varchar(45) DEFAULT NULL, 
   `user_id` int(10) DEFAULT NULL, 
   PRIMARY KEY (`id`), 
-  KEY `ohrm_performance_tracker_log_fk1_idx` (`performance_track_id`), 
-  KEY `ohrm_performance_tracker_log_fk2_idx` (`reviewer_id`), 
-  KEY `fk_ohrm_performance_tracker_log_1` (`user_id`), 
-  CONSTRAINT `fk_ohrm_performance_tracker_log_1` FOREIGN KEY (`user_id`) REFERENCES `ohrm_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
-  CONSTRAINT `ohrm_performance_tracker_log_fk1` FOREIGN KEY (`performance_track_id`) REFERENCES `ohrm_performance_track` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
-  CONSTRAINT `ohrm_performance_tracker_log_fk2` FOREIGN KEY (`reviewer_id`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
+  KEY `cia_ferias_performance_tracker_log_fk1_idx` (`performance_track_id`), 
+  KEY `cia_ferias_performance_tracker_log_fk2_idx` (`reviewer_id`), 
+  KEY `fk_cia_ferias_performance_tracker_log_1` (`user_id`), 
+  CONSTRAINT `fk_cia_ferias_performance_tracker_log_1` FOREIGN KEY (`user_id`) REFERENCES `cia_ferias_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
+  CONSTRAINT `cia_ferias_performance_tracker_log_fk1` FOREIGN KEY (`performance_track_id`) REFERENCES `cia_ferias_performance_track` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
+  CONSTRAINT `cia_ferias_performance_tracker_log_fk2` FOREIGN KEY (`reviewer_id`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `ohrm_performance_tracker_reviewer` ( 
+CREATE TABLE `cia_ferias_performance_tracker_reviewer` ( 
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `performance_track_id` int(11) NOT NULL, 
   `reviewer_id` int(7) NOT NULL, 
   `added_date` timestamp NULL DEFAULT NULL, 
   `status` int(2) DEFAULT NULL, 
   PRIMARY KEY (`id`), 
-  KEY `ohrm_performance_tracker_reviewer_fk1_idx` (`performance_track_id`), 
-  KEY `ohrm_performance_tracker_reviewer_fk2_idx` (`reviewer_id`), 
-  CONSTRAINT `ohrm_performance_tracker_reviewer_fk1` FOREIGN KEY (`performance_track_id`) REFERENCES `ohrm_performance_track` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
-  CONSTRAINT `ohrm_performance_tracker_reviewer_fk2` FOREIGN KEY (`reviewer_id`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
+  KEY `cia_ferias_performance_tracker_reviewer_fk1_idx` (`performance_track_id`), 
+  KEY `cia_ferias_performance_tracker_reviewer_fk2_idx` (`reviewer_id`), 
+  CONSTRAINT `cia_ferias_performance_tracker_reviewer_fk1` FOREIGN KEY (`performance_track_id`) REFERENCES `cia_ferias_performance_track` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
+  CONSTRAINT `cia_ferias_performance_tracker_reviewer_fk2` FOREIGN KEY (`reviewer_id`) REFERENCES `hs_hr_employee` (`emp_number`) ON DELETE CASCADE ON UPDATE CASCADE 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ohrm_ws_consumer` (
+CREATE TABLE `cia_ferias_ws_consumer` (
     `app_id` INT UNSIGNED AUTO_INCREMENT,
     `app_token` VARCHAR(10) NOT NULL,
     `app_name` VARCHAR(50) DEFAULT NULL,
@@ -1943,13 +1943,13 @@ CREATE TABLE `ohrm_ws_consumer` (
     PRIMARY KEY(`app_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ohrm_oauth_client ( client_id VARCHAR(80) NOT NULL, client_secret VARCHAR(80) NOT NULL, redirect_uri VARCHAR(2000)  NOT NULL, CONSTRAINT client_id_pk PRIMARY KEY (client_id));
-CREATE TABLE ohrm_oauth_access_token (access_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL,scope VARCHAR(2000), CONSTRAINT access_token_pk PRIMARY KEY (access_token));
-CREATE TABLE ohrm_oauth_authorization_code (authorization_code VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), redirect_uri VARCHAR(2000) NOT NULL, expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT auth_code_pk PRIMARY KEY (authorization_code));
-CREATE TABLE ohrm_oauth_refresh_token ( refresh_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT refresh_token_pk PRIMARY KEY (refresh_token));
-CREATE TABLE ohrm_oauth_user (username VARCHAR(255) NOT NULL, password VARCHAR(2000), first_name VARCHAR(255), last_name VARCHAR(255), CONSTRAINT username_pk PRIMARY KEY (username));
+CREATE TABLE cia_ferias_oauth_client ( client_id VARCHAR(80) NOT NULL, client_secret VARCHAR(80) NOT NULL, redirect_uri VARCHAR(2000)  NOT NULL, CONSTRAINT client_id_pk PRIMARY KEY (client_id));
+CREATE TABLE cia_ferias_oauth_access_token (access_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL,scope VARCHAR(2000), CONSTRAINT access_token_pk PRIMARY KEY (access_token));
+CREATE TABLE cia_ferias_oauth_authorization_code (authorization_code VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), redirect_uri VARCHAR(2000) NOT NULL, expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT auth_code_pk PRIMARY KEY (authorization_code));
+CREATE TABLE cia_ferias_oauth_refresh_token ( refresh_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT refresh_token_pk PRIMARY KEY (refresh_token));
+CREATE TABLE cia_ferias_oauth_user (username VARCHAR(255) NOT NULL, password VARCHAR(2000), first_name VARCHAR(255), last_name VARCHAR(255), CONSTRAINT username_pk PRIMARY KEY (username));
 
-CREATE TABLE IF NOT EXISTS `ohrm_openid_provider` (
+CREATE TABLE IF NOT EXISTS `cia_ferias_openid_provider` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `provider_name` varchar(40) DEFAULT NULL,  
   `provider_url` varchar(255) DEFAULT NULL,
@@ -1957,26 +1957,26 @@ CREATE TABLE IF NOT EXISTS `ohrm_openid_provider` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE `ohrm_auth_provider_extra_details` (
+CREATE TABLE `cia_ferias_auth_provider_extra_details` (
     `id` INT PRIMARY KEY AUTO_INCREMENT, 
     `provider_id` INT(10) NOT NULL,
     `provider_type` INT, 
     `client_id` TEXT, 
     `client_secret` TEXT, 
     `developer_key` TEXT, 
-    CONSTRAINT FOREIGN KEY (`provider_id`) REFERENCES `ohrm_openid_provider` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (`provider_id`) REFERENCES `cia_ferias_openid_provider` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
-CREATE TABLE IF NOT EXISTS `ohrm_openid_user_identity` (
+CREATE TABLE IF NOT EXISTS `cia_ferias_openid_user_identity` (
   `user_id` int(10) ,
   `provider_id` int(10) ,
   `user_identity` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
-ALTER TABLE `ohrm_openid_user_identity`
-  ADD CONSTRAINT `ohrm_user_identity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `ohrm_user` (`id`) ON DELETE SET NULL;
-ALTER TABLE `ohrm_openid_user_identity`
-  ADD CONSTRAINT `ohrm_user_identity_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `ohrm_openid_provider` (`id`) ON DELETE SET NULL;
+ALTER TABLE `cia_ferias_openid_user_identity`
+  ADD CONSTRAINT `cia_ferias_user_identity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `cia_ferias_user` (`id`) ON DELETE SET NULL;
+ALTER TABLE `cia_ferias_openid_user_identity`
+  ADD CONSTRAINT `cia_ferias_user_identity_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `cia_ferias_openid_provider` (`id`) ON DELETE SET NULL;
 
 CREATE TABLE abstract_display_field  (
     `id` BIGINT AUTO_INCREMENT, 

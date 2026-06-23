@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Command;
+namespace CiaFerias\Installer\Command;
 
-use OrangeHRM\Authentication\Dto\UserCredential;
-use OrangeHRM\Installer\Util\AppSetupUtility;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Authentication\Dto\UserCredential;
+use CiaFerias\Installer\Util\AppSetupUtility;
+use CiaFerias\Installer\Util\StateContainer;
 
 class InstallOnExistingDatabaseCommand extends InstallOnNewDatabaseCommand
 {
@@ -47,8 +47,8 @@ class InstallOnExistingDatabaseCommand extends InstallOnNewDatabaseCommand
             fn (?string $value) => $this->databasePortValidator($value)
         );
         $dbName = $this->getRequiredField('Database Name'); // not validated because existing database
-        $dbUser = $this->getRequiredField('OrangeHRM Database Username');
-        $dbPassword = $this->getIO()->askHidden('OrangeHRM Database User Password <comment>(hidden)</comment>');
+        $dbUser = $this->getRequiredField('CIA Férias Database Username');
+        $dbPassword = $this->getIO()->askHidden('CIA Férias Database User Password <comment>(hidden)</comment>');
         $enableDataEncryption = $this->getIO()->confirm('Enable Data Encryption', false);
 
         StateContainer::getInstance()->storeDbInfo(

@@ -1,0 +1,343 @@
+apiv2_leave_holiday:
+  path: /api/v2/leave/holidays/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\HolidayAPI
+
+apiv2_leave_holidays:
+  path: /api/v2/leave/holidays
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\HolidayAPI
+
+apiv2_leave_workweek:
+  path: /api/v2/leave/workweek
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\WorkWeekAPI
+    id: 1
+
+apiv2_leave_leave_period:
+  path: /api/v2/leave/leave-period
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeavePeriodAPI
+    id: 0
+
+apiv2_leave_leave_periods:
+  path: /api/v2/leave/leave-periods
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeavePeriodAPI
+
+apiv2_leave_leave_type:
+  path: /api/v2/leave/leave-types/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveTypeAPI
+  requirements:
+    id: '\d+'
+
+apiv2_leave_leave_types:
+  path: /api/v2/leave/leave-types
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveTypeAPI
+
+apiv2_leave_eligible_leave_types:
+  path: /api/v2/leave/leave-types/eligible
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EligibleLeaveTypeAPI
+
+apiv2_leave_my_leave_requests:
+  path: /api/v2/leave/leave-requests
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\MyLeaveRequestAPI
+
+apiv2_leave_my_leave_request:
+  path: /api/v2/leave/leave-requests/{leaveRequestId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\MyLeaveRequestAPI
+    _key: leaveRequestId
+  requirements:
+    leaveRequestId: '\d+'
+
+apiv2_leave_employee_leave_requests:
+  path: /api/v2/leave/employees/leave-requests
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveRequestAPI
+
+apiv2_leave_employee_leave_request:
+  path: /api/v2/leave/employees/leave-requests/{leaveRequestId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveRequestAPI
+    _key: leaveRequestId
+  requirements:
+    leaveRequestId: '\d+'
+
+apiv2_leave_employees_bulk_leave_request:
+  path: /api/v2/leave/employees/leave-requests/bulk
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeBulkLeaveRequestAPI
+
+apiv2_leave_leave_entitlement:
+  path: /api/v2/leave/leave-entitlements/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveEntitlementAPI
+  requirements:
+    id: '\d+'
+
+apiv2_leave_leave_entitlements:
+  path: /api/v2/leave/leave-entitlements
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveEntitlementAPI
+
+apiv2_leave_employee_leave_entitlements:
+  path: /api/v2/leave/employees/{empNumber}/leave-entitlements
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveEntitlementAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+apiv2_leave_employees_leave_entitlements:
+  path: /api/v2/leave/employees/leave-entitlements
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveEntitlementAPI
+
+apiv2_leave_leave_balance:
+  path: /api/v2/leave/leave-balance/leave-type/{leaveTypeId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveBalanceAPI
+    _key: leaveTypeId
+
+apiv2_leave_employee_leave_balances:
+  path: /api/v2/leave/employees/leave-balances
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveBalanceAPI
+
+apiv2_leave_leave_entitlements_validation_value:
+  path: /api/v2/leave/leave-entitlements/{id}/validation/entitlements
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\ValidationLeaveEntitlementValueAPI
+
+apiv2_leave_overlap_leaves:
+  path: /api/v2/leave/overlap-leaves
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveOverlapAPI
+
+apiv2_leave_request_comments:
+  path: /api/v2/leave/leave-requests/{leaveRequestId}/leave-comments
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET , POST ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveRequestCommentAPI
+
+apiv2_leave_comments:
+  path: /api/v2/leave/leaves/{leaveId}/leave-comments
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET , POST ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveCommentAPI
+
+apiv2_leave_leaves:
+  path: /api/v2/leave/leave-requests/{leaveRequestId}/leaves
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveAPI
+
+apiv2_leave_leave:
+  path: /api/v2/leave/leaves/{leaveId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveAPI
+    _key: leaveId
+  requirements:
+    leaveId: '\d+'
+
+apiv2_leave_bulk_leaves:
+  path: /api/v2/leave/leaves/bulk
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\BulkLeaveAPI
+
+apiv2_leave_reports:
+  path: /api/v2/leave/reports
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveReportAPI
+    _key: name
+
+apiv2_leave_reports_data:
+  path: /api/v2/leave/reports/data
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\LeaveReportDataAPI
+
+apiv2_leave_employee_leave:
+  path: /api/v2/leave/employees/leaves
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\EmployeeLeaveAPI
+
+apiv2_leave_vacation_planning:
+  path: /api/v2/leave/vacation-planning
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Leave\Api\VacationPlanningAPI
+
+apiv2_leave_vacation_preferences:
+  path: /api/v2/leave/vacation-preferences/{empNumber}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Leave\Api\VacationPreferenceAPI
+    _key: empNumber
+  requirements:
+    empNumber: '\d+'
+
+##########################
+#        Screens
+##########################
+
+leave_module:
+  path: /leave/viewLeaveModule
+  controller: CiaFerias\Leave\Controller\LeaveModuleController::handle
+  methods: [ GET ]
+
+leave_define_leave_period:
+  path: /leave/defineLeavePeriod
+  controller: CiaFerias\Leave\Controller\LeavePeriodController::handle
+  methods: [ GET ]
+
+leave_apply_leave:
+  path: /leave/applyLeave
+  controller: CiaFerias\Leave\Controller\ApplyLeaveController::handle
+  methods: [ GET ]
+
+leave_assign_leave:
+  path: /leave/assignLeave
+  controller: CiaFerias\Leave\Controller\AssignLeaveController::handle
+  methods: [ GET ]
+
+leave_leave_list:
+  path: /leave/viewLeaveList
+  controller: CiaFerias\Leave\Controller\LeaveListController::handle
+  methods: [ GET ]
+
+leave_my_leave_list:
+  path: /leave/viewMyLeaveList
+  controller: CiaFerias\Leave\Controller\MyLeaveListController::handle
+  methods: [ GET ]
+
+leave_view_leave_request:
+  path: /leave/viewLeaveRequest/{id}
+  controller: CiaFerias\Leave\Controller\LeaveRequestController::handle
+  methods: [ GET ]
+
+view_leave_type:
+  path: /leave/leaveTypeList
+  controller: CiaFerias\Leave\Controller\LeaveTypeController::handle
+  methods: [ GET ]
+
+save_leave_type:
+  path: /leave/defineLeaveType
+  controller: CiaFerias\Leave\Controller\SaveLeaveTypeController::handle
+  methods: [ GET ]
+
+edit_leave_type:
+  path: /leave/defineLeaveType/{id}
+  controller: CiaFerias\Leave\Controller\SaveLeaveTypeController::handle
+  methods: [ GET ]
+
+leave_add_leave_entitlement:
+  path: /leave/addLeaveEntitlement
+  controller: CiaFerias\Leave\Controller\SaveLeaveEntitlementController::handle
+  methods: [ GET ]
+
+leave_edit_leave_entitlement:
+  path: /leave/editLeaveEntitlement/{id}
+  controller: CiaFerias\Leave\Controller\SaveLeaveEntitlementController::handle
+  methods: [ GET ]
+
+leave_view_leave_entitlement:
+  path: /leave/viewLeaveEntitlements
+  controller: CiaFerias\Leave\Controller\ViewLeaveEntitlementController::handle
+  methods: [ GET ]
+
+leave_view_my_leave_entitlement:
+  path: /leave/viewMyLeaveEntitlements
+  controller: CiaFerias\Leave\Controller\ViewMyLeaveEntitlementController::handle
+  methods: [ GET ]
+
+leave_work_week:
+  path: /leave/defineWorkWeek
+  controller: CiaFerias\Leave\Controller\WorkWeekController::handle
+  methods: [ GET ]
+
+list_holidays:
+  path: /leave/viewHolidayList
+  controller: CiaFerias\Leave\Controller\HolidayController::handle
+  methods: [ GET ]
+
+add_holiday:
+  path: /leave/saveHolidays
+  controller: CiaFerias\Leave\Controller\SaveHolidayController::handle
+  methods: [ GET ]
+
+edit_holiday:
+  path: /leave/saveHolidays/{id}
+  controller: CiaFerias\Leave\Controller\SaveHolidayController::handle
+  methods: [ GET ]
+
+leave_view_leave_entitlement_report:
+  path: /leave/viewLeaveBalanceReport
+  controller: CiaFerias\Leave\Controller\LeaveEntitlementReport::handle
+  methods: [ GET ]
+
+leave_view_my_leave_entitlement_report:
+  path: /leave/viewMyLeaveBalanceReport
+  controller: CiaFerias\Leave\Controller\MyLeaveEntitlementReport::handle
+  methods: [ GET ]

@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework;
+namespace CiaFerias\Framework;
 
-use OrangeHRM\Framework\Http\Request;
+use CiaFerias\Framework\Http\Request;
 
 interface PluginConfigurationInterface
 {

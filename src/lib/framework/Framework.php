@@ -17,22 +17,22 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework;
+namespace CiaFerias\Framework;
 
 use Exception;
-use OrangeHRM\Authentication\Auth\AuthProviderChain;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Subscriber\LoggerSubscriber;
-use OrangeHRM\Framework\Event\EventDispatcher;
-use OrangeHRM\Framework\Http\ControllerResolver;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\Http\RequestStack;
-use OrangeHRM\Framework\Logger\Logger;
-use OrangeHRM\Framework\Logger\LoggerFactory;
-use OrangeHRM\Framework\Routing\RequestContext;
-use OrangeHRM\Framework\Routing\UrlGenerator;
-use OrangeHRM\Framework\Routing\UrlMatcher;
-use OrangeHRM\ORM\Doctrine;
+use CiaFerias\Authentication\Auth\AuthProviderChain;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Subscriber\LoggerSubscriber;
+use CiaFerias\Framework\Event\EventDispatcher;
+use CiaFerias\Framework\Http\ControllerResolver;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Http\RequestStack;
+use CiaFerias\Framework\Logger\Logger;
+use CiaFerias\Framework\Logger\LoggerFactory;
+use CiaFerias\Framework\Routing\RequestContext;
+use CiaFerias\Framework\Routing\UrlGenerator;
+use CiaFerias\Framework\Routing\UrlMatcher;
+use CiaFerias\ORM\Doctrine;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
@@ -88,7 +88,7 @@ class Framework extends HttpKernel
     {
         ServiceContainer::getContainer()->register(Services::LOGGER)
             ->setFactory([LoggerFactory::class, 'getLogger'])
-            ->addArgument('orangehrm');
+            ->addArgument('cia_ferias');
 
         /** @var EventDispatcher $dispatcher */
         $dispatcher = ServiceContainer::getContainer()->get(Services::EVENT_DISPATCHER);

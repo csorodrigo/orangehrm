@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer\Api;
+namespace CiaFerias\Installer\Controller\Installer\Api;
 
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Util\StateContainer;
-use OrangeHRM\Installer\Util\SystemCheck;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Util\StateContainer;
+use CiaFerias\Installer\Util\SystemCheck;
 
-class SystemCheckAPI extends \OrangeHRM\Installer\Controller\Upgrader\Api\SystemCheckAPI
+class SystemCheckAPI extends \CiaFerias\Installer\Controller\Upgrader\Api\SystemCheckAPI
 {
     /**
      * @inheritDoc

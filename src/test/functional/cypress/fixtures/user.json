@@ -1,17 +1,17 @@
 {
   "admin": {
     "username": "Admin",
-    "password": "Jacqueline@OHRM123",
-    "fullName": "Jacqueline White"
+    "password": "CiaFerias@2026!",
+    "fullName": "Administrador Sistema"
   },
   "john": {
-    "username": "John",
-    "password": "John@OHRM123",
-    "fullName": "John Perera"
+    "username": "Joao.Colaborador",
+    "password": "CiaFerias@2026!",
+    "fullName": "Joao Colaborador"
   },
   "mike": {
-    "username": "Mike",
-    "password": "Mike@OHRM123",
-    "fullName": "Mike Combas"
+    "username": "Maria.Gestora",
+    "password": "CiaFerias@2026!",
+    "fullName": "Maria Gestora"
   }
 }

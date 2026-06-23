@@ -1,6 +1,5 @@
-
-.orangehrm-header-container,
-.orangehrm-dialog-header-container {
+.cia-ferias-header-container,
+.cia-ferias-dialog-header-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -11,30 +10,30 @@
   }
 }
 
-.orangehrm-header-container {
+.cia-ferias-header-container {
   padding: 25px;
 }
 
-.orangehrm-dialog-header-container {
+.cia-ferias-dialog-header-container {
   padding: 1.2rem;
 }
 
-.orangehrm-main-title {
+.cia-ferias-main-title {
   font-size: 16px !important;
   font-weight: 700 !important;
 }
 
-.orangehrm-sub-title {
+.cia-ferias-sub-title {
   padding: 0.25rem 0 !important;
   font-size: 14px !important;
   font-weight: 700 !important;
 }
 
-.orangehrm-left-space {
+.cia-ferias-left-space {
   margin-left: 10px;
 }
 
-.orangehrm-card-container {
+.cia-ferias-card-container {
   background-color: $oxd-white-color;
   border-radius: 1.2rem;
   padding: 25px;
@@ -47,7 +46,7 @@
   }
 }
 
-.orangehrm-container {
+.cia-ferias-container {
   background-color: $oxd-interface-gray-lighten-2-color;
   /*border-radius: 1.2rem;*/
   padding: 0.5rem;
@@ -65,46 +64,46 @@
   }
 }
 
-.orangehrm-paper-container {
+.cia-ferias-paper-container {
   background-color: $oxd-white-color;
   border-radius: 1.2rem;
 }
 
-.orangehrm-horizontal-padding {
+.cia-ferias-horizontal-padding {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-.orangehrm-dialog-horizontal-padding {
+.cia-ferias-dialog-horizontal-padding {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
 }
 
-.orangehrm-vertical-padding {
+.cia-ferias-vertical-padding {
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
-.orangehrm-dialog-vertical-padding {
+.cia-ferias-dialog-vertical-padding {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
 }
 
-.orangehrm-top-padding {
+.cia-ferias-top-padding {
   padding-top: 25px;
 }
 
-.orangehrm-horizontal-margin {
+.cia-ferias-horizontal-margin {
   margin-left: 25px;
   margin-right: 25px;
 }
 
-.orangehrm-dialog-horizontal-margin {
+.cia-ferias-dialog-horizontal-margin {
   margin-left: 1.2rem;
   margin-right: 1.2rem;
 }
 
-.orangehrm-bottom-container {
+.cia-ferias-bottom-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -112,27 +111,27 @@
   padding: 25px;
 }
 
-.orangehrm-background-container {
+.cia-ferias-background-container {
   padding: 1.5rem 0;
   flex: 1;
 }
 
-.orangehrm-input-hint {
+.cia-ferias-input-hint {
   font-size: 0.75rem;
   margin-top: -15px;
   padding-bottom: 1rem;
 }
 
-.orangehrm-clear-margins {
+.cia-ferias-clear-margins {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.orangehrm-copyright-wrapper {
+.cia-ferias-copyright-wrapper {
   margin: 0.5rem 0;
 }
 
-.orangehrm-copyright {
+.cia-ferias-copyright {
   font-size: 0.8rem;
   text-align: center;
 
@@ -141,21 +140,21 @@
   }
 }
 
-.orangehrm-form-action {
+.cia-ferias-form-action {
   gap: 5px;
   flex-wrap: wrap !important;
 }
 
-.orangehrm-dialog-modal {
+.cia-ferias-dialog-modal {
   width: 90%;
   max-width: 600px;
 }
 
-.orangehrm-dialog-popup {
+.cia-ferias-dialog-popup {
   max-width: 450px;
 }
 
-.orangehrm-input-field-bottom-space {
+.cia-ferias-input-field-bottom-space {
   margin-bottom: 1rem;
 }
 

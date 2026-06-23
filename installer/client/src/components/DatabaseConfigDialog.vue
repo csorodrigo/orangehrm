@@ -1,19 +1,19 @@
 <template>
   <oxd-dialog
-    class="orangehrm-consent-dialog"
+    class="cia-ferias-consent-dialog"
     :style="{width: '90%', maxWidth: '600px'}"
     @update:show="cancelInstallation"
   >
-    <oxd-form class="orangehrm-database-config-dialog" @submit="submitInfo">
-      <oxd-text tag="h6" class="orangehrm-database-config-dialog-title">
+    <oxd-form class="cia-ferias-database-config-dialog" @submit="submitInfo">
+      <oxd-text tag="h6" class="cia-ferias-database-config-dialog-title">
         Warning
       </oxd-text>
-      <oxd-divider class="orangehrm-divider" />
+      <oxd-divider class="cia-ferias-divider" />
       <oxd-text
         tag="p"
-        class="orangehrm-database-config-dialog-content orangehrm-database-config--title"
+        class="cia-ferias-database-config-dialog-content cia-ferias-database-config--title"
       >
-        The following features and add-ons are not supported in OrangeHRM
+        The following features and add-ons are not supported in CIA Férias
         Starter version {{ productVersion }}. You may continue to upgrade your
         system to version {{ productVersion }}, but please note that any data
         used in these features will be inaccessible.
@@ -21,14 +21,14 @@
       <oxd-classic-table
         :headers="headers"
         :items="items"
-        class="orangehrm-database-config-dialog-table"
+        class="cia-ferias-database-config-dialog-table"
       ></oxd-classic-table>
       <oxd-check-box
         v-model="checked"
         :option-label="optionLabel"
       ></oxd-check-box>
-      <oxd-divider class="orangehrm-divider" />
-      <oxd-form-actions class="orangehrm-database-config-dialog-action">
+      <oxd-divider class="cia-ferias-divider" />
+      <oxd-form-actions class="cia-ferias-database-config-dialog-action">
         <oxd-button
           display-type="ghost"
           label="Cancel"
@@ -36,7 +36,7 @@
           @click="cancelInstallation"
         />
         <oxd-button
-          class="orangehrm-left-space"
+          class="cia-ferias-left-space"
           display-type="secondary"
           label="Continue"
           :disabled="!checked"
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {OxdCheckboxInput, OxdClassicTable, OxdDialog} from '@ohrm/oxd';
+import {OxdCheckboxInput, OxdClassicTable, OxdDialog} from '@cia-ferias/oxd';
 
 export default {
   name: 'DatabaseConfigDialog',
@@ -82,7 +82,7 @@ export default {
   computed: {
     optionLabel() {
       return (
-        'I want to continue upgrading the OrangeHRM system to version ' +
+        'I want to continue upgrading the CIA Férias system to version ' +
         this.productVersion +
         ' and I am aware that by doing so, any gathered data in incomplete features/add-ons will be inaccessible.'
       );
@@ -121,7 +121,7 @@ export default {
     font-weight: bold;
   }
 }
-.orangehrm-database-config-dialog {
+.cia-ferias-database-config-dialog {
   font-size: $oxd-input-control-font-size;
   &-title {
     font-weight: 700;

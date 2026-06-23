@@ -20,15 +20,15 @@
 <template>
   <!-- Always use inside OXD-Form -->
   <oxd-input-group v-if="fileSelected" :label="label">
-    <div class="orangehrm-file-current">
-      <div class="orangehrm-file-preview" @click="downloadFile">
-        <oxd-icon class="orangehrm-file-icon" name="file-earmark-text" />
-        <oxd-text class="orangehrm-file-name" tag="p" :title="file.filename">
+    <div class="cia-ferias-file-current">
+      <div class="cia-ferias-file-preview" @click="downloadFile">
+        <oxd-icon class="cia-ferias-file-icon" name="file-earmark-text" />
+        <oxd-text class="cia-ferias-file-name" tag="p" :title="file.filename">
           {{ file.filename }}
-          <oxd-icon class="orangehrm-file-download" name="download" />
+          <oxd-icon class="cia-ferias-file-download" name="download" />
         </oxd-text>
       </div>
-      <div v-if="!disabled" class="orangehrm-file-options">
+      <div v-if="!disabled" class="cia-ferias-file-options">
         <oxd-input-field
           type="radio"
           :option-label="$t('general.keep_current')"
@@ -56,7 +56,7 @@
   </oxd-input-group>
   <div
     v-if="method === 'replaceCurrent' || !fileSelected"
-    class="orangehrm-file-input"
+    class="cia-ferias-file-input"
   >
     <oxd-input-field
       v-bind="$attrs"
@@ -67,12 +67,12 @@
       :placeholder="$t('general.no_file_selected')"
       @update:model-value="$emit('update:newFile', $event)"
     />
-    <oxd-text class="orangehrm-input-hint" tag="p">{{ hint }}</oxd-text>
+    <oxd-text class="cia-ferias-input-hint" tag="p">{{ hint }}</oxd-text>
   </div>
 </template>
 
 <script>
-import {OxdIcon} from '@ohrm/oxd';
+import {OxdIcon} from '@cia-ferias/oxd';
 
 export default {
   name: 'FileUploadInput',
@@ -145,7 +145,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.orangehrm-file {
+.cia-ferias-file {
   &-current {
     display: flex;
     margin-bottom: 1rem;

@@ -33,7 +33,10 @@ describe('Admin - Job Titles', function () {
     it('job title list is loaded', function () {
       cy.loginTo(this.user, '/admin/viewJobTitleList');
       cy.wait('@getJobTitles');
-      cy.toast('info', 'No Records Found');
+      cy.getOXD('pageContext').should(
+        'include.text',
+        'Nenhum registro encontrado',
+      );
     });
   });
 
@@ -42,13 +45,13 @@ describe('Admin - Job Titles', function () {
     it('add job title', function () {
       cy.loginTo(this.user, '/admin/saveJobTitle');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Job Title').type(this.strings.chars50.text);
-        cy.getOXDInput('Job Description').type(this.strings.chars120.text);
-        cy.getOXDInput('Note').type(this.strings.chars120.text);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Cargo').type(this.strings.chars50.text);
+        cy.getOXDInput('Descrição do cargo').type(this.strings.chars120.text);
+        cy.getOXDInput('Observação').type(this.strings.chars120.text);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@postJobTitles');
-      cy.toast('success', 'Successfully Saved');
+      cy.toast('success', 'Salvo com sucesso');
       cy.task('db:snapshot', {name: 'jobTitle'});
     });
 
@@ -56,19 +59,19 @@ describe('Admin - Job Titles', function () {
       cy.task('db:restore', {name: 'jobTitle'});
       cy.loginTo(this.user, '/admin/saveJobTitle');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Job Title')
+        cy.getOXDInput('Cargo')
           .setValue(this.strings.chars120.text)
-          .isInvalid('Should not exceed 100 characters');
-        cy.getOXDInput('Job Title').setValue('').isInvalid('Required');
-        cy.getOXDInput('Job Title')
+          .isInvalid('Não deve exceder caracteres100');
+        cy.getOXDInput('Cargo').setValue('').isInvalid('Obrigatório');
+        cy.getOXDInput('Cargo')
           .setValue(this.strings.chars50.text)
-          .isInvalid('Already exists');
-        cy.getOXDInput('Job Description')
+          .isInvalid('Já existe');
+        cy.getOXDInput('Descrição do cargo')
           .setValue(this.strings.chars450.text)
-          .isInvalid('Should not exceed 400 characters');
-        cy.getOXDInput('Note')
+          .isInvalid('Não deve exceder caracteres400');
+        cy.getOXDInput('Observação')
           .setValue(this.strings.chars450.text)
-          .isInvalid('Should not exceed 400 characters');
+          .isInvalid('Não deve exceder caracteres400');
       });
     });
   });

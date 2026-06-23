@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\DependencyInjection;
+namespace CiaFerias\Framework\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder as BaseContainerBuilder;
 

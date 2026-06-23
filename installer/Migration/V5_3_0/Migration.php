@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V5_3_0;
+namespace CiaFerias\Installer\Migration\V5_3_0;
 
 use Exception;
 use DateTime;
@@ -25,22 +25,22 @@ use DateTimeZone;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Core\Service\DateTimeHelperService;
-use OrangeHRM\Installer\Util\Logger;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
-use OrangeHRM\Installer\Util\V1\LangStringHelper;
+use CiaFerias\Core\Service\DateTimeHelperService;
+use CiaFerias\Installer\Util\Logger;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\LangStringHelper;
 
 class Migration extends AbstractMigration
 {
     protected ?LangStringHelper $langStringHelper = null;
     private DateTimeZone $utcTimeZone;
     public const CONFLICTING_FOREIGN_KEY_TABLES = [
-        'ohrm_buzz_comment',
-        'ohrm_buzz_like_on_comment',
-        'ohrm_buzz_like_on_share',
-        'ohrm_buzz_photo',
-        'ohrm_buzz_post',
-        'ohrm_buzz_share',
+        'cia_ferias_buzz_comment',
+        'cia_ferias_buzz_like_on_comment',
+        'cia_ferias_buzz_like_on_share',
+        'cia_ferias_buzz_photo',
+        'cia_ferias_buzz_post',
+        'cia_ferias_buzz_share',
     ];
 
     /**
@@ -53,7 +53,7 @@ class Migration extends AbstractMigration
 
         $this->updateLangStringVersion('5.2.0');
         $this->getLangHelper()->deleteLangStringByUnitId(
-            'getting_started_with_orangehrm',
+            'getting_started_with_cia_ferias',
             $this->getLangHelper()->getGroupIdByName('help')
         );
         $this->getLangStringHelper()->deleteNonCustomizedLangStrings('buzz');
@@ -96,7 +96,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_i18n_lang_string', 'lang_string')
+            ->update('cia_ferias_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -106,20 +106,20 @@ class Migration extends AbstractMigration
     private function createColumnToStoreBuzzOriginalVideoLink(): void
     {
         $this->getSchemaHelper()->addColumn(
-            'ohrm_buzz_link',
+            'cia_ferias_buzz_link',
             'original_link',
             Types::TEXT,
             ['Notnull' => false, 'Default' => null]
         );
 
-        $table = 'ohrm_buzz_link';
+        $table = 'cia_ferias_buzz_link';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
             $result = $this->createQueryBuilder()
                 ->select('buzzLink.id', 'buzzLink.post_id', 'buzzPost.text')
                 ->from($table, 'buzzLink')
-                ->leftJoin('buzzLink', 'ohrm_buzz_post', 'buzzPost', 'buzzPost.id = buzzLink.post_id')
+                ->leftJoin('buzzLink', 'cia_ferias_buzz_post', 'buzzPost', 'buzzPost.id = buzzLink.post_id')
                 ->setFirstResult($i)
                 ->setMaxResults($batchSize)
                 ->executeQuery();
@@ -137,9 +137,9 @@ class Migration extends AbstractMigration
             }
 
             $q = $this->createQueryBuilder()
-                ->update('ohrm_buzz_post')
-                ->set('ohrm_buzz_post.text', ':newValue');
-            $q->where($q->expr()->in('ohrm_buzz_post.id', ':postIds'))
+                ->update('cia_ferias_buzz_post')
+                ->set('cia_ferias_buzz_post.text', ':newValue');
+            $q->where($q->expr()->in('cia_ferias_buzz_post.id', ':postIds'))
                 ->setParameter('postIds', $postIds, Connection::PARAM_INT_ARRAY)
                 ->setParameter('newValue', null)
                 ->executeStatement();
@@ -150,25 +150,25 @@ class Migration extends AbstractMigration
 
     private function modifyBuzzTables(): void
     {
-        $this->getSchemaManager()->dropTable('ohrm_buzz_unlike_on_comment');
-        $this->getSchemaManager()->dropTable('ohrm_buzz_unlike_on_share');
-        $this->getSchemaHelper()->dropColumn('ohrm_buzz_share', 'number_of_unlikes');
-        $this->getSchemaHelper()->dropColumn('ohrm_buzz_comment', 'number_of_unlikes');
-        $this->getSchemaHelper()->dropColumns('ohrm_buzz_link', ['type', 'title', 'description']);
+        $this->getSchemaManager()->dropTable('cia_ferias_buzz_unlike_on_comment');
+        $this->getSchemaManager()->dropTable('cia_ferias_buzz_unlike_on_share');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_buzz_share', 'number_of_unlikes');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_buzz_comment', 'number_of_unlikes');
+        $this->getSchemaHelper()->dropColumns('cia_ferias_buzz_link', ['type', 'title', 'description']);
 
         $this->getConnection()->executeStatement(
-            'ALTER TABLE ohrm_buzz_post CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
+            'ALTER TABLE cia_ferias_buzz_post CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
         );
         $this->getConnection()->executeStatement(
-            'ALTER TABLE ohrm_buzz_share CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
+            'ALTER TABLE cia_ferias_buzz_share CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
         );
         $this->getConnection()->executeStatement(
-            'ALTER TABLE ohrm_buzz_comment CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
+            'ALTER TABLE cia_ferias_buzz_comment CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
         );
 
         $conflictingConstraints = $this->getConflictingForeignKeys();
         $droppedConstraintNames = $this->removeConflictingForeignKeys($conflictingConstraints);
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_comment', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_comment', [
             'employee_number' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::INTEGER),
@@ -201,7 +201,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_like_on_comment', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_like_on_comment', [
             'employee_number' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::INTEGER),
@@ -218,7 +218,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_like_on_share', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_like_on_share', [
             'employee_number' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::INTEGER),
@@ -235,7 +235,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_photo', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_photo', [
             'photo' => [
                 'Notnull' => false,
                 'Default' => null,
@@ -264,7 +264,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_post', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_post', [
             'employee_number' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::INTEGER),
@@ -297,7 +297,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_share', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_share', [
             'employee_number' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::INTEGER),
@@ -387,35 +387,35 @@ class Migration extends AbstractMigration
 
     private function changeBuzzTablesDateTimeColumnsAsNotNull(): void
     {
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_comment', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_comment', [
             'comment_utc_time' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE),
                 'Notnull' => true,
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_like_on_comment', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_like_on_comment', [
             'like_utc_time' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE),
                 'Notnull' => true,
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_like_on_share', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_like_on_share', [
             'like_utc_time' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE),
                 'Notnull' => true,
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_post', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_post', [
             'post_utc_time' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE),
                 'Notnull' => true,
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_buzz_share', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_buzz_share', [
             'share_utc_time' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE),
                 'Notnull' => true,
@@ -425,7 +425,7 @@ class Migration extends AbstractMigration
 
     private function convertBuzzCommentTableTimesToUTC(): void
     {
-        $table = 'ohrm_buzz_comment';
+        $table = 'cia_ferias_buzz_comment';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
@@ -462,7 +462,7 @@ class Migration extends AbstractMigration
 
     private function convertBuzzLikeOnCommentTableTimesToUTC(): void
     {
-        $table = 'ohrm_buzz_like_on_comment';
+        $table = 'cia_ferias_buzz_like_on_comment';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
@@ -493,7 +493,7 @@ class Migration extends AbstractMigration
 
     private function convertBuzzLikeOnShareTableTimesToUTC(): void
     {
-        $table = 'ohrm_buzz_like_on_share';
+        $table = 'cia_ferias_buzz_like_on_share';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
@@ -523,7 +523,7 @@ class Migration extends AbstractMigration
 
     private function convertBuzzPostTableTimesToUTC(): void
     {
-        $table = 'ohrm_buzz_post';
+        $table = 'cia_ferias_buzz_post';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
@@ -560,7 +560,7 @@ class Migration extends AbstractMigration
 
     private function convertBuzzShareTableTimesToUTC(): void
     {
-        $table = 'ohrm_buzz_share';
+        $table = 'cia_ferias_buzz_share';
         $count = $this->getTableRecordCount($table);
         $batchSize = 10;
         for ($i = 0; $i <= $count; $i = $i + $batchSize) {
