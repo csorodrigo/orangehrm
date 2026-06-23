@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Fixture;
+namespace CiaFerias\Tests\Util\Fixture;
 
-use OrangeHRM\Entity\DataGroup;
-use OrangeHRM\Entity\DataGroupPermission;
-use OrangeHRM\Entity\UserRole;
+use CiaFerias\Entity\DataGroup;
+use CiaFerias\Entity\DataGroupPermission;
+use CiaFerias\Entity\UserRole;
 
 class DataGroupPermissionFixture extends AbstractFixture
 {

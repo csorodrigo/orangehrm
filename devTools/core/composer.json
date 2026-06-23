@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OrangeHRM\\DevTools\\": "src/"
+            "CiaFerias\\DevTools\\": "src/"
         }
     },
     "config": {

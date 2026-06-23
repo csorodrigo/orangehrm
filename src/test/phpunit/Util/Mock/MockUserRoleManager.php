@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Mock;
+namespace CiaFerias\Tests\Util\Mock;
 
 use Exception;
-use OrangeHRM\Core\Authorization\Dto\DataGroupPermissionCollection;
-use OrangeHRM\Core\Authorization\Dto\DataGroupPermissionFilterParams;
-use OrangeHRM\Core\Authorization\Dto\ResourcePermission;
-use OrangeHRM\Core\Authorization\Manager\AbstractUserRoleManager;
-use OrangeHRM\Entity\User;
+use CiaFerias\Core\Authorization\Dto\DataGroupPermissionCollection;
+use CiaFerias\Core\Authorization\Dto\DataGroupPermissionFilterParams;
+use CiaFerias\Core\Authorization\Dto\ResourcePermission;
+use CiaFerias\Core\Authorization\Manager\AbstractUserRoleManager;
+use CiaFerias\Entity\User;
 
 class MockUserRoleManager extends AbstractUserRoleManager
 {

@@ -1,4 +1,4 @@
-New & Changed Features for OrangeHRM ver 5.8.1
+New & Changed Features for CIA Ferias ver 5.8.1
     Supported Environments
     -----------
 	- PHP - 7.4 to 8.4
@@ -9,7 +9,7 @@ New & Changed Features for OrangeHRM ver 5.8.1
     ---------
     - Security improvements
 
-New & Changed Features for OrangeHRM ver 5.8
+New & Changed Features for CIA Ferias ver 5.8
     New Features/Changes
     -----------
     - Supported Environments
@@ -21,11 +21,11 @@ New & Changed Features for OrangeHRM ver 5.8
     ---------
     - Security improvements
 
-New & Changed Features for OrangeHRM ver 5.7
+New & Changed Features for CIA Ferias ver 5.7
     New Features/Changes
     -----------
     - Language Package Import
-        - Allowing OrangeHRM Starter users to import translations via XLIFF files
+        - Allowing CIA Ferias Starter users to import translations via XLIFF files
     - Supported Environments
         - PHP - 7.4 to 8.3
         - MariaDB - 5.5 to 11.4
@@ -34,9 +34,9 @@ New & Changed Features for OrangeHRM ver 5.7
     Bug Fixes
     ---------
     - Several API defects fixed
-    - https://github.com/orangehrm/orangehrm/issues/1853 (installation failure on MySQL 8.4)
+    - upstream issue #1853 (installation failure on MySQL 8.4)
 
-Changed Features for OrangeHRM ver 5.6.1
+Changed Features for CIA Ferias ver 5.6.1
     Changes
     -----------
     - Security
@@ -51,14 +51,14 @@ Changed Features for OrangeHRM ver 5.6.1
 
      Bug Fixes
      -----------
-     - https://github.com/orangehrm/orangehrm/issues/1817 (Support ONLY_FULL_GROUP_BY sql_mode throughout the application)
-     - https://github.com/orangehrm/orangehrm/issues/1780 (Handle PHP timeout on Windows environments)
+     - upstream issue #1817 (Support ONLY_FULL_GROUP_BY sql_mode throughout the application)
+     - upstream issue #1780 (Handle PHP timeout on Windows environments)
 
-New & Changed Features for OrangeHRM ver 5.6
+New & Changed Features for CIA Ferias ver 5.6
     New Features/Changes
     -----------
     - Social Media Authentication
-        - Allowing OrangeHRM Starter users to create and manage alternative logins using different OpenID Connect providers such as Google.
+        - Allowing CIA Ferias Starter users to create and manage alternative logins using different OpenID Connect providers such as Google.
     - License Upgrade to GPLv3
         - Product License upgrade to GNU General Public License v3.0
     - Supported Environments
@@ -68,13 +68,13 @@ New & Changed Features for OrangeHRM ver 5.6
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1731
+    - upstream issue #1731
 
-New & Changed Features for OrangeHRM ver 5.5
+New & Changed Features for CIA Ferias ver 5.5
     New Feature
     -----------
     - Claim Module
-        - Allowing OrangeHRM Opensource 5x users to create and manage Claims
+        - Allowing CIA Ferias Opensource 5x users to create and manage Claims
     - Supported Environments
         - PHP - 7.4 to 8.2
         - MariaDB - 5.5 to 10.11
@@ -82,19 +82,19 @@ New & Changed Features for OrangeHRM ver 5.5
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1684
-    - https://github.com/orangehrm/orangehrm/issues/1698
-    - https://github.com/orangehrm/orangehrm/issues/1665
+    - upstream issue #1684
+    - upstream issue #1698
+    - upstream issue #1665
 
-New & Changed Features for OrangeHRM ver 5.4
+New & Changed Features for CIA Ferias ver 5.4
     New Feature
     -----------
     - Mobile Compatibility
-        - Allowing OrangeHRM Starter 5x users to access and utilize the system through OrangeHRM Open Source mobile app
+        - Allowing CIA Ferias Starter 5x users to access and utilize the system through CIA Ferias Open Source mobile app
     - Help Portal Integration
-        - OrangeHRM Starter 5x users can now easily access Starter Help Portal via the application.
+        - CIA Ferias Starter 5x users can now easily access Starter Help Portal via the application.
     - OAuth 2.0 support
-        - Allowing secure and standardized authorization for third-party integrations, ensuring smooth and secure data exchange between OrangeHRM and other applications.
+        - Allowing secure and standardized authorization for third-party integrations, ensuring smooth and secure data exchange between CIA Ferias and other applications.
     - Password Policy Enforcement
         - Enables admins to configure password policies for users and automatically enforce those policies whenever a user creates a new password.
     - Supported Environments
@@ -104,11 +104,11 @@ New & Changed Features for OrangeHRM ver 5.4
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1622
-    - https://github.com/orangehrm/orangehrm/issues/1584
-    - https://github.com/orangehrm/orangehrm/issues/1583
+    - upstream issue #1622
+    - upstream issue #1584
+    - upstream issue #1583
 
-New & Changed Features for OrangeHRM ver 5.3
+New & Changed Features for CIA Ferias ver 5.3
     New Feature
     -----------
     - Buzz Module
@@ -122,14 +122,14 @@ New & Changed Features for OrangeHRM ver 5.3
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1471
-    - https://github.com/orangehrm/orangehrm/issues/1500
-    - https://github.com/orangehrm/orangehrm/issues/1517
+    - upstream issue #1471
+    - upstream issue #1500
+    - upstream issue #1517
 
-New & Changed Features for OrangeHRM ver 5.2
+New & Changed Features for CIA Ferias ver 5.2
     New Feature
     -----------
-    - Technology stack upgrade and New UI/UX compliance with Orange eXperience Design (OXD) Standards upgraded for;
+    - Technology stack upgrade and New UI/UX compliance with CIA Ferias Experience Design (OXD) Standards upgraded for;
         - Dashboard
         - Data Encryption support
         - Custom Language Packages
@@ -141,14 +141,14 @@ New & Changed Features for OrangeHRM ver 5.2
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1459
-    - https://github.com/orangehrm/orangehrm/issues/1457
-    - https://github.com/orangehrm/orangehrm/issues/1451
+    - upstream issue #1459
+    - upstream issue #1457
+    - upstream issue #1451
 
-New & Changed Features for OrangeHRM ver 5.1
+New & Changed Features for CIA Ferias ver 5.1
     New Feature
     -----------
-    - New UI/UX in compliance with the Orange eXperience Design (OXD) Standards
+    - New UI/UX in compliance with the CIA Ferias Experience Design (OXD) Standards
         - Performance, Recruitment, Corporate Directory, Corporate Branding
     - Date format support
     - Supported Environments
@@ -163,16 +163,16 @@ New & Changed Features for OrangeHRM ver 5.1
 
     Bug Fixes
     ---------
-    - https://github.com/orangehrm/orangehrm/issues/1299
-    - https://github.com/orangehrm/orangehrm/issues/1272
-    - https://github.com/orangehrm/orangehrm/issues/1305
+    - upstream issue #1299
+    - upstream issue #1272
+    - upstream issue #1305
 
-New & Changed Features for OrangeHRM ver 5.0
+New & Changed Features for CIA Ferias ver 5.0
     New Feature
     -----------
     - Supports Admin, PIM, Leave, Time, Attendance and Maintenance modules.
     - Technology stack upgrade (Symfony 5.x, Doctrine 2.x, Vue 3, REST APIs & SaaS)
-    - New UI/UX in compliance with the Orange eXperience Design (OXD) Standards
+    - New UI/UX in compliance with the CIA Ferias Experience Design (OXD) Standards
     - PHP 7.4 to 8.1 Support.
     - Convenient web installer and upgrader to get started seamlessly
     - Supported Environments
@@ -182,7 +182,7 @@ New & Changed Features for OrangeHRM ver 5.0
 
     Known Issues
     ------------
-    Following modules and add-ons are not supported in  OrangeHRM Starter version 5.0
+    Following modules and add-ons are not supported in  CIA Ferias Starter version 5.0
 
     Modules
          - Recruitment
@@ -201,10 +201,10 @@ New & Changed Features for OrangeHRM ver 5.0
          - Marketplace
          - Custom Language Packages
          - Custom Date localizations (except YYYY-MM-DD)
-         - OrangeHRM Starter mobile app
+         - CIA Ferias Starter mobile app
          - Social media authentication
 
-New & Changed Features for OrangeHRM ver 5.0-beta
+New & Changed Features for CIA Ferias ver 5.0-beta
     New Feature
     -----------
     Upgrade the technology stack
@@ -225,15 +225,15 @@ New & Changed Features for OrangeHRM ver 5.0-beta
      - Localization, Language support, & Social media authentication
      - PIM - Report, Custom fields data availability in the report.
 
-New & Changed Features for OrangeHRM ver 4.9
+New & Changed Features for CIA Ferias ver 4.9
     New Feature
     -----------
     Corporate Branding
-      - It allows admin to customize the OrangeHRM system with their organization's colors, company logo, and banners.
+      - It allows admin to customize the CIA Ferias system with their organization's colors, company logo, and banners.
       - Users who have purchased the addon will be able to use it without expiration upon upgrading with 4.9 system.
     Environment Compatability with Maria DB 10.6
 
-New & Changed Features for OrangeHRM ver 4.8
+New & Changed Features for CIA Ferias ver 4.8
     New Feature
     -----------
     Help portal integration: Employees and admin can access the user guide via the system.
@@ -242,32 +242,32 @@ New & Changed Features for OrangeHRM ver 4.8
     ---------
     Security fix [CVE-2021-28051]
 
-New & Changed Features for OrangeHRM ver 4.7
+New & Changed Features for CIA Ferias ver 4.7
     New Features
     ------------
-    OrangeHRM Open Source Mobile App Version 2.0 is released with the following features.
+    CIA Ferias Open Source Mobile App Version 2.0 is released with the following features.
     - Employees to Punch In/Out the attendance records
     - Employees to view their attendance records summary and details
     - Admin / Supervisor to view their employees' attendance summary and details
 
-New & Changed Features for OrangeHRM ver 4.6.0.1
+New & Changed Features for CIA Ferias ver 4.6.0.1
     Bug Fixes
     ---------
     Security fix [CVE-2020-29437]
 
-New & Changed Features for OrangeHRM ver 4.6
+New & Changed Features for CIA Ferias ver 4.6
     New Features
     ------------
-    Admin can create the language pack and translate the words to reflect in OrangeHRM System.
+    Admin can create the language pack and translate the words to reflect in CIA Ferias System.
     - Admin creates a new language package.
     - Admin filter the words by the module to translate the words in those modules only.
-    - Admin exports the translated language pack to share with the OrangeHRM community.
+    - Admin exports the translated language pack to share with the CIA Ferias community.
 
     Bug Fixes
     ------------
     Code improvements to enhance the security of the application.
 
-New & Changed Features for OrangeHRM ver 4.5
+New & Changed Features for CIA Ferias ver 4.5
     New Features
     ------------
     Mobile app 1.0 version release with leave features
@@ -276,7 +276,7 @@ New & Changed Features for OrangeHRM ver 4.5
     - Supervisors can approve leave requests of their employees
     - Assign leave on behalf of your employees when they cannot make it to the office
 
-New & Changed Features for OrangeHRM ver 4.4
+New & Changed Features for CIA Ferias ver 4.4
     New Features
     ------------
     Buzz available to all users. It creates a collaborative workspace, and increase engagement.
@@ -286,7 +286,7 @@ New & Changed Features for OrangeHRM ver 4.4
         - Admin can delete the posts
         - Employees can view the most commented, liked posts.
 
-New & Changed Features for OrangeHRM ver 4.3.5
+New & Changed Features for CIA Ferias ver 4.3.5
     Bug Fixes
     ------------
     Sendmail email not sending issue. Git Issue #604
@@ -301,10 +301,10 @@ New & Changed Features for OrangeHRM ver 4.3.5
     Cannot login if the system configured with french language. Username and Password fields are not typable.
     When login to the system through Google alternative login, user redirect to an internal error page.
 
-New & Changed Features for OrangeHRM ver 4.3.4
+New & Changed Features for CIA Ferias ver 4.3.4
     New Features
     ------------
-    ESS user to subscribe OrangeHRM updates
+    ESS user to subscribe CIA Ferias updates
     Code Enhancements: JQuery library upgraded to version 3.4.1
 
     Bug Fixes
@@ -312,7 +312,7 @@ New & Changed Features for OrangeHRM ver 4.3.4
     Warning message is shown when apply to leave using a specific time option. git Issue #581
     Leave gets approved when approving the request which contains canceled leave request. git Issue #576
 
-New & Changed Features for OrangeHRM ver 4.3.3
+New & Changed Features for CIA Ferias ver 4.3.3
     New Features
     ------------
     Upgrade supportability to upgrade the addons with latest versions.
@@ -323,7 +323,7 @@ New & Changed Features for OrangeHRM ver 4.3.3
     ---------
     Code Improvements
 
-New & Changed Features for OrangeHRM ver 4.3.2
+New & Changed Features for CIA Ferias ver 4.3.2
     New Features
     ------------
     Claim addon :-
@@ -338,7 +338,7 @@ New & Changed Features for OrangeHRM ver 4.3.2
     ---------
     Security fix [CVE-2019-12839]
 
-New & Changed Features for OrangeHRM ver 4.3.1
+New & Changed Features for CIA Ferias ver 4.3.1
     New Features
     ------------
     Reset forgotten password
@@ -352,7 +352,7 @@ New & Changed Features for OrangeHRM ver 4.3.1
     Google OpenID Support git Issue #472 & #222
     French Add User not working git Issue #452
 
-New & Changed Features for OrangeHRM ver 4.3
+New & Changed Features for CIA Ferias ver 4.3
     New Features
     ------------
     Market Place
@@ -363,14 +363,14 @@ New & Changed Features for OrangeHRM ver 4.3
     ---------
     French Add User not working git Issue #452
 
-New & Changed Features for OrangeHRM ver 4.2.0.1
+New & Changed Features for CIA Ferias ver 4.2.0.1
     Bug Fixes
     ---------
-    Remove HTTPS restriction introduced in OrangeHRM 4.2 release
+    Remove HTTPS restriction introduced in CIA Ferias 4.2 release
         - Revert secure cookie attribute of session cookie
     Add SimpleXML modules to pre-requisites check
 
-New & Changed Features for OrangeHRM ver 4.2
+New & Changed Features for CIA Ferias ver 4.2
     New Features
     ------------
     Introduce maintenance module to achieve GDPR compliance
@@ -393,14 +393,14 @@ New & Changed Features for OrangeHRM ver 4.2
     ----------------
     Remove unix_socket support at the installation
 
-New & Changed Features for OrangeHRM ver 4.1.2.1
+New & Changed Features for CIA Ferias ver 4.1.2.1
    Bug Fixes
    ------------
     Installation fails if cURL is not enabled
     Resolved issue with relative paths running into an error in certain environments
     Resolved issue with supported environment version verification during installation
 
-New & Changed Features for OrangeHRM ver 4.1.2
+New & Changed Features for CIA Ferias ver 4.1.2
     New Features
     ------------
     Enhancement of system configuration wizard during installation. Setup instance with user entered data during installation.
@@ -423,7 +423,7 @@ New & Changed Features for OrangeHRM ver 4.1.2
     Web installer: "Help" link should be changed with a new guide
     System becomes inaccessible after changing password by accessing the change password link
 
-New & Changed Features for OrangeHRM ver 4.1.1
+New & Changed Features for CIA Ferias ver 4.1.1
     New Features
     ------------
     Verification of supported environment during the installation.
@@ -450,31 +450,31 @@ New & Changed Features for OrangeHRM ver 4.1.1
     Can not install using web installer if the database is on mariadb 10.2
     Unable to install the build for php 7.2 with any mysql version.
 
-New & Changed Features for OrangeHRM ver 4.1
+New & Changed Features for CIA Ferias ver 4.1
     New Features
     ------------
-    Integration with toggl. Users can sync the time entries tracked in toggl to orangehrm time module.
+    Integration with toggl. Users can sync the time entries tracked in toggl to CIA Ferias time module.
     Enforcement of having a strong password for the user account.
     Compatibility with ldap add-on
     Environment compatibility with php 7.1 & mariadb 10.2
     Security Fixes
 
-New & Changed Features for OrangeHRM ver 4.0
+New & Changed Features for CIA Ferias ver 4.0
     New Features
     ------------
     Compatibility with PHP 7.1 & Maria DB 10.1
     Enabling REST APIs in Admin, PIM, Leave & Time
 
-New & Changed Features for OrangeHRM ver 3.3.3
+New & Changed Features for CIA Ferias ver 3.3.3
     Security Fixes
 
-New & Changed Features for OrangeHRM ver 3.3.2
+New & Changed Features for CIA Ferias ver 3.3.2
     Security Fixes
 
-New & Changed Features for OrangeHRM ver 3.3.1
+New & Changed Features for CIA Ferias ver 3.3.1
     Security Fixes
 
-New & Changed Features for OrangeHRM ver 3.3
+New & Changed Features for CIA Ferias ver 3.3
     New Features
     ------------
     Introducing Corporate Directory
@@ -482,37 +482,37 @@ New & Changed Features for OrangeHRM ver 3.3
     Web services
     Bug Fixes and Security Fixes
 
-New & Changed Features for OrangeHRM ver 3.2.1
+New & Changed Features for CIA Ferias ver 3.2.1
     Bug Fixes
 
-New & Changed Features for OrangeHRM ver 3.2
+New & Changed Features for CIA Ferias ver 3.2
     New Features
     ------------
     Enhancement in Performance module
     Introducing of Dashboard Plugin
     Introducing Performance Tracker Plugin
 
-New & Changed Features for OrangeHRM ver 3.1.2
+New & Changed Features for CIA Ferias ver 3.1.2
     New Features
     ------------
     Changed Registration page during installation to a much simpler one
     Removed 'Help' and 'Join Community' items from the application header
     Added 'About' menu item to the 'welcome' menu, which contains logout and change password
 
-New & Changed Features for OrangeHRM ver 3.1.1
+New & Changed Features for CIA Ferias ver 3.1.1
     New Features
     ------------
     Improved support for configurable authorization.
     Bug Fixes
 
-New & Changed Features for OrangeHRM ver 3.1
+New & Changed Features for CIA Ferias ver 3.1
     New Features
     ------------
     Ability to apply for half day / partial day leave for a single day or range of days
     Ability to specify work day start/end time for workshifts
     Security fixes in all modules
 
-New & Changed Features for OrangeHRM ver 3.0.1
+New & Changed Features for CIA Ferias ver 3.0.1
     New Features
     ------------
     Upgrader from 2.7.1 available
@@ -542,7 +542,7 @@ New & Changed Features for OrangeHRM ver 3.0.1
             - Add top level jobs.php to redirect to vacancy page for backwards compatibility
             - Performance->Reviews as ESS users. Search & Cancel buttons are not working for ESS users
 
-New & Changed Features for OrangeHRM ver 3.0
+New & Changed Features for CIA Ferias ver 3.0
 
     New Features
     ------------
@@ -586,7 +586,7 @@ New & Changed Features for OrangeHRM ver 3.0
     0000384 - [XSS Injection] - XSS injection is possible for employee name
     0000383 - [XSS Injection] - XSS injection is possible for Number field in Immigration
 
-New & Changed Features for OrangeHRM ver  2.7.1-rc.1
+New & Changed Features for CIA Ferias ver  2.7.1-rc.1
 
     New Features
     ------------
@@ -594,7 +594,7 @@ New & Changed Features for OrangeHRM ver  2.7.1-rc.1
 
     Loading Time Bug Fixes
     ----------------------
-    Bugs were reported in SF Mantis Tracker: http://sourceforge.net/apps/mantisbt/orangehrm/view_all_bug_page.php
+    Bugs were reported in SF Mantis Tracker: legacy bug tracker
 
     0000128 - User log-in takes more than 3 seconds with 5000 employees
     0000120 - Employee list search operations by Admin take more than 18 seconds with 5000 employees
@@ -640,7 +640,7 @@ New & Changed Features for OrangeHRM ver  2.7.1-rc.1
     0000225 - [Time] - Error displayed while saving the timesheet
     0000240 - Default values in employment status, and Job categories are not displyed
 
-New & Changed Features for OrangeHRM ver  2.7
+New & Changed Features for CIA Ferias ver  2.7
 
     New Features/Changes
     --------------------
@@ -651,7 +651,7 @@ New & Changed Features for OrangeHRM ver  2.7
 
     Bug Fixes
     ---------
-    Bugs were reported in SF Mantis Tracker: http://sourceforge.net/apps/mantisbt/orangehrm/view_all_bug_page.php
+    Bugs were reported in SF Mantis Tracker: legacy bug tracker
 
     0000043 - [Admin] Notification mails are not subscribed
     0000052 - [Admin] Cannot edit skill
@@ -682,7 +682,7 @@ New & Changed Features for OrangeHRM ver  2.7
     0000145 - [ESS] ESS tab should be renamed as "My Info"
     0000146 - [Leave] Leave balance incorrectly validate when applying leave on leave period border
 
-New & Changed Features for OrangeHRM ver  2.7-rc.1
+New & Changed Features for CIA Ferias ver  2.7-rc.1
 
     New Features
     ------------
@@ -704,7 +704,7 @@ New & Changed Features for OrangeHRM ver  2.7-rc.1
     3479992 - Fatal error displayed when checked the checkbox and saved
     3483539 - Show number of available leave when apply a leave
 
-New & Changed Features for OrangeHRM ver  2.6.12.1
+New & Changed Features for CIA Ferias ver  2.6.12.1
 
     Bug Fixes
     ---------
@@ -718,7 +718,7 @@ New & Changed Features for OrangeHRM ver  2.6.12.1
     3460722 - Have pagination in the bottom of lists too
     Preventing duplicate employee IDs
 
-New & Changed Features for OrangeHRM ver  2.6.12
+New & Changed Features for CIA Ferias ver  2.6.12
 
      New Features
      ------------
@@ -729,40 +729,40 @@ New & Changed Features for OrangeHRM ver  2.6.12
      Time->Reports->Employee Reports: Fixed issue with Employee field changing value when "View" button is clicked.
      Properly escape $_GET parameters
 
-New & Changed Features for OrangeHRM ver 2.6.11
+New & Changed Features for CIA Ferias ver 2.6.11
 
      New Features
      ------------
      Ability to localize PIM, Leave, Time, Recruitment and Performance modules.
      Basic data import in PIM
 
-New & Changed Features for OrangeHRM ver 2.6.10
+New & Changed Features for CIA Ferias ver 2.6.10
 
      New Features
      ------------
      PIM Employee Reports
 
-New & Changed Features for OrangeHRM ver 2.6.9
+New & Changed Features for CIA Ferias ver 2.6.9
 
 	Bug Fixes
 	------------
     Bug fixes of Time, Leave, PIM and Recruitment modules
 
-New & Changed Features for OrangeHRM ver 2.6.8
+New & Changed Features for CIA Ferias ver 2.6.8
 
 	New Features
 	------------
     Recruitment module usability improvements
     Entire Recruitment module is converted into Symfony
 
-New & Changed Features for OrangeHRM ver 2.6.7
+New & Changed Features for CIA Ferias ver 2.6.7
 
 	New Features
 	------------
     Time module usability improvements
     Entire Time module is converted into Symfony
 
-New & Changed Features for OrangeHRM ver 2.6.7 beta 1.0
+New & Changed Features for CIA Ferias ver 2.6.7 beta 1.0
 
 	Symfony converted time module with usability improvements
 	Work flow configurability and user role configurability
@@ -773,21 +773,21 @@ New & Changed Features for OrangeHRM ver 2.6.7 beta 1.0
 	Preventing the deletion of the projects,activities,and customers which has time items recorded
 
 
-New & Changed Features for OrangeHRM ver 2.6.6
+New & Changed Features for CIA Ferias ver 2.6.6
 
     Bug Fixes
     ---------
     3372247 - Attendance summary calculation is wrong
     3373061 - Leave List Comment not saved properly
 
-New & Changed Features for OrangeHRM ver 2.6.5
+New & Changed Features for CIA Ferias ver 2.6.5
 
 	New Features
 	------------
     Usability improvements to "Job", "Salary", "Report-to" and "Membership" screens of PIM.
     "Direct Deposit" details are now included under "Salary" screen of PIM.
 
-New & Changed Features for OrangeHRM ver 2.6.4
+New & Changed Features for CIA Ferias ver 2.6.4
 
 	New Features
 	------------
@@ -796,33 +796,33 @@ New & Changed Features for OrangeHRM ver 2.6.4
     Custom fields per each PIM screen.
     Attachments per each PIM screen.
 
-New & Changed Features for OrangeHRM ver 2.6.3
+New & Changed Features for CIA Ferias ver 2.6.3
 
 	New Features
 	------------
     Usability improvements to "Employee List", "Add Employee" and "Photograph".
 
-New & Changed Features for OrangeHRM ver 2.6.2
+New & Changed Features for CIA Ferias ver 2.6.2
 
 	New Features
 	------------
     Usability improvements to "Personal Details", "Contact Details", "Emergency Contacts", "Dependents" and "Immigration" in PIM.
 
-New & Changed Features for OrangeHRM ver 2.6.1
+New & Changed Features for CIA Ferias ver 2.6.1
 
     Bug Fixes
     ---------
     Security fixes in Leave module.
 
 
-New & Changed Features for OrangeHRM ver 2.6.1-rc.2
+New & Changed Features for CIA Ferias ver 2.6.1-rc.2
 
     Bug Fixes
     ---------
     Bug fixes in Admin, PIM, Time, Recruitment and Performance modules.
 
 
-New & Changed Features for OrangeHRM ver 2.6.1-rc.1
+New & Changed Features for CIA Ferias ver 2.6.1-rc.1
 
     Bug Fixes
     ---------
@@ -830,7 +830,7 @@ New & Changed Features for OrangeHRM ver 2.6.1-rc.1
     3148505 - Leave list comments not support for the special characters
 
 
-New & Changed Features for OrangeHRM ver 2.6.1-beta.1
+New & Changed Features for CIA Ferias ver 2.6.1-beta.1
 
 	New Features
 	------------
@@ -840,7 +840,7 @@ New & Changed Features for OrangeHRM ver 2.6.1-beta.1
     Improved email notifications.
 
 
-New & Changed Features for OrangeHRM ver 2.6.0.2
+New & Changed Features for CIA Ferias ver 2.6.0.2
 
     Bug Fixes
     ---------
@@ -848,14 +848,14 @@ New & Changed Features for OrangeHRM ver 2.6.0.2
     3057328 - Updating Basic salry becomes null when encrypted
 
 
-New & Changed Features for OrangeHRM ver 2.6.0.1
+New & Changed Features for CIA Ferias ver 2.6.0.1
 
     Bug Fixes
     ---------
     3062533 - Uploaded files get corrupted when upload via jobs.php
 
 
-New & Changed Features for OrangeHRM ver 2.6-beta.10
+New & Changed Features for CIA Ferias ver 2.6-beta.10
 
     Bug Fixes
     ---------
@@ -869,7 +869,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.10
     3032009 - Employee's picture is misplaced in 1024x768 resolution
 
 
-New & Changed Features for OrangeHRM ver 2.6-beta.9
+New & Changed Features for CIA Ferias ver 2.6-beta.9
 
     Bug Fixes
     ---------
@@ -878,7 +878,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.9
     3029814 - Height of the Reviewer Comments Textarea should be increased
 
 
-New & Changed Features for OrangeHRM ver 2.6-beta.8
+New & Changed Features for CIA Ferias ver 2.6-beta.8
 
     Bug Fixes
     ---------
@@ -887,7 +887,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.8
     3025721 - PIM - search by: subdivision end up with no results
 
 
-New & Changed Features for OrangeHRM ver 2.6-beta.7
+New & Changed Features for CIA Ferias ver 2.6-beta.7
 
 	Bug Fixes
 	---------
@@ -907,11 +907,11 @@ New & Changed Features for OrangeHRM ver 2.6-beta.7
     3000555 - sanitize the input data in jobs.php
     3003346 - Potential SQL injection vulnerability with ess login
     3001611 - Ess module is vulenerable to xss
-    3009783 - Possible CSRF  vulnerability in OrangeHRM
+    3009783 - Possible CSRF  vulnerability in CIA Ferias
     3009782 - Possible PHP code injection in mail configuration
     3003361 - Not sanitized ajax responses leads to XSS vulnerability
 
-New & Changed Features for OrangeHRM ver 2.6-beta.6
+New & Changed Features for CIA Ferias ver 2.6-beta.6
 
 	Performance Module Bug Fixes
 	----------------------------
@@ -920,7 +920,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.6
 	2994542 - Performance->auto-suggestion lists not work with single quote
 	2974742 - Search Review brings back wrong results
 
-New & Changed Features for OrangeHRM ver 2.6-beta.5
+New & Changed Features for CIA Ferias ver 2.6-beta.5
 
 	Performance Module Bug Fixes
 	----------------------------
@@ -939,7 +939,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.5
     2996365 - Should be able to search KPIs of deleted job titles
 
 
-New & Changed Features for OrangeHRM ver 2.6-beta.4
+New & Changed Features for CIA Ferias ver 2.6-beta.4
 
 	Feature Requests
 	----------------
@@ -973,7 +973,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.4
 	2540143 - Drop down menus need to hide automatically.
 	2944390 - Timesheet remove Row: cannot remove already saved data
 
-New & Changed Features for OrangeHRM ver 2.6-beta.3
+New & Changed Features for CIA Ferias ver 2.6-beta.3
 
 	Bug Fixes
 	---------
@@ -990,7 +990,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.3
 	2974542 - Review can be added for a user without job title
 	2970608 - checkboxes of  scheduled reviews should be disabled for emp
 
-New & Changed Features for OrangeHRM ver 2.6-beta.2
+New & Changed Features for CIA Ferias ver 2.6-beta.2
 
 	Bug Fixes
 	---------
@@ -1017,7 +1017,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.2
 	2970613 - Review List -> Select all checkbox not work properly
 	2970604 - Save comment with special characters leads to hide kpis
 
-New & Changed Features for OrangeHRM ver 2.6-beta.1
+New & Changed Features for CIA Ferias ver 2.6-beta.1
 
 	Known Issues
 	------------
@@ -1033,7 +1033,7 @@ New & Changed Features for OrangeHRM ver 2.6-beta.1
     2970613 - Review List -> Select all checkbox not work properly
     2970631 - Edit Review feature is not compatible with 5.2.10-2
 
-New & Changed Features for OrangeHRM ver 2.6-alpha.4
+New & Changed Features for CIA Ferias ver 2.6-alpha.4
 
 	New Features
 	------------
@@ -1074,12 +1074,12 @@ New & Changed Features for OrangeHRM ver 2.6-alpha.4
     2961720 - Submitted Reviews can be edited
     2950550 - Modifying the default rating scale resets it
 
-New & Changed Features for OrangeHRM ver 2.5.0.3
+New & Changed Features for CIA Ferias ver 2.5.0.3
 
 2965427 - can't assing employees for workshifts.getting an err msg.revert the bug : 2049129 - Time: Work shift should be unique. Fix was from
 		community contributor Asad Raza
 
-New & Changed Features for OrangeHRM ver 2.5.0.3-beta.2
+New & Changed Features for CIA Ferias ver 2.5.0.3-beta.2
 
 	No thanks and Regisor buttons should be placed buttom of the page
 	2959502 - Illeagal characters stop registration page been sent
@@ -1089,7 +1089,7 @@ New & Changed Features for OrangeHRM ver 2.5.0.3-beta.2
 	2959533 - For punch in notes when " includ,text after " are not shown
 	2959505 - Seperator should be there in the applicants details PDF
 
-New & Changed Features for OrangeHRM ver 2.5.0.3-beta.1
+New & Changed Features for CIA Ferias ver 2.5.0.3-beta.1
 
     Stories Included
     -----------------
@@ -1098,7 +1098,7 @@ New & Changed Features for OrangeHRM ver 2.5.0.3-beta.1
     Recruitment add-on
     Time and Attendance CSV add-on  compatibilty and refactoring improvent in the base prduct over plugins.
 
-New & Changed Features for OrangeHRM ver 2.5.0.2
+New & Changed Features for CIA Ferias ver 2.5.0.2
 	Bug Fixes
 	---------
 	Changed default leave module home page for Admins. Earlier it was Define Leave Types. Now it is Leave List
@@ -1110,7 +1110,7 @@ New & Changed Features for OrangeHRM ver 2.5.0.2
 	2860531 - Mail Configuration->'Send Mail' should rename as 'sendmail'.
 	2909850 - Click on Leave Module leads following Notice page
 
-New & Changed Features for OrangeHRM ver 2.5.0.1
+New & Changed Features for CIA Ferias ver 2.5.0.1
 
 	Bug Fixes
 	---------
@@ -1119,7 +1119,7 @@ New & Changed Features for OrangeHRM ver 2.5.0.1
 	2894143 - Workshift are not propely identified when assigning leave
 	2896468 - Reports->view report, Servi. Period must replace by Join dat
 
-New & Changed Features for OrangeHRM ver 2.5-beta.17
+New & Changed Features for CIA Ferias ver 2.5-beta.17
 
 	Bug Fixes
 	---------
@@ -1149,7 +1149,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.17
 	2080488 - Leave:no way to c the leaves of all subordinates to supervis.
 
 
-New & Changed Features for OrangeHRM ver 2.5-beta.16
+New & Changed Features for CIA Ferias ver 2.5-beta.16
 
 	Bug Fixes
 	---------
@@ -1184,7 +1184,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.16
 	2835952 - Leave summary-Current year should be selected as default Year.
 
 
-New & Changed Features for OrangeHRM ver 2.5-beta.15
+New & Changed Features for CIA Ferias ver 2.5-beta.15
 
 	Bug Fixes
 	---------
@@ -1199,7 +1199,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.15
 	2571323 - Pay Grade and Currency should editable when press the edit b
 	2841672 - Leave on Holidays should be searchable
 	2548843 - Search for Canceled returns Taken leave
-	2832996 - all list in OrangeHRM should show data in alphabetical order
+	2832996 - all list in CIA Ferias should show data in alphabetical order
 	2815576 - Leave- Admin assign leave -Error on status bar in IE
 	2021205 - PIM->Salary: Basic Salary not validated when 1currency is in
 	2041262 - PIM: Can exceed salary from the maximum and minimum
@@ -1210,7 +1210,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.15
 	2831911 - data not retrieved -All Selection Criteria
 	2792059 - Report -MySql Error when viewing report with criteria pay gr
 
-New & Changed Features for OrangeHRM ver 2.5-beta.14
+New & Changed Features for CIA Ferias ver 2.5-beta.14
 
 	Bug Fixes
 	---------
@@ -1240,13 +1240,13 @@ New & Changed Features for OrangeHRM ver 2.5-beta.14
 	2714285 - No save successfully msg when Finishing 1st & 2nd interview
 	2820625 - pagination not implemented in Custom Export & Import pages
 
-New & Changed Features for OrangeHRM ver 2.5-beta.13
+New & Changed Features for CIA Ferias ver 2.5-beta.13
 
 	Bug Fixes
 	---------
 	2828796 - Jobs.php - Title of the job goes to the second line
 	2080505 - Leave: Work shift changes doesn't affect to applied leaves
-	2830123 - List of remaining image buttons in OrangeHRM
+	2830123 - List of remaining image buttons in CIA Ferias
 	2832974 - Leave List page, UI button misalignment in IE
 	2833552 - supervisor cannot see Employee Leave summery menu
 	2059476 - Recruitment: Email issue with ' marks
@@ -1263,7 +1263,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.13
 	2832980 - Employee Timesheet menu is missing for supervisor
 	1879947 - Print Timesheets: cannot select All
 
-New & Changed Features for OrangeHRM ver 2.5-beta.12
+New & Changed Features for CIA Ferias ver 2.5-beta.12
 
 	Bug Fixes
 	---------
@@ -1294,7 +1294,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.12
 	2641169 - Paging is not implemented in the Attendance Report
 	2641407 - [REOPENED] Delete one record will take more than 1min:with records>700
 
-New & Changed Features for OrangeHRM ver 2.5-beta.11
+New & Changed Features for CIA Ferias ver 2.5-beta.11
 
 	Bug Fixes
 	---------
@@ -1322,7 +1322,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.11
 	2079818 - Leave: Set leave quota 2009,->Ess can apply leave for 2008
 	2711107 - Time Grid Summary -> Back button not functioning in IE7
 
-New & Changed Features for OrangeHRM ver 2.5-beta.10
+New & Changed Features for CIA Ferias ver 2.5-beta.10
 
 	Changed Features
 	----------------
@@ -1353,7 +1353,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.10
 	2188524 - ESS can enter D of B manually & there will be Extractor erro (Refixed)
 	2506497 - Ess: Leave summary back button will end up with notice page
 
-New & Changed Features for OrangeHRM ver 2.5-beta.9
+New & Changed Features for CIA Ferias ver 2.5-beta.9
 
 	Bug Fixes
 	---------
@@ -1375,7 +1375,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.9
 	2711130 - Need warning when one activity grater than total of sameActi
 	2640896 - ProjectTime Page heading always shows unfinished act: title
 
-New & Changed Features for OrangeHRM ver 2.5-beta.8
+New & Changed Features for CIA Ferias ver 2.5-beta.8
 
 	Bug Fixes
 	---------
@@ -1389,7 +1389,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.8
 	------------------
 	UI Improvements in Admin, Leave & Recruitment modules (Partial fix to 2512347 - UI Issues in Recruitment Module included)
 
-﻿New & Changed Features for OrangeHRM ver 2.5-beta.7
+﻿New & Changed Features for CIA Ferias ver 2.5-beta.7
 
 	2595639 - Server time not properly reflected in the Punch IN
 	2608129 - Edited values not get saved in PIM-personal details
@@ -1402,7 +1402,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.8
 	2540117 - Edit and save not working with "Path to Sendmail"
 	2799949 - Project manager cannot edit his project activities
 
-New & Changed Features for OrangeHRM ver 2.5-beta.6
+New & Changed Features for CIA Ferias ver 2.5-beta.6
 
 	2787192 - Leave cancel mail doesn’t include the name of the individual
 	2681493 - Pay Grade-Edit and save leads to Undefined variable error
@@ -1410,7 +1410,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.6
 	2461647 - Recruitment module is invisible for HM- log in as ldap user
 	2711126 - Total hrs per day can be grater than 24 hrs
 
-New & Changed Features for OrangeHRM ver 2.5-beta.5
+New & Changed Features for CIA Ferias ver 2.5-beta.5
 
     Bug fixes
     ---------
@@ -1423,7 +1423,7 @@ New & Changed Features for OrangeHRM ver 2.5-beta.5
 	2644386 - Traditional Mode-Delete rows in Atten.Rept lead to sql Error
 	2787192 - Leave cancel mail doesn’t include the name of the individual
 
-New & Changed Features for OrangeHRM ver 2.5-beta.4
+New & Changed Features for CIA Ferias ver 2.5-beta.4
 
     Bug fixes
     ---------
@@ -1433,13 +1433,13 @@ New & Changed Features for OrangeHRM ver 2.5-beta.4
 	2709201 - Ess cannot edit ess tab:extractor based error
 	2540117 - Edit and save not working with "Path to Sendmail"
 
-New & Changed Features for OrangeHRM ver 2.5-beta.3
+New & Changed Features for CIA Ferias ver 2.5-beta.3
 
 	New features
 	------------
-	Added new icons to OrangeHRM menu items.
+	Added new icons to CIA Ferias menu items.
 
-New & Changed Features for OrangeHRM ver 2.5-beta.2
+New & Changed Features for CIA Ferias ver 2.5-beta.2
 
     Bug fixes
     ---------
@@ -1447,13 +1447,13 @@ New & Changed Features for OrangeHRM ver 2.5-beta.2
 	2031268 - Recruitment:Terminated emp can be assign as Hiring manager
 	2003409 - Supervisor cannot update comment when approving leave
 
-New & Changed Features for OrangeHRM ver 2.5-beta.1
+New & Changed Features for CIA Ferias ver 2.5-beta.1
 
 	New features
 	------------
 	Introduction of Timegrid view for Timesheets
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.10
+New & Changed Features for CIA Ferias ver 2.5-alpha.10
 
     Bug fixes
     ---------
@@ -1462,13 +1462,13 @@ New & Changed Features for OrangeHRM ver 2.5-alpha.10
 	2653895 - List box reset to summary when selected detail report
 	2653870 - Back button needed from detail page to summary (attendance)
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.9
+New & Changed Features for CIA Ferias ver 2.5-alpha.9
 
 	New features
 	------------
 	Summary View of Attendance Reports
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.8
+New & Changed Features for CIA Ferias ver 2.5-alpha.8
 
 	New features
 	------------
@@ -1487,25 +1487,25 @@ New & Changed Features for OrangeHRM ver 2.5-alpha.8
 	2595713 - Email notification fails with a error: Unsupported SSL type
 	2615218 - Leave Assign button not functioning with Supervisor/Ess User (Fixed by Nadeeth)
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.7
+New & Changed Features for CIA Ferias ver 2.5-alpha.7
 
 	New features
 	------------
 	First implementation of "Attendance Tracking" (Punch In/Out Separation)
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.6
+New & Changed Features for CIA Ferias ver 2.5-alpha.6
 
     Bug fixes
     ---------
     2548843 - Search for Canceled returns Taken leave
     2041262 - PIM: Can exceed salary from the maximum and minimum
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.5
+New & Changed Features for CIA Ferias ver 2.5-alpha.5
     Bug fixes
     ---------
     UI improvements of Admin & Leave Module
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.4
+New & Changed Features for CIA Ferias ver 2.5-alpha.4
 
     Bug fixes
     ---------
@@ -1546,7 +1546,7 @@ New & Changed Features for OrangeHRM ver 2.5-alpha.4
 	2149309 - CRB-Calender control has no arrow to skip year by year
 	2047966 - Admin: Project deletion may affect to the reports
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.3
+New & Changed Features for CIA Ferias ver 2.5-alpha.3
 
 	New features
 	------------
@@ -1558,14 +1558,14 @@ New & Changed Features for OrangeHRM ver 2.5-alpha.3
 	2047767 - Code is not able to detect Innodb support
     1941287 - On the job vacancies web page job desc. expand and collapse
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.2
+New & Changed Features for CIA Ferias ver 2.5-alpha.2
 
     Changes done
     ------------
     Resume upload feature added to job applications
     IE7 Compatibility fixes
 
-New & Changed Features for OrangeHRM ver 2.5-alpha.1
+New & Changed Features for CIA Ferias ver 2.5-alpha.1
 
     User interface changed to new format.
 
@@ -1575,19 +1575,19 @@ New & Changed Features for OrangeHRM ver 2.5-alpha.1
     2003423 - Rename leave status "Status Differ" to "Partly Approved"
     1733648 - Menu order
 
-New & Changed Features for OrangeHRM ver 2.4.0.1
+New & Changed Features for CIA Ferias ver 2.4.0.1
 
 	New features
 	------------
 	Added support for new plugins
 
-New & Changed Features for OrangeHRM ver 2.4
+New & Changed Features for CIA Ferias ver 2.4
 
 	Bug fixes
 	---------
 	2090618 - TimeModule: Page not found when click Page before page load
 
-New & Changed Features for OrangeHRM ver 2.4-beta.8
+New & Changed Features for CIA Ferias ver 2.4-beta.8
 
 	Bug fixes
 	---------
@@ -1600,7 +1600,7 @@ New & Changed Features for OrangeHRM ver 2.4-beta.8
 	2023269 - [CRB] Leave list for a month not filtered properly
 	2056846 - Admin: Entering ‘ for some text boxes, gives Stoper
 
-New & Changed Features for OrangeHRM ver 2.4-beta.7
+New & Changed Features for CIA Ferias ver 2.4-beta.7
 
 	Bug fixes
 	---------
@@ -1616,7 +1616,7 @@ New & Changed Features for OrangeHRM ver 2.4-beta.7
 	2032713 - Use compressed versions of javascript libraries
 	1989653 - Duplicate Report names
 
-New & Changed Features for OrangeHRM ver 2.4-beta.6
+New & Changed Features for CIA Ferias ver 2.4-beta.6
 
 	New features
 	------------
@@ -1640,7 +1640,7 @@ New & Changed Features for OrangeHRM ver 2.4-beta.6
 	2038784 - Time: Time sheet period defining issue: stopper
 	2038547 - Time:Punch out can be done without In >> gives stopper
 
-New & Changed Features for OrangeHRM ver 2.4-beta.5
+New & Changed Features for CIA Ferias ver 2.4-beta.5
 
 	New features
 	------------
@@ -1672,13 +1672,13 @@ New & Changed Features for OrangeHRM ver 2.4-beta.5
 	1962983 - ESS - > PIM : Non stop loading animation display
 	1903690 - Next button in timesheet doesn't jump to the next timesheet
 
-New & Changed Features for OrangeHRM ver 2.4-beta.4
+New & Changed Features for CIA Ferias ver 2.4-beta.4
 
 	Bug fixes
 	---------
 	2010999 - Error when trying to create a user in PIM
 
-New & Changed Features for OrangeHRM ver 2.4-beta.3
+New & Changed Features for CIA Ferias ver 2.4-beta.3
 
 	New features
 	------------
@@ -1692,7 +1692,7 @@ New & Changed Features for OrangeHRM ver 2.4-beta.3
 	2009934 - Can not look at the applicants with out a manager job title
 	1984309 - HSP: Admin click Save without selecting a plan, Notice page
 
-New & Changed Features for OrangeHRM ver 2.4-beta.2
+New & Changed Features for CIA Ferias ver 2.4-beta.2
 
 	New features
 	------------
@@ -1706,13 +1706,13 @@ New & Changed Features for OrangeHRM ver 2.4-beta.2
 	1988591 - Time Module :Problem in time entry with differnet time zones
 	1995721 - Admin Module: Company Structure get corrupted
 
-New & Changed Features for OrangeHRM ver 2.4-beta.1
+New & Changed Features for CIA Ferias ver 2.4-beta.1
 
 	Bug Fixes
 	---------
     2005429 - Birth dates before 1970 not imported
 
-New & Changed Features for OrangeHRM ver 2.3-beta.2
+New & Changed Features for CIA Ferias ver 2.3-beta.2
 
 	Bug Fixes
 	---------
@@ -1768,14 +1768,14 @@ New & Changed Features for OrangeHRM ver 2.3-beta.2
     Track company property
     Employee works in multiple locations
 
-New & Changed Features for OrangeHRM ver 2.3-beta.1
+New & Changed Features for CIA Ferias ver 2.3-beta.1
 
 	New features added
 	------------------
 	Implemented field level database 128-bit AES encryption for selected
 	fields (Social Security No. & Basic Salary)
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.14 (Beta.1)
+New & Changed Features for CIA Ferias ver 2.3-alpha.14 (Beta.1)
 
 	Introduced mktime() for _customFormatStringToTimeStamp at lib/common/LocaleUtil.php for handling Punch In/Out. For others it still uses strtotime()
 
@@ -1787,7 +1787,7 @@ New & Changed Features for OrangeHRM ver 2.3-alpha.14 (Beta.1)
 	1958428 - Time Module: Project Time , Timesheet period not validated
 	1961072 - HSP - Changing the employment status leads to a warning
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.8
+New & Changed Features for CIA Ferias ver 2.3-alpha.8
 
 	Bug Fixes
 	---------
@@ -1800,7 +1800,7 @@ New & Changed Features for OrangeHRM ver 2.3-alpha.8
 		The removal of the navigation button is only for this release.
 		A seperate fix need to be done to correct the navigation path
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.7
+New & Changed Features for CIA Ferias ver 2.3-alpha.7
 
 	Bug Fixes
 	---------
@@ -1809,13 +1809,13 @@ New & Changed Features for OrangeHRM ver 2.3-alpha.7
         1937394 - HSP -Import export serch dropdown is empty (Search was
         removed from UI)
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.6
+New & Changed Features for CIA Ferias ver 2.3-alpha.6
 
 	Bug Fixes
 	---------
 	1948543 - 2.3 alpha.8-For Admin,Timesheet total for a week is wrong
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.6
+New & Changed Features for CIA Ferias ver 2.3-alpha.6
 
 	Bug Fixes
 	---------
@@ -1830,7 +1830,7 @@ New & Changed Features for OrangeHRM ver 2.3-alpha.6
 	SSS-My Time Sheet Data Not display for each ESS users
 
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.1
+New & Changed Features for CIA Ferias ver 2.3-alpha.1
 
 	Bug Fixes
 	---------
@@ -1857,22 +1857,22 @@ New & Changed Features for OrangeHRM ver 2.3-alpha.1
 	------------
 	* Enhanced the HSP Summary PDF report
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.1
+New & Changed Features for CIA Ferias ver 2.3-alpha.1
 
 		Completed benefits module
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.1 - 2nd Weekly Release
+New & Changed Features for CIA Ferias ver 2.3-alpha.1 - 2nd Weekly Release
 
 		1. HR Admin records details of a payment
 		2. HR Admin views HSP due payments
 
-New & Changed Features for OrangeHRM ver 2.3-alpha.1 - 1st Weekly Release
+New & Changed Features for CIA Ferias ver 2.3-alpha.1 - 1st Weekly Release
 
 		1. Added 'Benefits' module.
 		2. Add pay periods functionlity.
 		3. HSP Request functionality.
 
-New & Changed Features for OrangeHRM ver 2.2.3-alpha.1
+New & Changed Features for CIA Ferias ver 2.2.3-alpha.1
 
         1. Features merged from payroll-integration branch:
           * Direct deposit information
@@ -1903,7 +1903,7 @@ New & Changed Features for OrangeHRM ver 2.2.3-alpha.1
         1867592	- Error when saving direct deposit with type = 'FLATMINUS
         1867597 - Direct Debit info not in CSV if empId & empnum different
 
-New & Changed Features for OrangeHRM ver 2.2.2.2
+New & Changed Features for CIA Ferias ver 2.2.2.2
 
         1. "Leave List" menu item in Leave module renamed to "My Leave"
         2. "Scheduled Leave" menu item in Leave module renamed to "Leave List"
@@ -1925,16 +1925,16 @@ New & Changed Features for OrangeHRM ver 2.2.2.2
 	1849844   overlapping leave ranges. Common days counted several times.
 	1846303   Duplicate leave requests
 
-New & Changed Features for OrangeHRM ver 2.2.2.1
+New & Changed Features for CIA Ferias ver 2.2.2.1
 	BugId     Name
 	1809967   No option listed superviser to print timesheets
 	1826715   Version
 
-New & Changed Features for OrangeHRM ver 2.2.2
+New & Changed Features for CIA Ferias ver 2.2.2
 	BugId     Name
 	1817700   Admin-> Leave Schedule back button incorrect function
 
-New & Changed Features for OrangeHRM ver 2.2.2-alpha.3
+New & Changed Features for CIA Ferias ver 2.2.2-alpha.3
 
 	BugId     Name
 	1808010   When entering the "port" for the DB, your maxlength and size
@@ -1947,7 +1947,7 @@ New & Changed Features for OrangeHRM ver 2.2.2-alpha.3
 	1810503   HRAdmin need a way to approve leaves
 	1810611   It should be possible to cancel leave taken in the past
 
-New & Changed Features for OrangeHRM ver 2.2.2-alpha.2
+New & Changed Features for CIA Ferias ver 2.2.2-alpha.2
 
 	BugId     Name
 	1786631   Report - Service period should be a date range
@@ -1987,16 +1987,16 @@ New & Changed Features for OrangeHRM ver 2.2.2-alpha.2
 	1807336	  Supervisor cannot cancel leave assigned by HR Admin
 	1807333   HR Admin cannot cancel leave
 
-New & Changed Features for OrangeHRM ver 2.2.2-alpha.1
+New & Changed Features for CIA Ferias ver 2.2.2-alpha.1
 
 	1. Apply/Assign Leave in Hours
 	2. Workshifts
 
 	BugId     Name
 	1785494   Displaying non-recurring holidays for the next year
-	1786588   Timesheet - include powered by OrangeHRM
+	1786588   Timesheet - include powered by CIA Ferias
 
-New & Changed Features for OrangeHRM ver 2.2.1-beta.1
+New & Changed Features for CIA Ferias ver 2.2.1-beta.1
 
 	BugId     Name
 	1774606   Record Internal Should not visible to the user
@@ -2030,7 +2030,7 @@ New & Changed Features for OrangeHRM ver 2.2.1-beta.1
 	1766285   Membership name with quote not shown in PIM
 	1783741   Ess User : Should not view Attachment Browse
 
-New & Changed Features for OrangeHRM ver 2.2.1-alpha.1
+New & Changed Features for CIA Ferias ver 2.2.1-alpha.1
 
 	1. Punch in/out time for ESS users
 	2. All new interface to add new time events and
@@ -2064,12 +2064,12 @@ New & Changed Features for OrangeHRM ver 2.2.1-alpha.1
 	1772964   Time Module: Punch IN/OUT Timesheet fatal error
 	1756632   When customer deleted, related projects are not deleted
 	1773749   Error When Adding Project supervisor
-	1774595   Could not login to OrangeHRM: 2.2.1-alpha in win
+	1774595   Could not login to CIA Ferias: 2.2.1-alpha in win
 	1774484   Could Not add Location: Admin Module
 
-New & Changed Features for OrangeHRM ver 2.2 (09/07/2007) {Revision 1026}
+New & Changed Features for CIA Ferias ver 2.2 (09/07/2007) {Revision 1026}
 
-	1. OrangeHRM Appliance for Windows
+	1. CIA Ferias Appliance for Windows
 
 	BugId     Name
 	1750216   Clear not functional in Password Change form
@@ -2081,7 +2081,7 @@ New & Changed Features for OrangeHRM ver 2.2 (09/07/2007) {Revision 1026}
 	1748398   InnoDB Disabled in XAMPP by default
 
 
-New & Changed Features for OrangeHRM ver 2.2 (04/07/2007) {Revision 1012}
+New & Changed Features for CIA Ferias ver 2.2 (04/07/2007) {Revision 1012}
 
 	BugId     Name
 
@@ -2104,14 +2104,14 @@ New & Changed Features for OrangeHRM ver 2.2 (04/07/2007) {Revision 1012}
 	1747745   PIM -> Contact ->State / Province error when ' insert
 
 
-New & Changed Features for OrangeHRM ver 2.2 (30/06/2007) {Revision 988}
+New & Changed Features for CIA Ferias ver 2.2 (30/06/2007) {Revision 988}
 
 	BugId     Name
 
 	1739538   Mail configuration UI
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (28/06/2007) {Revision 964}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (28/06/2007) {Revision 964}
 
 	BugId     Name
 
@@ -2119,7 +2119,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (28/06/2007) {Revision 964}
 	1744673   Installer Not Works RC_4
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (27/06/2007) {Revision 961}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (27/06/2007) {Revision 961}
 
 	BugId     Name
 
@@ -2133,7 +2133,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (27/06/2007) {Revision 961}
 	1742916   Time PHP error
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (25/06/2007) {Revision 950}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (25/06/2007) {Revision 950}
 
 	1. Dutch language pack added (stable)
 	2. New PIM view for supervisors (of only their subordinates)
@@ -2165,7 +2165,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (25/06/2007) {Revision 950}
 	1741298   Could Not search with Employee ids : Report To
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
+New & Changed Features for CIA Ferias ver 2.2_RC_3 (18/06/2007) {Revision 917}
 
 	1. Support employee leaving the company
 	2. Spanish language pack added (still in beta stage)
@@ -2175,7 +2175,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
 	BugId     Name
 
 	1734994   Undefined index: no_of_days_allotted
-	1735477   OrangeHRM Russian Language Not Working
+	1735477   CIA Ferias Russian Language Not Working
 	1718864   User Group Rights - what\'s the meaning of clear button
 	1735746   Undefined variable lang_rep_Languages
 	1737107   Problem upgrading RC_1 to RC_2
@@ -2202,7 +2202,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
 	1738081   Cannot access On-Demand using Danish from IE
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_2 (08/06/2007) {Revision 896}
+New & Changed Features for CIA Ferias ver 2.2_RC_2 (08/06/2007) {Revision 896}
 
 	1. Total columns in timesheets. See bug number 1723003
 
@@ -2243,7 +2243,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_2 (08/06/2007) {Revision 896}
 	1697466   RIGHTS NOT APPLIED
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_1 (28/05/2007) {Revision 859}
+New & Changed Features for CIA Ferias ver 2.2_RC_1 (28/05/2007) {Revision 859}
 
 	1. Danish language pack added (stable)
 	2. Skill and language as selection criteria for reports
@@ -2257,7 +2257,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_1 (28/05/2007) {Revision 859}
 	1723323   Ess user can approve/ reject time sheets
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_6 (23/05/2007) {Revision 848}
+New & Changed Features for CIA Ferias ver 2.2_beta_6 (23/05/2007) {Revision 848}
 
 	Bugs fixed include:
 
@@ -2288,7 +2288,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_6 (23/05/2007) {Revision 848}
 	1723702   Projects cannot be sorted
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_5 (16/05/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_5 (16/05/2007)
 
 	Bugs fixed include:
 
@@ -2305,7 +2305,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_5 (16/05/2007)
 	1716382   E-Mail system
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_4 (10/05/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_4 (10/05/2007)
 
 	1. Danish language pack added (still in alpha stage)
 
@@ -2328,7 +2328,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_4 (10/05/2007)
 	1709840	  Error in specifying status for job title
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_3 (27/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_3 (27/04/2007)
 
 	Bugs fixed include:
 
@@ -2367,7 +2367,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_3 (27/04/2007)
 	1707820   Error in defining location
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_2 (14/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_2 (14/04/2007)
 
 	Bugs fixed include:
 
@@ -2391,23 +2391,23 @@ New & Changed Features for OrangeHRM ver 2.2_beta_2 (14/04/2007)
 	1699577   No Uk pound in currency table
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_1 (12/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_1 (12/04/2007)
 
 	1. Image buttons for time module
 
 
-New & Changed Features for OrangeHRM ver 2.2_alpha_2 (10/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_alpha_2 (10/04/2007)
 
 	1. Supervisor and HR-Admin can reject, approve and cancel timesheets
 	2. Employees can submit and cancel timesheets
 
 
-New & Changed Features for OrangeHRM ver 2.2_alpha_1 (05/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_alpha_1 (05/04/2007)
 
 	1. Employee, Supervisor and HR-Admin can view timesheets and add time events
 
 
-New & Changed Features for OrangeHRM ver 2.1 (Neva) (16/03/2007)
+New & Changed Features for CIA Ferias ver 2.1 (Neva) (16/03/2007)
 
 	Bugs fixed include:
 
@@ -2422,7 +2422,7 @@ New & Changed Features for OrangeHRM ver 2.1 (Neva) (16/03/2007)
 	1633739   Big number formatting
 
 
-New & Changed Features for OrangeHRM ver 2.1_beta_2 (Elbrus) (13/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_beta_2 (Elbrus) (13/03/2007)
 
 	Bugs fixed include:
 
@@ -2445,7 +2445,7 @@ New & Changed Features for OrangeHRM ver 2.1_beta_2 (Elbrus) (13/03/2007)
 	1595871   Uploading images failure to upload and display an image should be reported
 
 
-New & Changed Features for OrangeHRM ver 2.1_beta_1 (Opala) (09/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_beta_1 (Opala) (09/03/2007)
 
 	Bugs fixed include:
 
@@ -2468,7 +2468,7 @@ New & Changed Features for OrangeHRM ver 2.1_beta_1 (Opala) (09/03/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_9 (Ivan) (05/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_9 (Ivan) (05/03/2007)
 
 	Bugs fixed include:
 
@@ -2509,7 +2509,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_9 (Ivan) (05/03/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_8 (Peter) (28/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_8 (Peter) (28/02/2007)
 
 	1. HR Admin / Supervisor assign leave to employee
 
@@ -2522,7 +2522,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_8 (Peter) (28/02/2007)
 	1670803   Undefined variable: headingInfo
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_7 (Potr) (26/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_7 (Potr) (26/02/2007)
 
 	Bugs fixed include:
 
@@ -2537,7 +2537,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_7 (Potr) (26/02/2007)
 	1668906   Membership: Undefined variable: selectmember
 	1668870   XML Parsing Error:
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
 
 	1. PIM is completely translated into Russian
 	2. Mail notifications to HR Admins(configurable)
@@ -2555,7 +2555,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
 	1659714   Error Page Seen
 	1659438   Job title - Error in adding employment status to job title
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_5 (Alex) (13/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_5 (Alex) (13/02/2007)
 
 	1. Enhanced PIM employee list. Columns are sortable
 	2. PIM is partly translated into Russian
@@ -2572,7 +2572,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_5 (Alex) (13/02/2007)
 	1652248   Employee List is not paged
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_4 (Ruslan) (04/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_4 (Ruslan) (04/02/2007)
 
 	1. Leave Summary of all employees can be viewed by HR-Admins in one screen.
 	   All functionality in previous release is preserved.
@@ -2580,11 +2580,11 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_4 (Ruslan) (04/02/2007)
        been added.
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_3 (Dima) (24/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_3 (Dima) (24/01/2007)
 
 
 	1. User defined employee ID's added.
-		See http://www.orangehrm.com/app/wiki/index.php/Orange_Future#User_defines_employee_id
+		See legacy documentation
 
 	2. Usability related bug fixes
 
@@ -2607,7 +2607,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_3 (Dima) (24/01/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_2 (Gleb) (17/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_2 (Gleb) (17/01/2007)
 
 	Provided that e-mail addresses are defined for employees.
 
@@ -2616,15 +2616,15 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_2 (Gleb) (17/01/2007)
 	- When the supervisor approves/rejects leave, the employee applied for leave
 	will be notified
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_1 (Vlad)(09/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_1 (Vlad)(09/01/2007)
 
-	In OrangeHRM-ver-2.1 ESS Users have the ability to apply for leave
+	In CIA Ferias-ver-2.1 ESS Users have the ability to apply for leave
 	for multiple days.
 
-	Further Holidays could be defined in OrangeHRM. These will be used
+	Further Holidays could be defined in CIA Ferias. These will be used
 	when calculating leave.
 
-New & Changed Features for OrangeHRM ver 2.0.5 (25/12/2006)
+New & Changed Features for CIA Ferias ver 2.0.5 (25/12/2006)
 
 	Bugs fixed include:
 
@@ -2636,7 +2636,7 @@ New & Changed Features for OrangeHRM ver 2.0.5 (25/12/2006)
 	1619838  Back button on Change password page doesn't work
 
 
-New & Changed Features for OrangeHRM ver 2.0.3 (8/12/2006)
+New & Changed Features for CIA Ferias ver 2.0.3 (8/12/2006)
 	This is a maintenance release (bug Fixes)
 
 	Bugs fixed includes;
@@ -2729,13 +2729,13 @@ New & Changed Features for OrangeHRM ver 2.0.3 (8/12/2006)
 
 
 
-New & Changed Features for OrangeHRM ver 2.0 (30/10/2006)
+New & Changed Features for CIA Ferias ver 2.0 (30/10/2006)
 
-	In OrangeHRM-ver-2.0 Leave module is introduced.
+	In CIA Ferias-ver-2.0 Leave module is introduced.
 
-New & Changed Features for OrangeHRM ver 1.2 (16/08/2006)
+New & Changed Features for CIA Ferias ver 1.2 (16/08/2006)
 
-	The main idea behind releasing OrangeHRM-ver-1.2 is to make the application more
+	The main idea behind releasing CIA Ferias-ver-1.2 is to make the application more
 	usable in terms of streamlining the UIs and functionality, etc.
 
 
@@ -2790,7 +2790,7 @@ New & Changed Features for OrangeHRM ver 1.2 (16/08/2006)
 		+	records	of licenses
 
 
-New & Changed Features for OrangeHRM ver 1.0 (15/03/2006)
+New & Changed Features for CIA Ferias ver 1.0 (15/03/2006)
 
 New Features
 
@@ -2898,7 +2898,7 @@ User-Groups
 * Admin User group cannot be deleted
 * Ability to define reports is given at the time of User Group creation.
 =======
-New & Changed Features for OrangeHRM ver araliya 0.1-alpha.5
+New & Changed Features for CIA Ferias ver araliya 0.1-alpha.5
 
 	BugId	  Name
 	(merged from the trunk, 2.2.2-alpha.2)
@@ -2915,13 +2915,13 @@ New & Changed Features for OrangeHRM ver araliya 0.1-alpha.5
 	1804158   Time - Project Reports - more space needed
 	1806819   Print timesheets - Back button
 
-New & Changed Features for OrangeHRM ver araliya 0.1-alpha.4
+New & Changed Features for CIA Ferias ver araliya 0.1-alpha.4
 
 	BugId	  Name
 	(merged from the trunk, 2.2.2-alpha.2)
 	1798647   ESS User Cannot delete time sheet entries
 
-New & Changed Features for OrangeHRM ver araliya 0.1-alpha.3
+New & Changed Features for CIA Ferias ver araliya 0.1-alpha.3
 
 	BugId	  Name
 	(merged from the trunk, 2.2.2-alpha.2)
@@ -2932,7 +2932,7 @@ New & Changed Features for OrangeHRM ver araliya 0.1-alpha.3
 	1801799   Edit Timesheet fails : when Define Timesheet Period Changed
 	1798542   Incorrect leave notification when applying range of leaves
 
-New & Changed Features for OrangeHRM ver araliya 0.1-alpha.2
+New & Changed Features for CIA Ferias ver araliya 0.1-alpha.2
 
 	BugId	  Name
 	1798609   supervisor view Leave Reports throws a error
@@ -2948,11 +2948,11 @@ New & Changed Features for OrangeHRM ver araliya 0.1-alpha.2
 	1797694   Bugs in Currency list
 	1798643   Cannot add 2nd information
 
-New & Changed Features for OrangeHRM ver araliya 0.1-alpha.1
+New & Changed Features for CIA Ferias ver araliya 0.1-alpha.1
 
 	1. Supervisor Marks and Employee Delayed
 	2. Track Employee Late Time
-	3. Localize OrangeHRM (Dates)
+	3. Localize CIA Ferias (Dates)
 
 	BugId     Name
 	1786631   Report - Service period should be a date range
@@ -2960,16 +2960,16 @@ New & Changed Features for OrangeHRM ver araliya 0.1-alpha.1
 	1774620   All the Activies are not listed in the Time sheet view
 	1792369   Leave for range of days spanning holiday throws error
 
-New & Changed Features for OrangeHRM ver 2.2.2-alpha.1
+New & Changed Features for CIA Ferias ver 2.2.2-alpha.1
 
 	1. Apply/Assign Leave in Hours
 	2. Workshifts
 
 	BugId     Name
 	1785494   Displaying non-recurring holidays for the next year
-	1786588   Timesheet - include powered by OrangeHRM
+	1786588   Timesheet - include powered by CIA Ferias
 
-New & Changed Features for OrangeHRM ver 2.2.1-beta.1
+New & Changed Features for CIA Ferias ver 2.2.1-beta.1
 
 	BugId     Name
 	1774606   Record Internal Should not visible to the user
@@ -3003,7 +3003,7 @@ New & Changed Features for OrangeHRM ver 2.2.1-beta.1
 	1766285   Membership name with quote not shown in PIM
 	1783741   Ess User : Should not view Attachment Browse
 
-New & Changed Features for OrangeHRM ver 2.2.1-alpha.1
+New & Changed Features for CIA Ferias ver 2.2.1-alpha.1
 
 	1. Punch in/out time for ESS users
 	2. All new interface to add new time events and
@@ -3037,12 +3037,12 @@ New & Changed Features for OrangeHRM ver 2.2.1-alpha.1
 	1772964   Time Module: Punch IN/OUT Timesheet fatal error
 	1756632   When customer deleted, related projects are not deleted
 	1773749   Error When Adding Project supervisor
-	1774595   Could not login to OrangeHRM: 2.2.1-alpha in win
+	1774595   Could not login to CIA Ferias: 2.2.1-alpha in win
 	1774484   Could Not add Location: Admin Module
 
-New & Changed Features for OrangeHRM ver 2.2 (09/07/2007) {Revision 1026}
+New & Changed Features for CIA Ferias ver 2.2 (09/07/2007) {Revision 1026}
 
-	1. OrangeHRM Appliance for Windows
+	1. CIA Ferias Appliance for Windows
 
 	BugId     Name
 	1750216   Clear not functional in Password Change form
@@ -3054,7 +3054,7 @@ New & Changed Features for OrangeHRM ver 2.2 (09/07/2007) {Revision 1026}
 	1748398   InnoDB Disabled in XAMPP by default
 
 
-New & Changed Features for OrangeHRM ver 2.2 (04/07/2007) {Revision 1012}
+New & Changed Features for CIA Ferias ver 2.2 (04/07/2007) {Revision 1012}
 
 	BugId     Name
 
@@ -3077,14 +3077,14 @@ New & Changed Features for OrangeHRM ver 2.2 (04/07/2007) {Revision 1012}
 	1747745   PIM -> Contact ->State / Province error when ' insert
 
 
-New & Changed Features for OrangeHRM ver 2.2 (30/06/2007) {Revision 988}
+New & Changed Features for CIA Ferias ver 2.2 (30/06/2007) {Revision 988}
 
 	BugId     Name
 
 	1739538   Mail configuration UI
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (28/06/2007) {Revision 964}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (28/06/2007) {Revision 964}
 
 	BugId     Name
 
@@ -3092,7 +3092,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (28/06/2007) {Revision 964}
 	1744673   Installer Not Works RC_4
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (27/06/2007) {Revision 961}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (27/06/2007) {Revision 961}
 
 	BugId     Name
 
@@ -3106,7 +3106,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (27/06/2007) {Revision 961}
 	1742916   Time PHP error
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_4 (25/06/2007) {Revision 950}
+New & Changed Features for CIA Ferias ver 2.2_RC_4 (25/06/2007) {Revision 950}
 
 	1. Dutch language pack added (stable)
 	2. New PIM view for supervisors (of only their subordinates)
@@ -3138,7 +3138,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_4 (25/06/2007) {Revision 950}
 	1741298   Could Not search with Employee ids : Report To
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
+New & Changed Features for CIA Ferias ver 2.2_RC_3 (18/06/2007) {Revision 917}
 
 	1. Support employee leaving the company
 	2. Spanish language pack added (still in beta stage)
@@ -3148,7 +3148,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
 	BugId     Name
 
 	1734994   Undefined index: no_of_days_allotted
-	1735477   OrangeHRM Russian Language Not Working
+	1735477   CIA Ferias Russian Language Not Working
 	1718864   User Group Rights - what\'s the meaning of clear button
 	1735746   Undefined variable lang_rep_Languages
 	1737107   Problem upgrading RC_1 to RC_2
@@ -3175,7 +3175,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_3 (18/06/2007) {Revision 917}
 	1738081   Cannot access On-Demand using Danish from IE
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_2 (08/06/2007) {Revision 896}
+New & Changed Features for CIA Ferias ver 2.2_RC_2 (08/06/2007) {Revision 896}
 
 	1. Total columns in timesheets. See bug number 1723003
 
@@ -3216,7 +3216,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_2 (08/06/2007) {Revision 896}
 	1697466   RIGHTS NOT APPLIED
 
 
-New & Changed Features for OrangeHRM ver 2.2_RC_1 (28/05/2007) {Revision 859}
+New & Changed Features for CIA Ferias ver 2.2_RC_1 (28/05/2007) {Revision 859}
 
 	1. Danish language pack added (stable)
 	2. Skill and language as selection criteria for reports
@@ -3230,7 +3230,7 @@ New & Changed Features for OrangeHRM ver 2.2_RC_1 (28/05/2007) {Revision 859}
 	1723323   Ess user can approve/ reject time sheets
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_6 (23/05/2007) {Revision 848}
+New & Changed Features for CIA Ferias ver 2.2_beta_6 (23/05/2007) {Revision 848}
 
 	Bugs fixed include:
 
@@ -3261,7 +3261,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_6 (23/05/2007) {Revision 848}
 	1723702   Projects cannot be sorted
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_5 (16/05/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_5 (16/05/2007)
 
 	Bugs fixed include:
 
@@ -3278,7 +3278,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_5 (16/05/2007)
 	1716382   E-Mail system
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_4 (10/05/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_4 (10/05/2007)
 
 	1. Danish language pack added (still in alpha stage)
 
@@ -3301,7 +3301,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_4 (10/05/2007)
 	1709840	  Error in specifying status for job title
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_3 (27/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_3 (27/04/2007)
 
 	Bugs fixed include:
 
@@ -3340,7 +3340,7 @@ New & Changed Features for OrangeHRM ver 2.2_beta_3 (27/04/2007)
 	1707820   Error in defining location
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_2 (14/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_2 (14/04/2007)
 
 	Bugs fixed include:
 
@@ -3364,23 +3364,23 @@ New & Changed Features for OrangeHRM ver 2.2_beta_2 (14/04/2007)
 	1699577   No Uk pound in currency table
 
 
-New & Changed Features for OrangeHRM ver 2.2_beta_1 (12/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_beta_1 (12/04/2007)
 
 	1. Image buttons for time module
 
 
-New & Changed Features for OrangeHRM ver 2.2_alpha_2 (10/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_alpha_2 (10/04/2007)
 
 	1. Supervisor and HR-Admin can reject, approve and cancel timesheets
 	2. Employees can submit and cancel timesheets
 
 
-New & Changed Features for OrangeHRM ver 2.2_alpha_1 (05/04/2007)
+New & Changed Features for CIA Ferias ver 2.2_alpha_1 (05/04/2007)
 
 	1. Employee, Supervisor and HR-Admin can view timesheets and add time events
 
 
-New & Changed Features for OrangeHRM ver 2.1 (Neva) (16/03/2007)
+New & Changed Features for CIA Ferias ver 2.1 (Neva) (16/03/2007)
 
 	Bugs fixed include:
 
@@ -3395,7 +3395,7 @@ New & Changed Features for OrangeHRM ver 2.1 (Neva) (16/03/2007)
 	1633739   Big number formatting
 
 
-New & Changed Features for OrangeHRM ver 2.1_beta_2 (Elbrus) (13/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_beta_2 (Elbrus) (13/03/2007)
 
 	Bugs fixed include:
 
@@ -3418,7 +3418,7 @@ New & Changed Features for OrangeHRM ver 2.1_beta_2 (Elbrus) (13/03/2007)
 	1595871   Uploading images failure to upload and display an image should be reported
 
 
-New & Changed Features for OrangeHRM ver 2.1_beta_1 (Opala) (09/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_beta_1 (Opala) (09/03/2007)
 
 	Bugs fixed include:
 
@@ -3441,7 +3441,7 @@ New & Changed Features for OrangeHRM ver 2.1_beta_1 (Opala) (09/03/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_9 (Ivan) (05/03/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_9 (Ivan) (05/03/2007)
 
 	Bugs fixed include:
 
@@ -3482,7 +3482,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_9 (Ivan) (05/03/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_8 (Peter) (28/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_8 (Peter) (28/02/2007)
 
 	1. HR Admin / Supervisor assign leave to employee
 
@@ -3495,7 +3495,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_8 (Peter) (28/02/2007)
 	1670803   Undefined variable: headingInfo
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_7 (Potr) (26/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_7 (Potr) (26/02/2007)
 
 	Bugs fixed include:
 
@@ -3510,7 +3510,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_7 (Potr) (26/02/2007)
 	1668906   Membership: Undefined variable: selectmember
 	1668870   XML Parsing Error:
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
 
 	1. PIM is completely translated into Russian
 	2. Mail notifications to HR Admins(configurable)
@@ -3528,7 +3528,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_6 (Nikolaj) (23/02/2007)
 	1659714   Error Page Seen
 	1659438   Job title - Error in adding employment status to job title
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_5 (Alex) (13/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_5 (Alex) (13/02/2007)
 
 	1. Enhanced PIM employee list. Columns are sortable
 	2. PIM is partly translated into Russian
@@ -3545,7 +3545,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_5 (Alex) (13/02/2007)
 	1652248   Employee List is not paged
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_4 (Ruslan) (04/02/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_4 (Ruslan) (04/02/2007)
 
 	1. Leave Summary of all employees can be viewed by HR-Admins in one screen.
 	   All functionality in previous release is preserved.
@@ -3553,11 +3553,11 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_4 (Ruslan) (04/02/2007)
        been added.
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_3 (Dima) (24/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_3 (Dima) (24/01/2007)
 
 
 	1. User defined employee ID's added.
-		See http://www.orangehrm.com/app/wiki/index.php/Orange_Future#User_defines_employee_id
+		See legacy documentation
 
 	2. Usability related bug fixes
 
@@ -3580,7 +3580,7 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_3 (Dima) (24/01/2007)
 
 
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_2 (Gleb) (17/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_2 (Gleb) (17/01/2007)
 
 	Provided that e-mail addresses are defined for employees.
 
@@ -3589,15 +3589,15 @@ New & Changed Features for OrangeHRM ver 2.1_alpha_2 (Gleb) (17/01/2007)
 	- When the supervisor approves/rejects leave, the employee applied for leave
 	will be notified
 
-New & Changed Features for OrangeHRM ver 2.1_alpha_1 (Vlad)(09/01/2007)
+New & Changed Features for CIA Ferias ver 2.1_alpha_1 (Vlad)(09/01/2007)
 
-	In OrangeHRM-ver-2.1 ESS Users have the ability to apply for leave
+	In CIA Ferias-ver-2.1 ESS Users have the ability to apply for leave
 	for multiple days.
 
-	Further Holidays could be defined in OrangeHRM. These will be used
+	Further Holidays could be defined in CIA Ferias. These will be used
 	when calculating leave.
 
-New & Changed Features for OrangeHRM ver 2.0.5 (25/12/2006)
+New & Changed Features for CIA Ferias ver 2.0.5 (25/12/2006)
 
 	Bugs fixed include:
 
@@ -3609,7 +3609,7 @@ New & Changed Features for OrangeHRM ver 2.0.5 (25/12/2006)
 	1619838  Back button on Change password page doesn't work
 
 
-New & Changed Features for OrangeHRM ver 2.0.3 (8/12/2006)
+New & Changed Features for CIA Ferias ver 2.0.3 (8/12/2006)
 	This is a maintenance release (bug Fixes)
 
 	Bugs fixed includes;
@@ -3702,13 +3702,13 @@ New & Changed Features for OrangeHRM ver 2.0.3 (8/12/2006)
 
 
 
-New & Changed Features for OrangeHRM ver 2.0 (30/10/2006)
+New & Changed Features for CIA Ferias ver 2.0 (30/10/2006)
 
-	In OrangeHRM-ver-2.0 Leave module is introduced.
+	In CIA Ferias-ver-2.0 Leave module is introduced.
 
-New & Changed Features for OrangeHRM ver 1.2 (16/08/2006)
+New & Changed Features for CIA Ferias ver 1.2 (16/08/2006)
 
-	The main idea behind releasing OrangeHRM-ver-1.2 is to make the application more
+	The main idea behind releasing CIA Ferias-ver-1.2 is to make the application more
 	usable in terms of streamlining the UIs and functionality, etc.
 
 
@@ -3763,7 +3763,7 @@ New & Changed Features for OrangeHRM ver 1.2 (16/08/2006)
 		+	records	of licenses
 
 
-New & Changed Features for OrangeHRM ver 1.0 (15/03/2006)
+New & Changed Features for CIA Ferias ver 1.0 (15/03/2006)
 
 New Features
 

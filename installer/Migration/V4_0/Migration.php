@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_0;
+namespace CiaFerias\Installer\Migration\V4_0;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -29,8 +29,8 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_employee_event'])) {
-            $this->getSchemaHelper()->createTable('ohrm_employee_event')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_employee_event'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_employee_event')
                 ->addColumn('event_id', Types::INTEGER, ['Length' => 7, 'Autoincrement' => true])
                 ->addColumn('employee_id', Types::INTEGER, ['Length' => 7, 'Notnull' => true, 'Default' => 0])
                 ->addColumn('type', Types::STRING, ['Length' => 45, 'Default' => null])
@@ -44,7 +44,7 @@ class Migration extends AbstractMigration
 
         $adminId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('ohrm_menu_item', 'menu_item')
+            ->from('cia_ferias_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Admin')
             ->andWhere('level = :level')
@@ -53,7 +53,7 @@ class Migration extends AbstractMigration
             ->fetchOne();
         $configurationId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('ohrm_menu_item', 'menu_item')
+            ->from('cia_ferias_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Configuration')
             ->andWhere('level = :level')
@@ -64,7 +64,7 @@ class Migration extends AbstractMigration
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('ohrm_screen')
+            ->insert('cia_ferias_screen')
             ->values([
                 'name' => ':name',
                 'module_id' => ':moduleId',
@@ -76,7 +76,7 @@ class Migration extends AbstractMigration
             ->executeQuery();
         $clientScreenId = $this->getConnection()->createQueryBuilder()
             ->select('screen.id')
-            ->from('ohrm_screen', 'screen')
+            ->from('cia_ferias_screen', 'screen')
             ->where('screen.name = :screenName')
             ->setParameter('screenName', 'Register OAuth Client')
             ->executeQuery()
@@ -84,7 +84,7 @@ class Migration extends AbstractMigration
 
         $maxOrder = $this->createQueryBuilder()
             ->select('menu_item.order_hint')
-            ->from('ohrm_menu_item', 'menu_item')
+            ->from('cia_ferias_menu_item', 'menu_item')
             ->where('menu_item.parent_id = :parentId')
             ->setParameter('parentId', $configurationId)
             ->orderBy('menu_item.order_hint', 'DESC')
@@ -92,7 +92,7 @@ class Migration extends AbstractMigration
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('ohrm_menu_item')
+            ->insert('cia_ferias_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',

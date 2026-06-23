@@ -17,23 +17,23 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util;
+namespace CiaFerias\Tests\Util;
 
 use LogicException;
-use OrangeHRM\Core\Helper\ClassHelper;
-use OrangeHRM\Core\Service\DateTimeHelperService;
-use OrangeHRM\Core\Service\NumberHelperService;
-use OrangeHRM\Core\Service\TextHelperService;
-use OrangeHRM\Core\Traits\ServiceContainerTrait;
-use OrangeHRM\Framework\Framework;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\I18N\Service\I18NHelper;
-use OrangeHRM\Performance\Service\PerformanceTrackerService;
-use OrangeHRM\Recruitment\Service\CandidateService;
-use OrangeHRM\Recruitment\Service\VacancyService;
-use OrangeHRM\Tests\Util\Database\DoctrineService;
-use OrangeHRM\Time\Service\ProjectService;
+use CiaFerias\Core\Helper\ClassHelper;
+use CiaFerias\Core\Service\DateTimeHelperService;
+use CiaFerias\Core\Service\NumberHelperService;
+use CiaFerias\Core\Service\TextHelperService;
+use CiaFerias\Core\Traits\ServiceContainerTrait;
+use CiaFerias\Framework\Framework;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Services;
+use CiaFerias\I18N\Service\I18NHelper;
+use CiaFerias\Performance\Service\PerformanceTrackerService;
+use CiaFerias\Recruitment\Service\CandidateService;
+use CiaFerias\Recruitment\Service\VacancyService;
+use CiaFerias\Tests\Util\Database\DoctrineService;
+use CiaFerias\Time\Service\ProjectService;
 
 abstract class KernelTestCase extends TestCase
 {

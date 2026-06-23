@@ -1662,6 +1662,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cia-ferias/oxd@file:vendor/cia-ferias-oxd::locator=cia-ferias%40workspace%3A.":
+  version: 2.0.3-cia.0
+  resolution: "@cia-ferias/oxd@file:vendor/cia-ferias-oxd#vendor/cia-ferias-oxd::hash=da3415&locator=cia-ferias%40workspace%3A."
+  dependencies:
+    "@revolist/vue3-datagrid": "npm:^3.2.17"
+    chart.js: "npm:^4.1.2"
+    date-fns: "npm:^2.29.3"
+    mitt: "npm:^3.0.0"
+    nanoid: "npm:^4.0.0"
+  peerDependencies:
+    vue: 3.x
+  languageName: node
+  linkType: hard
+
 "@eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -2234,21 +2248,6 @@ __metadata:
     mkdirp: "npm:^1.0.4"
     rimraf: "npm:^3.0.2"
   checksum: 10/52dc02259d98da517fae4cb3a0a3850227bdae4939dda1980b788a7670636ca2b4a01b58df03dd5f65c1e3cb70c50fa8ce5762b582b3f499ec30ee5ce1fd9380
-  languageName: node
-  linkType: hard
-
-"@ohrm/oxd@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@ohrm/oxd@npm:2.0.3"
-  dependencies:
-    "@revolist/vue3-datagrid": "npm:^3.2.17"
-    chart.js: "npm:^4.1.2"
-    date-fns: "npm:^2.29.3"
-    mitt: "npm:^3.0.0"
-    nanoid: "npm:^4.0.0"
-  peerDependencies:
-    vue: 3.x
-  checksum: 10/a60ea6349dfbcf2a7bb08e1ac283be481ccea3941d4d3f6272a81eade158559406332e3197543d686f9f261988396dcf5878928ffe877253d0463c928725a1f4
   languageName: node
   linkType: hard
 
@@ -4639,6 +4638,44 @@ __metadata:
   checksum: 10/9e045db2901d4340ccba95b5cf755839a51ca6c2257a8e510cf3ccdadfe0243b0b5239254bf32ee4a8652cdd58c0b7ddbf61d304d1d59b86dc630baf2cd7988d
   languageName: node
   linkType: hard
+
+"cia-ferias@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "cia-ferias@workspace:."
+  dependencies:
+    "@cia-ferias/oxd": "file:vendor/cia-ferias-oxd"
+    "@types/hammerjs": "npm:^2.0.45"
+    "@types/jest": "npm:^27.5.2"
+    "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
+    "@typescript-eslint/parser": "npm:^5.62.0"
+    "@vue/cli-plugin-babel": "npm:~5.0.8"
+    "@vue/cli-plugin-eslint": "npm:~5.0.8"
+    "@vue/cli-plugin-typescript": "npm:~5.0.8"
+    "@vue/cli-plugin-unit-jest": "npm:~5.0.8"
+    "@vue/cli-service": "npm:~5.0.8"
+    "@vue/eslint-config-typescript": "npm:^9.1.0"
+    "@vue/test-utils": "npm:^2.4.4"
+    "@vue/vue3-jest": "npm:^27.0.0"
+    axios: "npm:~1.13.1"
+    babel-jest: "npm:^27.5.1"
+    core-js: "npm:^3.35.1"
+    date-fns: "npm:^2.30.0"
+    eslint: "npm:^7.32.0"
+    eslint-config-prettier: "npm:^8.10.0"
+    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-vue: "npm:^8.7.1"
+    hammerjs: "npm:^2.0.8"
+    intl-messageformat: "npm:^9.13.0"
+    jest: "npm:^27.5.1"
+    prettier: "npm:^2.8.8"
+    qrcode: "npm:^1.5.3"
+    sass: "npm:^1.70.0"
+    sass-loader: "npm:^12.6.0"
+    ts-jest: "npm:^27.1.5"
+    typescript: "npm:~4.5.5"
+    vue: "npm:^3.4.18"
+  languageName: unknown
+  linkType: soft
 
 "cjs-module-lexer@npm:^1.0.0":
   version: 1.2.2
@@ -9512,44 +9549,6 @@ __metadata:
   checksum: 10/8d071828f40090a8e1c6e8f350c6eb065808e9ab2b3e57fa37e0d5ae78cb46dac00117c8f12c3c8b8da2923454afbd8265e08c10b69881170c5b269f451e7fef
   languageName: node
   linkType: hard
-
-"orangehrm@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "orangehrm@workspace:."
-  dependencies:
-    "@ohrm/oxd": "npm:2.0.3"
-    "@types/hammerjs": "npm:^2.0.45"
-    "@types/jest": "npm:^27.5.2"
-    "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
-    "@typescript-eslint/parser": "npm:^5.62.0"
-    "@vue/cli-plugin-babel": "npm:~5.0.8"
-    "@vue/cli-plugin-eslint": "npm:~5.0.8"
-    "@vue/cli-plugin-typescript": "npm:~5.0.8"
-    "@vue/cli-plugin-unit-jest": "npm:~5.0.8"
-    "@vue/cli-service": "npm:~5.0.8"
-    "@vue/eslint-config-typescript": "npm:^9.1.0"
-    "@vue/test-utils": "npm:^2.4.4"
-    "@vue/vue3-jest": "npm:^27.0.0"
-    axios: "npm:~1.13.1"
-    babel-jest: "npm:^27.5.1"
-    core-js: "npm:^3.35.1"
-    date-fns: "npm:^2.30.0"
-    eslint: "npm:^7.32.0"
-    eslint-config-prettier: "npm:^8.10.0"
-    eslint-plugin-prettier: "npm:^4.2.1"
-    eslint-plugin-vue: "npm:^8.7.1"
-    hammerjs: "npm:^2.0.8"
-    intl-messageformat: "npm:^9.13.0"
-    jest: "npm:^27.5.1"
-    prettier: "npm:^2.8.8"
-    qrcode: "npm:^1.5.3"
-    sass: "npm:^1.70.0"
-    sass-loader: "npm:^12.6.0"
-    ts-jest: "npm:^27.1.5"
-    typescript: "npm:~4.5.5"
-    vue: "npm:^3.4.18"
-  languageName: unknown
-  linkType: soft
 
 "p-finally@npm:^1.0.0":
   version: 1.0.0

@@ -18,23 +18,23 @@
  -->
 <template>
   <oxd-form
-    class="orangehrm-installer-page"
+    class="cia-ferias-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
       Database Configuration
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="orangehrm-installer-page-content">
+    <oxd-text tag="p" class="cia-ferias-installer-page-content">
       Please enter your database configuration information below. If you are
       unsure of what to fill in, we suggest that you use the default values.
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="orangehrm-installer-page-content">
+    <oxd-text tag="p" class="cia-ferias-installer-page-content">
       Select Database to Use
     </oxd-text>
-    <oxd-form-row class="orangehrm-database-info-row">
+    <oxd-form-row class="cia-ferias-database-info-row">
       <oxd-radio-input
         v-model="database.dbType"
         value="new"
@@ -48,7 +48,7 @@
     </oxd-form-row>
     <br />
 
-    <oxd-grid :cols="4" class="orangehrm-full-width-grid">
+    <oxd-grid :cols="4" class="cia-ferias-full-width-grid">
       <oxd-grid-item>
         <oxd-input-field
           v-model="database.dbHost"
@@ -57,7 +57,7 @@
           required
         />
       </oxd-grid-item>
-      <oxd-grid-item class="orangehrm-database-info-port">
+      <oxd-grid-item class="cia-ferias-database-info-port">
         <oxd-input-field
           v-model="database.dbPort"
           label="Database Host Port"
@@ -75,19 +75,19 @@
       </oxd-grid-item>
       <oxd-grid-item
         v-if="isNewDB"
-        class="--offset-row-2 orangehrm-database-info-check"
+        class="--offset-row-2 cia-ferias-database-info-check"
       >
         <oxd-input-field
-          v-model="database.useSameDbUserForOrangeHRM"
+          v-model="database.useSameDbUserForCiaFerias"
           label="&nbsp;"
           type="checkbox"
-          option-label="Use the same Database User for OrangeHRM"
+          option-label="Use the same Database User for CIA Férias"
         />
       </oxd-grid-item>
     </oxd-grid>
     <oxd-grid
       :cols="4"
-      class="orangehrm-full-width-grid orangehrm-database-info-user"
+      class="cia-ferias-full-width-grid cia-ferias-database-info-user"
     >
       <template v-if="isNewDB">
         <oxd-grid-item>
@@ -111,27 +111,27 @@
       </template>
       <oxd-grid-item>
         <oxd-input-field
-          :key="disableOHRMDBfield"
-          v-model="database.ohrmDbUser"
+          :key="disableCiaFeriasDBField"
+          v-model="database.ciaFeriasDbUser"
           v-tooltip="
-            'OrangeHRM database user should have the rights to insert data into table, update data in a table, delete data in a table.'
+            'CIA Férias database user should have the rights to insert data into table, update data in a table, delete data in a table.'
           "
-          label="OrangeHRM Database Username"
-          :rules="rules.ohrmDbUser"
-          :disabled="disableOHRMDBfield"
-          :required="!disableOHRMDBfield"
+          label="CIA Férias Database Username"
+          :rules="rules.ciaFeriasDbUser"
+          :disabled="disableCiaFeriasDBField"
+          :required="!disableCiaFeriasDBField"
         />
       </oxd-grid-item>
       <oxd-grid-item>
         <oxd-input-field
-          v-model="database.ohrmDbPassword"
-          :disabled="disableOHRMDBfield"
-          label="OrangeHRM Database User Password"
+          v-model="database.ciaFeriasDbPassword"
+          :disabled="disableCiaFeriasDBField"
+          label="CIA Férias Database User Password"
           type="password"
         />
       </oxd-grid-item>
     </oxd-grid>
-    <oxd-grid :cols="4" class="orangehrm-full-width-grid">
+    <oxd-grid :cols="4" class="cia-ferias-full-width-grid">
       <oxd-grid-item>
         <oxd-input-field
           v-model="database.enableDataEncryption"
@@ -141,18 +141,18 @@
         />
       </oxd-grid-item>
     </oxd-grid>
-    <oxd-text class="orangehrm-installer-page-content">
+    <oxd-text class="cia-ferias-installer-page-content">
       Click <b>Next</b> to continue
     </oxd-text>
     <br />
     <oxd-text
       v-show="errorMessage"
-      class="orangehrm-installer-page-content orangehrm-database-info-error"
+      class="cia-ferias-installer-page-content cia-ferias-database-info-error"
     >
       <b>{{ errorMessage }}</b>
     </oxd-text>
 
-    <oxd-form-actions class="orangehrm-installer-page-action">
+    <oxd-form-actions class="cia-ferias-installer-page-action">
       <required-text />
       <oxd-button
         display-type="ghost"
@@ -161,7 +161,7 @@
         @click="navigateUrl"
       />
       <oxd-button
-        class="orangehrm-left-space"
+        class="cia-ferias-left-space"
         display-type="secondary"
         label="Next"
         type="submit"
@@ -180,7 +180,7 @@ import {
 import {APIService} from '@/core/util/services/api.service';
 import {navigate} from '@/core/util/helper/navigation.ts';
 import tooltipDirective from '@/core/util/directives/tooltip';
-import {OxdRadioInput} from '@ohrm/oxd';
+import {OxdRadioInput} from '@cia-ferias/oxd';
 
 export default {
   name: 'DatabaseConfigScreen',
@@ -212,7 +212,9 @@ export default {
           ),
         ],
         dbUser: [required],
-        ohrmDbUser: [(value) => this.disableOHRMDBfield || required(value)],
+        ciaFeriasDbUser: [
+          (value) => this.disableCiaFeriasDBField || required(value),
+        ],
       },
       isLoading: false,
       database: {
@@ -222,9 +224,9 @@ export default {
         dbUser: null,
         dbName: null,
         dbPassword: null,
-        ohrmDbUser: null,
-        ohrmDbPassword: null,
-        useSameDbUserForOrangeHRM: true,
+        ciaFeriasDbUser: null,
+        ciaFeriasDbPassword: null,
+        useSameDbUserForCiaFerias: true,
         enableDataEncryption: false,
       },
       errorMessage: '',
@@ -234,16 +236,16 @@ export default {
     isNewDB() {
       return this.database.dbType === 'new';
     },
-    disableOHRMDBfield() {
+    disableCiaFeriasDBField() {
       if (!this.isNewDB) return false;
-      return this.database.useSameDbUserForOrangeHRM;
+      return this.database.useSameDbUserForCiaFerias;
     },
   },
   beforeMount() {
     this.isLoading = true;
     this.http.getAll().then((response) => {
       const {data} = response.data;
-      this.database = {...data, dbPassword: null, ohrmDbPassword: null};
+      this.database = {...data, dbPassword: null, ciaFeriasDbPassword: null};
       if (!this.database.dbType) {
         this.database.dbType = 'new';
       }
@@ -262,15 +264,15 @@ export default {
         .create({
           ...payload,
           ...(payload.dbType === 'existing' && {
-            dbUser: payload.ohrmDbUser,
-            dbPassword: payload.ohrmDbPassword,
-            ohrmDbUser: undefined,
-            ohrmDbPassword: undefined,
-            useSameDbUserForOrangeHRM: undefined,
+            dbUser: payload.ciaFeriasDbUser,
+            dbPassword: payload.ciaFeriasDbPassword,
+            ciaFeriasDbUser: undefined,
+            ciaFeriasDbPassword: undefined,
+            useSameDbUserForCiaFerias: undefined,
           }),
-          ...(payload.useSameDbUserForOrangeHRM && {
-            ohrmDbUser: undefined,
-            ohrmDbPassword: undefined,
+          ...(payload.useSameDbUserForCiaFerias && {
+            ciaFeriasDbUser: undefined,
+            ciaFeriasDbPassword: undefined,
           }),
         })
         .then(() => {
@@ -297,25 +299,25 @@ export default {
   margin-left: -0.5rem;
   margin-right: 1rem;
 }
-.orangehrm-database-info-row {
+.cia-ferias-database-info-row {
   margin-top: 5px;
   flex-direction: row;
 }
-.orangehrm-database-info-check {
+.cia-ferias-database-info-check {
   display: flex;
   align-items: center;
   @include oxd-respond-to('lg') {
     grid-column: 3 / full;
   }
 }
-.orangehrm-database-info-port {
+.cia-ferias-database-info-port {
   width: 50%;
   white-space: nowrap;
 }
-.orangehrm-database-info-error {
+.cia-ferias-database-info-error {
   color: $oxd-feedback-danger-color;
 }
-::v-deep(.orangehrm-database-info-user .oxd-label) {
+::v-deep(.cia-ferias-database-info-user .oxd-label) {
   @include oxd-respond-to('lg') {
     width: 70%;
   }

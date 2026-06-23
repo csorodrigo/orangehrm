@@ -18,20 +18,20 @@
  -->
 <template>
   <oxd-form
-    class="orangehrm-installer-page"
+    class="cia-ferias-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
       Instance Creation
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="orangehrm-installer-page-content">
+    <oxd-text tag="p" class="cia-ferias-installer-page-content">
       Fill in your organization details here. Details entered in this section
-      will be captured to create your OrangeHRM Instance
+      will be captured to create your CIA Férias instance
     </oxd-text>
     <br />
-    <oxd-grid :cols="2" class="orangehrm-full-width-grid">
+    <oxd-grid :cols="2" class="cia-ferias-full-width-grid">
       <oxd-grid-item>
         <oxd-input-field
           v-model="instance.organizationName"
@@ -68,7 +68,7 @@
       </oxd-grid-item>
     </oxd-grid>
 
-    <oxd-form-actions class="orangehrm-installer-page-action">
+    <oxd-form-actions class="cia-ferias-installer-page-action">
       <required-text />
       <oxd-button
         display-type="ghost"
@@ -77,7 +77,7 @@
         @click="navigateUrl"
       />
       <oxd-button
-        class="orangehrm-left-space"
+        class="cia-ferias-left-space"
         display-type="secondary"
         label="Next"
         type="submit"

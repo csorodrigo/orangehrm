@@ -13,8 +13,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@ohrm/core': '@/core',
-        '@ohrm/components': '@/core/components',
+        '@cia-ferias/core': '@/core',
+        '@cia-ferias/components': '@/core/components',
       },
     },
     plugins: [new DumpBuildTimestampPlugin()],

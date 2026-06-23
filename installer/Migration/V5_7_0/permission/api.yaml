@@ -4,7 +4,7 @@
 
 apiv2_admin_i18n_translation_import:
   description: 'Admin - I18N Language Translation Import'
-  api: OrangeHRM\Admin\Api\I18NTranslationImportAPI
+  api: CiaFerias\Admin\Api\I18NTranslationImportAPI
   module: admin
   allowed:
     read: false
@@ -17,7 +17,7 @@ apiv2_admin_i18n_translation_import:
 
 apiv2_admin_i18n_translation_validation:
   description: 'Admin - I18N Translation Validation'
-  api: OrangeHRM\Admin\Api\I18NTranslationValidationAPI
+  api: CiaFerias\Admin\Api\I18NTranslationValidationAPI
   module: admin
   allowed:
     read: true
@@ -30,7 +30,7 @@ apiv2_admin_i18n_translation_validation:
 
 apiv2_admin_i18n_language_translation_errors:
   description: 'Admin - I18N Language Translation Errors'
-  api: OrangeHRM\Admin\Api\I18NImportErrorAPI
+  api: CiaFerias\Admin\Api\I18NImportErrorAPI
   module: admin
   allowed:
     read: true

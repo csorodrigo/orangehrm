@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Event;
+namespace CiaFerias\Framework\Event;
 
 use Symfony\Component\EventDispatcher\EventDispatcher as BaseEventDispatcher;
 

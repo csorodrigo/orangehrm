@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_3_1;
+namespace CiaFerias\Installer\Migration\V4_3_1;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -29,10 +29,10 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if ($this->getSchemaManager()->tablesExist('ohrm_reset_password')) {
-            $this->getSchemaManager()->dropTable('ohrm_reset_password');
+        if ($this->getSchemaManager()->tablesExist('cia_ferias_reset_password')) {
+            $this->getSchemaManager()->dropTable('cia_ferias_reset_password');
         }
-        $this->getSchemaHelper()->createTable('ohrm_reset_password')
+        $this->getSchemaHelper()->createTable('cia_ferias_reset_password')
             ->addColumn('id', Types::BIGINT, ['Unsigned' => true, 'Autoincrement' => true])
             ->addColumn('reset_email', Types::STRING, ['Length' => 60, 'Notnull' => true])
             ->addColumn('reset_request_date', Types::DATETIMETZ_MUTABLE, ['Notnull' => true])

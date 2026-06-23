@@ -44,7 +44,7 @@ describe('Admin - Job Category', function () {
     it('job title list is loaded', function () {
       cy.loginTo(this.user, '/admin/jobCategory');
       cy.wait('@getJobCategories');
-      cy.getOXD('numRecords').contains('(9) Records Found');
+      cy.getOXD('numRecords').contains('(9) registros encontrados');
     });
   });
   // Create
@@ -52,33 +52,33 @@ describe('Admin - Job Category', function () {
     it('add job category', function () {
       cy.loginTo(this.user, '/admin/saveJobCategory');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.chars50.text);
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXDInput('Nome').type(this.strings.chars50.text);
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@postJobCategories');
-      cy.toast('success', 'Successfully Saved');
+      cy.toast('success', 'Salvo com sucesso');
     });
     it('Job Category form validations', function () {
       cy.loginTo(this.user, '/admin/saveJobCategory');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).type(this.strings.chars200.text);
-          cy.wrap($input).isInvalid('Should not exceed 50 characters');
+          cy.wrap($input).isInvalid('Não deve exceder caracteres50');
           cy.wrap($input).setValue('');
-          cy.wrap($input).isInvalid('Required');
+          cy.wrap($input).isInvalid('Obrigatório');
           cy.wrap($input).type('Craft Workers');
-          cy.wrap($input).isInvalid('Already exists');
+          cy.wrap($input).isInvalid('Já existe');
         });
       });
     });
     it('add a job category and click cancel', function () {
       cy.loginTo(this.user, '/admin/saveJobCategory');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').type(this.strings.chars50.text);
-        cy.getOXD('button').contains('Cancel').click();
+        cy.getOXDInput('Nome').type(this.strings.chars50.text);
+        cy.getOXD('button').contains('Cancelar').click();
       });
       cy.wait('@getJobCategories');
-      cy.getOXD('pageTitle').contains('Job Categories');
+      cy.getOXD('pageTitle').contains('Categorias de cargo');
     });
   });
   //Update
@@ -86,14 +86,14 @@ describe('Admin - Job Category', function () {
     it('Edit job category', function () {
       cy.loginTo(this.user, '/admin/saveJobCategory/1');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Name').then(($input) => {
+        cy.getOXDInput('Nome').then(($input) => {
           cy.wrap($input).clear();
           cy.wrap($input).type(this.strings.chars50.text);
         });
-        cy.getOXD('button').contains('Save').click();
+        cy.getOXD('button').contains('Salvar').click();
       });
       cy.wait('@updateJobCategories');
-      cy.toast('success', 'Successfully Updated');
+      cy.toast('success', 'Atualizado com sucesso');
     });
   });
   //Delete
@@ -104,18 +104,18 @@ describe('Admin - Job Category', function () {
       cy.get(
         '.oxd-table-body > :nth-child(1) .oxd-table-cell-actions > :nth-child(1)',
       ).click();
-      cy.getOXD('button').contains('Yes, Delete').click();
+      cy.getOXD('button').contains('Sim, excluir').click();
       cy.wait('@getJobCategories');
-      cy.toast('success', 'Successfully Deleted');
+      cy.toast('success', 'Excluído com sucesso');
     });
     it('Bulk Delete job categories', function () {
       cy.loginTo(this.user, '/admin/jobCategory');
       cy.wait('@getJobCategories');
       cy.get('.oxd-table-header .oxd-checkbox-input').click();
-      cy.getOXD('button').contains('Delete Selected').click();
-      cy.getOXD('button').contains('Yes, Delete').click();
+      cy.get('.oxd-button--label-danger.cia-ferias-horizontal-margin').click();
+      cy.getOXD('button').contains('Sim, excluir').click();
       cy.wait('@getJobCategories');
-      cy.toast('success', 'Successfully Deleted');
+      cy.toast('success', 'Excluído com sucesso');
     });
   });
 });

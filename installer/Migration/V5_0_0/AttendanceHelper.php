@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V5_0_0;
+namespace CiaFerias\Installer\Migration\V5_0_0;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -95,9 +95,9 @@ class AttendanceHelper
     public function updatePunchInTimezoneOffset(string $offset, string $timezone): void
     {
         $q = $this->createQueryBuilder();
-        $q->update('ohrm_attendance_record')
-            ->set('ohrm_attendance_record.punch_in_timezone_name', ':punchInTimezone')
-            ->where('ohrm_attendance_record.punch_in_time_offset = :offset')
+        $q->update('cia_ferias_attendance_record')
+            ->set('cia_ferias_attendance_record.punch_in_timezone_name', ':punchInTimezone')
+            ->where('cia_ferias_attendance_record.punch_in_time_offset = :offset')
             ->setParameter('punchInTimezone', $timezone)
             ->setParameter('offset', $offset)
             ->executeQuery();
@@ -111,9 +111,9 @@ class AttendanceHelper
     public function updatePunchOutTimezoneOffset(string $offset, string $timezone): void
     {
         $q = $this->createQueryBuilder();
-        $q->update('ohrm_attendance_record')
-            ->set('ohrm_attendance_record.punch_out_timezone_name', ':punchOutTimezone')
-            ->where('ohrm_attendance_record.punch_out_time_offset = :offset')
+        $q->update('cia_ferias_attendance_record')
+            ->set('cia_ferias_attendance_record.punch_out_timezone_name', ':punchOutTimezone')
+            ->where('cia_ferias_attendance_record.punch_out_time_offset = :offset')
             ->setParameter('punchOutTimezone', $timezone)
             ->setParameter('offset', $offset)
             ->executeQuery();

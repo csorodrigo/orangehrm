@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller;
+namespace CiaFerias\Installer\Controller;
 
 use InvalidArgumentException;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Traits\ControllerTrait;
-use OrangeHRM\Framework\Http\RedirectResponse;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\Http\Response;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Traits\ControllerTrait;
+use CiaFerias\Framework\Http\RedirectResponse;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Http\Response;
 
 abstract class AbstractInstallerController
 {

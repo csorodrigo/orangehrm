@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Logger;
+namespace CiaFerias\Framework\Logger;
 
 use Monolog\Handler\StreamHandler;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Framework\Framework;
-use OrangeHRM\Framework\ServiceContainer;
-use OrangeHRM\Framework\Services;
+use CiaFerias\Config\Config;
+use CiaFerias\Framework\Framework;
+use CiaFerias\Framework\ServiceContainer;
+use CiaFerias\Framework\Services;
 
 class LoggerFactory
 {

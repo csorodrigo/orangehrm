@@ -57,7 +57,7 @@ notes:
     - { group: admin, note: 'You may also add multiple entries of user logins. The default system user available will be Admin and has full access to the system.', unitId: system_users }
     - { group: admin, note: 'Admin can define work shifts for an individual or a group of employees. To add an entry, go to Admin>> Job>> Work Shifts', unitId: add_work_shift }
     - { group: admin, note: 'You can define various types of licenses which can be later used in the PIM Module. To add an entry go to Admin>> Qualifications>> Licenses and click “Add”', unitId: licenses }
-    - { group: admin, note: 'This feature enables the HR Admin to configure the language settings and translate the OrangeHRM system to the language of your choice. To configure localization settings, go to Admin>> Configuration>> Localization', unitId: localization }
+    - { group: admin, note: 'This feature enables the HR Admin to configure the language settings and translate the CIA Férias system to the language of your choice. To configure localization settings, go to Admin>> Configuration>> Localization', unitId: localization }
     - { group: admin, note: 'Configure the date format under “Localization” the date will then be converted from YYYY-MM-DD to the localized date format.', unitId: date_format }
     - { group: general, note: 'Name of employee/candidate/session/document.', unitId: name }
     - { group: general, note: 'City should be displayed when adding individual address fields', unitId: city }

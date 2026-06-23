@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V5_6_0;
+namespace CiaFerias\Installer\Migration\V5_6_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\Logger;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
-use OrangeHRM\Installer\Util\V1\LangStringHelper;
+use CiaFerias\Installer\Util\Logger;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\LangStringHelper;
 
 class Migration extends AbstractMigration
 {
@@ -49,20 +49,20 @@ class Migration extends AbstractMigration
 
         $this->updateLangStringVersion($this->getVersion());
 
-        $this->getSchemaHelper()->dropForeignKeys('ohrm_i18n_translate', ['langStringId']);
+        $this->getSchemaHelper()->dropForeignKeys('cia_ferias_i18n_translate', ['langStringId']);
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['lang_string_id'],
-            'ohrm_i18n_lang_string',
+            'cia_ferias_i18n_lang_string',
             ['id'],
             'langStringId',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_i18n_translate', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_translate', $foreignKeyConstraint);
 
         $this->getDataGroupHelper()->insertApiPermissions(__DIR__ . '/permission/api.yaml');
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_openid_provider'])) {
-            $this->getSchemaHelper()->createTable('ohrm_openid_provider')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_openid_provider'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_openid_provider')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true, 'Notnull' => true, 'Length' => 10])
                 ->addColumn('provider_name', Types::STRING, ['Notnull' => false, 'Length' => 40])
                 ->addColumn('provider_url', Types::STRING, ['Notnull' => false, 'Length' => 255])
@@ -71,8 +71,8 @@ class Migration extends AbstractMigration
                 ->create();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_auth_provider_extra_details'])) {
-            $this->getSchemaHelper()->createTable('ohrm_auth_provider_extra_details')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_auth_provider_extra_details'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_auth_provider_extra_details')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('provider_id', Types::INTEGER, ['Notnull' => true, 'Length' => 10])
                 ->addColumn('provider_type', Types::INTEGER, ['Notnull' => false])
@@ -83,16 +83,16 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint = new ForeignKeyConstraint(
                 ['provider_id'],
-                'ohrm_openid_provider',
+                'cia_ferias_openid_provider',
                 ['id'],
                 'Provider',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('ohrm_auth_provider_extra_details', $foreignKeyConstraint);
+            $this->getSchemaHelper()->addForeignKey('cia_ferias_auth_provider_extra_details', $foreignKeyConstraint);
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_openid_user_identity'])) {
-            $this->getSchemaHelper()->createTable('ohrm_openid_user_identity')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_openid_user_identity'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_openid_user_identity')
                 ->addColumn('user_id', Types::INTEGER, ['Length' => 10])
                 ->addColumn('provider_id', Types::INTEGER, ['Length' => 10])
                 ->addColumn('user_identity', Types::STRING, ['Notnull' => false, 'Default' => null, 'Length' => 255])
@@ -100,20 +100,20 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint1 = new ForeignKeyConstraint(
                 ['provider_id'],
-                'ohrm_openid_provider',
+                'cia_ferias_openid_provider',
                 ['id'],
                 'provideId',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('ohrm_openid_user_identity', $foreignKeyConstraint1);
+            $this->getSchemaHelper()->addForeignKey('cia_ferias_openid_user_identity', $foreignKeyConstraint1);
             $foreignKeyConstraint2 = new ForeignKeyConstraint(
                 ['user_id'],
-                'ohrm_user',
+                'cia_ferias_user',
                 ['id'],
                 'providerUserId',
                 ['onDelete' => 'SET NULL']
             );
-            $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint2);
+            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint2);
         }
 
         $this->modifyAuthProviderTables();
@@ -131,7 +131,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_i18n_lang_string', 'lang_string')
+            ->update('cia_ferias_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -140,7 +140,7 @@ class Migration extends AbstractMigration
 
     private function modifyAuthProviderTables(): void
     {
-        $this->getSchemaHelper()->addOrChangeColumns('ohrm_openid_provider', [
+        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_openid_provider', [
             'provider_url' => [
                 'Type' => Type::getType(Types::STRING),
                 'Length' => 2000
@@ -168,7 +168,7 @@ class Migration extends AbstractMigration
     {
         $q = $this->createQueryBuilder();
         $q->select(['extraDetails.provider_id, extraDetails.provider_type'])
-            ->from('ohrm_auth_provider_extra_details', 'extraDetails');
+            ->from('cia_ferias_auth_provider_extra_details', 'extraDetails');
         $providers = $q->executeQuery();
 
         foreach ($providers->fetchAllAssociative() as $provider) {
@@ -177,10 +177,10 @@ class Migration extends AbstractMigration
                 $this->changeGoogleProviderURL($provider['provider_id']);
             } else {
                 $serializedProvider = serialize($provider);
-                Logger::getLogger()->info("Deleting: `$serializedProvider` ` from `ohrm_openid_provider`");
+                Logger::getLogger()->info("Deleting: `$serializedProvider` ` from `cia_ferias_openid_provider`");
                 $qb = $this->createQueryBuilder()
-                    ->delete('ohrm_openid_provider')
-                    ->andWhere('ohrm_openid_provider.id = :id')
+                    ->delete('cia_ferias_openid_provider')
+                    ->andWhere('cia_ferias_openid_provider.id = :id')
                     ->setParameter('id', $provider['provider_id']);
                 $qb->executeQuery();
             }
@@ -190,7 +190,7 @@ class Migration extends AbstractMigration
     private function changeGoogleProviderURL(int $providerId): void
     {
         $qb = $this->createQueryBuilder();
-        $qb->update('ohrm_openid_provider', 'provider')
+        $qb->update('cia_ferias_openid_provider', 'provider')
             ->set('provider.provider_url', ':providerUrl')
             ->setParameter('providerUrl', 'https://accounts.google.com')
             ->andWhere('provider.id = :id')
@@ -202,7 +202,7 @@ class Migration extends AbstractMigration
     {
         $id = $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('ohrm_i18n_lang_string', 'langString')
+            ->from('cia_ferias_i18n_lang_string', 'langString')
             ->andWhere('langString.unit_id = :unitId')
             ->setParameter('unitId', $unitId)
             ->andWhere('langString.group_id = :groupId')
@@ -211,8 +211,8 @@ class Migration extends AbstractMigration
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->delete('ohrm_i18n_translate')
-            ->andWhere('ohrm_i18n_translate.lang_string_id = :id')
+            ->delete('cia_ferias_i18n_translate')
+            ->andWhere('cia_ferias_i18n_translate.lang_string_id = :id')
             ->setParameter('id', $id)
             ->executeQuery();
     }

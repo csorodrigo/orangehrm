@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command\Util;
+namespace CiaFerias\DevTools\Command\Util;
 
 use Doctrine\DBAL\Logging\SQLLogger;
 

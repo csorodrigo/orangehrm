@@ -15,7 +15,7 @@ langStrings:
     value: 'Administrator Access'
     unitId: admin_access
   -
-    value: 'You have requested to access a critical Administrator function in OrangeHRM and are required to validate your credentials below'
+    value: 'You have requested to access a critical Administrator function in CIA Férias and are required to validate your credentials below'
     unitId: admin_access_note
   -
     value: 'Your password should not contain spaces.'
@@ -48,7 +48,7 @@ langStrings:
     value: 'Reset Password link sent successfully'
     unitId: reset_password_link_sent_successfully
   -
-    value: 'The OrangeHRM  system is not configured to receive email notifications. Please contact your OrangeHRM administrator to reset your password'
+    value: 'The CIA Férias system is not configured to receive email notifications. Please contact your CIA Férias administrator to reset your password'
     unitId: configured_receive_email_notification_note
   -
     value: 'to go back to login page'
@@ -60,7 +60,7 @@ langStrings:
     value: 'You can follow that link and select a new password.'
     unitId: follow_link_to_select_password
   -
-    value: 'If the email does not arrive, please contact your OrangeHRM Administrator.'
+    value: 'If the email does not arrive, please contact your CIA Férias administrator.'
     unitId: email_not_receive_note
   -
     value: 'Forgot Your Password'

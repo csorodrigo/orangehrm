@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command;
+namespace CiaFerias\DevTools\Command;
 
 use Doctrine\DBAL\Connection;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
-use OrangeHRM\Installer\Framework\HttpKernel;
-use OrangeHRM\Installer\Util\ConfigHelper;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
+use CiaFerias\Installer\Framework\HttpKernel;
+use CiaFerias\Installer\Util\ConfigHelper;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -44,7 +44,7 @@ class RunMigrationClassCommand extends Command
     {
         $this->setDescription('Run given migration class')
             ->setHelp(
-                'E.g. php devTools/core/console.php migration:up "\OrangeHRM\Installer\Migration\V5_2_0\Migration"'
+                'E.g. php devTools/core/console.php migration:up "\CiaFerias\Installer\Migration\V5_2_0\Migration"'
             )
             ->addArgument('className', InputArgument::REQUIRED, 'Fully qualified class name');
     }
@@ -66,7 +66,7 @@ class RunMigrationClassCommand extends Command
             return Command::FAILURE;
         }
         new HttpKernel('prod', false); // Initiate kernel
-        class_alias($migrationClass, '\OrangeHRM\DevTools\Command\_Migration');
+        class_alias($migrationClass, '\CiaFerias\DevTools\Command\_Migration');
         $migration = new class ($this->getEntityManager()->getConnection()) extends _Migration {
             private Connection $connection;
 

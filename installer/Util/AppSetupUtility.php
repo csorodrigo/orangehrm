@@ -17,63 +17,63 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util;
+namespace CiaFerias\Installer\Util;
 
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Exception;
 use InvalidArgumentException;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Exception\KeyHandlerException;
-use OrangeHRM\Core\Utility\KeyHandler;
-use OrangeHRM\Core\Utility\PasswordHash;
-use OrangeHRM\Framework\Filesystem\Filesystem;
-use OrangeHRM\Installer\Exception\MigrationException;
-use OrangeHRM\Installer\Migration\V3_3_3\Migration;
-use OrangeHRM\Installer\Util\Dto\DatabaseConnectionWrapper;
-use OrangeHRM\Installer\Util\SystemConfig\SystemConfiguration;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Exception\KeyHandlerException;
+use CiaFerias\Core\Utility\KeyHandler;
+use CiaFerias\Core\Utility\PasswordHash;
+use CiaFerias\Framework\Filesystem\Filesystem;
+use CiaFerias\Installer\Exception\MigrationException;
+use CiaFerias\Installer\Migration\V3_3_3\Migration;
+use CiaFerias\Installer\Util\Dto\DatabaseConnectionWrapper;
+use CiaFerias\Installer\Util\SystemConfig\SystemConfiguration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class AppSetupUtility
 {
     public const MIGRATIONS_MAP = [
         '3.3.3' => Migration::class, // From beginning to `3.3.3`
-        '4.0' => \OrangeHRM\Installer\Migration\V4_0\Migration::class,
-        '4.1' => \OrangeHRM\Installer\Migration\V4_1\Migration::class,
-        '4.1.1' => \OrangeHRM\Installer\Migration\V4_1_1\Migration::class,
-        '4.1.2' => \OrangeHRM\Installer\Migration\V4_1_2\Migration::class,
-        '4.1.2.1' => \OrangeHRM\Installer\Migration\V4_1_2_1\Migration::class,
-        '4.2' => \OrangeHRM\Installer\Migration\V4_2\Migration::class,
-        '4.2.0.1' => \OrangeHRM\Installer\Migration\V4_2_0_1\Migration::class,
-        '4.3' => \OrangeHRM\Installer\Migration\V4_3\Migration::class,
-        '4.3.1' => \OrangeHRM\Installer\Migration\V4_3_1\Migration::class,
-        '4.3.2' => \OrangeHRM\Installer\Migration\V4_3_2\Migration::class,
-        '4.3.3' => \OrangeHRM\Installer\Migration\V4_3_3\Migration::class,
-        '4.3.4' => \OrangeHRM\Installer\Migration\V4_3_4\Migration::class,
-        '4.3.5' => \OrangeHRM\Installer\Migration\V4_3_5\Migration::class,
-        '4.4' => \OrangeHRM\Installer\Migration\V4_4_0\Migration::class,
-        '4.5' => \OrangeHRM\Installer\Migration\V4_5_0\Migration::class,
-        '4.6' => \OrangeHRM\Installer\Migration\V4_6_0\Migration::class,
-        '4.6.0.1' => \OrangeHRM\Installer\Migration\V4_6_0_1\Migration::class,
-        '4.7' => \OrangeHRM\Installer\Migration\V4_7_0\Migration::class,
-        '4.8' => \OrangeHRM\Installer\Migration\V4_8_0\Migration::class,
-        '4.9' => \OrangeHRM\Installer\Migration\V4_9_0\Migration::class,
-        '4.10' => \OrangeHRM\Installer\Migration\V4_10_0\Migration::class,
-        '4.10.1' => \OrangeHRM\Installer\Migration\V4_10_1\Migration::class,
+        '4.0' => \CiaFerias\Installer\Migration\V4_0\Migration::class,
+        '4.1' => \CiaFerias\Installer\Migration\V4_1\Migration::class,
+        '4.1.1' => \CiaFerias\Installer\Migration\V4_1_1\Migration::class,
+        '4.1.2' => \CiaFerias\Installer\Migration\V4_1_2\Migration::class,
+        '4.1.2.1' => \CiaFerias\Installer\Migration\V4_1_2_1\Migration::class,
+        '4.2' => \CiaFerias\Installer\Migration\V4_2\Migration::class,
+        '4.2.0.1' => \CiaFerias\Installer\Migration\V4_2_0_1\Migration::class,
+        '4.3' => \CiaFerias\Installer\Migration\V4_3\Migration::class,
+        '4.3.1' => \CiaFerias\Installer\Migration\V4_3_1\Migration::class,
+        '4.3.2' => \CiaFerias\Installer\Migration\V4_3_2\Migration::class,
+        '4.3.3' => \CiaFerias\Installer\Migration\V4_3_3\Migration::class,
+        '4.3.4' => \CiaFerias\Installer\Migration\V4_3_4\Migration::class,
+        '4.3.5' => \CiaFerias\Installer\Migration\V4_3_5\Migration::class,
+        '4.4' => \CiaFerias\Installer\Migration\V4_4_0\Migration::class,
+        '4.5' => \CiaFerias\Installer\Migration\V4_5_0\Migration::class,
+        '4.6' => \CiaFerias\Installer\Migration\V4_6_0\Migration::class,
+        '4.6.0.1' => \CiaFerias\Installer\Migration\V4_6_0_1\Migration::class,
+        '4.7' => \CiaFerias\Installer\Migration\V4_7_0\Migration::class,
+        '4.8' => \CiaFerias\Installer\Migration\V4_8_0\Migration::class,
+        '4.9' => \CiaFerias\Installer\Migration\V4_9_0\Migration::class,
+        '4.10' => \CiaFerias\Installer\Migration\V4_10_0\Migration::class,
+        '4.10.1' => \CiaFerias\Installer\Migration\V4_10_1\Migration::class,
         '5.0' => [
-            \OrangeHRM\Installer\Migration\V5_0_0_beta\Migration::class,
-            \OrangeHRM\Installer\Migration\V5_0_0\Migration::class,
+            \CiaFerias\Installer\Migration\V5_0_0_beta\Migration::class,
+            \CiaFerias\Installer\Migration\V5_0_0\Migration::class,
         ],
-        '5.1' => \OrangeHRM\Installer\Migration\V5_1_0\Migration::class,
-        '5.2' => \OrangeHRM\Installer\Migration\V5_2_0\Migration::class,
-        '5.3' => \OrangeHRM\Installer\Migration\V5_3_0\Migration::class,
-        '5.4' => \OrangeHRM\Installer\Migration\V5_4_0\Migration::class,
-        '5.5' => \OrangeHRM\Installer\Migration\V5_5_0\Migration::class,
-        '5.6' => \OrangeHRM\Installer\Migration\V5_6_0\Migration::class,
-        '5.6.1' => \OrangeHRM\Installer\Migration\V5_6_1\Migration::class,
-        '5.7' => \OrangeHRM\Installer\Migration\V5_7_0\Migration::class,
-        '5.8' => \OrangeHRM\Installer\Migration\V5_8_0\Migration::class,
-        '5.8.1' => \OrangeHRM\Installer\Migration\V5_8_1\Migration::class,
+        '5.1' => \CiaFerias\Installer\Migration\V5_1_0\Migration::class,
+        '5.2' => \CiaFerias\Installer\Migration\V5_2_0\Migration::class,
+        '5.3' => \CiaFerias\Installer\Migration\V5_3_0\Migration::class,
+        '5.4' => \CiaFerias\Installer\Migration\V5_4_0\Migration::class,
+        '5.5' => \CiaFerias\Installer\Migration\V5_5_0\Migration::class,
+        '5.6' => \CiaFerias\Installer\Migration\V5_6_0\Migration::class,
+        '5.6.1' => \CiaFerias\Installer\Migration\V5_6_1\Migration::class,
+        '5.7' => \CiaFerias\Installer\Migration\V5_7_0\Migration::class,
+        '5.8' => \CiaFerias\Installer\Migration\V5_8_0\Migration::class,
+        '5.8.1' => \CiaFerias\Installer\Migration\V5_8_1\Migration::class,
     ];
 
     public const INSTALLATION_DB_TYPE_NEW = 'new';
@@ -234,7 +234,7 @@ class AppSetupUtility
     {
         $instanceData = StateContainer::getInstance()->getInstanceData();
         Connection::getConnection()->createQueryBuilder()
-            ->insert('ohrm_organization_gen_info')
+            ->insert('cia_ferias_organization_gen_info')
             ->values([
                 'name' => ':name',
                 'country' => ':countryCode',
@@ -248,7 +248,7 @@ class AppSetupUtility
     {
         $instanceData = StateContainer::getInstance()->getInstanceData();
         Connection::getConnection()->createQueryBuilder()
-            ->update('ohrm_subunit', 'subunit')
+            ->update('cia_ferias_subunit', 'subunit')
             ->set('subunit.name', ':organizationName')
             ->setParameter('organizationName', $instanceData[StateContainer::INSTANCE_ORG_NAME])
             ->andWhere('subunit.level = :topLevel')
@@ -303,7 +303,7 @@ class AppSetupUtility
 
         $adminUserRoleId = Connection::getConnection()->createQueryBuilder()
             ->select('userRole.id')
-            ->from('ohrm_user_role', 'userRole')
+            ->from('cia_ferias_user_role', 'userRole')
             ->where('userRole.name = :userRoleName')
             ->setParameter('userRoleName', 'Admin')
             ->setMaxResults(1)
@@ -313,7 +313,7 @@ class AppSetupUtility
         $passwordHasher = new PasswordHash();
         $hashedPassword = $passwordHasher->hash($adminUserData[StateContainer::ADMIN_PASSWORD]);
         Connection::getConnection()->createQueryBuilder()
-            ->insert('ohrm_user')
+            ->insert('cia_ferias_user')
             ->values([
                 'user_role_id' => ':userRoleId',
                 'emp_number' => ':empNumber',
@@ -402,14 +402,14 @@ class AppSetupUtility
             $dbInfo = StateContainer::getInstance()->getDbInfo();
             $dbName = $dbInfo[StateContainer::DB_NAME];
             $dbUser = $dbInfo[StateContainer::DB_USER];
-            $ohrmDbUser = $dbInfo[StateContainer::ORANGEHRM_DB_USER];
-            if ($ohrmDbUser === null || $dbUser === $ohrmDbUser) {
+            $ciaFeriasDbUser = $dbInfo[StateContainer::CIA_FERIAS_DB_USER];
+            if ($ciaFeriasDbUser === null || $dbUser === $ciaFeriasDbUser) {
                 return;
             }
-            $ohrmDbPassword = $dbInfo[StateContainer::ORANGEHRM_DB_PASSWORD];
+            $ciaFeriasDbPassword = $dbInfo[StateContainer::CIA_FERIAS_DB_PASSWORD];
             $queries = [
-                ...$this->getUserCreationQueries($dbName, $ohrmDbUser, $ohrmDbPassword, 'localhost'),
-                ...$this->getUserCreationQueries($dbName, $ohrmDbUser, $ohrmDbPassword, '%'),
+                ...$this->getUserCreationQueries($dbName, $ciaFeriasDbUser, $ciaFeriasDbPassword, 'localhost'),
+                ...$this->getUserCreationQueries($dbName, $ciaFeriasDbUser, $ciaFeriasDbPassword, '%'),
                 'FLUSH PRIVILEGES;'
             ];
             foreach ($queries as $query) {
@@ -420,18 +420,18 @@ class AppSetupUtility
 
     protected function getUserCreationQueries(
         string $dbName,
-        string $ohrmDbUser,
-        ?string $ohrmDbPassword,
+        string $ciaFeriasDbUser,
+        ?string $ciaFeriasDbPassword,
         string $grantHost
     ): array {
         $conn = Connection::getConnection();
         $dbName = $conn->quoteIdentifier($dbName);
-        $ohrmDbUser = $conn->quote($ohrmDbUser);
+        $ciaFeriasDbUser = $conn->quote($ciaFeriasDbUser);
 
-        $queryIdentifiedBy = is_null($ohrmDbPassword) ? '' : 'IDENTIFIED BY ' . $conn->quote($ohrmDbPassword);
-        $createQuery = "CREATE USER $ohrmDbUser@'$grantHost' $queryIdentifiedBy;";
+        $queryIdentifiedBy = is_null($ciaFeriasDbPassword) ? '' : 'IDENTIFIED BY ' . $conn->quote($ciaFeriasDbPassword);
+        $createQuery = "CREATE USER $ciaFeriasDbUser@'$grantHost' $queryIdentifiedBy;";
         $grantQuery = 'GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, INDEX, REFERENCES, CREATE ROUTINE, ALTER ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, EXECUTE ' .
-            "ON $dbName.* TO $ohrmDbUser@'$grantHost';";
+            "ON $dbName.* TO $ciaFeriasDbUser@'$grantHost';";
         return [$createQuery, $grantQuery];
     }
 
@@ -444,8 +444,8 @@ class AppSetupUtility
             $dbInfo[StateContainer::DB_HOST],
             $dbInfo[StateContainer::DB_PORT],
             $dbInfo[StateContainer::DB_NAME],
-            $dbInfo[StateContainer::ORANGEHRM_DB_USER] ?? $dbInfo[StateContainer::DB_USER],
-            $dbInfo[StateContainer::ORANGEHRM_DB_PASSWORD] ?? $dbInfo[StateContainer::DB_PASSWORD],
+            $dbInfo[StateContainer::CIA_FERIAS_DB_USER] ?? $dbInfo[StateContainer::DB_USER],
+            $dbInfo[StateContainer::CIA_FERIAS_DB_PASSWORD] ?? $dbInfo[StateContainer::DB_PASSWORD],
         ];
 
         $fs = new Filesystem();

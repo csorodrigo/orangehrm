@@ -17,16 +17,16 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V5_0_0;
+namespace CiaFerias\Installer\Migration\V5_0_0;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
-use OrangeHRM\Installer\Util\V1\LangStringHelper;
-use OrangeHRM\Installer\Util\V1\TranslationHelper;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\LangStringHelper;
+use CiaFerias\Installer\Util\V1\TranslationHelper;
 
 class Migration extends AbstractMigration
 {
@@ -40,7 +40,7 @@ class Migration extends AbstractMigration
     public function up(): void
     {
         $this->getSchemaHelper()->addColumn(
-            'ohrm_screen',
+            'cia_ferias_screen',
             'menu_configurator',
             Types::STRING,
             ['Length' => 255, 'Default' => null, 'Notnull' => false]
@@ -48,18 +48,18 @@ class Migration extends AbstractMigration
         $this->getDataGroupHelper()->insertApiPermissions(__DIR__ . '/permission/api.yaml');
         $this->getDataGroupHelper()->insertDataGroupPermissions(__DIR__ . '/permission/data_group.yaml');
 
-        $this->updateMenuConfigurator('attendance', null, 'OrangeHRM\\Attendance\\Menu\\AttendanceMenuConfigurator');
+        $this->updateMenuConfigurator('attendance', null, 'CiaFerias\\Attendance\\Menu\\AttendanceMenuConfigurator');
         $this->getDataGroupHelper()->insertScreenPermissions(__DIR__ . '/permission/screen.yaml');
 
-        $this->getSchemaHelper()->dropColumn('ohrm_leave', 'comments');
-        $this->getSchemaHelper()->dropColumn('ohrm_leave_request', 'comments');
-        $this->getSchemaHelper()->dropColumn('ohrm_menu_item', 'url_extras');
-        $this->getSchemaManager()->dropTable('ohrm_data_group_screen');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_leave', 'comments');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_leave_request', 'comments');
+        $this->getSchemaHelper()->dropColumn('cia_ferias_menu_item', 'url_extras');
+        $this->getSchemaManager()->dropTable('cia_ferias_data_group_screen');
 
         $this->addTimezoneColumnsToAttendanceRecord();
 
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_screen', 'screen')
+            ->update('cia_ferias_screen', 'screen')
             ->set('screen.module_id', ':moduleId')
             ->setParameter('moduleId', $this->getDataGroupHelper()->getModuleIdByName('time'));
         $qb->where($qb->expr()->in('screen.action_url', ':actionUrls'))
@@ -70,7 +70,7 @@ class Migration extends AbstractMigration
             )->executeQuery();
 
         $this->createQueryBuilder()
-            ->update('ohrm_user_role_data_group', 'dataGroupPermission')
+            ->update('cia_ferias_user_role_data_group', 'dataGroupPermission')
             ->set('dataGroupPermission.can_update', ':canUpdate')
             ->setParameter('canUpdate', false, ParameterType::BOOLEAN)
             ->andWhere('dataGroupPermission.data_group_id = :dataGroupId')
@@ -88,43 +88,43 @@ class Migration extends AbstractMigration
             true
         );
 
-        $this->updateMenuConfigurator('admin', 'saveJobTitle', 'OrangeHRM\\Admin\\Menu\\JobTitleMenuConfigurator');
-        $this->updateMenuConfigurator('admin', 'saveLocation', 'OrangeHRM\\Admin\\Menu\\LocationMenuConfigurator');
-        $this->updateMenuConfigurator('admin', 'payGrade', 'OrangeHRM\\Admin\\Menu\\PayGradeConfigurator');
-        $this->updateMenuConfigurator('admin', 'saveSystemUser', 'OrangeHRM\\Admin\\Menu\\UserMenuConfigurator');
+        $this->updateMenuConfigurator('admin', 'saveJobTitle', 'CiaFerias\\Admin\\Menu\\JobTitleMenuConfigurator');
+        $this->updateMenuConfigurator('admin', 'saveLocation', 'CiaFerias\\Admin\\Menu\\LocationMenuConfigurator');
+        $this->updateMenuConfigurator('admin', 'payGrade', 'CiaFerias\\Admin\\Menu\\PayGradeConfigurator');
+        $this->updateMenuConfigurator('admin', 'saveSystemUser', 'CiaFerias\\Admin\\Menu\\UserMenuConfigurator');
 
-        $this->updateMenuConfigurator('pim', 'viewMyDetails', 'OrangeHRM\\Pim\\Menu\\MyInfoMenuConfigurator');
+        $this->updateMenuConfigurator('pim', 'viewMyDetails', 'CiaFerias\\Pim\\Menu\\MyInfoMenuConfigurator');
         $this->updateMenuConfigurator(
             'pim',
             'definePredefinedReport',
-            'OrangeHRM\\Pim\\Menu\\PimReportMenuConfigurator'
+            'CiaFerias\\Pim\\Menu\\PimReportMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'pim',
             'displayPredefinedReport',
-            'OrangeHRM\\Pim\\Menu\\PimReportMenuConfigurator'
+            'CiaFerias\\Pim\\Menu\\PimReportMenuConfigurator'
         );
 
-        $this->updateMenuConfigurator('leave', 'defineLeaveType', 'OrangeHRM\\Leave\\Menu\\LeaveTypeMenuConfigurator');
+        $this->updateMenuConfigurator('leave', 'defineLeaveType', 'CiaFerias\\Leave\\Menu\\LeaveTypeMenuConfigurator');
         $this->updateMenuConfigurator(
             'leave',
             'viewLeaveRequest',
-            'OrangeHRM\\Leave\\Menu\\DetailedLeaveRequestMenuConfigurator'
+            'CiaFerias\\Leave\\Menu\\DetailedLeaveRequestMenuConfigurator'
         );
 
-        $this->updateMenuConfigurator('time', 'addCustomer', 'OrangeHRM\\Time\\Menu\\CustomerMenuConfigurator');
-        $this->updateMenuConfigurator('time', 'saveProject', 'OrangeHRM\\Time\\Menu\\ProjectMenuConfigurator');
+        $this->updateMenuConfigurator('time', 'addCustomer', 'CiaFerias\\Time\\Menu\\CustomerMenuConfigurator');
+        $this->updateMenuConfigurator('time', 'saveProject', 'CiaFerias\\Time\\Menu\\ProjectMenuConfigurator');
         $this->updateMenuConfigurator(
             'time',
             'displayProjectActivityDetailsReport',
-            'OrangeHRM\\Time\\Menu\\DetailedProjectActivityReportMenuConfigurator'
+            'CiaFerias\\Time\\Menu\\DetailedProjectActivityReportMenuConfigurator'
         );
 
         $this->configureLeaveMenuItemsIfLeavePeriodDefined();
         $this->configureTimeMenuItemsIfTimesheetStartDateDefined();
 
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_module_default_page', 'defaultPage')
+            ->update('cia_ferias_module_default_page', 'defaultPage')
             ->set('defaultPage.action', ':screenUrl')
             ->setParameter('screenUrl', 'leave/viewLeaveList')
             ->andWhere('defaultPage.module_id = :moduleId')
@@ -142,25 +142,25 @@ class Migration extends AbstractMigration
             )->executeQuery();
 
         $this->getSchemaHelper()->changeColumn(
-            'ohrm_timesheet_action_log',
+            'cia_ferias_timesheet_action_log',
             'performed_by',
             ['Default' => null, 'Notnull' => false]
         );
-        $this->getSchemaHelper()->dropForeignKeys('ohrm_timesheet_action_log', ['ohrm_timesheet_action_log_ibfk_1']);
+        $this->getSchemaHelper()->dropForeignKeys('cia_ferias_timesheet_action_log', ['cia_ferias_timesheet_action_log_ibfk_1']);
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['performed_by'],
-            'ohrm_user',
+            'cia_ferias_user',
             ['id'],
-            'ohrm_timesheet_action_log_performed_by_id',
+            'cia_ferias_timesheet_action_log_performed_by_id',
             ['onDelete' => 'SET NULL', 'onUpdate' => 'RESTRICT']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_timesheet_action_log', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_timesheet_action_log', $foreignKeyConstraint);
 
-        $this->getSchemaHelper()->dropForeignKeys('ohrm_i18n_lang_string', ['sourceId']);
-        $this->getSchemaHelper()->dropColumn('ohrm_i18n_lang_string', 'source_id');
-        $this->getSchemaManager()->dropTable('ohrm_i18n_source');
+        $this->getSchemaHelper()->dropForeignKeys('cia_ferias_i18n_lang_string', ['sourceId']);
+        $this->getSchemaHelper()->dropColumn('cia_ferias_i18n_lang_string', 'source_id');
+        $this->getSchemaManager()->dropTable('cia_ferias_i18n_source');
         $this->getSchemaHelper()->changeColumn(
-            'ohrm_i18n_lang_string',
+            'cia_ferias_i18n_lang_string',
             'unit_id',
             ['Type' => Type::getType(Types::STRING), 'Length' => 255]
         );
@@ -185,7 +185,7 @@ class Migration extends AbstractMigration
         );
 
         $this->getSchemaHelper()->addColumn(
-            'ohrm_module',
+            'cia_ferias_module',
             'display_name',
             Types::STRING,
             ['Length' => 120]
@@ -225,7 +225,7 @@ class Migration extends AbstractMigration
         }
 
         $this->createQueryBuilder()
-            ->update('ohrm_project ', 'project')
+            ->update('cia_ferias_project ', 'project')
             ->set('project.description', ':description')
             ->where('project.description = :emptyString')
             ->setParameter('description', null)
@@ -237,7 +237,7 @@ class Migration extends AbstractMigration
             'registerOAuthClient'
         );
         $this->getConnection()->createQueryBuilder()
-            ->insert('ohrm_user_role_screen')
+            ->insert('cia_ferias_user_role_screen')
             ->values(
                 [
                     'screen_id' => ':screenId',
@@ -286,13 +286,13 @@ class Migration extends AbstractMigration
 
         $q = $this->createQueryBuilder()
             ->select('filter_field.filter_field_id')
-            ->from('ohrm_filter_field', 'filter_field')
+            ->from('cia_ferias_filter_field', 'filter_field')
             ->where('filter_field.name = :filterField')
             ->setParameter('filterField', 'include');
 
         $filterFieldId = $q->executeQuery()->fetchOne();
         $this->createQueryBuilder()
-            ->update('ohrm_selected_filter_field', 'selected_filter_field')
+            ->update('cia_ferias_selected_filter_field', 'selected_filter_field')
             ->set('selected_filter_field.filter_field_order', ':newFilterFieldOrder')
             ->where('selected_filter_field.filter_field_order = :filterFieldOrder ')
             ->andWhere('selected_filter_field.filter_field_id = :filterFieldId')
@@ -341,13 +341,13 @@ class Migration extends AbstractMigration
                 ->fetchOne() == "Yes";
         $parentMenuItemId = $this->getConnection()->createQueryBuilder()
             ->select('menuItem.id')
-            ->from('ohrm_menu_item', 'menuItem')
+            ->from('cia_ferias_menu_item', 'menuItem')
             ->where('menuItem.menu_title = :menuTitle')
             ->setParameter('menuTitle', $parentMenuTitle)
             ->setMaxResults(1)
             ->fetchOne();
         $this->createQueryBuilder()
-            ->update('ohrm_menu_item', 'menuItem')
+            ->update('cia_ferias_menu_item', 'menuItem')
             ->set('menuItem.status', ':status')
             ->setParameter('status', $defined, ParameterType::BOOLEAN)
             ->andWhere('menuItem.parent_id = :parentId')
@@ -361,13 +361,13 @@ class Migration extends AbstractMigration
     private function addTimezoneColumnsToAttendanceRecord(): void
     {
         $this->getSchemaHelper()->addColumn(
-            'ohrm_attendance_record',
+            'cia_ferias_attendance_record',
             'punch_in_timezone_name',
             Types::STRING,
             ['Length' => 100, 'Default' => null, 'Notnull' => false]
         );
         $this->getSchemaHelper()->addColumn(
-            'ohrm_attendance_record',
+            'cia_ferias_attendance_record',
             'punch_out_timezone_name',
             Types::STRING,
             ['Length' => 100, 'Default' => null, 'Notnull' => false]
@@ -389,7 +389,7 @@ class Migration extends AbstractMigration
     private function updateMenuConfigurator(string $module, ?string $screenUrl, string $menuConfiguratorClassName): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_screen', 'screen')
+            ->update('cia_ferias_screen', 'screen')
             ->set('screen.menu_configurator', ':menuConfiguratorClassName')
             ->setParameter('menuConfiguratorClassName', $menuConfiguratorClassName)
             ->andWhere('screen.module_id = :moduleId')
@@ -422,7 +422,7 @@ class Migration extends AbstractMigration
         ];
         foreach ($displayNames as $module => $displayName) {
             $this->createQueryBuilder()
-                ->update('ohrm_module', 'module')
+                ->update('cia_ferias_module', 'module')
                 ->set('module.display_name', ':displayName')
                 ->setParameter('displayName', $displayName)
                 ->andWhere('module.name = :name')
@@ -440,7 +440,7 @@ class Migration extends AbstractMigration
         ];
         foreach ($groups as $name => $title) {
             $this->getConnection()->createQueryBuilder()
-                ->insert('ohrm_i18n_group')
+                ->insert('cia_ferias_i18n_group')
                 ->values(
                     [
                         'name' => ':name',
@@ -487,7 +487,7 @@ class Migration extends AbstractMigration
     private function hideAddonMenuItems(): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_menu_item', 'menuItem')
+            ->update('cia_ferias_menu_item', 'menuItem')
             ->set('menuItem.status', ':status')
             ->setParameter('status', false, ParameterType::BOOLEAN);
         $qb->where('menuItem.menu_title = :menuTitle')

@@ -66,4 +66,4 @@ jobs:
           name: API-doc-${{ github.sha }}
           path: |
             build/index.html
-            build/orangehrm-v2.json
+            build/cia-ferias-v2.json

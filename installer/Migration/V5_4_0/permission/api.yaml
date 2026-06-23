@@ -4,7 +4,7 @@
 
 apiv2_pim_my_info:
   description: "PIM - Logged In User Details"
-  api: OrangeHRM\Pim\Api\MyInfoAPI
+  api: CiaFerias\Pim\Api\MyInfoAPI
   module: pim
   allowed:
     read: true
@@ -21,7 +21,7 @@ apiv2_pim_my_info:
 
 apiv2_mobile_modules:
   description: "Mobile - Enable Modules"
-  api: OrangeHRM\Mobile\Api\MenuItemAPI
+  api: CiaFerias\Mobile\Api\MenuItemAPI
   module: mobile
   allowed:
     read: true
@@ -38,7 +38,7 @@ apiv2_mobile_modules:
 
 apiv2_leave_employee_leave:
   description: "Leave - employees leaves"
-  api: OrangeHRM\Leave\Api\EmployeeLeaveAPI
+  api: CiaFerias\Leave\Api\EmployeeLeaveAPI
   module: leave
   allowed:
     read: true
@@ -51,7 +51,7 @@ apiv2_leave_employee_leave:
 
 apiv2_leave_employee_leave_balances:
   description: "Leave - Employee Leave Balances"
-  api: OrangeHRM\Leave\Api\EmployeeLeaveBalanceAPI
+  api: CiaFerias\Leave\Api\EmployeeLeaveBalanceAPI
   module: leave
   allowed:
     read: true

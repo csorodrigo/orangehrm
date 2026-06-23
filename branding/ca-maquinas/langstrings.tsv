@@ -1,4 +1,4 @@
-﻿id	unit_id	value
+id	unit_id	value
 1	add_job_title	Add Job Title
 2	edit_job_title	Edit Job Title
 3	job_titles	Job Titles
@@ -707,7 +707,7 @@
 718	out	Out
 719	purge_employee_records	Purge Employee Records
 720	past_employee	Past Employee
-721	gdpr_note	Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their requests to Data@orangehrm.com with the subject "Purge Records (Instance Identifier: {instanceIdentifier})"
+721	gdpr_note	Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their requests to suporte@cia-ferias.local with the subject "Purge Records (Instance Identifier: {instanceIdentifier})"
 722	purge	Purge
 723	purge_employee	Purge Employee
 724	purge_employee_warning	You are about to purge the employee permanently. Are you sure you want to continue? This operation cannot be undone
@@ -716,8 +716,8 @@
 727	purge_success	Successfully Purged
 728	download_personal_data	Download Personal Data
 730	customer_support	Customer Support
-731	getting_started_with_orangehrm_message_1	Learning how to use a new application can be challenging. At OrangeHRM, we are committed to providing you with the necessary knowledge and skills required to fully utilize the application thereby allowing you to quickly and efficiently manage your HR processes.
-732	getting_started_with_orangehrm_message_2	The following information repositories are available to help you understand the application:
+731	getting_started_with_cia_ferias_message_1	Learning how to use a new application can be challenging. At CIA Férias, we are committed to providing you with the necessary knowledge and skills required to fully utilize the application thereby allowing you to quickly and efficiently manage your HR processes.
+732	getting_started_with_cia_ferias_message_2	The following information repositories are available to help you understand the application:
 733	contact_us_on_message	Should you experience any issues, please do not hesitate to contact us on
 734	we_will_be_delighted_to_help	We will be delighted to help.
 735	login	Login
@@ -725,7 +725,7 @@
 737	password	password
 738	credential_required	Credential Required
 739	admin_access	Administrator Access
-740	admin_access_note	You have requested to access a critical Administrator function in OrangeHRM and are required to validate your credentials below
+740	admin_access_note	You have requested to access a critical Administrator function in CIA Férias and are required to validate your credentials below
 744	reset_password	Reset Password
 745	username_identify_reset_note	Please enter your username to identify your account to reset your password
 746	set_new_password	Set a new Password
@@ -733,11 +733,11 @@
 748	reset_password_token_expired_note	The user account cannot be found or the reset password token has expired
 749	request_new_password_token	to request a new password reset token
 750	reset_password_link_sent_successfully	Reset Password link sent successfully
-751	configured_receive_email_notification_note	The OrangeHRM  system is not configured to receive email notifications. Please contact your OrangeHRM administrator to reset your password
+751	configured_receive_email_notification_note	The CIA Férias  system is not configured to receive email notifications. Please contact your CIA Férias administrator to reset your password
 752	back_to_login	to go back to login page
 753	reset_password_link_via_email	A reset password link has been sent to you via email.
 754	follow_link_to_select_password	You can follow that link and select a new password.
-755	email_not_receive_note	If the email does not arrive, please contact your OrangeHRM Administrator.
+755	email_not_receive_note	If the email does not arrive, please contact your CIA Férias Administrator.
 756	forgot_password	Forgot Your Password
 757	invalid_credentials	Invalid credentials
 758	csrf_token_validation_failed	CSRF token validation failed
@@ -1007,7 +1007,7 @@
 1039	please_check_the_settings_for_your_ldap_configuration	Please check the settings for your LDAP configuration
 1040	user_search_filter_input_hint	Attribute field to use when searching user objects. Ex: objectClass=person
 1041	user_unique_attribute_input_hint	Attribute field to use as a unique immutable identifier for user objects. This is used to track username changes. Ex: entryUUID, objectGUID
-1042	field_in_orangehrm	Field in OrangeHRM
+1042	field_in_cia_ferias	Field in CIA Férias
 1043	field_in_ldap_directory	Field in LDAP Directory
 1044	use_this_field_as_the_employee_user_mapping_field	Use this field as the employee / user mapping field
 1045	n_users_found	{count} user(s) found
@@ -1108,7 +1108,7 @@
 1142	invalid_video_url_message	This URL is not a valid URL of a video or it is not supported by the system
 1143	buzz_latest_posts	Buzz Latest Posts
 1144	no_posts_added	No Posts Added
-1145	getting_started_with_orangehrm	Getting Started with OrangeHRM
+1145	getting_started_with_cia_ferias	Getting Started with CIA Férias
 1146	client_id	Client ID
 1147	client_secret	Client Secret
 1148	redirect_uri	Redirect URI
@@ -1136,7 +1136,7 @@
 1170	deny	Deny
 1171	allow_access	Allow Access
 1172	this_request_is_invalid	This request is invalid
-1173	mobile_client_disabled_error	Mobile app is not enabled. Please contact your OrangeHRM administrator.
+1173	mobile_client_disabled_error	Mobile app is not enabled. Please contact your CIA Férias administrator.
 1174	strong	Strong
 1175	help	Help
 1176	claim	Claim

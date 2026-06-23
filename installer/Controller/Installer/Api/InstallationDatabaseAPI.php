@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer\Api;
+namespace CiaFerias\Installer\Controller\Installer\Api;
 
 use InvalidArgumentException;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\Http\Response;
-use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
-use OrangeHRM\Installer\Util\AppSetupUtility;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Http\Response;
+use CiaFerias\Installer\Controller\AbstractInstallerRestController;
+use CiaFerias\Installer\Util\AppSetupUtility;
 
 class InstallationDatabaseAPI extends AbstractInstallerRestController
 {

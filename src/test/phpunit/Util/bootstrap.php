@@ -18,11 +18,11 @@
  */
 
 use Doctrine\DBAL\Exception\ConnectionException;
-use OrangeHRM\Framework\ServiceContainer;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\ORM\Doctrine;
-use OrangeHRM\ORM\Exception\ConfigNotFoundException;
-use OrangeHRM\Tests\Util\CoreFixtureService;
+use CiaFerias\Framework\ServiceContainer;
+use CiaFerias\Framework\Services;
+use CiaFerias\ORM\Doctrine;
+use CiaFerias\ORM\Exception\ConfigNotFoundException;
+use CiaFerias\Tests\Util\CoreFixtureService;
 
 define('ENVIRONMENT', 'test');
 date_default_timezone_set('UTC');

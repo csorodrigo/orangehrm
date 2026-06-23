@@ -101,32 +101,32 @@ function checkQueryResult($result, $dbConnection) {
 
 function truncateTables($dbConnection) {
 
-    $q = "TRUNCATE TABLE `ohrm_job_candidate_history`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_candidate_history`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);
     
-    $q = "TRUNCATE TABLE `ohrm_job_candidate_attachment`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_candidate_attachment`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "TRUNCATE TABLE `ohrm_job_candidate_vacancy`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_candidate_vacancy`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "TRUNCATE TABLE `ohrm_job_candidate`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_candidate`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "TRUNCATE TABLE `ohrm_job_vacancy`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_vacancy`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);
 
-    $q = "TRUNCATE TABLE `ohrm_job_title`";
+    $q = "TRUNCATE TABLE `cia_ferias_job_title`";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    
@@ -135,7 +135,7 @@ function truncateTables($dbConnection) {
 
 function addJobTitles($dbConnection) {
     
-    $q = "INSERT INTO `ohrm_job_title` VALUES 
+    $q = "INSERT INTO `cia_ferias_job_title` VALUES 
                                         ('1', 'Computer Information Systems Manager', 'CISM', 'CISM', 0),
                                         ('2', 'Computer Programmer', 'CP', 'CP', 0),
                                         ('3', 'Computer Security Specialist', 'CSS', 'CSS', 0),
@@ -146,7 +146,7 @@ function addJobTitles($dbConnection) {
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);
     
-    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5 WHERE `table_name` = 'ohrm_job_title'";
+    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5 WHERE `table_name` = 'cia_ferias_job_title'";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);  
@@ -173,7 +173,7 @@ function addJobVacancies($dbConnection) {
     $dateTime4 = date('Y-m-d H:i:s', strtotime("-7 days"));
     $dateTime5 = date('Y-m-d H:i:s', strtotime("-6 days"));
 
-    $q = "INSERT INTO `ohrm_job_vacancy` (`id`, `job_title_code`, `hiring_manager_id`, `name`, `description`, `no_of_positions`,
+    $q = "INSERT INTO `cia_ferias_job_vacancy` (`id`, `job_title_code`, `hiring_manager_id`, `name`, `description`, `no_of_positions`,
                                           `status`, `published_in_feed`, `defined_time`, `updated_time`) VALUES 
                                           (1, '1', '1', '$name1', '$vd1', 1, 1, 1, '$dateTime1', '$dateTime1'),
                                           (2, '2', '2', '$name2', '$vd2', 2, 1, 1, '$dateTime2', '$dateTime2'),
@@ -185,7 +185,7 @@ function addJobVacancies($dbConnection) {
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);
     
-    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5 WHERE `table_name` = 'ohrm_job_vacancy'";
+    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5 WHERE `table_name` = 'cia_ferias_job_vacancy'";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);   
@@ -208,16 +208,16 @@ function addCandidates($dbConnection, $recordsLimit) {
                           'Database Administrator',
                           'Game Designer');
 
-    $candidateQ = "INSERT INTO `ohrm_job_candidate` (`id`, `first_name`, `middle_name`, `last_name`, 
+    $candidateQ = "INSERT INTO `cia_ferias_job_candidate` (`id`, `first_name`, `middle_name`, `last_name`, 
                                             `email`, `contact_number`, `status`, `comment`, 
                                             `mode_of_application`, `date_of_application`, `cv_file_id`, 
                                             `cv_text_version`, `keywords`, `added_person`) VALUES";
  
-    $cvQ = "INSERT INTO `ohrm_job_candidate_attachment` VALUES";    
+    $cvQ = "INSERT INTO `cia_ferias_job_candidate_attachment` VALUES";    
     
-    $candidateVacancyQ = "INSERT INTO `ohrm_job_candidate_vacancy` VALUES";
+    $candidateVacancyQ = "INSERT INTO `cia_ferias_job_candidate_vacancy` VALUES";
     
-    $candidateHistoryQ = "INSERT INTO `ohrm_job_candidate_history` VALUES";
+    $candidateHistoryQ = "INSERT INTO `cia_ferias_job_candidate_history` VALUES";
 
     for ($i=1; $i<$recordLimit; $i++) {
         
@@ -249,7 +249,7 @@ function addCandidates($dbConnection, $recordsLimit) {
     $result = mysqli_query($dbConnection, $candidateQ);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'ohrm_job_candidate'";
+    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'cia_ferias_job_candidate'";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);
@@ -258,7 +258,7 @@ function addCandidates($dbConnection, $recordsLimit) {
 //    $result = mysqli_query($dbConnection, $cvQ);
 //    checkQueryResult($result, $dbConnection);
 //
-//    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'ohrm_job_candidate_attachment'";
+//    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'cia_ferias_job_candidate_attachment'";
 //    $result = mysqli_query($dbConnection, $q);
 //    checkQueryResult($result, $dbConnection);
     
@@ -267,7 +267,7 @@ function addCandidates($dbConnection, $recordsLimit) {
     $result = mysqli_query($dbConnection, $candidateVacancyQ);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'ohrm_job_candidate_vacancy'";
+    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'cia_ferias_job_candidate_vacancy'";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    
@@ -277,7 +277,7 @@ function addCandidates($dbConnection, $recordsLimit) {
     $result = mysqli_query($dbConnection, $candidateHistoryQ);
     checkQueryResult($result, $dbConnection);    
     
-    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'ohrm_job_candidate_history'";
+    $q = "UPDATE `hs_hr_unique_id` SET `last_id` = 5000 WHERE `table_name` = 'cia_ferias_job_candidate_history'";
     display($q);
     $result = mysqli_query($dbConnection, $q);
     checkQueryResult($result, $dbConnection);    

@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Http;
+namespace CiaFerias\Framework\Http;
 
 use BadFunctionCallException;
-use OrangeHRM\Config\Config;
+use CiaFerias\Config\Config;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 class Request extends HttpRequest

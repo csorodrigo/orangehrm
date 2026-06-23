@@ -19,6 +19,6 @@
 
 require realpath(__DIR__ . '/../src/vendor/autoload.php');
 
-use OrangeHRM\Config\Config;
+use CiaFerias\Config\Config;
 
 echo Config::PRODUCT_MODE;

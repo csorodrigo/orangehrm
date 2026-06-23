@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Routing;
+namespace CiaFerias\Framework\Routing;
 
 use Symfony\Component\Routing\Generator\UrlGenerator as RoutingUrlGenerator;
 

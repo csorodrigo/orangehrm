@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Fixture;
+namespace CiaFerias\Tests\Util\Fixture;
 
-use OrangeHRM\Entity\Nationality;
+use CiaFerias\Entity\Nationality;
 
 class NationalityFixture extends AbstractFixture
 {

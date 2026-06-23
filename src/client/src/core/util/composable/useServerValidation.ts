@@ -16,7 +16,7 @@
  */
 
 import {AxiosResponse} from 'axios';
-import {promiseDebounce} from '@ohrm/oxd';
+import {promiseDebounce} from '@cia-ferias/oxd';
 import {APIService} from '@/core/util/services/api.service';
 import {translate as translatorFactory} from '@/core/plugins/i18n/translate';
 

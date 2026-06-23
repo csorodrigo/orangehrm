@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command;
+namespace CiaFerias\DevTools\Command;
 
 use Conf;
 use Doctrine\DBAL\Connection;
@@ -25,9 +25,9 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Types;
 use Exception;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
-use OrangeHRM\Tests\Util\CoreFixtureService;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
+use CiaFerias\Tests\Util\CoreFixtureService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

@@ -1,0 +1,276 @@
+apiv2_time_project:
+  path: /api/v2/time/projects/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\ProjectAPI
+    _key: id
+
+apiv2_time_projects:
+  path: /api/v2/time/projects
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Time\Api\ProjectAPI
+
+apiv2_time_validate_project_name:
+  path: /api/v2/time/validation/project-name
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: projectName
+    _api: CiaFerias\Time\Api\ValidateProjectNameAPI
+
+apiv2_time_time_sheet_period_config:
+  path: /api/v2/time/time-sheet-period
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Time\Api\TimeConfigPeriodAPI
+
+apiv2_time_customer:
+  path: /api/v2/time/customers/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\CustomerAPI
+
+apiv2_time_customers:
+  path: /api/v2/time/customers
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Time\Api\CustomerAPI
+
+apiv2_time_validate_customer_name:
+  path: /api/v2/time/validation/customer-name
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: customerName
+    _api: CiaFerias\Time\Api\ValidationCustomerNameAPI
+
+apiv2_time_project_activities:
+  path: /api/v2/time/project/{projectId}/activities
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST, DELETE ]
+  defaults:
+    _api: CiaFerias\Time\Api\ProjectActivityAPI
+
+apiv2_time_project_activity:
+  path: /api/v2/time/project/{projectId}/activities/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\ProjectActivityAPI
+
+apiv2_time_validate_project_activity_name:
+  path: /api/v2/time/validation/activity-name/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: activityName
+    _api: CiaFerias\Time\Api\ValidationProjectActivityNameAPI
+
+apiv2_time_my_time_sheets:
+  path: /api/v2/time/timesheets
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST ]
+  defaults:
+    _api: CiaFerias\Time\Api\MyTimesheetAPI
+
+apiv2_time_my_time_sheet:
+  path: /api/v2/time/timesheets/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\MyTimesheetAPI
+
+apiv2_time_employee_time_sheets:
+  path: /api/v2/time/employees/{empNumber}/timesheets
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST ]
+  defaults:
+    _api: CiaFerias\Time\Api\EmployeeTimesheetAPI
+
+apiv2_time_employee_time_sheet:
+  path: /api/v2/time/employees/{empNumber}/timesheets/{id}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\EmployeeTimesheetAPI
+
+apiv2_time_default_time_sheet:
+  path: /api/v2/time/timesheets/default
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Time\Api\DefaultTimesheetAPI
+
+apiv2_time_my_timesheets_entries:
+  path: /api/v2/time/timesheets/{timesheetId}/entries
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\MyTimesheetItemAPI
+
+apiv2_time_employees_timesheets_entries:
+  path: /api/v2/time/employees/timesheets/{timesheetId}/entries
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\EmployeeTimesheetItemAPI
+
+apiv2_time_timesheet_action_log:
+  path: /api/v2/time/timesheets/{timesheetId}/action-logs
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\TimesheetActionLogAPI
+
+apiv2_time_timesheet_project_activity_unique_validation:
+  path: /api/v2/time/validation/{timesheetId}/project-activity
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _key: activityId
+    _api: CiaFerias\Time\Api\TimesheetProjectActivityUniqueValidationAPI
+
+apiv2_time_my_timesheet_entries_comments:
+  path: /api/v2/time/timesheets/{timesheetId}/entries/comment
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ PUT ]
+  defaults:
+    _api: CiaFerias\Time\Api\TimesheetCommentAPI
+
+apiv2_time_my_timesheet_entries_comment:
+  path: /api/v2/time/timesheets/{timesheetId}/entries/{id}/comment
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\TimesheetCommentAPI
+
+apiv2_time_my_timesheet_time_format_config:
+  path: /api/v2/time/config/time-format
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    id: 0
+    _api: CiaFerias\Time\Api\TimesheetTimeFormatAPI
+
+apiv2_time_copy_activity:
+  path: /api/v2/time/projects/{toProjectId}/activities/copy/{fromProjectId}
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET, POST ]
+  defaults:
+    _api: CiaFerias\Time\Api\CopyProjectActivityAPI
+
+apiv2_time_employee_timesheets_list:
+  path: /api/v2/time/employees/timesheets/list
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\EmployeeTimesheetListAPI
+
+apiv2_time_reports:
+  path: /api/v2/time/reports
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\TimeReportAPI
+    _key: name
+
+apiv2_time_reports_data:
+  path: /api/v2/time/reports/data
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\TimeReportDataAPI
+
+apiv2_time_project_admins:
+  path: /api/v2/time/project-admins
+  controller: CiaFerias\Core\Controller\Rest\V2\GenericRestController::handle
+  methods: [ GET ]
+  defaults:
+    _api: CiaFerias\Time\Api\ProjectAdminAPI
+
+##########################
+#        Screens
+##########################
+
+time_module:
+  path: /time/viewTimeModule
+  controller: CiaFerias\Time\Controller\TimeModuleController::handle
+  methods: [ GET ]
+
+view_time_sheet_config:
+  path: /time/defineTimesheetPeriod
+  controller: CiaFerias\Time\Controller\TimesheetPeriodConfigController::handle
+  methods: [ GET ]
+
+view_customers:
+  path: /time/viewCustomers
+  controller: CiaFerias\Time\Controller\CustomerController::handle
+  methods: [ GET ]
+
+save_customer:
+  path: /time/addCustomer
+  controller: CiaFerias\Time\Controller\SaveCustomerController::handle
+  methods: [ GET ]
+
+edit_customer:
+  path: /time/addCustomer/{id}
+  controller: CiaFerias\Time\Controller\SaveCustomerController::handle
+  methods: [ GET ]
+
+time_my_timesheet:
+  path: /time/viewMyTimesheet
+  controller: CiaFerias\Time\Controller\MyTimesheetController::handle
+  methods: [ GET ]
+
+time_edit_timesheet:
+  path: /time/editTimesheet/{id}
+  controller: CiaFerias\Time\Controller\EditTimesheetController::handle
+  methods: [ GET ]
+
+time_view_projects:
+  path: /time/viewProjects
+  controller: CiaFerias\Time\Controller\ProjectController::handle
+  methods: [ GET ]
+
+time_save_project:
+  path: /time/saveProject
+  controller: CiaFerias\Time\Controller\SaveProjectController::handle
+  methods: [ GET ]
+
+time_edit_project:
+  path: /time/saveProject/{id}
+  controller: CiaFerias\Time\Controller\SaveProjectController::handle
+  methods: [ GET ]
+
+time_employee_timesheet:
+  path: /time/viewEmployeeTimesheet
+  controller: CiaFerias\Time\Controller\EmployeeTimesheetController::handle
+  methods: [ GET ]
+
+time_employee_view_timesheet:
+  path: /time/viewTimesheet/employeeId/{id}
+  controller: CiaFerias\Time\Controller\EmployeeTimesheetController::handle
+  methods: [ GET ]
+
+time_employee_report:
+  path: /time/displayEmployeeReportCriteria
+  controller: CiaFerias\Time\Controller\EmployeeTimeReportController::handle
+  methods: [ GET ]
+
+time_project_activity_report:
+  path: /time/displayProjectReportCriteria
+  controller: CiaFerias\Time\Controller\ProjectActivityReportController::handle
+  methods: [ GET ]
+
+time_activity_details_report:
+  path: /time/displayProjectActivityDetailsReport
+  controller: CiaFerias\Time\Controller\ActivityDetailsReportController::handle
+  methods: [ GET ]

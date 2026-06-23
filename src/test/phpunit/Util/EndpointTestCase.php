@@ -17,18 +17,18 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util;
+namespace CiaFerias\Tests\Util;
 
 use Closure;
-use OrangeHRM\Core\Api\V2\Exception\BadRequestException;
-use OrangeHRM\Core\Api\V2\Exception\ForbiddenException;
-use OrangeHRM\Core\Api\V2\Exception\InvalidParamException;
-use OrangeHRM\Core\Api\V2\Exception\NotImplementedException;
-use OrangeHRM\Core\Api\V2\Exception\RecordNotFoundException;
-use OrangeHRM\Core\Api\V2\Request;
-use OrangeHRM\Core\Api\V2\RequestParams;
-use OrangeHRM\Core\Traits\ValidatorTrait;
-use OrangeHRM\Framework\Http\Request as HttpRequest;
+use CiaFerias\Core\Api\V2\Exception\BadRequestException;
+use CiaFerias\Core\Api\V2\Exception\ForbiddenException;
+use CiaFerias\Core\Api\V2\Exception\InvalidParamException;
+use CiaFerias\Core\Api\V2\Exception\NotImplementedException;
+use CiaFerias\Core\Api\V2\Exception\RecordNotFoundException;
+use CiaFerias\Core\Api\V2\Request;
+use CiaFerias\Core\Api\V2\RequestParams;
+use CiaFerias\Core\Traits\ValidatorTrait;
+use CiaFerias\Framework\Http\Request as HttpRequest;
 use PHPUnit\Framework\MockObject\MockBuilder;
 
 abstract class EndpointTestCase extends KernelTestCase

@@ -1,0 +1,79 @@
+<!--
+/**
+ * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
+ * all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM is free software: you can redistribute it and/or modify it under the terms of
+ * the GNU General Public License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with OrangeHRM.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+ -->
+
+<template>
+  <oxd-grid class="cia-ferias-dashboard-grid" :cols="3">
+    <oxd-grid-item
+      v-if="$can.read('dashboard_time_widget')"
+      class="cia-ferias-dashboard-widget"
+    >
+      <employee-attendance-widget></employee-attendance-widget>
+    </oxd-grid-item>
+    <oxd-grid-item
+      v-if="$can.read('dashboard_leave_widget')"
+      class="cia-ferias-dashboard-widget"
+    >
+      <employees-on-leave-widget></employees-on-leave-widget>
+    </oxd-grid-item>
+    <oxd-grid-item
+      v-if="$can.read('dashboard_subunit_widget')"
+      class="cia-ferias-dashboard-widget"
+    >
+      <employee-subunit-widget></employee-subunit-widget>
+    </oxd-grid-item>
+    <oxd-grid-item
+      v-if="$can.read('dashboard_location_widget')"
+      class="cia-ferias-dashboard-widget"
+    >
+      <employee-location-widget></employee-location-widget>
+    </oxd-grid-item>
+  </oxd-grid>
+</template>
+
+<script>
+import {APIService} from '@/core/util/services/api.service';
+import EmployeeSubunitWidget from '@/ciaFeriasDashboardPlugin/components/EmployeeSubunitWidget.vue';
+import EmployeeLocationWidget from '@/ciaFeriasDashboardPlugin/components/EmployeeLocationWidget.vue';
+import EmployeesOnLeaveWidget from '@/ciaFeriasDashboardPlugin/components/EmployeesOnLeaveWidget.vue';
+import EmployeeAttendanceWidget from '@/ciaFeriasDashboardPlugin/components/EmployeeAttendanceWidget.vue';
+
+export default {
+  components: {
+    'employee-subunit-widget': EmployeeSubunitWidget,
+    'employee-location-widget': EmployeeLocationWidget,
+    'employees-on-leave-widget': EmployeesOnLeaveWidget,
+    'employee-attendance-widget': EmployeeAttendanceWidget,
+  },
+  mounted() {
+    const http = new APIService(window.appGlobal.baseUrl, '/events/push');
+    http.create();
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.cia-ferias-dashboard-grid {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+</style>

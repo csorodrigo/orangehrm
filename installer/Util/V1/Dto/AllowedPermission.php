@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\V1\Dto;
+namespace CiaFerias\Installer\Util\V1\Dto;
 
 class AllowedPermission
 {

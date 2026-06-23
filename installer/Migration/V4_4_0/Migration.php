@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_4_0;
+namespace CiaFerias\Installer\Migration\V4_4_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -31,8 +31,8 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_post'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_post', 'utf8mb4')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_post'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_post', 'utf8mb4')
                 ->addColumn('id', Types::BIGINT, ['Autoincrement' => true])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
                 ->addColumn('text', Types::TEXT)
@@ -48,10 +48,10 @@ class Migration extends AbstractMigration
             'buzzPostEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_post', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_post', $foreignKeyConstraint);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_share'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_share', 'utf8mb4')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_share'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_share', 'utf8mb4')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('post_id', Types::BIGINT, ['Length' => 20, 'Notnull' => true])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -69,12 +69,12 @@ class Migration extends AbstractMigration
             'post_id',
             ['post_id']
         );
-        $this->getSchemaManager()->createIndex($postId, 'ohrm_buzz_share');
+        $this->getSchemaManager()->createIndex($postId, 'cia_ferias_buzz_share');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_share');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_share');
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['employee_number'],
             'hs_hr_employee',
@@ -82,19 +82,19 @@ class Migration extends AbstractMigration
             'buzzShareEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_share', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_share', $foreignKeyConstraint);
 
         $foreignKeyConstraint2 = new ForeignKeyConstraint(
             ['post_id'],
-            'ohrm_buzz_post',
+            'cia_ferias_buzz_post',
             ['id'],
             'buzzSharePost',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_share', $foreignKeyConstraint2);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_share', $foreignKeyConstraint2);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_comment'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_comment', 'utf8mb4')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_comment'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_comment', 'utf8mb4')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('share_id', Types::BIGINT, ['Length' => 20])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -110,12 +110,12 @@ class Migration extends AbstractMigration
             'share_id',
             ['share_id']
         );
-        $this->getSchemaManager()->createIndex($postId, 'ohrm_buzz_comment');
+        $this->getSchemaManager()->createIndex($postId, 'cia_ferias_buzz_comment');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_comment');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_comment');
 
         $foreignKeyConstraint3 = new ForeignKeyConstraint(
             ['employee_number'],
@@ -124,19 +124,19 @@ class Migration extends AbstractMigration
             'buzzComentedEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_comment', $foreignKeyConstraint3);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_comment', $foreignKeyConstraint3);
 
         $foreignKeyConstraint4 = new ForeignKeyConstraint(
             ['share_id'],
-            'ohrm_buzz_share',
+            'cia_ferias_buzz_share',
             ['id'],
             'buzzComentOnShare',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_comment', $foreignKeyConstraint4);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_comment', $foreignKeyConstraint4);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_like_on_comment'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_like_on_comment')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_like_on_comment'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_like_on_comment')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('comment_id', Types::BIGINT, ['Length' => 20, 'Notnull' => true])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -148,12 +148,12 @@ class Migration extends AbstractMigration
             'comment_id',
             ['comment_id']
         );
-        $this->getSchemaManager()->createIndex($commentId, 'ohrm_buzz_like_on_comment');
+        $this->getSchemaManager()->createIndex($commentId, 'cia_ferias_buzz_like_on_comment');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_like_on_comment');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_like_on_comment');
 
         $foreignKeyConstraint5 = new ForeignKeyConstraint(
             ['employee_number'],
@@ -162,18 +162,18 @@ class Migration extends AbstractMigration
             'buzzCommentLikeEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_like_on_comment', $foreignKeyConstraint5);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_like_on_comment', $foreignKeyConstraint5);
         $foreignKeyConstraint6 = new ForeignKeyConstraint(
             ['comment_id'],
-            'ohrm_buzz_comment',
+            'cia_ferias_buzz_comment',
             ['id'],
             'buzzLikeOnComment',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_like_on_comment', $foreignKeyConstraint6);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_like_on_comment', $foreignKeyConstraint6);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_like_on_share'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_like_on_share')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_like_on_share'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_like_on_share')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('share_id', Types::BIGINT, ['Length' => 20])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -185,12 +185,12 @@ class Migration extends AbstractMigration
             'share_id',
             ['share_id']
         );
-        $this->getSchemaManager()->createIndex($shareId, 'ohrm_buzz_like_on_share');
+        $this->getSchemaManager()->createIndex($shareId, 'cia_ferias_buzz_like_on_share');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_like_on_share');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_like_on_share');
         $foreignKeyConstraint11 = new ForeignKeyConstraint(
             ['employee_number'],
             'hs_hr_employee',
@@ -198,19 +198,19 @@ class Migration extends AbstractMigration
             'buzzShareLikeEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_like_on_share', $foreignKeyConstraint11);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_like_on_share', $foreignKeyConstraint11);
 
         $foreignKeyConstraint12 = new ForeignKeyConstraint(
             ['share_id'],
-            'ohrm_buzz_share',
+            'cia_ferias_buzz_share',
             ['id'],
             'buzzLikeOnshare',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_like_on_share', $foreignKeyConstraint12);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_like_on_share', $foreignKeyConstraint12);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_photo'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_photo')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_photo'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_photo')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('post_id', Types::BIGINT, ['Length' => 20])
                 ->addColumn('photo', Types::BLOB)
@@ -226,18 +226,18 @@ class Migration extends AbstractMigration
             'attachment_id',
             ['post_id']
         );
-        $this->getSchemaManager()->createIndex($attachmentId, 'ohrm_buzz_photo');
+        $this->getSchemaManager()->createIndex($attachmentId, 'cia_ferias_buzz_photo');
         $foreignKeyConstraint7 = new ForeignKeyConstraint(
             ['post_id'],
-            'ohrm_buzz_post',
+            'cia_ferias_buzz_post',
             ['id'],
             'photoAttached',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_photo', $foreignKeyConstraint7);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_photo', $foreignKeyConstraint7);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_link'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_link')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_link'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_link')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('post_id', Types::BIGINT, ['Length' => 20])
                 ->addColumn('link', Types::TEXT, ['Notnull' => true])
@@ -251,23 +251,23 @@ class Migration extends AbstractMigration
             'attachment_id',
             ['post_id']
         );
-        $this->getSchemaManager()->createIndex($attachmentId, 'ohrm_buzz_link');
+        $this->getSchemaManager()->createIndex($attachmentId, 'cia_ferias_buzz_link');
         $photoId = new Index(
             'photo_id',
             ['post_id']
         );
-        $this->getSchemaManager()->createIndex($photoId, 'ohrm_buzz_link');
+        $this->getSchemaManager()->createIndex($photoId, 'cia_ferias_buzz_link');
         $foreignKeyConstraint8 = new ForeignKeyConstraint(
             ['post_id'],
-            'ohrm_buzz_post',
+            'cia_ferias_buzz_post',
             ['id'],
             'linkAttached',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_link', $foreignKeyConstraint8);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_link', $foreignKeyConstraint8);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_unlike_on_comment'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_unlike_on_comment')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_unlike_on_comment'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_unlike_on_comment')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('comment_id', Types::BIGINT, ['Length' => 20, 'Notnull' => true])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -279,12 +279,12 @@ class Migration extends AbstractMigration
             'comment_id',
             ['comment_id']
         );
-        $this->getSchemaManager()->createIndex($commentId, 'ohrm_buzz_unlike_on_comment');
+        $this->getSchemaManager()->createIndex($commentId, 'cia_ferias_buzz_unlike_on_comment');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_unlike_on_comment');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_unlike_on_comment');
 
         $foreignKeyConstraint9 = new ForeignKeyConstraint(
             ['employee_number'],
@@ -293,18 +293,18 @@ class Migration extends AbstractMigration
             'buzzCommentUnLikeEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_unlike_on_comment', $foreignKeyConstraint9);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_unlike_on_comment', $foreignKeyConstraint9);
         $foreignKeyConstraint10 = new ForeignKeyConstraint(
             ['comment_id'],
-            'ohrm_buzz_comment',
+            'cia_ferias_buzz_comment',
             ['id'],
             'buzzUnLikeOnComment',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_unlike_on_comment', $foreignKeyConstraint10);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_unlike_on_comment', $foreignKeyConstraint10);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_unlike_on_share'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_unlike_on_share')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_unlike_on_share'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_unlike_on_share')
                 ->addColumn('id', Types::BIGINT, ['Length' => 20, 'Autoincrement' => true])
                 ->addColumn('share_id', Types::BIGINT, ['Length' => 20])
                 ->addColumn('employee_number', Types::INTEGER, ['Length' => 7])
@@ -316,12 +316,12 @@ class Migration extends AbstractMigration
             'share_id',
             ['share_id']
         );
-        $this->getSchemaManager()->createIndex($shareId, 'ohrm_buzz_unlike_on_share');
+        $this->getSchemaManager()->createIndex($shareId, 'cia_ferias_buzz_unlike_on_share');
         $employeeNumber = new Index(
             'employee_number',
             ['employee_number']
         );
-        $this->getSchemaManager()->createIndex($employeeNumber, 'ohrm_buzz_unlike_on_share');
+        $this->getSchemaManager()->createIndex($employeeNumber, 'cia_ferias_buzz_unlike_on_share');
 
         $foreignKeyConstraint13 = new ForeignKeyConstraint(
             ['employee_number'],
@@ -330,19 +330,19 @@ class Migration extends AbstractMigration
             'buzzShareUnLikeEmployee',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_unlike_on_share', $foreignKeyConstraint13);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_unlike_on_share', $foreignKeyConstraint13);
 
         $foreignKeyConstraint14 = new ForeignKeyConstraint(
             ['share_id'],
-            'ohrm_buzz_share',
+            'cia_ferias_buzz_share',
             ['id'],
             'buzzUNLikeOnshare',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_unlike_on_share', $foreignKeyConstraint14);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_unlike_on_share', $foreignKeyConstraint14);
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_buzz_notification_metadata'])) {
-            $this->getSchemaHelper()->createTable('ohrm_buzz_notification_metadata')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_buzz_notification_metadata'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_buzz_notification_metadata')
                 ->addColumn('emp_number', Types::INTEGER, ['Length' => 7])
                 ->addColumn('last_notification_view_time', Types::DATETIME_MUTABLE, ['Default' => null, 'Notnull' => false])
                 ->addColumn('last_buzz_view_time', Types::DATETIME_MUTABLE, ['Default' => null, 'Notnull' => false])
@@ -358,7 +358,7 @@ class Migration extends AbstractMigration
             'notificationMetadata',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_buzz_notification_metadata', $foreignKeyConstraint15);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_buzz_notification_metadata', $foreignKeyConstraint15);
 
 
         $this->insertConfig('buzz_refresh_time', '60000');
@@ -375,7 +375,7 @@ class Migration extends AbstractMigration
         $this->insertConfig('buzz_image_max_dimension', '1024');
 
         $this->createQueryBuilder()
-            ->insert('ohrm_module')
+            ->insert('cia_ferias_module')
             ->values(
                 [
                     'name' => ':name',
@@ -394,14 +394,14 @@ class Migration extends AbstractMigration
 
         $screenId = $this->createQueryBuilder()
             ->select('screen.id')
-            ->from('ohrm_screen', 'screen')
+            ->from('cia_ferias_screen', 'screen')
             ->where('screen.name = :screenName')
             ->setParameter('screenName', 'Buzz')
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('ohrm_menu_item')
+            ->insert('cia_ferias_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',

@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V4_9_0;
+namespace CiaFerias\Installer\Migration\V4_9_0;
 
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -29,8 +29,8 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_theme'])) {
-            $this->getSchemaHelper()->createTable('ohrm_theme')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_theme'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_theme')
                 ->addColumn('theme_id', Types::INTEGER, ['Length' => 11, 'Autoincrement' => true])
                 ->addColumn('theme_name', Types::STRING, ['Length' => 100, 'Notnull' => false])
                 ->addColumn('main_logo', Types::BLOB, ['Notnull' => false])
@@ -42,7 +42,7 @@ class Migration extends AbstractMigration
 
             $adminMenuId = $this->createQueryBuilder()
                 ->select('menu_item.id')
-                ->from('ohrm_menu_item', 'menu_item')
+                ->from('cia_ferias_menu_item', 'menu_item')
                 ->where('menu_item.menu_title = :menuTitle')
                 ->setParameter('menuTitle', 'Admin')
                 ->andWhere('level = :level')
@@ -57,32 +57,32 @@ class Migration extends AbstractMigration
             '{"primaryColor":"#f28b38","secondaryColor":"#f3f3f3","buttonSuccessColor":"#56ac40","buttonCancelColor":"#848484"}'
         );
 
-        if (!$this->getSchemaHelper()->columnExists('ohrm_theme', 'social_media_icons')) {
-            $this->getSchemaHelper()->addColumn('ohrm_theme', 'social_media_icons', Types::TEXT, [
+        if (!$this->getSchemaHelper()->columnExists('cia_ferias_theme', 'social_media_icons')) {
+            $this->getSchemaHelper()->addColumn('cia_ferias_theme', 'social_media_icons', Types::TEXT, [
                 'Notnull' => true,
                 'Default' => 'inline',
             ]);
         }
 
-        if (!$this->getSchemaHelper()->columnExists('ohrm_theme', 'login_banner')) {
-            $this->getSchemaHelper()->addColumn('ohrm_theme', 'login_banner', Types::BLOB);
+        if (!$this->getSchemaHelper()->columnExists('cia_ferias_theme', 'login_banner')) {
+            $this->getSchemaHelper()->addColumn('cia_ferias_theme', 'login_banner', Types::BLOB);
         }
 
         $this->createQueryBuilder()
-            ->delete('ohrm_marketplace_addon')
-            ->andWhere('ohrm_marketplace_addon.plugin_name = :pluginName')
-            ->setParameter('pluginName', 'orangehrmCorporateBrandingPlugin')
+            ->delete('cia_ferias_marketplace_addon')
+            ->andWhere('cia_ferias_marketplace_addon.plugin_name = :pluginName')
+            ->setParameter('pluginName', 'ciaFeriasCorporateBrandingPlugin')
             ->executeQuery();
 
         $brandingGroupId = $this->createQueryBuilder()
             ->select('i18nGroup.id')
-            ->from('ohrm_i18n_group', 'i18nGroup')
+            ->from('cia_ferias_i18n_group', 'i18nGroup')
             ->where('i18nGroup.name = :name')
             ->setParameter('name', 'branding')
             ->fetchOne();
         if ($brandingGroupId === false) {
             $this->createQueryBuilder()
-                ->insert('ohrm_i18n_group')
+                ->insert('cia_ferias_i18n_group')
                 ->values(
                     [
                         'name' => ':name',
@@ -94,8 +94,8 @@ class Migration extends AbstractMigration
                 ->executeQuery();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['ohrm_registration_event_queue'])) {
-            $this->getSchemaHelper()->createTable('ohrm_registration_event_queue')
+        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_registration_event_queue'])) {
+            $this->getSchemaHelper()->createTable('cia_ferias_registration_event_queue')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('event_type', Types::INTEGER, ['Notnull' => true])
                 ->addColumn('published', Types::SMALLINT, ['Unsigned' => true, 'NotNull' => true, 'Default' => 0])
@@ -135,14 +135,14 @@ class Migration extends AbstractMigration
     ): void {
         $screenId = $this->getConnection()->createQueryBuilder()
             ->select('screen.id')
-            ->from('ohrm_screen', 'screen')
+            ->from('cia_ferias_screen', 'screen')
             ->where('screen.name = :screenName')
             ->setParameter('screenName', $screenName)
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('ohrm_menu_item')
+            ->insert('cia_ferias_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',
@@ -173,14 +173,14 @@ class Migration extends AbstractMigration
     {
         $themeId = $this->createQueryBuilder()
             ->select('theme.theme_id')
-            ->from('ohrm_theme', 'theme')
+            ->from('cia_ferias_theme', 'theme')
             ->where('theme.theme_name = :name')
             ->setParameter('name', $themeName)
             ->fetchOne();
 
         if ($themeId === false) {
             $this->createQueryBuilder()
-                ->insert('ohrm_theme')
+                ->insert('cia_ferias_theme')
                 ->values(
                     [
                         'theme_name' => ':themeName',

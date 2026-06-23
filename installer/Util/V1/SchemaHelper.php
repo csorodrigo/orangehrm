@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\V1;
+namespace CiaFerias\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
@@ -28,7 +28,7 @@ use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
 use InvalidArgumentException;
-use OrangeHRM\Installer\Util\V1\Dto\Table;
+use CiaFerias\Installer\Util\V1\Dto\Table;
 use PDO;
 
 class SchemaHelper

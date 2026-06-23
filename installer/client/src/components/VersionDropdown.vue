@@ -19,7 +19,7 @@
 <template>
   <oxd-input-field
     type="select"
-    label="Current OrangeHRM Version"
+    label="Current CIA Férias Version"
     :options="options"
   />
 </template>

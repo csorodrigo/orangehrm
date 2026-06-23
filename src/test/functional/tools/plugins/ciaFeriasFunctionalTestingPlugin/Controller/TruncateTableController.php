@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
+ * all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM is free software: you can redistribute it and/or modify it under the terms of
+ * the GNU General Public License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with OrangeHRM.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
+namespace CiaFerias\FunctionalTesting\Controller;
+
+use CiaFerias\Core\Controller\AbstractController;
+use CiaFerias\Core\Controller\PublicControllerInterface;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Http\Response;
+use CiaFerias\Tests\Util\TestDataService;
+
+class TruncateTableController extends AbstractController implements PublicControllerInterface
+{
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function handle(Request $request): Response
+    {
+        $tables = $request->request->get('tables', []);
+        TestDataService::truncateSpecificTables($tables);
+        return $this->getResponse();
+    }
+}

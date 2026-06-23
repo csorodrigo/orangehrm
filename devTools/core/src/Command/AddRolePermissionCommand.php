@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command;
+namespace CiaFerias\DevTools\Command;
 
 use InvalidArgumentException;
-use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
-use OrangeHRM\DevTools\Command\Util\EchoSqlLogger;
-use OrangeHRM\Entity\DataGroup;
-use OrangeHRM\Entity\DataGroupPermission;
-use OrangeHRM\Entity\UserRole;
+use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
+use CiaFerias\DevTools\Command\Util\EchoSqlLogger;
+use CiaFerias\Entity\DataGroup;
+use CiaFerias\Entity\DataGroupPermission;
+use CiaFerias\Entity\UserRole;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -243,13 +243,13 @@ class AddRolePermissionCommand extends Command
         $isSelf = (int)$dataGroupPermission->isSelf();
 
         $this->printBlock(
-            "SET @{$dataGroup}_data_group_id := (SELECT `id` FROM ohrm_data_group WHERE name = '$dataGroup' LIMIT 1);"
+            "SET @{$dataGroup}_data_group_id := (SELECT `id` FROM cia_ferias_data_group WHERE name = '$dataGroup' LIMIT 1);"
         );
         $this->printBlock(
-            "SET @{$userRole}_role_id := (SELECT `id` FROM ohrm_user_role WHERE `name` = '$userRoleName' LIMIT 1);"
+            "SET @{$userRole}_role_id := (SELECT `id` FROM cia_ferias_user_role WHERE `name` = '$userRoleName' LIMIT 1);"
         );
         $this->printBlock(
-            "INSERT INTO ohrm_user_role_data_group (`can_read`, `can_create`, `can_update`, `can_delete`, `self`, `data_group_id`, `user_role_id`) VALUES ($canRead, $canCreate, $canUpdate, $canDelete, $isSelf, @{$dataGroup}_data_group_id, @{$userRole}_role_id);"
+            "INSERT INTO cia_ferias_user_role_data_group (`can_read`, `can_create`, `can_update`, `can_delete`, `self`, `data_group_id`, `user_role_id`) VALUES ($canRead, $canCreate, $canUpdate, $canDelete, $isSelf, @{$dataGroup}_data_group_id, @{$userRole}_role_id);"
         );
     }
 

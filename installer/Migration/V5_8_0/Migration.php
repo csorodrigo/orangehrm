@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Migration\V5_8_0;
+namespace CiaFerias\Installer\Migration\V5_8_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use OrangeHRM\Installer\Util\V1\AbstractMigration;
-use OrangeHRM\Installer\Util\V1\LangStringHelper;
+use CiaFerias\Installer\Util\V1\AbstractMigration;
+use CiaFerias\Installer\Util\V1\LangStringHelper;
 use PDO;
 
 class Migration extends AbstractMigration
@@ -35,7 +35,7 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        $payGradeCurrencyTableDetails = $this->getSchemaManager()->introspectTable('ohrm_pay_grade_currency');
+        $payGradeCurrencyTableDetails = $this->getSchemaManager()->introspectTable('cia_ferias_pay_grade_currency');
         $payGradeCurrencyCurrencyIdColumn = $payGradeCurrencyTableDetails->getColumn('currency_id');
 
         $basicSalaryTableDetails = $this->getSchemaManager()->introspectTable('hs_hr_emp_basicsalary');
@@ -55,24 +55,24 @@ class Migration extends AbstractMigration
     }
 
     /**
-     * Error in foreign key constraint of table ohrm_claim_request: Alter table ohrm_claim_request with foreign key fk_currency_id constraint failed.
+     * Error in foreign key constraint of table cia_ferias_claim_request: Alter table cia_ferias_claim_request with foreign key fk_currency_id constraint failed.
      * Field type or character set for column 'currency_id' does not match referenced column 'currency_id'.
      */
     public function correctingCurrencyIdColumnInconsistencies()
     {
         $this->disableForeignKeyChecks();
         $foreignKeyArray = [];
-        $foreignKeyArray = array_merge($foreignKeyArray, $this->getConflictingForeignKeys('ohrm_pay_grade_currency'));
+        $foreignKeyArray = array_merge($foreignKeyArray, $this->getConflictingForeignKeys('cia_ferias_pay_grade_currency'));
         $foreignKeyArray = array_merge($foreignKeyArray, $this->getConflictingForeignKeys('hs_hr_emp_basicsalary'));
 
         $this->removeConflictingForeignKeys($foreignKeyArray);
-        $this->removeConflictingForeignKeys($this->getConflictingForeignKeys('ohrm_claim_request'));
+        $this->removeConflictingForeignKeys($this->getConflictingForeignKeys('cia_ferias_claim_request'));
 
         $this->getConnection()->executeStatement(
             'ALTER TABLE hs_hr_currency_type MODIFY COLUMN currency_id VARCHAR(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci'
         );
 
-        $this->getSchemaHelper()->changeColumn('ohrm_pay_grade_currency', 'currency_id', [
+        $this->getSchemaHelper()->changeColumn('cia_ferias_pay_grade_currency', 'currency_id', [
             'Type' => Type::getType(Types::STRING),
             'Notnull' => true,
             'Length' => 3,
@@ -86,7 +86,7 @@ class Migration extends AbstractMigration
             'CustomSchemaOptions' => ['collation' => 'utf8mb3_general_ci', 'charset' => 'utf8mb3']
         ]);
 
-        $this->getSchemaHelper()->changeColumn('ohrm_claim_request', 'currency_id', [
+        $this->getSchemaHelper()->changeColumn('cia_ferias_claim_request', 'currency_id', [
             'Type' => Type::getType(Types::STRING),
             'Notnull' => true,
             'Length' => 3,
@@ -101,7 +101,7 @@ class Migration extends AbstractMigration
             'fk_currency_id',
             ['onDelete' => 'RESTRICT', 'onUpdate' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint);
 
         $this->enableForeignKeyChecks();
     }
@@ -199,7 +199,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('ohrm_i18n_lang_string', 'lang_string')
+            ->update('cia_ferias_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))

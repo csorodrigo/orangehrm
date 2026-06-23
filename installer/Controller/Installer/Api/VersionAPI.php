@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer\Api;
+namespace CiaFerias\Installer\Controller\Installer\Api;
 
-use OrangeHRM\Framework\Http\Request;
+use CiaFerias\Framework\Http\Request;
 
-class VersionAPI extends \OrangeHRM\Installer\Controller\Upgrader\Api\VersionAPI
+class VersionAPI extends \CiaFerias\Installer\Controller\Upgrader\Api\VersionAPI
 {
     /**
      * @inheritDoc

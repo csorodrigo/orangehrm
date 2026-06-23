@@ -17,8 +17,8 @@
  */
  -->
 <template>
-  <div class="orangehrm-installer-page">
-    <oxd-text tag="h5" class="orangehrm-installer-page-title">
+  <div class="cia-ferias-installer-page">
+    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
       Installation
     </oxd-text>
     <br />
@@ -27,7 +27,7 @@
     <oxd-text
       tag="h5"
       :class="{
-        'orangehrm-installer-page-content': true,
+        'cia-ferias-installer-page-content': true,
         '--progress': true,
         '--error': taskFailed,
       }"
@@ -45,19 +45,18 @@
       v-show="progress < 100"
       tag="p"
       :class="{
-        'orangehrm-installer-page-content': true,
+        'cia-ferias-installer-page-content': true,
         '--center': true,
         '--error': taskFailed,
       }"
     >
       <span v-if="taskFailed">
-        {{ errorMessage }}. To learn more, check our FAQ at
-        <a :href="faqUrl" target="_blank"> starterhelp.orangehrm.com </a>
+        {{ errorMessage }}. Check the installation logs before trying again.
       </span>
       <span v-else>Please Wait. Installation in Progress</span>
     </oxd-text>
 
-    <oxd-form-actions class="orangehrm-installer-page-action">
+    <oxd-form-actions class="cia-ferias-installer-page-action">
       <oxd-button
         v-show="progress === 100"
         label="Next"
@@ -82,7 +81,7 @@ import useBeforeUnload from '@/core/util/composable/useBeforeUnload';
 import useInstaller from '@/core/util/composable/useInstaller';
 import {navigate} from '@/core/util/helper/navigation.ts';
 import useProgress from '@/core/util/composable/useProgress';
-import {OxdProgressbar} from '@ohrm/oxd';
+import {OxdProgressbar} from '@cia-ferias/oxd';
 
 export default {
   name: 'InstallScreen',
@@ -118,7 +117,7 @@ export default {
         task: createInstance,
       },
       {
-        name: 'Create OrangeHRM database user',
+        name: 'Create application database user',
         state: 0,
         task: createDatabaseUser,
       },
@@ -187,18 +186,12 @@ export default {
       onClickNext,
     };
   },
-  data() {
-    return {
-      faqUrl:
-        'https://starterhelp.orangehrm.com/hc/en-us/categories/360002856800-FAQs',
-    };
-  },
 };
 </script>
 
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style scoped lang="scss">
-.orangehrm-installer-page-content {
+.cia-ferias-installer-page-content {
   &.--center {
     text-align: center;
   }

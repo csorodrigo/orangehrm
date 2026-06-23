@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\DevTools\Command\Util\Platforms;
+namespace CiaFerias\DevTools\Command\Util\Platforms;
 
 class MySQL80Platform extends \Doctrine\DBAL\Platforms\MySQL80Platform
 {

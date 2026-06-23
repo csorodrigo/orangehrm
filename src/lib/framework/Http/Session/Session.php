@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Http\Session;
+namespace CiaFerias\Framework\Http\Session;
 
 use Symfony\Component\HttpFoundation\Session\Session as HttpSession;
 

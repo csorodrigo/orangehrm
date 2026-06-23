@@ -17,24 +17,24 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Command;
+namespace CiaFerias\Installer\Command;
 
 use DateTimeZone;
-use OrangeHRM\Authentication\Dto\UserCredential;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\Installer\Api\ConfigFileAPI;
-use OrangeHRM\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI;
-use OrangeHRM\Installer\Exception\InterruptProcessException;
-use OrangeHRM\Installer\Exception\InvalidArgumentException;
-use OrangeHRM\Installer\Framework\InstallerCommand;
-use OrangeHRM\Installer\Util\AppSetupUtility;
-use OrangeHRM\Installer\Util\Connection;
-use OrangeHRM\Installer\Util\DatabaseUserPermissionEvaluator;
-use OrangeHRM\Installer\Util\InstanceCreationHelper;
-use OrangeHRM\Installer\Util\Logger;
-use OrangeHRM\Installer\Util\StateContainer;
-use OrangeHRM\Installer\Util\SystemCheck;
+use CiaFerias\Authentication\Dto\UserCredential;
+use CiaFerias\Config\Config;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\Installer\Api\ConfigFileAPI;
+use CiaFerias\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI;
+use CiaFerias\Installer\Exception\InterruptProcessException;
+use CiaFerias\Installer\Exception\InvalidArgumentException;
+use CiaFerias\Installer\Framework\InstallerCommand;
+use CiaFerias\Installer\Util\AppSetupUtility;
+use CiaFerias\Installer\Util\Connection;
+use CiaFerias\Installer\Util\DatabaseUserPermissionEvaluator;
+use CiaFerias\Installer\Util\InstanceCreationHelper;
+use CiaFerias\Installer\Util\Logger;
+use CiaFerias\Installer\Util\StateContainer;
+use CiaFerias\Installer\Util\SystemCheck;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
@@ -52,7 +52,7 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
     public const STEP_2 = 'Checking database permissions';
     public const STEP_3 = 'Applying database changes';
     public const STEP_4 = 'Instance and Admin user creation';
-    public const STEP_5 = 'Create OrangeHRM database user';
+    public const STEP_5 = 'Create CIA Férias database user';
     public const STEP_6 = 'Creating configuration files';
 
     private InputInterface $input;
@@ -133,7 +133,7 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
     protected function licenseAcceptance(): void
     {
         $this->getIO()->title('License Acceptance');
-        $this->getIO()->block('Please review the license terms before installing OrangeHRM Starter.');
+        $this->getIO()->block('Please review the license terms before installing CIA Férias.');
         $this->getIO()->block('You can find the license file ("LICENSE") at the root folder of the code.');
         if ($this->getIO()->confirm('I accept the terms in the License Agreement') !== true) {
             throw new InterruptProcessException();
@@ -160,22 +160,22 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
             "<comment>Privileged Database User:</comment>\nShould have the rights to create databases, create tables, insert data into table, alter table structure and to create database users."
         );
         $this->getIO()->writeln(
-            "<comment>OrangeHRM Database User:</comment>\nShould have the rights to insert data into table, update data in a table, delete data in a table."
+            "<comment>CIA Férias Database User:</comment>\nShould have the rights to insert data into table, update data in a table, delete data in a table."
         );
 
         $dbUser = $this->getRequiredField('Privileged Database Username');
         $dbPassword = $this->getIO()->askHidden('Privileged Database User Password <comment>(hidden)</comment>');
         $useSameDbUser = $this->getIO()->confirm(
-            'Use the same `Privileged Database User` as `OrangeHRM Database User`',
+            'Use the same `Privileged Database User` as `CIA Férias Database User`',
             false
         );
 
-        $ohrmDbUser = $dbUser;
-        $ohrmDbPassword = $dbPassword;
+        $ciaFeriasDbUser = $dbUser;
+        $ciaFeriasDbPassword = $dbPassword;
         if ($useSameDbUser === false) {
-            $ohrmDbUser = $this->getRequiredField('OrangeHRM Database Username');
-            $ohrmDbPassword = $this->getIO()->askHidden(
-                'OrangeHRM Database User Password <comment>(hidden)</comment>'
+            $ciaFeriasDbUser = $this->getRequiredField('CIA Férias Database Username');
+            $ciaFeriasDbPassword = $this->getIO()->askHidden(
+                'CIA Férias Database User Password <comment>(hidden)</comment>'
             );
         }
         $enableDataEncryption = $this->getIO()->confirm('Enable Data Encryption', false);
@@ -185,7 +185,7 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
             $dbPort,
             new UserCredential($dbUser, $dbPassword),
             $dbName,
-            new UserCredential($ohrmDbUser, $ohrmDbPassword),
+            new UserCredential($ciaFeriasDbUser, $ciaFeriasDbPassword),
             $enableDataEncryption
         );
         StateContainer::getInstance()->setDbType(AppSetupUtility::INSTALLATION_DB_TYPE_NEW);
@@ -201,9 +201,9 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
             StateContainer::getInstance()->clearDbInfo();
             goto dbInfo;
         }
-        if (!$useSameDbUser && $this->getAppSetupUtility()->isDatabaseUserExist($ohrmDbUser)) {
+        if (!$useSameDbUser && $this->getAppSetupUtility()->isDatabaseUserExist($ciaFeriasDbUser)) {
             $this->getIO()->error(
-                "Database User `$ohrmDbUser` Already Exist. Please Use Another Username for `OrangeHRM Database Username`."
+                "Database User `$ciaFeriasDbUser` Already Exist. Please Use Another Username for `CIA Férias Database Username`."
             );
             StateContainer::getInstance()->clearDbInfo();
             goto dbInfo;
@@ -239,7 +239,7 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
     {
         $this->getIO()->title('Instance Creation');
         $this->getIO()->block(
-            'Fill in your organization details here. Details entered in this section will be captured to create your OrangeHRM Instance'
+            'Fill in your organization details here. Details entered in this section will be captured to create your CIA Férias instance'
         );
         $organizationName = $this->getRequiredField(
             'Organization Name',
@@ -365,13 +365,13 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
         );
 
         $regConsent = $this->getIO()->confirm(
-            'Register your system with OrangeHRM. By registering, You will be eligible for free support via emails, receive security alerts and news letters from OrangeHRM.',
+            'Register your CIA Férias system. By registering, you will be eligible for internal support, security alerts, and product updates.',
             true
         );
         StateContainer::getInstance()->storeRegConsent($regConsent);
 
         $this->getIO()->note(
-            'Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their requests to data@orangehrm.com'
+            'Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their requests to the CIA Férias support channel.'
         );
     }
 

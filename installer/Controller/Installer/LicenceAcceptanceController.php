@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer;
+namespace CiaFerias\Installer\Controller\Installer;
 
-use OrangeHRM\Core\Vue\Component;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Core\Vue\Component;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\AbstractInstallerVueController;
+use CiaFerias\Installer\Util\StateContainer;
 
 class LicenceAcceptanceController extends AbstractInstallerVueController
 {

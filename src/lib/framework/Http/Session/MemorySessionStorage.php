@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Framework\Http\Session;
+namespace CiaFerias\Framework\Http\Session;
 
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Session\SessionBagInterface;

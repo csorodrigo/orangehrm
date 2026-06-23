@@ -1,6 +1,6 @@
 ## Introduction
 
-Testing OrangeHRM 5x via cypress framework. cypress execute test on native browser without any middleware server.
+Testing CIA Férias via Cypress. Cypress executes tests on a native browser without any middleware server.
 This is the main advantage of cypress over selenium.
 
 ## How to set up the project
@@ -11,7 +11,7 @@ This is the main advantage of cypress over selenium.
 
 ```
      {
-        "baseUrl": "http://php80/orangehrm/web/index.php",
+        "baseUrl": "http://php80/cia-ferias/web/index.php",
      }
 ```
 

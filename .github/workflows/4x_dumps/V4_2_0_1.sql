@@ -964,14 +964,14 @@ CREATE TABLE `hs_hr_module` (
 --
 
 INSERT INTO `hs_hr_module` (`mod_id`, `name`, `owner`, `owner_email`, `version`, `description`) VALUES
-('MOD001', 'Admin', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'HR Admin'),
-('MOD002', 'PIM', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'HR Functions'),
-('MOD004', 'Report', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Reporting'),
-('MOD005', 'Leave', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Leave Tracking'),
-('MOD006', 'Time', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Time Tracking'),
-('MOD007', 'Benefits', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Benefits Tracking'),
-('MOD008', 'Recruitment', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Recruitment'),
-('MOD009', 'Performance', 'OrangeHRM', 'info@orangehrm.com', 'VER001', 'Performance');
+('MOD001', 'Admin', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'HR Admin'),
+('MOD002', 'PIM', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'HR Functions'),
+('MOD004', 'Report', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Reporting'),
+('MOD005', 'Leave', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Leave Tracking'),
+('MOD006', 'Time', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Time Tracking'),
+('MOD007', 'Benefits', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Benefits Tracking'),
+('MOD008', 'Recruitment', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Recruitment'),
+('MOD009', 'Performance', 'CIA Férias', 'suporte@cia-ferias.local', 'VER001', 'Performance');
 
 -- --------------------------------------------------------
 
@@ -1791,21 +1791,21 @@ CREATE TABLE `ohrm_email_template` (
 --
 
 INSERT INTO `ohrm_email_template` (`id`, `email_id`, `locale`, `performer_role`, `recipient_role`, `subject`, `body`) VALUES
-(1, 1, 'en_US', NULL, 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationBody.txt'),
-(2, 1, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubscriberBody.txt'),
-(3, 3, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalBody.txt'),
-(4, 3, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberBody.txt'),
-(5, 2, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBody.txt'),
-(6, 2, 'en_US', NULL, 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubjectForSupervisors.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBodyForSupervisors.txt'),
-(7, 2, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberBody.txt'),
-(8, 4, 'en_US', 'ess', 'supervisor', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationBody.txt'),
-(9, 4, 'en_US', 'ess', 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberBody.txt'),
-(10, 4, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationBody.txt'),
-(11, 4, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberBody.txt'),
-(12, 5, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionBody.txt'),
-(13, 5, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberBody.txt'),
-(14, 6, 'en_US', NULL, 'ess', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeBody.txt'),
-(15, 6, 'en_US', NULL, 'subscriber', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberSubject.txt', 'orangehrmLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberBody.txt');
+(1, 1, 'en_US', NULL, 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationBody.txt'),
+(2, 1, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/apply/leaveApplicationSubscriberBody.txt'),
+(3, 3, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalBody.txt'),
+(4, 3, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/approve/leaveApprovalSubscriberBody.txt'),
+(5, 2, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBody.txt'),
+(6, 2, 'en_US', NULL, 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubjectForSupervisors.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentBodyForSupervisors.txt'),
+(7, 2, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/assign/leaveAssignmentSubscriberBody.txt'),
+(8, 4, 'en_US', 'ess', 'supervisor', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationBody.txt'),
+(9, 4, 'en_US', 'ess', 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveEmployeeCancellationSubscriberBody.txt'),
+(10, 4, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationBody.txt'),
+(11, 4, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/cancel/leaveCancellationSubscriberBody.txt'),
+(12, 5, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionBody.txt'),
+(13, 5, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/reject/leaveRejectionSubscriberBody.txt'),
+(14, 6, 'en_US', NULL, 'ess', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeBody.txt'),
+(15, 6, 'en_US', NULL, 'subscriber', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberSubject.txt', 'ciaFeriasLeavePlugin/modules/leave/templates/mail/en_US/change/leaveChangeSubscriberBody.txt');
 
 -- --------------------------------------------------------
 

@@ -17,34 +17,20 @@
  */
  -->
 <template>
-  <div class="orangehrm-installer">
-    <div class="orangehrm-installer-sidebar">
+  <div class="cia-ferias-installer">
+    <div class="cia-ferias-installer-sidebar">
       <installer-steps
         :steps="steps"
         :current-step="currentStep"
       ></installer-steps>
-      <div class="orangehrm-installer-footer">
-        <a
-          v-show="currentStep === 0"
-          target="_blank"
-          class="orangehrm-installer-guide"
-          href="https://starterhelp.orangehrm.com/hc/en-us/articles/5295915003666-OrangeHRM-Starter-Installation-Guide"
-        >
-          <oxd-icon
-            type="svg"
-            name="guide"
-            class="orangehrm-installer-guide-icon"
-          />
-          Installation Guide
-        </a>
-        <br />
+      <div class="cia-ferias-installer-footer">
         <slot name="footer"></slot>
       </div>
     </div>
-    <div class="orangehrm-installer-header">
-      <img :src="brandingSrc" width="280" alt="orangehrm-branding" />
+    <div class="cia-ferias-installer-header">
+      <img :src="brandingSrc" width="280" alt="CIA Férias branding" />
     </div>
-    <div class="orangehrm-installer-content">
+    <div class="cia-ferias-installer-content">
       <slot></slot>
     </div>
   </div>
@@ -52,13 +38,11 @@
 
 <script>
 import InstallerSteps from '@/components/InstallerSteps.vue';
-import {OxdIcon} from '@ohrm/oxd';
 
 export default {
   name: 'InstallerLayout',
   components: {
     'installer-steps': InstallerSteps,
-    'oxd-icon': OxdIcon,
   },
   props: {
     steps: {
@@ -72,7 +56,7 @@ export default {
   },
   data() {
     return {
-      brandingSrc: `${window.appGlobal.publicPath}/client/public/ohrm_branding.png`,
+      brandingSrc: `${window.appGlobal.publicPath}/client/public/cia-ferias-brand.svg`,
     };
   },
 };

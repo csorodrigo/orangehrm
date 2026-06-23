@@ -31,16 +31,16 @@ if (!$pathToAutoload) {
     exit(1);
 }
 
-use OrangeHRM\Framework\Console\Console;
-use OrangeHRM\Framework\Http\Session\MemorySessionStorage;
-use OrangeHRM\Framework\Http\Session\Session;
-use OrangeHRM\Framework\ServiceContainer;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\Installer\Command\InstallerCountryListCommand;
-use OrangeHRM\Installer\Command\InstallOnExistingDatabaseCommand;
-use OrangeHRM\Installer\Command\InstallOnNewDatabaseCommand;
-use OrangeHRM\Installer\Command\UpgradeCommand;
-use OrangeHRM\Installer\Framework\HttpKernel;
+use CiaFerias\Framework\Console\Console;
+use CiaFerias\Framework\Http\Session\MemorySessionStorage;
+use CiaFerias\Framework\Http\Session\Session;
+use CiaFerias\Framework\ServiceContainer;
+use CiaFerias\Framework\Services;
+use CiaFerias\Installer\Command\InstallerCountryListCommand;
+use CiaFerias\Installer\Command\InstallOnExistingDatabaseCommand;
+use CiaFerias\Installer\Command\InstallOnNewDatabaseCommand;
+use CiaFerias\Installer\Command\UpgradeCommand;
+use CiaFerias\Installer\Framework\HttpKernel;
 
 set_time_limit(0);
 
@@ -62,6 +62,6 @@ $console->add(new InstallOnExistingDatabaseCommand());
 $console->add(new UpgradeCommand());
 $console->add(new InstallerCountryListCommand());
 
-$console->setName('OrangeHRM Command Line Installer');
+$console->setName('CIA Férias Command Line Installer');
 $console->setVersion('1.0.0');
 $console->run();

@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM\NestedSet;
+namespace CiaFerias\ORM\NestedSet;
 
 interface NodeInterface
 {

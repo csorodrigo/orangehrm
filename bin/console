@@ -36,14 +36,14 @@ if (!$pathToAutoload) {
     exit(1);
 }
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Command\CacheClearCommand;
-use OrangeHRM\Core\Command\GenerateDoctrineProxiesCommand;
-use OrangeHRM\Framework\Console\Console;
-use OrangeHRM\Framework\Console\ConsoleConfigurationInterface;
-use OrangeHRM\Framework\Framework;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\PluginConfigurationInterface;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Command\CacheClearCommand;
+use CiaFerias\Core\Command\GenerateDoctrineProxiesCommand;
+use CiaFerias\Framework\Console\Console;
+use CiaFerias\Framework\Console\ConsoleConfigurationInterface;
+use CiaFerias\Framework\Framework;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\PluginConfigurationInterface;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -59,7 +59,7 @@ $console = new Console();
 new Framework($env, $debug); // initializing kernel
 
 $request = new Request();
-$pluginConfigs = Config::get('ohrm_plugin_configs');
+$pluginConfigs = Config::get('cia_ferias_plugin_configs');
 $input = new ArgvInput();
 $output = new ConsoleOutput();
 $io = new SymfonyStyle($input, $output);

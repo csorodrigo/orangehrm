@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Fixture;
+namespace CiaFerias\Tests\Util\Fixture;
 
-use OrangeHRM\Entity\WorkflowStateMachine;
+use CiaFerias\Entity\WorkflowStateMachine;
 
 class WorkflowStateMachineFixture extends AbstractFixture
 {

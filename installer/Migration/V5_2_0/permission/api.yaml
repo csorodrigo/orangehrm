@@ -3,7 +3,7 @@
 ##########################
 apiv2_dashboard_employees_on_leave:
   description: 'API-v2 Dashboard - Employees On Leave'
-  api: OrangeHRM\Dashboard\Api\EmployeeOnLeaveAPI
+  api: CiaFerias\Dashboard\Api\EmployeeOnLeaveAPI
   module: dashboard
   allowed:
     read: true
@@ -16,7 +16,7 @@ apiv2_dashboard_employees_on_leave:
 
 apiv2_dashboard_employees_by_subunit:
   description: 'API-v2 Dashboard - Employees Distribution By Subunit'
-  api: OrangeHRM\Dashboard\Api\EmployeeDistributionBySubunitAPI
+  api: CiaFerias\Dashboard\Api\EmployeeDistributionBySubunitAPI
   module: dashboard
   allowed:
     read: true
@@ -28,7 +28,7 @@ apiv2_dashboard_employees_by_subunit:
 
 apiv2_dashboard_employees_by_location:
   description: 'API-v2 Dashboard - Employees Distribution By Location'
-  api: OrangeHRM\Dashboard\Api\EmployeeDistributionByLocationAPI
+  api: CiaFerias\Dashboard\Api\EmployeeDistributionByLocationAPI
   module: dashboard
   allowed:
     read: true
@@ -40,7 +40,7 @@ apiv2_dashboard_employees_by_location:
 
 apiv2_dashboard_quick_launch:
   description: 'API-v2 Dashboard - Quick Launch'
-  api: OrangeHRM\Dashboard\Api\QuickLaunchAPI
+  api: CiaFerias\Dashboard\Api\QuickLaunchAPI
   module: dashboard
   allowed:
     read: true
@@ -53,7 +53,7 @@ apiv2_dashboard_quick_launch:
 
 apiv2_dashboard_employee_time_at_work:
   description: "API-v2 Dashboard - Employee Time At Work"
-  api: OrangeHRM\Dashboard\Api\EmployeeTimeAtWorkAPI
+  api: CiaFerias\Dashboard\Api\EmployeeTimeAtWorkAPI
   module: dashboard
   allowed:
     read: true
@@ -66,7 +66,7 @@ apiv2_dashboard_employee_time_at_work:
 
 apiv2_dashboard_employee_action_summary:
   description: "API-v2 Dashboard - Employee Action Summary"
-  api: OrangeHRM\Dashboard\Api\EmployeeActionSummaryAPI
+  api: CiaFerias\Dashboard\Api\EmployeeActionSummaryAPI
   module: dashboard
   allowed:
     read: true
@@ -79,7 +79,7 @@ apiv2_dashboard_employee_action_summary:
 
 apiv2_dashboard_employees_on_leave_today_configuration:
   description: "API-v2 Dashboard - Employees On Leave Today Configuration"
-  api: OrangeHRM\Dashboard\Api\EmployeeOnLeaveTodayConfigAPI
+  api: CiaFerias\Dashboard\Api\EmployeeOnLeaveTodayConfigAPI
   module: dashboard
   allowed:
     read: true
@@ -95,7 +95,7 @@ apiv2_dashboard_employees_on_leave_today_configuration:
 
 apiv2_admin_ldap_config:
   description: 'API-v2 Admin - LDAP Configurations'
-  api: OrangeHRM\LDAP\Api\LDAPConfigAPI
+  api: CiaFerias\LDAP\Api\LDAPConfigAPI
   module: admin
   allowed:
     read: true
@@ -107,7 +107,7 @@ apiv2_admin_ldap_config:
 
 apiv2_admin_ldap_test_connection:
   description: 'API-v2 Admin - LDAP Test Connection'
-  api: OrangeHRM\LDAP\Api\LDAPTestConnectionAPI
+  api: CiaFerias\LDAP\Api\LDAPTestConnectionAPI
   module: admin
   allowed:
     read: false
@@ -119,7 +119,7 @@ apiv2_admin_ldap_test_connection:
 
 apiv2_admin_ldap_user_sync:
   description: 'API-v2 Admin - LDAP User Sync'
-  api: OrangeHRM\LDAP\Api\LDAPUserSyncAPI
+  api: CiaFerias\LDAP\Api\LDAPUserSyncAPI
   module: admin
   allowed:
     read: true

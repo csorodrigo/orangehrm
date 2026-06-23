@@ -17,17 +17,17 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller;
+namespace CiaFerias\Installer\Controller;
 
 use DateTime;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Dto\AttributeBag;
-use OrangeHRM\Core\Helper\VueControllerHelper;
-use OrangeHRM\Core\Vue\Component;
-use OrangeHRM\Framework\Http\RedirectResponse;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Framework\Http\Response;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Dto\AttributeBag;
+use CiaFerias\Core\Helper\VueControllerHelper;
+use CiaFerias\Core\Vue\Component;
+use CiaFerias\Framework\Http\RedirectResponse;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Framework\Http\Response;
+use CiaFerias\Installer\Util\StateContainer;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;

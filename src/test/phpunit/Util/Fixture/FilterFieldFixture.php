@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Tests\Util\Fixture;
+namespace CiaFerias\Tests\Util\Fixture;
 
-use OrangeHRM\Entity\FilterField;
+use CiaFerias\Entity\FilterField;
 
 class FilterFieldFixture extends AbstractFixture
 {

@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Util\V1;
+namespace CiaFerias\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
-use OrangeHRM\Installer\Util\V1\Dto\Api;
-use OrangeHRM\Installer\Util\V1\Dto\DataGroup;
-use OrangeHRM\Installer\Util\V1\Dto\Screen;
+use CiaFerias\Installer\Util\V1\Dto\Api;
+use CiaFerias\Installer\Util\V1\Dto\DataGroup;
+use CiaFerias\Installer\Util\V1\Dto\Screen;
 use Symfony\Component\Yaml\Yaml;
 
 class DataGroupHelper
@@ -95,7 +95,7 @@ class DataGroupHelper
         $apiPermissions = $this->readApiPermissions($filepath);
         foreach ($apiPermissions as $apiPermission) {
             $this->getConnection()->createQueryBuilder()
-                ->insert('ohrm_data_group')
+                ->insert('cia_ferias_data_group')
                 ->values(
                     [
                         'name' => ':name',
@@ -115,7 +115,7 @@ class DataGroupHelper
                 ->executeQuery();
 
             $this->getConnection()->createQueryBuilder()
-                ->insert('ohrm_api_permission')
+                ->insert('cia_ferias_api_permission')
                 ->values(
                     [
                         'api_name' => ':api',
@@ -150,7 +150,7 @@ class DataGroupHelper
         $dataGroupPermissions = $this->readDataGroupPermissions($filepath);
         foreach ($dataGroupPermissions as $dataGroupPermission) {
             $this->getConnection()->createQueryBuilder()
-                ->insert('ohrm_data_group')
+                ->insert('cia_ferias_data_group')
                 ->values(
                     [
                         'name' => ':name',
@@ -199,7 +199,7 @@ class DataGroupHelper
                 $values['menu_configurator'] = ':menuConfigurator';
             }
             $qb = $this->getConnection()->createQueryBuilder()
-                ->insert('ohrm_screen')
+                ->insert('cia_ferias_screen')
                 ->values($values)
                 ->setParameter('name', $screenPermission->getName())
                 ->setParameter('moduleId', $this->getModuleIdByName($screenPermission->getModule()))
@@ -216,7 +216,7 @@ class DataGroupHelper
 
             foreach ($screenPermission->getPermissions() as $permission) {
                 $this->getConnection()->createQueryBuilder()
-                    ->insert('ohrm_user_role_screen')
+                    ->insert('cia_ferias_user_role_screen')
                     ->values(
                         [
                             'screen_id' => ':screenId',
@@ -246,7 +246,7 @@ class DataGroupHelper
     {
         $qb = $this->getConnection()->createQueryBuilder()
             ->select('dataGroup.id')
-            ->from('ohrm_data_group', 'dataGroup')
+            ->from('cia_ferias_data_group', 'dataGroup')
             ->where('dataGroup.name = :dataGroupName')
             ->setParameter('dataGroupName', $dataGroupName)
             ->setMaxResults(1);
@@ -262,7 +262,7 @@ class DataGroupHelper
     {
         $qb = $this->getConnection()->createQueryBuilder()
             ->select('screen.id')
-            ->from('ohrm_screen', 'screen')
+            ->from('cia_ferias_screen', 'screen')
             ->andWhere('screen.module_id = :moduleId')
             ->setParameter('moduleId', $moduleId)
             ->andWhere('screen.action_url = :url')
@@ -280,7 +280,7 @@ class DataGroupHelper
         if (!isset($this->moduleIds[$moduleName])) {
             $qb = $this->getConnection()->createQueryBuilder()
                 ->select('module.id')
-                ->from('ohrm_module', 'module')
+                ->from('cia_ferias_module', 'module')
                 ->where('module.name = :moduleName')
                 ->setParameter('moduleName', $moduleName)
                 ->setMaxResults(1);
@@ -298,7 +298,7 @@ class DataGroupHelper
         if (!isset($this->userRoleIds[$userRoleName])) {
             $qb = $this->getConnection()->createQueryBuilder()
                 ->select('userRole.id')
-                ->from('ohrm_user_role', 'userRole')
+                ->from('cia_ferias_user_role', 'userRole')
                 ->where('userRole.name = :userRoleName')
                 ->setParameter('userRoleName', $userRoleName)
                 ->setMaxResults(1);
@@ -326,7 +326,7 @@ class DataGroupHelper
         bool $isSelf = false
     ): void {
         $this->getConnection()->createQueryBuilder()
-            ->insert('ohrm_user_role_data_group')
+            ->insert('cia_ferias_user_role_data_group')
             ->values(
                 [
                     'data_group_id' => ':dataGroupId',

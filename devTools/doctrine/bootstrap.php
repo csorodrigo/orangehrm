@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-use OrangeHRM\ORM\Doctrine;
-use OrangeHRM\ORM\Exception\ConfigNotFoundException;
+use CiaFerias\ORM\Doctrine;
+use CiaFerias\ORM\Exception\ConfigNotFoundException;
 
 require_once realpath(__DIR__ . '/../../src/vendor/autoload.php');
 
 $errorMessage = "
 Can't connect to the database.
-Please install the OrangeHRM application.\n
+Please install the CIA Férias application.\n
 ";
 
 try {

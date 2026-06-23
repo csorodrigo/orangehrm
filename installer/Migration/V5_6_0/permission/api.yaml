@@ -4,7 +4,7 @@
 
 apiv2_core_validate_uniqueness:
   description: 'Core - Validate Uniqueness'
-  api: OrangeHRM\Core\Api\Rest\ValidationUniqueAPI
+  api: CiaFerias\Core\Api\Rest\ValidationUniqueAPI
   module: core
   allowed:
     read: true
@@ -21,7 +21,7 @@ apiv2_core_validate_uniqueness:
 
 apiv2_auth_openid_provider:
   description: 'OpenID Connect Authentication Providers'
-  api: OrangeHRM\OpenidAuthentication\Api\ProviderAPI
+  api: CiaFerias\OpenidAuthentication\Api\ProviderAPI
   module: auth
   allowed:
     read: true

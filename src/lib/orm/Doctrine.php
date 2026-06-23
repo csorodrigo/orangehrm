@@ -17,18 +17,18 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\ORM;
+namespace CiaFerias\ORM;
 
 use Doctrine\Common\Proxy\AbstractProxyFactory;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Traits\ServiceContainerTrait;
-use OrangeHRM\Framework\Cache\FilesystemAdapter;
-use OrangeHRM\Framework\Framework;
-use OrangeHRM\Framework\Services;
-use OrangeHRM\ORM\Exception\ConfigNotFoundException;
-use OrangeHRM\ORM\Functions\TimeDiff;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Traits\ServiceContainerTrait;
+use CiaFerias\Framework\Cache\FilesystemAdapter;
+use CiaFerias\Framework\Framework;
+use CiaFerias\Framework\Services;
+use CiaFerias\ORM\Exception\ConfigNotFoundException;
+use CiaFerias\ORM\Functions\TimeDiff;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
@@ -112,7 +112,7 @@ class Doctrine
     private function getPaths(): array
     {
         $paths = [];
-        $pluginPaths = Config::get('ohrm_plugin_paths');
+        $pluginPaths = Config::get('cia_ferias_plugin_paths');
         foreach ($pluginPaths as $pluginPath) {
             $entityPath = realpath($pluginPath . '/entity');
             if ($entityPath) {

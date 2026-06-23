@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller;
+namespace CiaFerias\Installer\Controller;
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Core\Helper\VueControllerHelper;
-use OrangeHRM\Core\Vue\Component;
-use OrangeHRM\Core\Vue\Prop;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Util\StateContainer;
+use CiaFerias\Config\Config;
+use CiaFerias\Core\Helper\VueControllerHelper;
+use CiaFerias\Core\Vue\Component;
+use CiaFerias\Core\Vue\Prop;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Util\StateContainer;
 
 class WelcomeController extends AbstractInstallerVueController
 {

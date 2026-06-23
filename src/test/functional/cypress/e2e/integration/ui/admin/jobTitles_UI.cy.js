@@ -28,8 +28,8 @@ describe('Admin - Job Titles', function () {
     cy.loginTo(this.user, '/admin/viewJobTitleList');
     cy.wait('@getJobTitles');
     cy.getOXD('pageContext').within(() => {
-      cy.getOXD('pageTitle').should('include.text', 'Job Titles');
-      cy.getOXD('button').should('include.text', 'Add');
+      cy.getOXD('pageTitle').should('include.text', 'Cargos');
+      cy.getOXD('button').should('include.text', 'Adicionar');
     });
   });
 });

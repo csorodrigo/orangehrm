@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace OrangeHRM\Installer\Controller\Installer\Api;
+namespace CiaFerias\Installer\Controller\Installer\Api;
 
-use OrangeHRM\Config\Config;
-use OrangeHRM\Framework\Http\Request;
-use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use CiaFerias\Config\Config;
+use CiaFerias\Framework\Http\Request;
+use CiaFerias\Installer\Controller\AbstractInstallerRestController;
 
 class LicenseFileAPI extends AbstractInstallerRestController
 {

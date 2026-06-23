@@ -20,7 +20,7 @@
 <template>
   <!-- Always use inside OXD-Form -->
   <oxd-form-row class="user-password-row">
-    <oxd-grid :cols="2" class="orangehrm-full-width-grid">
+    <oxd-grid :cols="2" class="cia-ferias-full-width-grid">
       <oxd-grid-item class="user-password-cell">
         <password-strength-indicator
           v-if="password"
@@ -61,8 +61,8 @@
 import {
   required,
   shouldNotExceedCharLength,
-} from '@ohrm/core/util/validation/rules';
-import {promiseDebounce} from '@ohrm/oxd';
+} from '@cia-ferias/core/util/validation/rules';
+import {promiseDebounce} from '@cia-ferias/oxd';
 import {APIService} from '@/core/util/services/api.service';
 import usePasswordPolicy from '@/core/util/composable/usePasswordPolicy';
 import PasswordStrengthIndicator from '@/core/components/labels/PasswordStrengthIndicator';
@@ -139,7 +139,7 @@ export default {
     padding: 10px;
     background-color: $oxd-background-white-shadow-color;
     border-radius: 0.75rem;
-    ::v-deep(.orangehrm-password-chip) {
+    ::v-deep(.cia-ferias-password-chip) {
       top: -5px;
       right: 8px;
     }

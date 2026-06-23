@@ -18,13 +18,13 @@
  -->
 <template>
   <oxd-form :loading="isLoading">
-    <div class="orangehrm-installer-page">
-      <oxd-text tag="h5" class="orangehrm-installer-page-title">
+    <div class="cia-ferias-installer-page">
+      <oxd-text tag="h5" class="cia-ferias-installer-page-title">
         System Check
       </oxd-text>
       <br />
-      <oxd-text class="orangehrm-installer-page-content">
-        In order for your OrangeHRM installation to function properly, please
+      <oxd-text class="cia-ferias-installer-page-content">
+        In order for your CIA Férias installation to function properly, please
         ensure that all of the system check items listed below are green. If any
         are red, please take the necessary steps to fix them.
       </oxd-text>
@@ -35,17 +35,17 @@
         :items="item.checks"
         :title-name="item.category"
       ></flex-table>
-      <oxd-form-actions class="orangehrm-installer-page-action">
+      <oxd-form-actions class="cia-ferias-installer-page-action">
         <oxd-button display-type="ghost" label="Back" @click="navigateUrl" />
         <oxd-button
-          class="orangehrm-left-space"
+          class="cia-ferias-left-space"
           display-type="ghost"
           label="Re-Check"
           type="submit"
           @click="reCheck"
         />
         <oxd-button
-          class="orangehrm-left-space"
+          class="cia-ferias-left-space"
           display-type="secondary"
           :disabled="isInterrupted"
           label="Next"
