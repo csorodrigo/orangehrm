@@ -17,32 +17,32 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework;
+namespace OrangeHRM\Framework;
 
 final class Services
 {
     /**
-     * @see \CiaFerias\Framework\Http\RequestStack
+     * @see \OrangeHRM\Framework\Http\RequestStack
      */
     public const REQUEST_STACK = 'request_stack';
 
     /**
-     * @see \CiaFerias\Framework\Routing\RequestContext
+     * @see \OrangeHRM\Framework\Routing\RequestContext
      */
     public const ROUTER_REQUEST_CONTEXT = 'router.request_context';
 
     /**
-     * @see \CiaFerias\Framework\Routing\UrlMatcher
+     * @see \OrangeHRM\Framework\Routing\UrlMatcher
      */
     public const ROUTER = 'router.default';
 
     /**
-     * @see \CiaFerias\Framework\Event\EventDispatcher
+     * @see \OrangeHRM\Framework\Event\EventDispatcher
      */
     public const EVENT_DISPATCHER = 'event_dispatcher';
 
     /**
-     * @see \CiaFerias\Framework\Http\ControllerResolver
+     * @see \OrangeHRM\Framework\Http\ControllerResolver
      */
     public const CONTROLLER_RESOLVER = 'controller_resolver';
 
@@ -52,27 +52,27 @@ final class Services
     public const ARGUMENT_RESOLVER = 'argument_resolver';
 
     /**
-     * @see \CiaFerias\Framework\Framework
+     * @see \OrangeHRM\Framework\Framework
      */
     public const HTTP_KERNEL = 'http_kernel';
 
     /**
-     * @see \CiaFerias\Framework\Http\Session\NativeSessionStorage
+     * @see \OrangeHRM\Framework\Http\Session\NativeSessionStorage
      */
     public const SESSION_STORAGE = 'session_storage';
 
     /**
-     * @see \CiaFerias\Framework\Http\Session\Session
+     * @see \OrangeHRM\Framework\Http\Session\Session
      */
     public const SESSION = 'session';
 
     /**
-     * @see \CiaFerias\Framework\Logger\Logger
+     * @see \OrangeHRM\Framework\Logger\Logger
      */
     public const LOGGER = 'logger';
 
     /**
-     * @see \CiaFerias\Framework\Routing\UrlGenerator
+     * @see \OrangeHRM\Framework\Routing\UrlGenerator
      */
     public const URL_GENERATOR = 'url_generator';
 
@@ -91,63 +91,63 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Core\Service\ConfigService
+     * @see \OrangeHRM\Core\Service\ConfigService
      */
     public const CONFIG_SERVICE = 'core.config_service';
 
     /**
-     * @see \CiaFerias\Core\Service\NormalizerService
+     * @see \OrangeHRM\Core\Service\NormalizerService
      */
     public const NORMALIZER_SERVICE = 'core.normalizer_service';
 
     /**
-     * @see \CiaFerias\Core\Service\DateTimeHelperService
+     * @see \OrangeHRM\Core\Service\DateTimeHelperService
      */
     public const DATETIME_HELPER_SERVICE = 'core.datetime_helper_service';
 
     /**
-     * @see \CiaFerias\Core\Service\TextHelperService
+     * @see \OrangeHRM\Core\Service\TextHelperService
      */
     public const TEXT_HELPER_SERVICE = 'core.text_helper_service';
 
     /**
-     * @see \CiaFerias\Core\Service\TextHelperService
+     * @see \OrangeHRM\Core\Service\TextHelperService
      */
     public const NUMBER_HELPER_SERVICE = 'core.number_helper_service';
 
     /**
-     * @see \CiaFerias\Core\Helper\ClassHelper
+     * @see \OrangeHRM\Core\Helper\ClassHelper
      */
     public const CLASS_HELPER = 'core.class_helper';
 
     /**
-     * @see \CiaFerias\Core\Authorization\Manager\AbstractUserRoleManager
+     * @see \OrangeHRM\Core\Authorization\Manager\AbstractUserRoleManager
      */
     public const USER_ROLE_MANAGER = 'core.authorization.user_role_manager';
 
     /**
-     * @see \CiaFerias\Core\Authorization\Helper\UserRoleManagerHelper
+     * @see \OrangeHRM\Core\Authorization\Helper\UserRoleManagerHelper
      */
     public const USER_ROLE_MANAGER_HELPER = 'core.authorization.user_role_manager_helper';
 
     /**
-     * @see \CiaFerias\Framework\Cache\FilesystemAdapter
+     * @see \OrangeHRM\Framework\Cache\FilesystemAdapter
      * @see \Symfony\Component\Cache\Adapter\AdapterInterface
      */
     public const CACHE = 'core.cache';
 
     /**
-     * @see \CiaFerias\Core\Service\MenuService
+     * @see \OrangeHRM\Core\Service\MenuService
      */
     public const MENU_SERVICE = 'core.menu_service';
 
     /**
-     * @see \CiaFerias\Core\Service\ReportGeneratorService
+     * @see \OrangeHRM\Core\Service\ReportGeneratorService
      */
     public const REPORT_GENERATOR_SERVICE = 'core.report_generator_service';
 
     /**
-     * @see \CiaFerias\Core\Service\ModuleService
+     * @see \OrangeHRM\Core\Service\ModuleService
      */
     public const MODULE_SERVICE = 'core.module_service';
 
@@ -156,17 +156,17 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Authentication\Auth\User
+     * @see \OrangeHRM\Authentication\Auth\User
      */
     public const AUTH_USER = 'auth.user';
 
     /**
-     * @see \CiaFerias\Authentication\Auth\AuthProviderChain
+     * @see \OrangeHRM\Authentication\Auth\AuthProviderChain
      */
     public const AUTH_PROVIDER_CHAIN = 'auth.provider_chain';
 
     /**
-     * @see \CiaFerias\Authentication\Csrf\CsrfTokenManager
+     * @see \OrangeHRM\Authentication\Csrf\CsrfTokenManager
      */
     public const CSRF_TOKEN_MANAGER = 'auth.csrf_token_manager';
 
@@ -177,12 +177,12 @@ final class Services
     public const CSRF_TOKEN_STORAGE = 'auth.csrf_token_storage';
 
     /**
-     * @see \CiaFerias\Authentication\Service\PasswordStrengthService
+     * @see \OrangeHRM\Authentication\Service\PasswordStrengthService
      */
     public const PASSWORD_STRENGTH_SERVICE = 'auth.password_strength_service';
 
     /**
-     * @see \CiaFerias\Authentication\Service\AuthenticationService
+     * @see \OrangeHRM\Authentication\Service\AuthenticationService
      */
     public const AUTHENTICATION_SERVICE = 'auth.authentication_service';
 
@@ -191,37 +191,37 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Admin\Service\CountryService
+     * @see \OrangeHRM\Admin\Service\CountryService
      */
     public const COUNTRY_SERVICE = 'admin.country_service';
 
     /**
-     * @see \CiaFerias\Admin\Service\PayGradeService
+     * @see \OrangeHRM\Admin\Service\PayGradeService
      */
     public const PAY_GRADE_SERVICE = 'admin.pay_grade_service';
 
     /**
-     * @see \CiaFerias\Admin\Service\UserService
+     * @see \OrangeHRM\Admin\Service\UserService
      */
     public const USER_SERVICE = 'admin.user_service';
 
     /**
-     * @see \CiaFerias\Admin\Service\CompanyStructureService
+     * @see \OrangeHRM\Admin\Service\CompanyStructureService
      */
     public const COMPANY_STRUCTURE_SERVICE = 'admin.company_structure_service';
 
     /**
-     * @see \CiaFerias\Admin\Service\WorkShiftService
+     * @see \OrangeHRM\Admin\Service\WorkShiftService
      */
     public const WORK_SHIFT_SERVICE = 'admin.work_shift_service';
 
     /**
-     * @see \CiaFerias\Admin\Service\LocalizationService
+     * @see \OrangeHRM\Admin\Service\LocalizationService
      */
     public const LOCALIZATION_SERVICE = 'admin.localization_service';
 
     /**
-     * @see \CiaFerias\CorporateBranding\Service\ThemeService
+     * @see \OrangeHRM\CorporateBranding\Service\ThemeService
      */
     public const THEME_SERVICE = 'admin.theme_service';
 
@@ -230,42 +230,42 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Leave\Service\LeaveConfigurationService
+     * @see \OrangeHRM\Leave\Service\LeaveConfigurationService
      */
     public const LEAVE_CONFIG_SERVICE = 'leave.leave_config_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\LeaveTypeService
+     * @see \OrangeHRM\Leave\Service\LeaveTypeService
      */
     public const LEAVE_TYPE_SERVICE = 'leave.leave_type_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\LeaveEntitlementService
+     * @see \OrangeHRM\Leave\Service\LeaveEntitlementService
      */
     public const LEAVE_ENTITLEMENT_SERVICE = 'leave.leave_entitlement_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\LeavePeriodService
+     * @see \OrangeHRM\Leave\Service\LeavePeriodService
      */
     public const LEAVE_PERIOD_SERVICE = 'leave.leave_period_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\LeaveRequestService
+     * @see \OrangeHRM\Leave\Service\LeaveRequestService
      */
     public const LEAVE_REQUEST_SERVICE = 'leave.leave_request_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\WorkScheduleService
+     * @see \OrangeHRM\Leave\Service\WorkScheduleService
      */
     public const WORK_SCHEDULE_SERVICE = 'leave.work_schedule_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\HolidayService
+     * @see \OrangeHRM\Leave\Service\HolidayService
      */
     public const HOLIDAY_SERVICE = 'leave.holiday_service';
 
     /**
-     * @see \CiaFerias\Leave\Service\WorkWeekService
+     * @see \OrangeHRM\Leave\Service\WorkWeekService
      */
     public const WORK_WEEK_SERVICE = 'leave.work_week_service';
 
@@ -274,12 +274,12 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Pim\Service\EmployeeService
+     * @see \OrangeHRM\Pim\Service\EmployeeService
      */
     public const EMPLOYEE_SERVICE = 'pim.employee_service';
 
     /**
-     * @see \CiaFerias\Pim\Service\EmployeeSalaryService
+     * @see \OrangeHRM\Pim\Service\EmployeeSalaryService
      */
     public const EMPLOYEE_SALARY_SERVICE = 'pim.employee_salary_service';
 
@@ -288,17 +288,17 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Time\Service\ProjectService
+     * @see \OrangeHRM\Time\Service\ProjectService
      */
     public const PROJECT_SERVICE = 'time.project_service';
 
     /**
-     * @see \CiaFerias\Time\Service\CustomerService
+     * @see \OrangeHRM\Time\Service\CustomerService
      */
     public const CUSTOMER_SERVICE = 'time.customer_service';
 
     /**
-     * @see \CiaFerias\Time\Service\TimesheetService
+     * @see \OrangeHRM\Time\Service\TimesheetService
      */
     public const TIMESHEET_SERVICE = 'time.timesheet_service';
 
@@ -307,7 +307,7 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Attendance\Service\AttendanceService
+     * @see \OrangeHRM\Attendance\Service\AttendanceService
      */
     public const ATTENDANCE_SERVICE = 'attendance.attendance_service';
 
@@ -316,12 +316,12 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\I18N\Service\I18NService
+     * @see \OrangeHRM\I18N\Service\I18NService
      */
     public const I18N_SERVICE = 'i18n.i18n_service';
 
     /**
-     * @see \CiaFerias\I18N\Service\I18NHelper
+     * @see \OrangeHRM\I18N\Service\I18NHelper
      */
     public const I18N_HELPER = 'i18n.i18n_helper';
 
@@ -330,17 +330,17 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Recruitment\Service\VacancyService
+     * @see \OrangeHRM\Recruitment\Service\VacancyService
      */
     public const VACANCY_SERVICE = 'recruitment.vacancy_service';
 
     /**
-     * @see \CiaFerias\Recruitment\Service\RecruitmentAttachmentService
+     * @see \OrangeHRM\Recruitment\Service\RecruitmentAttachmentService
      */
     public const RECRUITMENT_ATTACHMENT_SERVICE = 'recruitment.recruitment_attachment_service';
 
     /**
-     * @see \CiaFerias\Recruitment\Service\RecruitmentAttachmentService
+     * @see \OrangeHRM\Recruitment\Service\RecruitmentAttachmentService
      */
     public const CANDIDATE_SERVICE = 'recruitment.candidate_service';
 
@@ -349,22 +349,22 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Performance\Service\KpiService
+     * @see \OrangeHRM\Performance\Service\KpiService
      */
     public const KPI_SERVICE = 'performance.kpi_service';
 
     /**
-     * @see \CiaFerias\Performance\Service\PerformanceTrackerService
+     * @see \OrangeHRM\Performance\Service\PerformanceTrackerService
      */
     public const PERFORMANCE_TRACKER_SERVICE = 'performance.performance_tracker_service';
 
     /**
-     * @see \CiaFerias\Performance\Service\PerformanceReviewService
+     * @see \OrangeHRM\Performance\Service\PerformanceReviewService
      */
     public const PERFORMANCE_REVIEW_SERVICE = 'performance.performance_review_service';
 
     /**
-     * @see \CiaFerias\Performance\Service\PerformanceTrackerLogService
+     * @see \OrangeHRM\Performance\Service\PerformanceTrackerLogService
      */
     public const PERFORMANCE_TRACKER_LOG_SERVICE = 'performance.performance_tracker_log_service';
 
@@ -372,27 +372,27 @@ final class Services
     /// Dashboard plugin services
     ///////////////////////////////////////////////////////////////
     /**
-     * @see \CiaFerias\Dashboard\Service\EmployeeOnLeaveService
+     * @see \OrangeHRM\Dashboard\Service\EmployeeOnLeaveService
      */
     public const EMPLOYEE_ON_LEAVE_SERVICE = 'dashboard.employee_on_leave_service';
 
     /**
-     * @see \CiaFerias\Dashboard\Service\ChartService
+     * @see \OrangeHRM\Dashboard\Service\ChartService
      */
     public const CHART_SERVICE = 'dashboard.chart_service';
 
     /**
-     * @see \CiaFerias\Dashboard\Service\QuickLaunchService
+     * @see \OrangeHRM\Dashboard\Service\QuickLaunchService
      */
     public const QUICK_LAUNCH_SERVICE = 'dashboard.quick_launch_service';
 
     /**
-     * @see \CiaFerias\Dashboard\Service\EmployeeTimeAtWorkService
+     * @see \OrangeHRM\Dashboard\Service\EmployeeTimeAtWorkService
      */
     public const EMPLOYEE_TIME_AT_WORK_SERVICE = 'dashboard.employee_time_at_work_service';
 
     /**
-     * @see \CiaFerias\Dashboard\Service\EmployeeActionSummaryService
+     * @see \OrangeHRM\Dashboard\Service\EmployeeActionSummaryService
      */
     public const EMPLOYEE_ACTION_SUMMARY_SERVICE = 'dashboard.employee_action_summary_service';
 
@@ -401,7 +401,7 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Framework\Logger\Logger
+     * @see \OrangeHRM\Framework\Logger\Logger
      */
     public const LDAP_LOGGER = 'ldap.logger';
 
@@ -410,12 +410,12 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Buzz\Service\BuzzAnniversaryService
+     * @see \OrangeHRM\Buzz\Service\BuzzAnniversaryService
      */
     public const BUZZ_ANNIVERSARY_SERVICE = 'buzz.buzz_anniversary_service';
 
     /**
-     * @see \CiaFerias\Buzz\Service\BuzzService
+     * @see \OrangeHRM\Buzz\Service\BuzzService
      */
     public const BUZZ_SERVICE = 'buzz.buzz_service';
 
@@ -424,7 +424,7 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\Claim\Service\ClaimService
+     * @see \OrangeHRM\Claim\Service\ClaimService
      */
     public const CLAIM_SERVICE = 'claim.claim_service';
 
@@ -433,17 +433,17 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\OAuth\Service\PsrHttpFactoryHelper
+     * @see \OrangeHRM\OAuth\Service\PsrHttpFactoryHelper
      */
     public const PSR_HTTP_FACTORY_HELPER = 'oauth.psr_http_factory_helper';
 
     /**
-     * @see \CiaFerias\OAuth\Server\OAuthServer
+     * @see \OrangeHRM\OAuth\Server\OAuthServer
      */
     public const OAUTH_SERVER = 'oauth.authorization_server';
 
     /**
-     * @see \CiaFerias\OAuth\Service\OAuthService
+     * @see \OrangeHRM\OAuth\Service\OAuthService
      */
     public const OAUTH_SERVICE = 'oauth.oauth_service';
 
@@ -452,7 +452,7 @@ final class Services
     ///////////////////////////////////////////////////////////////
 
     /**
-     * @see \CiaFerias\OpenidAuthentication\Service\SocialMediaAuthenticationService
+     * @see \OrangeHRM\OpenidAuthentication\Service\SocialMediaAuthenticationService
      */
     public const SOCIAL_MEDIA_AUTH_SERVICE = 'oidc.social_media_auth_service';
 }

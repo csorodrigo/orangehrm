@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Config;
+namespace OrangeHRM\Config;
 
 class ConfigHelper
 {
@@ -119,9 +119,9 @@ class ConfigHelper
         $pathToVueBuildDir = realpath($pathToProjectBase . '/web/dist');
         $pathToBuildTimestampFile = realpath($pathToVueBuildDir . '/build');
         return [
-            'cia_ferias_client_dir' => realpath($pathToSrcDir . '/client'),
-            Config::APP_TEMPLATE_DIR => realpath($pathToSrcDir . '/plugins/ciaFeriasCorePlugin/templates'),
-            'cia_ferias_vue_build_dir' => $pathToVueBuildDir,
+            'ohrm_client_dir' => realpath($pathToSrcDir . '/client'),
+            Config::APP_TEMPLATE_DIR => realpath($pathToSrcDir . '/plugins/orangehrmCorePlugin/templates'),
+            'ohrm_vue_build_dir' => $pathToVueBuildDir,
             Config::VUE_BUILD_TIMESTAMP => $pathToBuildTimestampFile
                 ? file_get_contents($pathToBuildTimestampFile) : '',
         ];

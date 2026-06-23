@@ -17,17 +17,17 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
-use CiaFerias\Framework\ServiceContainer;
-use CiaFerias\Framework\Services;
+use OrangeHRM\Framework\ServiceContainer;
+use OrangeHRM\Framework\Services;
 
 class Logger
 {
     /**
-     * @return \CiaFerias\Framework\Logger\Logger
+     * @return \OrangeHRM\Framework\Logger\Logger
      */
-    public static function getLogger(): \CiaFerias\Framework\Logger\Logger
+    public static function getLogger(): \OrangeHRM\Framework\Logger\Logger
     {
         return ServiceContainer::getContainer()->get(Services::LOGGER);
     }

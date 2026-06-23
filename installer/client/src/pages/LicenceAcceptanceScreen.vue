@@ -18,16 +18,16 @@
  -->
 <template>
   <oxd-form
-    class="cia-ferias-installer-page"
+    class="orangehrm-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+    <oxd-text tag="h5" class="orangehrm-installer-page-title">
       License Acceptance
     </oxd-text>
     <br />
-    <oxd-text class="cia-ferias-installer-page-content">
-      Please review the license terms before installing CIA Férias.
+    <oxd-text class="orangehrm-installer-page-content">
+      Please review the license terms before installing OrangeHRM Starter.
     </oxd-text>
     <br />
 
@@ -36,9 +36,9 @@
     </oxd-form-row>
     <br />
 
-    <oxd-text tag="p" class="cia-ferias-installer-page-content">
+    <oxd-text tag="p" class="orangehrm-installer-page-content">
       If you accept the terms of the agreement, select the first option below.
-      You must accept the agreement to install CIA Férias. Click <b>Next</b> to
+      You must accept the agreement to install OrangeHRM. Click <b>Next</b> to
       continue
     </oxd-text>
 
@@ -51,11 +51,11 @@
       />
     </oxd-form-row>
 
-    <oxd-form-actions class="cia-ferias-installer-page-action">
+    <oxd-form-actions class="orangehrm-installer-page-action">
       <oxd-button display-type="ghost" label="Back" @click="onClickBack" />
       <oxd-button
         :disabled="!userConsent"
-        class="cia-ferias-left-space"
+        class="orangehrm-left-space"
         display-type="secondary"
         label="Next"
         type="submit"

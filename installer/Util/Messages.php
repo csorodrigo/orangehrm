@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 class Messages
 {

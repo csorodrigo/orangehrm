@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util;
+namespace OrangeHRM\Tests\Util;
 
-use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
+use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
 
 abstract class EntityTestCase extends KernelTestCase
 {

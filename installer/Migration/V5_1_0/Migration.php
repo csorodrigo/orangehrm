@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_1_0;
+namespace OrangeHRM\Installer\Migration\V5_1_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Entity\WorkflowStateMachine;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
-use CiaFerias\Installer\Util\V1\LangStringHelper;
-use CiaFerias\Installer\Util\V1\TranslationHelper;
+use OrangeHRM\Entity\WorkflowStateMachine;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\LangStringHelper;
+use OrangeHRM\Installer\Util\V1\TranslationHelper;
 
 class Migration extends AbstractMigration
 {
@@ -39,7 +39,7 @@ class Migration extends AbstractMigration
         $this->getDataGroupHelper()->insertDataGroupPermissions(__DIR__ . '/permission/data_group.yaml');
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.action_url ', ':actionUrl')
             ->setParameter('actionUrl', 'viewPerformanceTracker')
             ->andWhere('screen.module_id = :moduleId')
@@ -49,7 +49,7 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.action_url ', ':actionUrl')
             ->setParameter('actionUrl', 'searchEvaluatePerformanceReview')
             ->andWhere('screen.module_id = :moduleId')
@@ -62,19 +62,19 @@ class Migration extends AbstractMigration
         $this->addValidColumnToRequestResetPassword();
 
         $this->getConnection()->executeStatement(
-            'ALTER TABLE cia_ferias_kpi CHANGE job_title_code job_title_code INT(13) NOT NULL'
+            'ALTER TABLE ohrm_kpi CHANGE job_title_code job_title_code INT(13) NOT NULL'
         );
         $kpiForeignKeyConstraint = new ForeignKeyConstraint(
             ['job_title_code'],
-            'cia_ferias_job_title',
+            'ohrm_job_title',
             ['id'],
-            'cia_ferias_kpi_for_job_title_id',
+            'ohrm_kpi_for_job_title_id',
             ['onCascade' => 'DELETE']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_kpi', $kpiForeignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_kpi', $kpiForeignKeyConstraint);
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.action_url ', ':actionUrl')
             ->setParameter('actionUrl', 'searchPerformanceReview')
             ->andWhere('screen.name  = :name')
@@ -99,8 +99,8 @@ class Migration extends AbstractMigration
         }
 
         $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_lang_string')
-            ->andWhere('cia_ferias_i18n_lang_string.group_id = :groupId')
+            ->delete('ohrm_i18n_lang_string')
+            ->andWhere('ohrm_i18n_lang_string.group_id = :groupId')
             ->setParameter('groupId', $this->getLangHelper()->getGroupIdByName('directory'))
             ->executeQuery();
 
@@ -158,7 +158,7 @@ class Migration extends AbstractMigration
             );
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_user_role_screen', 'userRoleScreen')
+            ->update('ohrm_user_role_screen', 'userRoleScreen')
             ->set('userRoleScreen.user_role_id', ':userRoleId')
             ->setParameter(
                 'userRoleId',
@@ -169,7 +169,7 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_menu_item', 'menuItem')
+            ->update('ohrm_menu_item', 'menuItem')
             ->set('menuItem.menu_title', ':menuTitle')
             ->setParameter('menuTitle', 'Employee Reviews')
             ->andWhere('menuItem.screen_id = :screenId')
@@ -186,7 +186,7 @@ class Migration extends AbstractMigration
         $toPreserveLangStringId = $this->getLangStringHelper()->getLangStringIdByValueAndGroup('Allows numbers and only + - / ( )', $groupId);
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_translate', 'translate')
+            ->update('ohrm_i18n_translate', 'translate')
             ->set('translate.lang_string_id', ':langStringId')
             ->setParameter('langStringId', $toPreserveLangStringId)
             ->andWhere('translate.lang_string_id = :deletedLangStringId')
@@ -194,8 +194,8 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_lang_string')
-            ->andWhere('cia_ferias_i18n_lang_string.id = :id')
+            ->delete('ohrm_i18n_lang_string')
+            ->andWhere('ohrm_i18n_lang_string.id = :id')
             ->setParameter('id', $toDeleteLangStringId)
             ->executeQuery();
 
@@ -205,7 +205,7 @@ class Migration extends AbstractMigration
         $maintenanceModuleScreenId = $this->getDataGroupHelper()
             ->getScreenIdByModuleAndUrl($maintenanceModuleId, 'viewMaintenanceModule');
         $this->createQueryBuilder()
-            ->update('cia_ferias_menu_item', 'menu_item')
+            ->update('ohrm_menu_item', 'menu_item')
             ->set('menu_item.screen_id', ':screenId')
             ->setParameter('screenId', $maintenanceModuleScreenId)
             ->andWhere('menu_item.menu_title = :menuTitle')
@@ -220,14 +220,14 @@ class Migration extends AbstractMigration
         $this->modifyEmployeeTrackerScreenRolePermission($performanceModuleId);
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_job_vacancy', 'vacancy')
+            ->update('ohrm_job_vacancy', 'vacancy')
             ->set('vacancy.status', ':newClosedStatus')
             ->setParameter('newClosedStatus', 0)
             ->andWhere('vacancy.status = :closedStatus')
             ->setParameter('closedStatus', 2)
             ->executeQuery();
         $this->getSchemaHelper()->changeColumn(
-            'cia_ferias_job_vacancy',
+            'ohrm_job_vacancy',
             'status',
             ['Type' => Type::getType(Types::BOOLEAN), 'Default' => true, 'Notnull' => true]
         );
@@ -243,7 +243,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'lang_string')
+            ->update('ohrm_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -256,7 +256,7 @@ class Migration extends AbstractMigration
     private function addValidColumnToRequestResetPassword(): void
     {
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_reset_password',
+            'ohrm_reset_password',
             'expired',
             Types::BOOLEAN,
             ['Default' => true, 'Notnull' => true]
@@ -276,7 +276,7 @@ class Migration extends AbstractMigration
         int $priority
     ): void {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_module_default_page')
+            ->insert('ohrm_module_default_page')
             ->values(
                 [
                     'module_id' => ':moduleId',
@@ -344,7 +344,7 @@ class Migration extends AbstractMigration
         string $resultingState
     ): void {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_workflow_state_machine')
+            ->insert('ohrm_workflow_state_machine')
             ->values(
                 [
                     'workflow' => ':workflow',
@@ -368,7 +368,7 @@ class Migration extends AbstractMigration
     private function insertReviewListScreenForAdminRole(int $reviewListScreenId): void
     {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_user_role_screen')
+            ->insert('ohrm_user_role_screen')
             ->values(
                 [
                     'screen_id' => ':screenId',
@@ -390,85 +390,85 @@ class Migration extends AbstractMigration
 
     private function modifyThemeTable(): void
     {
-        $this->getSchemaHelper()->dropColumn('cia_ferias_theme', 'social_media_icons');
+        $this->getSchemaHelper()->dropColumn('ohrm_theme', 'social_media_icons');
         $this->getSchemaHelper()
             ->addColumn(
-                'cia_ferias_theme',
+                'ohrm_theme',
                 'show_social_media_icons',
                 Types::BOOLEAN,
                 ['Notnull' => true, 'Default' => true]
             );
-        $this->getSchemaHelper()->renameColumn('cia_ferias_theme', 'main_logo', 'client_logo');
+        $this->getSchemaHelper()->renameColumn('ohrm_theme', 'main_logo', 'client_logo');
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_banner',
             Types::BLOB,
             ['Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_logo_filename',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_logo_file_type',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_logo_file_size',
             Types::INTEGER,
             ['Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_banner_filename',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_banner_file_type',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'client_banner_file_size',
             Types::INTEGER,
             ['Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'login_banner_filename',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'login_banner_file_type',
             Types::STRING,
             ['Length' => 100, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'login_banner_file_size',
             Types::INTEGER,
             ['Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->changeColumn(
-            'cia_ferias_theme',
+            'ohrm_theme',
             'login_banner',
             ['Notnull' => false, 'Default' => null]
         );
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_theme')
-            ->set('cia_ferias_theme.variables', ':variables')
-            ->where('cia_ferias_theme.theme_name = :themeName')
+            ->update('ohrm_theme')
+            ->set('ohrm_theme.variables', ':variables')
+            ->where('ohrm_theme.theme_name = :themeName')
             ->setParameter(
                 'variables',
                 '{"primaryColor":"#FF7B1D","primaryFontColor":"#FFFFFF","secondaryColor":"#76BC21","secondaryFontColor":"#FFFFFF","primaryGradientStartColor":"#FF920B","primaryGradientEndColor":"#F35C17"}'
@@ -477,9 +477,9 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_theme')
-            ->set('cia_ferias_theme.theme_name', ':newName')
-            ->where('cia_ferias_theme.theme_name = :currentName')
+            ->update('ohrm_theme')
+            ->set('ohrm_theme.theme_name', ':newName')
+            ->where('ohrm_theme.theme_name = :currentName')
             ->setParameter('currentName', 'custom')
             ->setParameter('newName', 'custom_4x')
             ->executeQuery();
@@ -487,15 +487,15 @@ class Migration extends AbstractMigration
 
     private function modifyTrackerLogsUserForeignKey(): void
     {
-        $this->getSchemaHelper()->dropForeignKeys('cia_ferias_performance_tracker_log', ['fk_cia_ferias_performance_tracker_log_1']);
+        $this->getSchemaHelper()->dropForeignKeys('ohrm_performance_tracker_log', ['fk_ohrm_performance_tracker_log_1']);
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['user_id'],
-            'cia_ferias_user',
+            'ohrm_user',
             ['id'],
-            'cia_ferias_performance_tracker_log_modified_by_id',
+            'ohrm_performance_tracker_log_modified_by_id',
             ['onDelete' => 'SET NULL', 'onUpdate' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_performance_tracker_log', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_performance_tracker_log', $foreignKeyConstraint);
     }
 
     /**
@@ -510,7 +510,7 @@ class Migration extends AbstractMigration
             );
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_user_role_screen', 'userRoleScreen')
+            ->update('ohrm_user_role_screen', 'userRoleScreen')
             ->set('userRoleScreen.user_role_id', ':userRoleId')
             ->setParameter(
                 'userRoleId',
@@ -564,7 +564,7 @@ class Migration extends AbstractMigration
     private function updateMenuConfigurator(string $module, ?string $screenUrl, string $menuConfiguratorClassName): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.menu_configurator', ':menuConfiguratorClassName')
             ->setParameter('menuConfiguratorClassName', $menuConfiguratorClassName)
             ->andWhere('screen.module_id = :moduleId')
@@ -581,27 +581,27 @@ class Migration extends AbstractMigration
         $this->updateMenuConfigurator(
             'recruitment',
             'addJobVacancy',
-            'CiaFerias\\Recruitment\\Menu\\VacancyMenuConfigurator'
+            'OrangeHRM\\Recruitment\\Menu\\VacancyMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'recruitment',
             'addCandidate',
-            'CiaFerias\\Recruitment\\Menu\\CandidateMenuConfigurator'
+            'OrangeHRM\\Recruitment\\Menu\\CandidateMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'recruitment',
             'changeCandidateVacancyStatus',
-            'CiaFerias\\Recruitment\\Menu\\CandidateMenuConfigurator'
+            'OrangeHRM\\Recruitment\\Menu\\CandidateMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'recruitment',
             'candidateHistory',
-            'CiaFerias\\Recruitment\\Menu\\CandidateMenuConfigurator'
+            'OrangeHRM\\Recruitment\\Menu\\CandidateMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'recruitment',
             'interviewAttachments',
-            'CiaFerias\\Recruitment\\Menu\\CandidateMenuConfigurator'
+            'OrangeHRM\\Recruitment\\Menu\\CandidateMenuConfigurator'
         );
     }
 
@@ -610,32 +610,32 @@ class Migration extends AbstractMigration
         $this->updateMenuConfigurator(
             'performance',
             'saveKpi',
-            'CiaFerias\\Performance\\Menu\\KpiMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\KpiMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'performance',
             'addPerformanceTracker',
-            'CiaFerias\\Performance\\Menu\\PerformanceTrackerMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\PerformanceTrackerMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'performance',
             'addPerformanceTrackerLog',
-            'CiaFerias\\Performance\\Menu\\PerformanceTrackerLogMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\PerformanceTrackerLogMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'performance',
             'saveReview',
-            'CiaFerias\\Performance\\Menu\\ManageReviewMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\ManageReviewMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'performance',
             'reviewEvaluate',
-            'CiaFerias\\Performance\\Menu\\MyReviewMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\MyReviewMenuConfigurator'
         );
         $this->updateMenuConfigurator(
             'performance',
             'reviewEvaluateByAdmin',
-            'CiaFerias\\Performance\\Menu\\AdminReviewMenuConfigurator'
+            'OrangeHRM\\Performance\\Menu\\AdminReviewMenuConfigurator'
         );
     }
 }

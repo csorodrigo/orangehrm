@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {OxdSheet, OxdText} from '@cia-ferias/oxd';
+import {OxdSheet, OxdText} from '@ohrm/oxd';
 
 export default {
   components: {

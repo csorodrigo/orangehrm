@@ -22,56 +22,56 @@
     :style="{width: '90%', maxWidth: '450px'}"
     @update:show="onCancel"
   >
-    <div class="cia-ferias-modal-header">
-      <oxd-text tag="h6" class="cia-ferias-main-title">
+    <div class="orangehrm-modal-header">
+      <oxd-text tag="h6" class="orangehrm-main-title">
         {{ $t('general.about') }}
       </oxd-text>
     </div>
     <oxd-divider />
-    <div v-if="isLoading" class="cia-ferias-loader">
+    <div v-if="isLoading" class="orangehrm-loader">
       <oxd-loading-spinner />
     </div>
-    <oxd-grid v-else :cols="2" class="cia-ferias-about">
+    <oxd-grid v-else :cols="2" class="orangehrm-about">
       <oxd-grid-item>
-        <oxd-text tag="p" class="cia-ferias-about-title">
+        <oxd-text tag="p" class="orangehrm-about-title">
           {{ $t('general.company_name') }}:
         </oxd-text>
       </oxd-grid-item>
       <oxd-grid-item>
-        <oxd-text tag="p" class="cia-ferias-about-text">
+        <oxd-text tag="p" class="orangehrm-about-text">
           {{ data.companyName }}
         </oxd-text>
       </oxd-grid-item>
       <oxd-grid-item>
-        <oxd-text tag="p" class="cia-ferias-about-title">
+        <oxd-text tag="p" class="orangehrm-about-title">
           {{ $t('general.version') }}:
         </oxd-text>
       </oxd-grid-item>
       <oxd-grid-item>
-        <oxd-text tag="p" class="cia-ferias-about-text">
+        <oxd-text tag="p" class="orangehrm-about-text">
           {{ data.productName }} {{ data.version }}
         </oxd-text>
       </oxd-grid-item>
       <template v-if="data.numberOfActiveEmployee !== undefined">
         <oxd-grid-item>
-          <oxd-text tag="p" class="cia-ferias-about-title">
+          <oxd-text tag="p" class="orangehrm-about-title">
             {{ $t('general.active_employees') }}:
           </oxd-text>
         </oxd-grid-item>
         <oxd-grid-item>
-          <oxd-text tag="p" class="cia-ferias-about-text">
+          <oxd-text tag="p" class="orangehrm-about-text">
             {{ data.numberOfActiveEmployee }}
           </oxd-text>
         </oxd-grid-item>
       </template>
       <template v-if="data.numberOfPastEmployee !== undefined">
         <oxd-grid-item>
-          <oxd-text tag="p" class="cia-ferias-about-title">
+          <oxd-text tag="p" class="orangehrm-about-title">
             {{ $t('general.employees_terminated') }}:
           </oxd-text>
         </oxd-grid-item>
         <oxd-grid-item>
-          <oxd-text tag="p" class="cia-ferias-about-text">
+          <oxd-text tag="p" class="orangehrm-about-text">
             {{ data.numberOfPastEmployee }}
           </oxd-text>
         </oxd-grid-item>
@@ -82,7 +82,7 @@
 
 <script>
 import {APIService} from '@/core/util/services/api.service';
-import {OxdDialog, OxdSpinner} from '@cia-ferias/oxd';
+import {OxdDialog, OxdSpinner} from '@ohrm/oxd';
 
 export default {
   components: {
@@ -123,13 +123,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cia-ferias-loader {
+.orangehrm-loader {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80px;
 }
-.cia-ferias-about {
+.orangehrm-about {
   grid-template-columns: 150px 1fr;
   &-title,
   &-text {

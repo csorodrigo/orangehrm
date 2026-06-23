@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Console\Scheduling;
+namespace OrangeHRM\Framework\Console\Scheduling;
 
-use CiaFerias\Framework\Console\ArrayInput;
+use OrangeHRM\Framework\Console\ArrayInput;
 
 class CommandInfo
 {

@@ -19,10 +19,10 @@
 
 include_once('../src/config/log_settings.php');
 
-use CiaFerias\Config\Config;
-use CiaFerias\Framework\Framework;
-use CiaFerias\Framework\Http\RedirectResponse;
-use CiaFerias\Framework\Http\Request;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Framework\Framework;
+use OrangeHRM\Framework\Http\RedirectResponse;
+use OrangeHRM\Framework\Http\Request;
 use Symfony\Component\ErrorHandler\Debug;
 
 require realpath(__DIR__ . '/../src/vendor/autoload.php');

@@ -16,11 +16,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\{PLUGIN_NAME_SPACE}\Controller;
+namespace OrangeHRM\{PLUGIN_NAME_SPACE}\Controller;
 
-use CiaFerias\Core\Controller\AbstractVueController;
-use CiaFerias\Core\Vue\Component;
-use CiaFerias\Framework\Http\Request;
+use OrangeHRM\Core\Controller\AbstractVueController;
+use OrangeHRM\Core\Vue\Component;
+use OrangeHRM\Framework\Http\Request;
 
 class {ACTION_CONTROLLER_NAME}Controller extends AbstractVueController
 {

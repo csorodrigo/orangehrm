@@ -38,11 +38,11 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('Mai');
-        cy.getOXDInput('Data de início').selectOption('15');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Start Month').selectOption('May');
+        cy.getOXDInput('Start Date').selectOption('15');
+        cy.getOXD('button').contains('Save').click();
       });
-      cy.toast('success', 'Salvo com sucesso');
+      cy.toast('success', 'Successfully Saved');
       cy.wait('@updateLeavePeriod');
     });
     // eslint-disable-next-line jest/no-disabled-tests
@@ -50,12 +50,12 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('Jun');
-        cy.getOXDInput('Data de início').selectOption('28');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Start Month').selectOption('June');
+        cy.getOXDInput('Start Date').selectOption('28');
+        cy.getOXD('button').contains('Save').click();
       });
       cy.wait('@updateLeavePeriod');
-      cy.toast('success', 'Salvo com sucesso');
+      cy.toast('success', 'Successfully Saved');
       cy.get(
         ':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-text',
       ).should('include.text', 'June 27 (Following Year)');
@@ -64,8 +64,8 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('Julho');
-        cy.getOXDInput('Data de início').should('include.text', '1');
+        cy.getOXDInput('Start Month').selectOption('July');
+        cy.getOXDInput('Start Date').should('include.text', '1');
       });
     });
   });
@@ -76,9 +76,9 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('-- Selecionar --');
-        cy.getOXDInput('Mês de início').isInvalid('Obrigatório');
-        cy.getOXDInput('Data de início').isInvalid('Obrigatório');
+        cy.getOXDInput('Start Month').selectOption('-- Select --');
+        cy.getOXDInput('Start Month').isInvalid('Required');
+        cy.getOXDInput('Start Date').isInvalid('Required');
       });
     });
   });
@@ -89,12 +89,12 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('Mai');
-        cy.getOXDInput('Data de início').selectOption('15');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Start Month').selectOption('May');
+        cy.getOXDInput('Start Date').selectOption('15');
+        cy.getOXD('button').contains('Save').click();
       });
       cy.wait('@updateLeavePeriod');
-      cy.toast('success', 'Salvo com sucesso');
+      cy.toast('success', 'Successfully Saved');
       cy.task('db:snapshot', {name: 'leavePeriodSaved2'});
     });
     it('Verify Reset button Function ', function () {
@@ -102,12 +102,12 @@ describe('Leave - Leave Period', function () {
       cy.loginTo(user.admin, '/leave/defineLeavePeriod');
       cy.wait('@retriveLeavePeriod');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Mês de início').selectOption('Jun');
-        cy.getOXDInput('Data de início').selectOption('28');
-        cy.getOXD('button').contains('Limpar').click();
+        cy.getOXDInput('Start Month').selectOption('June');
+        cy.getOXDInput('Start Date').selectOption('28');
+        cy.getOXD('button').contains('Reset').click();
       });
-      cy.getOXDInput('Mês de início').should('include.text', 'Mai');
-      cy.getOXDInput('Data de início').should('include.text', '15');
+      cy.getOXDInput('Start Month').should('include.text', 'May');
+      cy.getOXDInput('Start Date').should('include.text', '15');
     });
   });
 });

@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Installer;
+namespace OrangeHRM\Installer\Controller\Installer;
 
-use CiaFerias\Core\Vue\Component;
-use CiaFerias\Core\Vue\Prop;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Controller\AbstractInstallerVueController;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Core\Vue\Component;
+use OrangeHRM\Core\Vue\Prop;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
+use OrangeHRM\Installer\Util\StateContainer;
 
 class SystemCheckController extends AbstractInstallerVueController
 {

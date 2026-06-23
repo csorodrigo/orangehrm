@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import {OxdChip} from '@cia-ferias/oxd';
+import {OxdChip} from '@ohrm/oxd';
 
 export default {
   name: 'PasswordStrengthIndicator',
@@ -55,7 +55,7 @@ export default {
     },
     chipClasses() {
       return {
-        'cia-ferias-password-chip': true,
+        'orangehrm-password-chip': true,
         '--strength-better': this.passwordStrength === 2,
         '--strength-strong': this.passwordStrength === 3,
         '--strength-strongest': this.passwordStrength === 4,
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cia-ferias-password {
+.orangehrm-password {
   &-chip {
     top: 0px;
     right: 0px;

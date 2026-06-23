@@ -21,29 +21,29 @@
   <teleport to="#app">
     <oxd-dialog
       v-if="show"
-      class="cia-ferias-confirmation-dialog cia-ferias-dialog-popup"
+      class="orangehrm-confirmation-dialog orangehrm-dialog-popup"
       @update:show="onCancel"
     >
-      <div class="cia-ferias-modal-header">
+      <div class="orangehrm-modal-header">
         <oxd-text type="card-title">{{ title }}</oxd-text>
       </div>
-      <div class="cia-ferias-text-center-align">
+      <div class="orangehrm-text-center-align">
         <oxd-text type="card-body">
           {{ subtitle }}
         </oxd-text>
       </div>
-      <div class="cia-ferias-modal-footer">
+      <div class="orangehrm-modal-footer">
         <oxd-button
           :label="cancelLabel"
           :display-type="cancelButtonType"
-          class="cia-ferias-button-margin"
+          class="orangehrm-button-margin"
           @click="onCancel"
         />
         <oxd-button
           :icon-name="icon"
           :label="confirmLabel"
           :display-type="confirmButtonType"
-          class="cia-ferias-button-margin"
+          class="orangehrm-button-margin"
           @click="onConfirm"
         />
       </div>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import {OxdDialog} from '@cia-ferias/oxd';
+import {OxdDialog} from '@ohrm/oxd';
 
 export default {
   components: {

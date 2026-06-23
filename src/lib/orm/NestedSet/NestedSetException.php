@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\ORM\NestedSet;
+namespace OrangeHRM\ORM\NestedSet;
 
 use Exception;
 

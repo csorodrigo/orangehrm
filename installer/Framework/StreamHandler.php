@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Framework;
+namespace OrangeHRM\Installer\Framework;
 
-use CiaFerias\Core\Traits\ServiceContainerTrait;
-use CiaFerias\Framework\Services;
+use OrangeHRM\Core\Traits\ServiceContainerTrait;
+use OrangeHRM\Framework\Services;
 
 class StreamHandler extends \Monolog\Handler\StreamHandler
 {

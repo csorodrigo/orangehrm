@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import {APIService} from '@cia-ferias/core/util/services/api.service';
+import {APIService} from '@ohrm/core/util/services/api.service';
 export default {
   name: 'EmployeeAutocomplete',
   props: {

@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_2_0;
+namespace OrangeHRM\Installer\Migration\V5_2_0;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Core\Service\ConfigService;
-use CiaFerias\Installer\Util\Logger;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
-use CiaFerias\Installer\Util\V1\LangStringHelper;
+use OrangeHRM\Core\Service\ConfigService;
+use OrangeHRM\Installer\Util\Logger;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\LangStringHelper;
 use Symfony\Component\Yaml\Yaml;
 
 class Migration extends AbstractMigration
@@ -43,13 +43,13 @@ class Migration extends AbstractMigration
         $this->getDataGroupHelper()->insertDataGroupPermissions(__DIR__ . '/permission/data_group.yaml');
 
         $this->getSchemaHelper()->changeColumn(
-            'cia_ferias_i18n_translate',
+            'ohrm_i18n_translate',
             'value',
             ['Notnull' => false, 'Default' => null]
         );
 
         $q = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_translate', 'translate')
+            ->update('ohrm_i18n_translate', 'translate')
             ->set('translate.value', ':translateValue')
             ->where('translate.value = :currentValue');
         $q->setParameter('currentValue', $q->expr()->literal(''))
@@ -57,7 +57,7 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->getSchemaHelper()->dropColumn(
-            'cia_ferias_i18n_translate',
+            'ohrm_i18n_translate',
             'translated'
         );
 
@@ -80,7 +80,7 @@ class Migration extends AbstractMigration
         $this->updateHomePage('Admin', 'dashboard/index');
         $this->updateHomePage('ESS', 'dashboard/index');
 
-        $this->getSchemaHelper()->createTable('cia_ferias_user_auth_provider')
+        $this->getSchemaHelper()->createTable('ohrm_user_auth_provider')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('user_id', Types::INTEGER, ['Notnull' => true])
             ->addColumn('provider_type', Types::INTEGER, ['Notnull' => true])
@@ -91,21 +91,21 @@ class Migration extends AbstractMigration
             ->create();
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['user_id'],
-            'cia_ferias_user',
+            'ohrm_user',
             ['id'],
-            'cia_ferias_user_id',
+            'ohrm_user_id',
             ['onDelete' => 'CASCADE', 'onUpdate' => 'RESTRICT']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_user_auth_provider', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_user_auth_provider', $foreignKeyConstraint);
         $q = $this->createQueryBuilder()
-            ->update('cia_ferias_user', 'user')
+            ->update('ohrm_user', 'user')
             ->set('user.user_password', ':nullValue')
             ->setParameter('nullValue', null);
         $q->where('user.user_password = :emptyString')
             ->setParameter('emptyString', $q->expr()->literal(''))
             ->executeQuery();
 
-        $this->getSchemaHelper()->createTable('cia_ferias_ldap_sync_status')
+        $this->getSchemaHelper()->createTable('ohrm_ldap_sync_status')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('sync_started_at', Types::DATETIME_MUTABLE, ['Notnull' => true])
             ->addColumn('sync_finished_at', Types::DATETIME_MUTABLE, ['Notnull' => false, 'Default' => null])
@@ -115,14 +115,14 @@ class Migration extends AbstractMigration
             ->create();
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['synced_by'],
-            'cia_ferias_user',
+            'ohrm_user',
             ['id'],
-            'cia_ferias_ldap_sync_status_synced_by',
+            'ohrm_ldap_sync_status_synced_by',
             ['onDelete' => 'SET NULL', 'onUpdate' => 'RESTRICT']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_ldap_sync_status', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_ldap_sync_status', $foreignKeyConstraint);
 
-        $this->getSchemaHelper()->createTable('cia_ferias_task_scheduler_log')
+        $this->getSchemaHelper()->createTable('ohrm_task_scheduler_log')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('started_at', Types::DATETIME_MUTABLE, ['Notnull' => true])
             ->addColumn('finished_at', Types::DATETIME_MUTABLE, ['Notnull' => false, 'Default' => null])
@@ -142,11 +142,12 @@ class Migration extends AbstractMigration
                 0
             );
 
-        $this->getSchemaHelper()->dropIndex('cia_ferias_user', 'user_name');
+        $this->getSchemaHelper()->dropIndex('ohrm_user', 'user_name');
 
-        $this->getConfigHelper()->setConfigValue('help.url', '');
+        $this->getConfigHelper()->setConfigValue('help.url', 'https://starterhelp.orangehrm.com');
         $this->getConfigHelper()->setConfigValue('help.processorClass', 'ZendeskHelpProcessor');
         Logger::getLogger()->info('Deleting invalid config values');
+        $this->getConfigHelper()->deleteConfigValue('https://opensourcehelp.orangehrm.com');
         $this->getConfigHelper()->deleteConfigValue('ZendeskHelpProcessor');
 
         Logger::getLogger()->info('Deleting legacy config values');
@@ -196,9 +197,9 @@ class Migration extends AbstractMigration
     private function updatePimLeftMenuConfigurators(): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.menu_configurator', ':menuConfiguratorClassName')
-            ->setParameter('menuConfiguratorClassName', 'CiaFerias\\Pim\\Menu\\PIMLeftMenuItemConfigurator')
+            ->setParameter('menuConfiguratorClassName', 'OrangeHRM\\Pim\\Menu\\PIMLeftMenuItemConfigurator')
             ->andWhere('screen.module_id = :moduleId')
             ->setParameter('moduleId', $this->getDataGroupHelper()->getModuleIdByName('pim'));
         $qb->andWhere($qb->expr()->in('screen.action_url', ':screenUrls'))
@@ -223,12 +224,12 @@ class Migration extends AbstractMigration
     {
         $q = $this->createQueryBuilder();
         $q->select('orgInfo.name')
-            ->from('cia_ferias_organization_gen_info', 'orgInfo');
+            ->from('ohrm_organization_gen_info', 'orgInfo');
         $organizationName = $q->executeQuery()->fetchOne();
 
         if ($organizationName != null) {
             $this->createQueryBuilder()
-                ->update('cia_ferias_subunit', 'subunit')
+                ->update('ohrm_subunit', 'subunit')
                 ->set('subunit.name', ':organizationName')
                 ->setParameter('organizationName', $organizationName)
                 ->andWhere('subunit.level = :topLevel')
@@ -244,7 +245,7 @@ class Migration extends AbstractMigration
     private function updateHomePage(string $userRole, string $url): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_home_page', 'homePage')
+            ->update('ohrm_home_page', 'homePage')
             ->set('homePage.action', ':url')
             ->setParameter('url', $url)
             ->andWhere('homePage.user_role_id = :userRoleId')
@@ -256,7 +257,7 @@ class Migration extends AbstractMigration
     {
         $adminId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Admin')
             ->andWhere('level = :level')
@@ -265,7 +266,7 @@ class Migration extends AbstractMigration
             ->fetchOne();
         $configurationId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Configuration')
             ->andWhere('level = :level')
@@ -277,14 +278,14 @@ class Migration extends AbstractMigration
 
         $ldapConfigScreenId = $this->createQueryBuilder()
             ->select('screen.id')
-            ->from('cia_ferias_screen', 'screen')
+            ->from('ohrm_screen', 'screen')
             ->where('screen.name = :screenName')
             ->setParameter('screenName', 'Admin - LDAP Configuration')
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->insert('cia_ferias_menu_item')
+            ->insert('ohrm_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',
@@ -307,18 +308,18 @@ class Migration extends AbstractMigration
     private function cleanLDAPAddonData(): void
     {
         $this->createQueryBuilder()
-            ->delete('cia_ferias_data_group')
-            ->andWhere('cia_ferias_data_group.name = :dataGroupName')
+            ->delete('ohrm_data_group')
+            ->andWhere('ohrm_data_group.name = :dataGroupName')
             ->setParameter('dataGroupName', 'ldap_configuration')
             ->executeQuery();
         $this->createQueryBuilder()
-            ->delete('cia_ferias_screen')
-            ->andWhere('cia_ferias_screen.name = :screenName')
+            ->delete('ohrm_screen')
+            ->andWhere('ohrm_screen.name = :screenName')
             ->setParameter('screenName', 'LDAP Configuration')
             ->executeQuery();
         $this->createQueryBuilder()
-            ->delete('cia_ferias_module')
-            ->andWhere('cia_ferias_module.name = :moduleName')
+            ->delete('ohrm_module')
+            ->andWhere('ohrm_module.name = :moduleName')
             ->setParameter('moduleName', 'ldapAuthentication')
             ->executeQuery();
     }
@@ -331,7 +332,7 @@ class Migration extends AbstractMigration
         foreach ($langStrings as $langString) {
             $groupId = $this->langStringHelper->getGroupId($langString['group']);
             $this->createQueryBuilder()
-                ->update('cia_ferias_i18n_lang_string', 'langString')
+                ->update('ohrm_i18n_lang_string', 'langString')
                 ->set('langString.note', ':note')
                 ->setParameter('note', $langString['note'])
                 ->where('langString.unit_id = :unitId')
@@ -344,22 +345,22 @@ class Migration extends AbstractMigration
 
     private function cleanI18nGroups(): void
     {
-        $qb = $this->createQueryBuilder()->delete('cia_ferias_i18n_group');
-        $qb->where($qb->expr()->in('cia_ferias_i18n_group.name', ':groups'))
+        $qb = $this->createQueryBuilder()->delete('ohrm_i18n_group');
+        $qb->where($qb->expr()->in('ohrm_i18n_group.name', ':groups'))
             ->setParameter('groups', ['directory', 'branding'], Connection::PARAM_STR_ARRAY)
             ->executeQuery();
 
         $qb = $this->createQueryBuilder()
-            ->select('cia_ferias_i18n_group.id')
-            ->from('cia_ferias_i18n_group')
-            ->andWhere('cia_ferias_i18n_group.name = :name')
+            ->select('ohrm_i18n_group.id')
+            ->from('ohrm_i18n_group')
+            ->andWhere('ohrm_i18n_group.name = :name')
             ->setParameter('name', 'help')
-            ->orderBy('cia_ferias_i18n_group.id', 'DESC');
+            ->orderBy('ohrm_i18n_group.id', 'DESC');
         $ids = $qb->executeQuery()->fetchFirstColumn();
         $helpGroupId = array_pop($ids);
 
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'langString')
+            ->update('ohrm_i18n_lang_string', 'langString')
             ->set('langString.group_id', ':groupId')
             ->setParameter('groupId', $helpGroupId);
         $qb->andWhere($qb->expr()->in('langString.group_id', ':groupsToBeDeleted'))
@@ -367,8 +368,8 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $qb = $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_group');
-        $qb->where($qb->expr()->in('cia_ferias_i18n_group.id', ':groupsToBeDeleted'))
+            ->delete('ohrm_i18n_group');
+        $qb->where($qb->expr()->in('ohrm_i18n_group.id', ':groupsToBeDeleted'))
             ->setParameter('groupsToBeDeleted', $ids, Connection::PARAM_INT_ARRAY)
             ->executeQuery();
     }

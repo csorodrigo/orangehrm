@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Fixture;
+namespace OrangeHRM\Tests\Util\Fixture;
 
-use CiaFerias\Entity\DisplayField;
-use CiaFerias\Entity\DisplayFieldGroup;
+use OrangeHRM\Entity\DisplayField;
+use OrangeHRM\Entity\DisplayFieldGroup;
 
 class DisplayFieldFixture extends AbstractFixture
 {

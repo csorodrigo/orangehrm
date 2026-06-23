@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_3_5;
+namespace OrangeHRM\Installer\Migration\V4_3_5;
 
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {

@@ -177,7 +177,7 @@ langStrings:
     value: 'Upload {fileName}'
     unitId: upload_n_file
   -
-    value: 'This page is currently under development for CIA Férias {version}.'
+    value: 'This page is currently under development for OrangeHRM OS {version}.'
     unitId: this_page_is_being_developed
   -
     value: 'Should be a numeric value'

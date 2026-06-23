@@ -765,10 +765,10 @@ langStrings:
     value: 'Launching Soon'
     unitId: launching_soon
   -
-    value: 'This page is currently under development for CIA Férias.'
+    value: 'This page is currently under development for OrangeHRM OS 5.0.'
     unitId: this_page_is_being_developed
   -
-    value: "to download the latest stable release, which includes all CIA Férias features."
+    value: "to download the latest stable release, which includes all of OrangeHRM's features."
     unitId: download_latest_release_with_all_features
   -
     value: 'Click here'

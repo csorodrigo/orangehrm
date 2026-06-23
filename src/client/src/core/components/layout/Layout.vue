@@ -1,7 +1,7 @@
 <template>
   <oxd-layout
     :class="{
-      'cia-ferias-upgrade-layout': showUpgrade,
+      'orangehrm-upgrade-layout': showUpgrade,
     }"
     v-bind="layoutAttrs"
   >
@@ -69,7 +69,7 @@ import {
   useAttrs,
 } from 'vue';
 import About from '@/core/pages/About.vue';
-import {OxdLayout} from '@cia-ferias/oxd';
+import {OxdLayout} from '@ohrm/oxd';
 import {dateFormatKey} from '@/core/util/composable/useDateFormat';
 import UpgradeButton from '@/core/components/buttons/UpgradeButton.vue';
 
@@ -114,7 +114,7 @@ export default {
     const attrs = useAttrs();
     const showAboutModel = ref(false);
     const myDetailsUrl = `${window.appGlobal.baseUrl}/pim/viewMyDetails`;
-    const leaveModuleClass = 'cia-ferias-leave-module';
+    const leaveModuleClass = 'orangehrm-leave-module';
     provide('permissions', readonly(props.permissions));
     provide(dateFormatKey, readonly(props.dateFormat));
 
@@ -140,16 +140,12 @@ export default {
     const handleVacationPdfClick = (event) => {
       const tab = event.target.closest?.('.oxd-topbar-body-nav-tab');
       if (!tab || !isLeaveModule()) return;
-      const tabIndex = Array.from(tab.parentElement?.children || []).indexOf(
-        tab,
-      );
+      const tabIndex = Array.from(tab.parentElement?.children || []).indexOf(tab);
       if (tabIndex !== 1) return;
 
       event.preventDefault();
       event.stopImmediatePropagation();
-      window.dispatchEvent(
-        new CustomEvent('ca:generate-vacation-planning-pdf'),
-      );
+      window.dispatchEvent(new CustomEvent('ca:generate-vacation-planning-pdf'));
     };
 
     const getTopbarMenuItems = () =>
@@ -231,7 +227,9 @@ body {
   .oxd-main-menu-item {
     border-radius: 999px;
     margin: 0.18rem 0.7rem;
-    transition: background-color 160ms ease, color 160ms ease,
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
       transform 160ms ease;
   }
 
@@ -273,7 +271,7 @@ body {
 }
 
 .oxd-sheet,
-.cia-ferias-paper-container,
+.orangehrm-paper-container,
 .oxd-table-filter {
   border-radius: 1.15rem;
   box-shadow: 0 18px 46px rgba(26, 55, 104, 0.08);
@@ -281,7 +279,9 @@ body {
 
 .oxd-button,
 .oxd-topbar-body-nav-tab-item {
-  transition: transform 160ms ease, box-shadow 160ms ease,
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
     background-color 160ms ease;
 }
 
@@ -290,7 +290,7 @@ body {
   transform: translateY(-1px);
 }
 
-.cia-ferias-upgrade-layout {
+.orangehrm-upgrade-layout {
   .oxd-topbar-header-userarea {
     align-self: center;
     margin-left: unset;
@@ -302,12 +302,12 @@ body {
   display: none;
 }
 
-.cia-ferias-pim-employee-list-page
+.orangehrm-pim-employee-list-page
   .oxd-topbar-body-nav-tab:has(.bi-three-dots-vertical) {
   display: none;
 }
 
-.cia-ferias-leave-module .oxd-topbar-body-nav-tab:nth-of-type(2) {
+.orangehrm-leave-module .oxd-topbar-body-nav-tab:nth-of-type(2) {
   .oxd-topbar-body-nav-tab-item {
     display: inline-flex;
     align-items: center;
@@ -317,9 +317,10 @@ body {
   .oxd-topbar-body-nav-tab-item::before {
     width: 1.05rem;
     height: 1.05rem;
-    background: url('~@/ciaFeriasLeavePlugin/assets/pdf.svg') center / contain
+    background: url('~@/orangehrmLeavePlugin/assets/pdf.svg') center / contain
       no-repeat;
     content: '';
   }
 }
+
 </style>

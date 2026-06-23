@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util\V1;
+namespace OrangeHRM\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
-use CiaFerias\Installer\Util\ConfigHelper;
+use OrangeHRM\Installer\Util\ConfigHelper;
 
 abstract class AbstractMigration
 {
@@ -44,7 +44,7 @@ abstract class AbstractMigration
      */
     protected function getConnection(): Connection
     {
-        return \CiaFerias\Installer\Util\Connection::getConnection();
+        return \OrangeHRM\Installer\Util\Connection::getConnection();
     }
 
     /**

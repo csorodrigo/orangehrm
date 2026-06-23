@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util;
+namespace OrangeHRM\Tests\Util;
 
 interface MockObject extends \PHPUnit\Framework\MockObject\MockObject
 {

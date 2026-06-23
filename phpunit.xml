@@ -21,68 +21,68 @@
   </coverage>
   <testsuites>
     <testsuite name="Admin">
-      <directory>src/plugins/ciaFeriasAdminPlugin/test</directory>
+      <directory>src/plugins/orangehrmAdminPlugin/test</directory>
     </testsuite>
     <testsuite name="Authentication">
-      <directory>src/plugins/ciaFeriasAuthenticationPlugin/test</directory>
+      <directory>src/plugins/orangehrmAuthenticationPlugin/test</directory>
     </testsuite>
     <testsuite name="Core">
-      <directory>src/plugins/ciaFeriasCorePlugin/test</directory>
+      <directory>src/plugins/orangehrmCorePlugin/test</directory>
     </testsuite>
     <testsuite name="Leave">
-      <directory>src/plugins/ciaFeriasLeavePlugin/test/Dao</directory>
-      <directory>src/plugins/ciaFeriasLeavePlugin/test</directory>
+      <directory>src/plugins/orangehrmLeavePlugin/test/Dao</directory>
+      <directory>src/plugins/orangehrmLeavePlugin/test</directory>
     </testsuite>
     <testsuite name="Pim">
-      <directory>src/plugins/ciaFeriasPimPlugin/test</directory>
+      <directory>src/plugins/orangehrmPimPlugin/test</directory>
     </testsuite>
     <testsuite name="OAuth">
-      <directory>src/plugins/ciaFeriasCoreOAuthPlugin/test</directory>
+      <directory>src/plugins/orangehrmCoreOAuthPlugin/test</directory>
     </testsuite>
     <testsuite name="Time">
-      <directory>src/plugins/ciaFeriasTimePlugin/test</directory>
+      <directory>src/plugins/orangehrmTimePlugin/test</directory>
     </testsuite>
     <testsuite name="Attendance">
-      <directory>src/plugins/ciaFeriasAttendancePlugin/test</directory>
+      <directory>src/plugins/orangehrmAttendancePlugin/test</directory>
     </testsuite>
     <testsuite name="Maintenance">
-      <directory>src/plugins/ciaFeriasMaintenancePlugin/test</directory>
+      <directory>src/plugins/orangehrmMaintenancePlugin/test</directory>
     </testsuite>
     <testsuite name="I18N">
-      <directory>src/plugins/ciaFeriasI18NPlugin/test</directory>
+      <directory>src/plugins/orangehrmI18NPlugin/test</directory>
     </testsuite>
     <testsuite name="Performance">
-      <directory>src/plugins/ciaFeriasPerformancePlugin/test</directory>
+      <directory>src/plugins/orangehrmPerformancePlugin/test</directory>
     </testsuite>
     <testsuite name="Recruitment">
-      <directory>src/plugins/ciaFeriasRecruitmentPlugin/test</directory>
+      <directory>src/plugins/orangehrmRecruitmentPlugin/test</directory>
     </testsuite>
     <testsuite name="Directory">
-      <directory>src/plugins/ciaFeriasCorporateDirectoryPlugin/test</directory>
+      <directory>src/plugins/orangehrmCorporateDirectoryPlugin/test</directory>
     </testsuite>
     <testsuite name="CorporateBranding">
-      <directory>src/plugins/ciaFeriasCorporateBrandingPlugin/test</directory>
+      <directory>src/plugins/orangehrmCorporateBrandingPlugin/test</directory>
     </testsuite>
     <testsuite name="Dashboard">
-      <directory>src/plugins/ciaFeriasDashboardPlugin/test</directory>
+      <directory>src/plugins/orangehrmDashboardPlugin/test</directory>
     </testsuite>
     <testsuite name="LDAP">
-      <directory>src/plugins/ciaFeriasLDAPAuthenticationPlugin/test</directory>
+      <directory>src/plugins/orangehrmLDAPAuthenticationPlugin/test</directory>
     </testsuite>
     <testsuite name="Buzz">
-      <directory>src/plugins/ciaFeriasBuzzPlugin/test</directory>
+      <directory>src/plugins/orangehrmBuzzPlugin/test</directory>
     </testsuite>
     <testsuite name="Claim">
-      <directory>src/plugins/ciaFeriasClaimPlugin/test</directory>
+      <directory>src/plugins/orangehrmClaimPlugin/test</directory>
     </testsuite>
     <testsuite name="Help">
-      <directory>src/plugins/ciaFeriasHelpPlugin/test</directory>
+      <directory>src/plugins/orangehrmHelpPlugin/test</directory>
     </testsuite>
     <testsuite name="Mobile">
-      <directory>src/plugins/ciaFeriasMobilePlugin/test</directory>
+      <directory>src/plugins/orangehrmMobilePlugin/test</directory>
     </testsuite>
     <testsuite name="OpenId">
-      <directory>src/plugins/ciaFeriasOpenidAuthenticationPlugin/test</directory>
+      <directory>src/plugins/orangehrmOpenidAuthenticationPlugin/test</directory>
     </testsuite>
   </testsuites>
 </phpunit>

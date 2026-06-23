@@ -18,9 +18,9 @@
 import {createApp} from 'vue';
 import Pages from '@/pages';
 import Components from '@/components';
-import '@cia-ferias/oxd/fonts.css';
-import '@cia-ferias/oxd/icons.css';
-import '@cia-ferias/oxd/style.css';
+import '@ohrm/oxd/fonts.css';
+import '@ohrm/oxd/icons.css';
+import '@ohrm/oxd/style.css';
 import './styles/global.scss';
 
 const app = createApp({

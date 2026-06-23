@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Console;
+namespace OrangeHRM\Framework\Console;
 
 interface ConsoleConfigurationInterface
 {

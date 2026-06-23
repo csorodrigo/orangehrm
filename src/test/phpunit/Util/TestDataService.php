@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util;
+namespace OrangeHRM\Tests\Util;
 
 use DateTime;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\Persistence\Mapping\MappingException;
 use Exception;
-use CiaFerias\ORM\Doctrine;
-use CiaFerias\ORM\ListSorter;
+use OrangeHRM\ORM\Doctrine;
+use OrangeHRM\ORM\ListSorter;
 use PDO;
 use Symfony\Component\Yaml\Yaml;
 
@@ -237,7 +237,7 @@ class TestDataService
         if (class_exists($className)) {
             return $className;
         }
-        return "CiaFerias\Entity\\" . $className;
+        return "OrangeHRM\Entity\\" . $className;
     }
 
     private static function _setTableNames(): void

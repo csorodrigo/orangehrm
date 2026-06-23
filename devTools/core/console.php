@@ -36,18 +36,18 @@ if (!($pathToAutoload && $pathToDevAutoload)) {
 require_once $pathToAutoload;
 require_once $pathToDevAutoload;
 
-use CiaFerias\DevTools\Command\AddDataGroupCommand;
-use CiaFerias\DevTools\Command\AddRolePermissionCommand;
-use CiaFerias\DevTools\Command\CreateTestDatabaseCommand;
-use CiaFerias\DevTools\Command\EventDispatcherDebugCommand;
-use CiaFerias\DevTools\Command\GenerateOpenApiDocCommand;
-use CiaFerias\DevTools\Command\PHPFixCodingStandardsCommand;
-use CiaFerias\DevTools\Command\ReInstallCommand;
-use CiaFerias\DevTools\Command\ResetInstallationCommand;
-use CiaFerias\DevTools\Command\RunMigrationClassCommand;
-use CiaFerias\Framework\ServiceContainer;
-use CiaFerias\Framework\Services;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\DevTools\Command\AddDataGroupCommand;
+use OrangeHRM\DevTools\Command\AddRolePermissionCommand;
+use OrangeHRM\DevTools\Command\CreateTestDatabaseCommand;
+use OrangeHRM\DevTools\Command\EventDispatcherDebugCommand;
+use OrangeHRM\DevTools\Command\GenerateOpenApiDocCommand;
+use OrangeHRM\DevTools\Command\PHPFixCodingStandardsCommand;
+use OrangeHRM\DevTools\Command\ReInstallCommand;
+use OrangeHRM\DevTools\Command\ResetInstallationCommand;
+use OrangeHRM\DevTools\Command\RunMigrationClassCommand;
+use OrangeHRM\Framework\ServiceContainer;
+use OrangeHRM\Framework\Services;
+use OrangeHRM\ORM\Doctrine;
 use Symfony\Component\Console\Application;
 
 $application = new Application();

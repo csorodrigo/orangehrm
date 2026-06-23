@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Fixture;
+namespace OrangeHRM\Tests\Util\Fixture;
 
-use CiaFerias\Entity\I18NGroup;
-use CiaFerias\Entity\I18NLangString;
+use OrangeHRM\Entity\I18NGroup;
+use OrangeHRM\Entity\I18NLangString;
 
 class I18NLangStringFixture extends AbstractFixture
 {

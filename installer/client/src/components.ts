@@ -27,7 +27,7 @@ import {
   OxdText,
   OxdButton,
   OxdDivider,
-} from '@cia-ferias/oxd';
+} from '@ohrm/oxd';
 import InstallerLayout from '@/components/InstallerLayout.vue';
 import RequiredText from '@/components/RequiredText.vue';
 

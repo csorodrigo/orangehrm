@@ -1,5 +1,5 @@
 import {nanoid} from 'nanoid';
-import {OxdToast, TOAST_TYPES} from '@cia-ferias/oxd';
+import {OxdToast, TOAST_TYPES} from '@ohrm/oxd';
 import {translate as translatorFactory} from '@/core/plugins/i18n/translate';
 import {h, defineComponent, TransitionGroup, App, reactive, toRefs} from 'vue';
 

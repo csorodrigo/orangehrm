@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader\Api;
+namespace OrangeHRM\Installer\Controller\Upgrader\Api;
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\DataRegistrationUtility;
-use CiaFerias\Installer\Util\Service\DataRegistrationService;
-use CiaFerias\Installer\Util\StateContainer;
-use CiaFerias\Installer\Util\SystemConfig\SystemConfiguration;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\DataRegistrationUtility;
+use OrangeHRM\Installer\Util\Service\DataRegistrationService;
+use OrangeHRM\Installer\Util\StateContainer;
+use OrangeHRM\Installer\Util\SystemConfig\SystemConfiguration;
 
 class UpgraderDataRegistrationAPI extends AbstractInstallerRestController
 {

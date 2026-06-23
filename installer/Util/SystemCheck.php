@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 use Doctrine\DBAL\Connection;
-use CiaFerias\Config\Config;
-use CiaFerias\Framework\Filesystem\Filesystem;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Framework\Filesystem\Filesystem;
 use PDO;
 use Throwable;
 
@@ -812,7 +812,7 @@ class SystemCheck
                 'conn_type' => $this->getMySqlHostInfo()
             ],
             'server' => $this->getWebServerDetails(),
-            'CiaFerias' => [
+            'ohrm' => [
                 'version' => Config::PRODUCT_VERSION
             ]
         ];

@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Database;
+namespace OrangeHRM\Tests\Util\Database;
 
 use Doctrine\ORM\EntityManager;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\ORM\Doctrine;
 
 class DoctrineService extends Doctrine
 {

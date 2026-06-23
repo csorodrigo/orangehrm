@@ -16,23 +16,23 @@
  */
 
 import CorePages from '@/core/pages';
-import AdminPages from '@/ciaFeriasAdminPlugin';
-import PimPages from '@/ciaFeriasPimPlugin';
-import HelpPages from '@/ciaFeriasHelpPlugin';
-import TimePages from '@/ciaFeriasTimePlugin';
-import LeavePages from '@/ciaFeriasLeavePlugin';
-import OAuthPages from '@/ciaFeriasCoreOAuthPlugin';
-import AttendancePages from '@/ciaFeriasAttendancePlugin';
-import MaintenancePages from '@/ciaFeriasMaintenancePlugin';
-import RecruitmentPages from '@/ciaFeriasRecruitmentPlugin';
-import PerformancePages from '@/ciaFeriasPerformancePlugin';
-import CorporateDirectoryPages from '@/ciaFeriasCorporateDirectoryPlugin';
-import authenticationPages from '@/ciaFeriasAuthenticationPlugin';
-import languagePages from '@/ciaFeriasAdminPlugin';
-import dashboardPages from '@/ciaFeriasDashboardPlugin';
-import buzzPages from '@/ciaFeriasBuzzPlugin';
-import systemCheckPages from '@/ciaFeriasSystemCheckPlugin';
-import claimPages from '@/ciaFeriasClaimPlugin';
+import AdminPages from '@/orangehrmAdminPlugin';
+import PimPages from '@/orangehrmPimPlugin';
+import HelpPages from '@/orangehrmHelpPlugin';
+import TimePages from '@/orangehrmTimePlugin';
+import LeavePages from '@/orangehrmLeavePlugin';
+import OAuthPages from '@/orangehrmCoreOAuthPlugin';
+import AttendancePages from '@/orangehrmAttendancePlugin';
+import MaintenancePages from '@/orangehrmMaintenancePlugin';
+import RecruitmentPages from '@/orangehrmRecruitmentPlugin';
+import PerformancePages from '@/orangehrmPerformancePlugin';
+import CorporateDirectoryPages from '@/orangehrmCorporateDirectoryPlugin';
+import authenticationPages from '@/orangehrmAuthenticationPlugin';
+import languagePages from '@/orangehrmAdminPlugin';
+import dashboardPages from '@/orangehrmDashboardPlugin';
+import buzzPages from '@/orangehrmBuzzPlugin';
+import systemCheckPages from '@/orangehrmSystemCheckPlugin';
+import claimPages from '@/orangehrmClaimPlugin';
 
 export default {
   ...AdminPages,

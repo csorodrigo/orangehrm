@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\DevTools\Command;
+namespace OrangeHRM\DevTools\Command;
 
 use ErrorException;
 use OpenApi\Generator;
-use CiaFerias\Config\Config;
+use OrangeHRM\Config\Config;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -51,7 +51,7 @@ class GenerateOpenApiDocCommand extends Command
         $command = $this->getApplication()->find('php-cs-fix');
         $command->run(new ArrayInput([]), $output);
 
-        $paths = [Config::get(Config::PLUGINS_DIR) . '/ciaFeriasCorePlugin/Controller/Rest/V2'];
+        $paths = [Config::get(Config::PLUGINS_DIR) . '/orangehrmCorePlugin/Controller/Rest/V2'];
         foreach (Config::get(Config::PLUGIN_PATHS) as $pluginAbsPath) {
             $pathToApiDir = realpath($pluginAbsPath . '/Api');
             if ($pathToApiDir !== false) {
@@ -68,7 +68,7 @@ class GenerateOpenApiDocCommand extends Command
 
         $openapi = Generator::scan($paths);
         $buildDir = Config::get(Config::BASE_DIR) . '/build';
-        $filePath = $buildDir . '/cia-ferias-v2.json';
+        $filePath = $buildDir . '/orangehrm-v2.json';
 
         $openApiDefinition = $openapi->toJson(
             JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_IGNORE

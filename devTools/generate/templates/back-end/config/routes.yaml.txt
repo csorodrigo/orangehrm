@@ -1,4 +1,4 @@
 view_todo:
   path: /todo/items
-  controller: CiaFerias\ToDo\Controller\ToDoController::handle
+  controller: OrangeHRM\ToDo\Controller\ToDoController::handle
   methods: [ GET ]

@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Mock;
+namespace OrangeHRM\Tests\Util\Mock;
 
-use CiaFerias\Core\Service\CacheService;
+use OrangeHRM\Core\Service\CacheService;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
@@ -29,7 +29,7 @@ class MockCacheService extends CacheService
      * @param string $namespace
      * @return AdapterInterface
      */
-    public static function getCache(string $namespace = 'cia-ferias'): AdapterInterface
+    public static function getCache(string $namespace = 'orangehrm'): AdapterInterface
     {
         return new ArrayAdapter();
     }

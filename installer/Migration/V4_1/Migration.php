@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_1;
+namespace OrangeHRM\Installer\Migration\V4_1;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {

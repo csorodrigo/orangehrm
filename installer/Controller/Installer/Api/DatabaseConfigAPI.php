@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Installer\Api;
+namespace OrangeHRM\Installer\Controller\Installer\Api;
 
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\StateContainer;
 
 class DatabaseConfigAPI extends AbstractInstallerRestController
 {
@@ -42,26 +42,26 @@ class DatabaseConfigAPI extends AbstractInstallerRestController
         $enableDataEncryption = $request->request->getBoolean('enableDataEncryption');
 
         if ($dbType === AppSetupUtility::INSTALLATION_DB_TYPE_EXISTING &&
-            ($request->request->has('useSameDbUserForCiaFerias') ||
-                $request->request->has('ciaFeriasDbUser') ||
-                $request->request->has('ciaFeriasDbPassword'))) {
+            ($request->request->has('useSameDbUserForOrangeHRM') ||
+                $request->request->has('ohrmDbUser') ||
+                $request->request->has('ohrmDbPassword'))) {
             $this->getResponse()->setStatusCode(Response::HTTP_BAD_REQUEST);
             return [
                 'error' => [
                     'status' => $this->getResponse()->getStatusCode(),
-                    'message' => 'Unexpected Parameter `useSameDbUserForCiaFerias` or `ciaFeriasDbUser` or `ciaFeriasDbPassword` Received'
+                    'message' => 'Unexpected Parameter `useSameDbUserForOrangeHRM` or `ohrmDbUser` or `ohrmDbPassword` Received'
                 ]
             ];
         }
 
         $appSetupUtility = new AppSetupUtility();
         if ($dbType === AppSetupUtility::INSTALLATION_DB_TYPE_NEW) {
-            $useSameDbUserForCiaFerias = $request->request->getBoolean('useSameDbUserForCiaFerias', false);
-            $ciaFeriasDbUser = $dbUser;
-            $ciaFeriasDbPassword = $dbPassword;
-            if (!$useSameDbUserForCiaFerias) {
-                $ciaFeriasDbUser = $request->request->get('ciaFeriasDbUser');
-                $ciaFeriasDbPassword = $request->request->get('ciaFeriasDbPassword');
+            $useSameDbUserForOrangeHRM = $request->request->getBoolean('useSameDbUserForOrangeHRM', false);
+            $ohrmDbUser = $dbUser;
+            $ohrmDbPassword = $dbPassword;
+            if (!$useSameDbUserForOrangeHRM) {
+                $ohrmDbUser = $request->request->get('ohrmDbUser');
+                $ohrmDbPassword = $request->request->get('ohrmDbPassword');
             }
 
             StateContainer::getInstance()->storeDbInfo(
@@ -69,7 +69,7 @@ class DatabaseConfigAPI extends AbstractInstallerRestController
                 $dbPort,
                 new UserCredential($dbUser, $dbPassword),
                 $dbName,
-                new UserCredential($ciaFeriasDbUser, $ciaFeriasDbPassword),
+                new UserCredential($ohrmDbUser, $ohrmDbPassword),
                 $enableDataEncryption
             );
             StateContainer::getInstance()->setDbType(AppSetupUtility::INSTALLATION_DB_TYPE_NEW);
@@ -91,24 +91,23 @@ class DatabaseConfigAPI extends AbstractInstallerRestController
                         'message' => 'Database Already Exist'
                     ]
                 ];
-            } elseif (!$useSameDbUserForCiaFerias && $appSetupUtility->isDatabaseUserExist($ciaFeriasDbUser)) {
+            } elseif (!$useSameDbUserForOrangeHRM && $appSetupUtility->isDatabaseUserExist($ohrmDbUser)) {
                 $this->getResponse()->setStatusCode(Response::HTTP_BAD_REQUEST);
                 return [
                     'error' => [
                         'status' => $this->getResponse()->getStatusCode(),
-                        'message' => "Database User `$ciaFeriasDbUser` Already Exist. Please Use Another Username for `CIA Férias Database Username`."
+                        'message' => "Database User `$ohrmDbUser` Already Exist. Please Use Another Username for `OrangeHRM Database Username`."
                     ]
                 ];
             } else {
-                $dbInfo = StateContainer::getInstance()->getDbInfo();
                 return [
                     'data' => [
                         'dbHost' => $dbHost,
                         'dbPort' => $dbPort,
                         'dbUser' => $dbUser,
                         'dbName' => $dbName,
-                        'useSameDbUserForCiaFerias' => $useSameDbUserForCiaFerias,
-                        'ciaFeriasDbUser' => $useSameDbUserForCiaFerias ? null : ($dbInfo[StateContainer::CIA_FERIAS_DB_USER] ?? null),
+                        'useSameDbUserForOrangeHRM' => $useSameDbUserForOrangeHRM,
+                        'ohrmDbUser' => $useSameDbUserForOrangeHRM ? null : ($dbInfo[StateContainer::ORANGEHRM_DB_USER] ?? null),
                         'enableDataEncryption' => $enableDataEncryption,
                     ],
                     'meta' => []
@@ -163,7 +162,7 @@ class DatabaseConfigAPI extends AbstractInstallerRestController
     protected function handleGet(Request $request): array
     {
         $dbInfo = StateContainer::getInstance()->getDbInfo();
-        $useSameDbUserForCiaFerias = isset($dbInfo[StateContainer::CIA_FERIAS_DB_USER]) && $dbInfo[StateContainer::DB_USER] == $dbInfo[StateContainer::CIA_FERIAS_DB_USER];
+        $useSameDbUserForOrangeHRM = isset($dbInfo[StateContainer::ORANGEHRM_DB_USER]) && $dbInfo[StateContainer::DB_USER] == $dbInfo[StateContainer::ORANGEHRM_DB_USER];
         return [
             'data' => [
                 'dbHost' => $dbInfo[StateContainer::DB_HOST],
@@ -171,8 +170,8 @@ class DatabaseConfigAPI extends AbstractInstallerRestController
                 'dbName' => $dbInfo[StateContainer::DB_NAME],
                 'dbUser' => $dbInfo[StateContainer::DB_USER],
                 'dbType' => StateContainer::getInstance()->getDbType(),
-                'useSameDbUserForCiaFerias' => $useSameDbUserForCiaFerias,
-                'ciaFeriasDbUser' => $useSameDbUserForCiaFerias ? null : ($dbInfo[StateContainer::CIA_FERIAS_DB_USER] ?? null),
+                'useSameDbUserForOrangeHRM' => $useSameDbUserForOrangeHRM,
+                'ohrmDbUser' => $useSameDbUserForOrangeHRM ? null : ($dbInfo[StateContainer::ORANGEHRM_DB_USER] ?? null),
                 'enableDataEncryption' => $dbInfo[StateContainer::ENABLE_DATA_ENCRYPTION],
             ],
             'meta' => []

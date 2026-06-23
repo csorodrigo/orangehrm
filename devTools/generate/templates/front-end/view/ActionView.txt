@@ -18,10 +18,10 @@
  -->
 
 <template>
-  <div class="cia-ferias-background-container">
-    <div class="cia-ferias-paper-container">
-      <div class="cia-ferias-header-container">
-        <oxd-text tag="h6" class="cia-ferias-main-title">{ACTION_VIEW_TITLE}</oxd-text>
+  <div class="orangehrm-background-container">
+    <div class="orangehrm-paper-container">
+      <div class="orangehrm-header-container">
+        <oxd-text tag="h6" class="orangehrm-main-title">{ACTION_VIEW_TITLE}</oxd-text>
         <div>
           <oxd-button
               label="Add"
@@ -37,7 +37,7 @@
           :loading="isLoading"
           @delete="onClickDeleteSelected"
       ></table-header>
-      <div class="cia-ferias-container">
+      <div class="orangehrm-container">
         <oxd-card-table
             :headers="headers"
             :items="items"
@@ -48,7 +48,7 @@
             rowDecorator="oxd-table-decorator-card"
         />
       </div>
-      <div class="cia-ferias-bottom-container">
+      <div class="orangehrm-bottom-container">
         <oxd-pagination
             v-if="showPaginator"
             :length="pages"
@@ -62,8 +62,8 @@
 </template>
 
 <script>
-import {navigate} from '@cia-ferias/core/util/helper/navigation';
-import DeleteConfirmationDialog from '@cia-ferias/components/dialogs/DeleteConfirmationDialog.vue';
+import {navigate} from '@orangehrm/core/util/helper/navigation';
+import DeleteConfirmationDialog from '@orangehrm/components/dialogs/DeleteConfirmationDialog.vue';
 
 export default {
   data() {

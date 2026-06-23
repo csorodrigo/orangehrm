@@ -17,17 +17,17 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Installer\Api;
+namespace OrangeHRM\Installer\Controller\Installer\Api;
 
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Core\Exception\KeyHandlerException;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\DataRegistrationUtility;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Core\Exception\KeyHandlerException;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\DataRegistrationUtility;
+use OrangeHRM\Installer\Util\StateContainer;
 
-class ConfigFileAPI extends \CiaFerias\Installer\Controller\Upgrader\Api\ConfigFileAPI
+class ConfigFileAPI extends \OrangeHRM\Installer\Controller\Upgrader\Api\ConfigFileAPI
 {
     /**
      * @inheritDoc
@@ -53,9 +53,9 @@ class ConfigFileAPI extends \CiaFerias\Installer\Controller\Upgrader\Api\ConfigF
                 }
             }
 
-            $dbUser = $dbInfo[StateContainer::CIA_FERIAS_DB_USER] ?? $dbInfo[StateContainer::DB_USER];
-            $dbPassword = isset($dbInfo[StateContainer::CIA_FERIAS_DB_USER])
-                ? $dbInfo[StateContainer::CIA_FERIAS_DB_PASSWORD]
+            $dbUser = $dbInfo[StateContainer::ORANGEHRM_DB_USER] ?? $dbInfo[StateContainer::DB_USER];
+            $dbPassword = isset($dbInfo[StateContainer::ORANGEHRM_DB_USER])
+                ? $dbInfo[StateContainer::ORANGEHRM_DB_PASSWORD]
                 : $dbInfo[StateContainer::DB_PASSWORD];
             StateContainer::getInstance()->storeDbInfo(
                 $dbInfo[StateContainer::DB_HOST],

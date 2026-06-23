@@ -18,20 +18,20 @@
  -->
 <template>
   <oxd-form
-    class="cia-ferias-installer-page"
+    class="orangehrm-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+    <oxd-text tag="h5" class="orangehrm-installer-page-title">
       Admin User Creation
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="cia-ferias-installer-page-content">
+    <oxd-text tag="p" class="orangehrm-installer-page-content">
       Select the name, email address, username and password to create the admin
-      user for your CIA Férias instance
+      user for your OrangeHRM Instance
     </oxd-text>
     <br />
-    <oxd-grid :cols="4" class="cia-ferias-full-width-grid">
+    <oxd-grid :cols="4" class="orangehrm-full-width-grid">
       <oxd-grid-item>
         <oxd-input-field
           v-model="adminUser.firstName"
@@ -93,23 +93,23 @@
     </oxd-grid>
 
     <br />
-    <oxd-form-row class="cia-ferias-register-consent">
+    <oxd-form-row class="orangehrm-register-consent">
       <oxd-input-field
         v-model="adminUser.registrationConsent"
         type="checkbox"
-        option-label="Register your CIA Férias system. By registering, you will be eligible for internal support, security alerts, and product updates."
+        option-label="Register your system with OrangeHRM. By registering, You will be eligible for free support via emails, receive security alerts and news letters from OrangeHRM."
       />
-      <div class="cia-ferias-register-notice">
-        <oxd-icon class="cia-ferias-register-notice-icon" name="info-circle" />
-        <oxd-text class="cia-ferias-register-notice-text" tag="p">
+      <div class="orangehrm-register-notice">
+        <oxd-icon class="orangehrm-register-notice-icon" name="info-circle" />
+        <oxd-text class="orangehrm-register-notice-text" tag="p">
           Users who seek access to their data, or who seek to correct, amend, or
-          delete the given information should direct their requests to the CIA
-          Férias support channel.
+          delete the given information should direct their requests to
+          data@orangehrm.com
         </oxd-text>
       </div>
     </oxd-form-row>
 
-    <oxd-form-actions class="cia-ferias-installer-page-action">
+    <oxd-form-actions class="orangehrm-installer-page-action">
       <required-text />
       <oxd-button
         display-type="ghost"
@@ -118,7 +118,7 @@
         @click="navigateUrl"
       />
       <oxd-button
-        class="cia-ferias-left-space"
+        class="orangehrm-left-space"
         display-type="secondary"
         label="Next"
         type="submit"
@@ -138,7 +138,7 @@ import {
 import {navigate} from '@/core/util/helper/navigation';
 import {checkPassword} from '@/core/util/helper/password';
 import {APIService} from '@/core/util/services/api.service';
-import {OxdIcon} from '@cia-ferias/oxd';
+import {OxdIcon} from '@ohrm/oxd';
 
 export default {
   name: 'AdminUserCreation',
@@ -221,7 +221,7 @@ export default {
 
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style lang="scss" scoped>
-.cia-ferias-register-consent {
+.orangehrm-register-consent {
   max-width: 50%;
   ::v-deep(.oxd-checkbox-wrapper) {
     span {
@@ -230,7 +230,7 @@ export default {
   }
 }
 
-.cia-ferias-register-notice {
+.orangehrm-register-notice {
   display: flex;
   color: $oxd-interface-gray-color;
   &-icon {

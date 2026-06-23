@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Http;
+namespace OrangeHRM\Framework\Http;
 
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
 

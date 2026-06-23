@@ -16,7 +16,7 @@
  */
 
 import {inject, InjectionKey} from 'vue';
-import {convertPHPDateFormat} from '@cia-ferias/oxd';
+import {convertPHPDateFormat} from '@ohrm/oxd';
 
 type DateFormat = {
   id: string;

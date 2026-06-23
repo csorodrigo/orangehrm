@@ -1,19 +1,19 @@
 <template>
-  <div class="cia-ferias-installer-page">
-    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+  <div class="orangehrm-installer-page">
+    <oxd-text tag="h5" class="orangehrm-installer-page-title">
       Upgrade Complete
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="cia-ferias-installer-page-content">
-      You have successfully upgraded to CIA Férias version
+    <oxd-text tag="p" class="orangehrm-installer-page-content">
+      You have successfully upgraded to OrangeHRM Starter version
       {{ productversion }}.
     </oxd-text>
     <br />
     <br />
     <oxd-button
-      class="cia-ferias-upgrader-complete-button"
+      class="orangehrm-upgrader-complete-button"
       display-type="secondary"
-      label="Launch CIA Férias"
+      label="Launch OrangeHRM"
       @click="launch"
     />
   </div>
@@ -39,11 +39,11 @@ export default {
 
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style lang="scss" scoped>
-.cia-ferias-upgrader-complete {
+.orangehrm-upgrader-complete {
   padding: 0 1rem;
   color: $oxd-interface-gray-darken-1-color;
 }
-.cia-ferias-upgrader-complete-button {
+.orangehrm-upgrader-complete-button {
   margin-right: auto;
 }
 </style>

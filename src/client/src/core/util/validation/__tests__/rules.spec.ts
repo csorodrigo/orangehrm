@@ -248,47 +248,47 @@ describe('core/util/validation/rules::validEmailFormat', () => {
   });
 
   test('validEmailFormat:invalid character at first', () => {
-    const result = validEmailFormat('>test@deviciaferias.com');
+    const result = validEmailFormat('>test@deviohrm.com');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:noAtSign', () => {
-    const result = validEmailFormat('deviciaferias.com');
+    const result = validEmailFormat('deviohrm.com');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:noUsername', () => {
-    const result = validEmailFormat('@ciaferias.com');
+    const result = validEmailFormat('@ohrm.com');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:noFullStopForDomain', () => {
-    const result = validEmailFormat('devi@ciaferiascom');
+    const result = validEmailFormat('devi@ohrmcom');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:fullStopWithNoDomain', () => {
-    const result = validEmailFormat('devi@ciaferias.');
+    const result = validEmailFormat('devi@ohrm.');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:fullStopAfterDomain', () => {
-    const result = validEmailFormat('devi@ciaferias.com.');
+    const result = validEmailFormat('devi@ohrm.com.');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:multipleFullStops', () => {
-    const result = validEmailFormat('devi@ciaferias..com');
+    const result = validEmailFormat('devi@ohrm..com');
     expect(result).toBe('Expected format: admin@example.com');
   });
 
   test('validEmailFormat:validEmail main domain', () => {
-    const result = validEmailFormat('devi@ciaferias.com');
+    const result = validEmailFormat('devi@ohrm.com');
     expect(result).toStrictEqual(true);
   });
 
   test('validEmailFormat:validEmail sub domain', () => {
-    const result = validEmailFormat('devi@ciaferias.co.uk');
+    const result = validEmailFormat('devi@ohrm.co.uk');
     expect(result).toStrictEqual(true);
   });
 });
@@ -947,12 +947,12 @@ describe('core/util/validation/rules::validHostnameFormat', () => {
   });
 
   test('validHostnameFormat:: with top level domain', () => {
-    const result = validHostnameFormat('cia-ferias.local');
+    const result = validHostnameFormat('orangehrm.com');
     expect(result).toStrictEqual(true);
   });
 
   test('validHostnameFormat:: with sub domain', () => {
-    const result = validHostnameFormat('app.cia-ferias.local');
+    const result = validHostnameFormat('osohrm.orangehrm.com');
     expect(result).toStrictEqual(true);
   });
 
@@ -967,17 +967,17 @@ describe('core/util/validation/rules::validHostnameFormat', () => {
   });
 
   test('validHostnameFormat:: hostname with invalid characters', () => {
-    const result = validHostnameFormat('cia_ferias.com');
+    const result = validHostnameFormat('orangehrm_company.com');
     expect(result).toStrictEqual('Invalid');
   });
 
   test('validHostnameFormat:: hostname with space characters', () => {
-    const result = validHostnameFormat('cia ferias.com');
+    const result = validHostnameFormat('orangehrm com');
     expect(result).toStrictEqual('Invalid');
   });
 
   test('validHostnameFormat:: hostname with protocol', () => {
-    const result = validHostnameFormat('http://cia-ferias.local');
+    const result = validHostnameFormat('http://orangehrm.com');
     expect(result).toStrictEqual('Invalid');
   });
 

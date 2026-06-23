@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util\V1;
+namespace OrangeHRM\Installer\Util\V1;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use CiaFerias\Installer\Util\V1\Dto\LangString;
+use OrangeHRM\Installer\Util\V1\Dto\LangString;
 
 class LangStringHelper
 {
@@ -71,7 +71,7 @@ class LangStringHelper
     {
         $q = $this->createQueryBuilder();
         $q->select('module.id')
-            ->from('cia_ferias_i18n_group', 'module')
+            ->from('ohrm_i18n_group', 'module')
             ->where('module.name = :group')
             ->setParameter('group', $moduleName);
         return $q->executeQuery()->fetchOne();
@@ -86,16 +86,16 @@ class LangStringHelper
         $groupId = $this->getLangHelper()->getGroupIdByName($groupName);
         $langStringIds = $this->getLangStringIdsForGroup($groupId);
         $qb = $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_translate')
-            ->where('cia_ferias_i18n_translate.customized != 1');
-        $qb->andWhere($qb->expr()->in('cia_ferias_i18n_translate.lang_string_id', ':langStringIds'))
+            ->delete('ohrm_i18n_translate')
+            ->where('ohrm_i18n_translate.customized != 1');
+        $qb->andWhere($qb->expr()->in('ohrm_i18n_translate.lang_string_id', ':langStringIds'))
             ->setParameter('langStringIds', $langStringIds, Connection::PARAM_INT_ARRAY)
             ->executeQuery();
 
         $deleteStrings = $this->getNonCustomizedLangStringIds($groupId);
         $qb = $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_lang_string');
-        $qb->andWhere($qb->expr()->in('cia_ferias_i18n_lang_string.id', ':deleteIds'))
+            ->delete('ohrm_i18n_lang_string');
+        $qb->andWhere($qb->expr()->in('ohrm_i18n_lang_string.id', ':deleteIds'))
             ->setParameter('deleteIds', $deleteStrings, Connection::PARAM_INT_ARRAY)
             ->executeQuery();
     }
@@ -108,7 +108,7 @@ class LangStringHelper
     {
         $q = $this->createQueryBuilder();
         $q->select('langString.id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
+            ->from('ohrm_i18n_lang_string', 'langString')
             ->where('langString.group_id = :module')
             ->setParameter('module', $groupId);
         $results = $q->executeQuery()->fetchAllAssociative();
@@ -123,8 +123,8 @@ class LangStringHelper
     {
         $q = $this->createQueryBuilder()
             ->select('translate.lang_string_id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
-            ->leftJoin('langString', 'cia_ferias_i18n_translate', 'translate', 'langString.id = translate.lang_string_id')
+            ->from('ohrm_i18n_lang_string', 'langString')
+            ->leftJoin('langString', 'ohrm_i18n_translate', 'translate', 'langString.id = translate.lang_string_id')
             ->where('langString.group_id = :module')
             ->andWhere('translate.customized = 1')
             ->setParameter('module', $groupId);
@@ -136,7 +136,7 @@ class LangStringHelper
 
         $qb = $this->createQueryBuilder()
             ->select('langString.id')
-            ->from('cia_ferias_i18n_lang_string', 'langString');
+            ->from('ohrm_i18n_lang_string', 'langString');
         $qb->andWhere($qb->expr()->notIn('langString.id', ':customStrings'))
             ->andWhere('langString.group_id = :module')
             ->setParameter('customStrings', $customStrings, Connection::PARAM_INT_ARRAY)
@@ -174,7 +174,7 @@ class LangStringHelper
     {
         $q = $this->createQueryBuilder()
             ->select('langString.id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
+            ->from('ohrm_i18n_lang_string', 'langString')
             ->where('langString.value = :source')
             ->setParameter('source', $langStringValue);
         if (!is_null($groupId)) {
@@ -197,7 +197,7 @@ class LangStringHelper
     {
         $q = $this->createQueryBuilder()
             ->select('langString.id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
+            ->from('ohrm_i18n_lang_string', 'langString')
             ->where('langString.unit_id = :unitId')
             ->andWhere('langString.group_id = :group')
             ->setParameter('unitId', $langStringUnitId)
@@ -214,7 +214,7 @@ class LangStringHelper
     private function saveLangString(LangString $langString): void
     {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_i18n_lang_string')
+            ->insert('ohrm_i18n_lang_string')
             ->values([
                 'value' => ':string',
                 'group_id' => ':module',
@@ -237,10 +237,10 @@ class LangStringHelper
     private function updateLangString(int $langStringId, LangString $langString): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string')
-            ->set('cia_ferias_i18n_lang_string.unit_id', ':key')
-            ->set('cia_ferias_i18n_lang_string.group_id', ':groupId')
-            ->where('cia_ferias_i18n_lang_string.id = :id')
+            ->update('ohrm_i18n_lang_string')
+            ->set('ohrm_i18n_lang_string.unit_id', ':key')
+            ->set('ohrm_i18n_lang_string.group_id', ':groupId')
+            ->where('ohrm_i18n_lang_string.id = :id')
             ->setParameter('key', $langString->getUnitId())
             ->setParameter('groupId', $langString->getGroupId())
             ->setParameter('id', $langStringId)

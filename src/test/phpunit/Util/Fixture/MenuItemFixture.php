@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Fixture;
+namespace OrangeHRM\Tests\Util\Fixture;
 
-use CiaFerias\Entity\MenuItem;
-use CiaFerias\Entity\Module;
-use CiaFerias\Entity\Screen;
-use CiaFerias\Entity\ScreenPermission;
-use CiaFerias\Entity\UserRole;
+use OrangeHRM\Entity\MenuItem;
+use OrangeHRM\Entity\Module;
+use OrangeHRM\Entity\Screen;
+use OrangeHRM\Entity\ScreenPermission;
+use OrangeHRM\Entity\UserRole;
 
 class MenuItemFixture extends AbstractFixture
 {

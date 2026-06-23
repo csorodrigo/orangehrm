@@ -1,4 +1,4 @@
 (function () {
   document.documentElement.lang = 'pt-BR';
-  document.title = 'CIA Férias';
+  document.title = document.title.replace('OrangeHRM', 'cia maquinas RH');
 })();

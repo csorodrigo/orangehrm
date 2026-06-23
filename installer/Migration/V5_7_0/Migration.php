@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_7_0;
+namespace OrangeHRM\Installer\Migration\V5_7_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
-use CiaFerias\Installer\Util\V1\LangStringHelper;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\LangStringHelper;
 
 class Migration extends AbstractMigration
 {
@@ -57,13 +57,13 @@ class Migration extends AbstractMigration
         $localizationDataGroupId = $this->getDataGroupHelper()->getDataGroupIdByName(
             'apiv2_admin_localization_languages'
         );
-        $this->createQueryBuilder()->update('cia_ferias_data_group')
+        $this->createQueryBuilder()->update('ohrm_data_group')
             ->andWhere('id = :id')
             ->set('can_delete', ':value')
             ->setParameter('id', $localizationDataGroupId)
             ->setParameter('value', 1)
             ->executeQuery();
-        $this->createQueryBuilder()->update('cia_ferias_user_role_data_group')
+        $this->createQueryBuilder()->update('ohrm_user_role_data_group')
             ->andWhere('data_group_id = :dataGroupId')
             ->andWhere('user_role_id = :userRoleId')
             ->set('can_delete', ':value')
@@ -85,8 +85,8 @@ class Migration extends AbstractMigration
 
         $this->dropOldTables();
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_error'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_error')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_error'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_error')
                 ->addColumn('name', Types::STRING, ['length' => 255, 'Notnull' => true])
                 ->addColumn('message', Types::STRING, ['length' => 255, 'Notnull' => true])
                 ->setPrimaryKey(['name'])
@@ -98,8 +98,8 @@ class Migration extends AbstractMigration
         $this->insertI18NError('plural_placeholder_mismatch', 'Mismatch found between plural expression placeholder');
         $this->insertI18NError('invalid_syntax', 'The syntax used is invalid');
 
-        if (!$this->getSchemaManager()->tablesExist(['cia_ferias_i18n_import_error'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_import_error')
+        if (!$this->getSchemaManager()->tablesExist(['ohrm_i18n_import_error'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_import_error')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true, 'Notnull' => true])
                 ->addColumn('lang_string_id', Types::INTEGER, ['Notnull' => true])
                 ->addColumn('language_id', Types::INTEGER, ['Notnull' => true])
@@ -110,21 +110,21 @@ class Migration extends AbstractMigration
 
             $langStringConstraint  = new ForeignKeyConstraint(
                 ['lang_string_id'],
-                'cia_ferias_i18n_lang_string',
+                'ohrm_i18n_lang_string',
                 ['id'],
                 'i18n_lang_string_id',
                 ['onDelete' => 'CASCADE']
             );
             $languageConstraint = new ForeignKeyConstraint(
                 ['language_id'],
-                'cia_ferias_i18n_language',
+                'ohrm_i18n_language',
                 ['id'],
                 'i18n_language_id',
                 ['onDelete' => 'CASCADE']
             );
             $errorConstraint = new ForeignKeyConstraint(
                 ['error_name'],
-                'cia_ferias_i18n_error',
+                'ohrm_i18n_error',
                 ['name'],
                 'i18n_error_name',
                 ['onDelete' => 'CASCADE']
@@ -136,10 +136,10 @@ class Migration extends AbstractMigration
                 'imported_by_emp_number',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_import_error', $langStringConstraint);
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_import_error', $languageConstraint);
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_import_error', $errorConstraint);
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_import_error', $importedByConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_i18n_import_error', $langStringConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_i18n_import_error', $languageConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_i18n_import_error', $errorConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_i18n_import_error', $importedByConstraint);
 
             $this->getDataGroupHelper()->insertScreenPermissions(__DIR__ . '/permission/screen.yaml');
         }
@@ -172,7 +172,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'lang_string')
+            ->update('ohrm_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -187,7 +187,7 @@ class Migration extends AbstractMigration
     {
         $id = $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
+            ->from('ohrm_i18n_lang_string', 'langString')
             ->andWhere('langString.unit_id = :unitId')
             ->setParameter('unitId', $unitId)
             ->andWhere('langString.group_id = :groupId')
@@ -196,27 +196,27 @@ class Migration extends AbstractMigration
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_translate')
-            ->andWhere('cia_ferias_i18n_translate.lang_string_id = :id')
+            ->delete('ohrm_i18n_translate')
+            ->andWhere('ohrm_i18n_translate.lang_string_id = :id')
             ->setParameter('id', $id)
             ->executeQuery();
     }
 
     private function dropOldTables(): void
     {
-        $this->getSchemaManager()->dropTable('cia_ferias_user_selection_rule');
-        $this->getSchemaManager()->dropTable('cia_ferias_role_user_selection_rule');
-        $this->getSchemaManager()->dropTable('cia_ferias_leave_entitlement_adjustment');
-        $this->getSchemaManager()->dropTable('cia_ferias_leave_adjustment');
-        $this->getSchemaManager()->dropTable('cia_ferias_available_group_field');
+        $this->getSchemaManager()->dropTable('ohrm_user_selection_rule');
+        $this->getSchemaManager()->dropTable('ohrm_role_user_selection_rule');
+        $this->getSchemaManager()->dropTable('ohrm_leave_entitlement_adjustment');
+        $this->getSchemaManager()->dropTable('ohrm_leave_adjustment');
+        $this->getSchemaManager()->dropTable('ohrm_available_group_field');
         $this->getSchemaManager()->dropTable('hs_hr_mailnotifications');
         $this->getSchemaManager()->dropTable('hs_hr_custom_export');
         $this->getSchemaManager()->dropTable('hs_hr_custom_import');
         $this->getSchemaManager()->dropTable('hs_hr_module');
-        $this->getSchemaManager()->dropTable('cia_ferias_advanced_report');
-        $this->getSchemaManager()->dropTable('cia_ferias_beacon_notification');
-        $this->getSchemaManager()->dropTable('cia_ferias_datapoint');
-        $this->getSchemaManager()->dropTable('cia_ferias_datapoint_type');
+        $this->getSchemaManager()->dropTable('ohrm_advanced_report');
+        $this->getSchemaManager()->dropTable('ohrm_beacon_notification');
+        $this->getSchemaManager()->dropTable('ohrm_datapoint');
+        $this->getSchemaManager()->dropTable('ohrm_datapoint_type');
     }
 
     /**
@@ -226,7 +226,7 @@ class Migration extends AbstractMigration
     private function insertI18NError(string $name, string $message): void
     {
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_i18n_error')
+            ->insert('ohrm_i18n_error')
             ->values([
                 'name' => ':name',
                 'message' => ':message'

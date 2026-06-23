@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_5_0;
+namespace OrangeHRM\Installer\Migration\V5_5_0;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Entity\WorkflowStateMachine;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
-use CiaFerias\Installer\Util\V1\LangStringHelper;
+use OrangeHRM\Entity\WorkflowStateMachine;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\LangStringHelper;
 
 class Migration extends AbstractMigration
 {
@@ -62,8 +62,8 @@ class Migration extends AbstractMigration
             $this->getLangHelper()->getGroupIdByName('general')
         );
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_claim_event'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_claim_event')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_claim_event'])) {
+            $this->getSchemaHelper()->createTable('ohrm_claim_event')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('name', Types::TEXT, ['Notnull' => true, 'Length' => 100])
                 ->addColumn('description', Types::TEXT, ['Notnull' => false, 'Length' => 1000])
@@ -74,16 +74,16 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint = new ForeignKeyConstraint(
                 ['added_by'],
-                'cia_ferias_user',
+                'ohrm_user',
                 ['id'],
                 'addedBy',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_event', $foreignKeyConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_event', $foreignKeyConstraint);
         }
 
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_module')
+            ->insert('ohrm_module')
             ->values(
                 [
                     'name' => ':name',
@@ -101,8 +101,8 @@ class Migration extends AbstractMigration
         $this->getDataGroupHelper()->insertScreenPermissions(__DIR__ . '/permission/screens.yaml');
         $this->changeClaimEventTableStatusToBoolean();
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_expense_type'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_expense_type')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_expense_type'])) {
+            $this->getSchemaHelper()->createTable('ohrm_expense_type')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('name', Types::TEXT, ['Notnull' => true, 'Length' => 100])
                 ->addColumn('description', Types::TEXT, ['Notnull' => false, 'Length' => 1000])
@@ -113,16 +113,16 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint = new ForeignKeyConstraint(
                 ['added_by'],
-                'cia_ferias_user',
+                'ohrm_user',
                 ['id'],
                 'addedByUser',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_expense_type', $foreignKeyConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_expense_type', $foreignKeyConstraint);
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_claim_request'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_claim_request')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_claim_request'])) {
+            $this->getSchemaHelper()->createTable('ohrm_claim_request')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('emp_number ', Types::INTEGER, ['Notnull' => false, 'Length' => 11])
                 ->addColumn('added_by', Types::INTEGER, ['Notnull' => false, 'Length' => 11])
@@ -138,20 +138,20 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint1 = new ForeignKeyConstraint(
                 ['added_by'],
-                'cia_ferias_user',
+                'ohrm_user',
                 ['id'],
                 'requestByUser',
                 ['onDelete' => 'SET NULL']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint1);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint1);
             $foreignKeyConstraint2 = new ForeignKeyConstraint(
                 ['event_type_id'],
-                'cia_ferias_claim_event',
+                'ohrm_claim_event',
                 ['id'],
                 'claimEventId',
                 ['onDelete' => 'SET NULL']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint2);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint2);
             $foreignKeyConstraint3 = new ForeignKeyConstraint(
                 ['emp_number'],
                 'hs_hr_employee',
@@ -159,11 +159,11 @@ class Migration extends AbstractMigration
                 'claim_Request_Employee_Number',
                 ['onDelete' => 'SET NULL']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint3);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint3);
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_claim_attachment'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_claim_attachment')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_claim_attachment'])) {
+            $this->getSchemaHelper()->createTable('ohrm_claim_attachment')
                 ->addColumn('request_id', Types::INTEGER)
                 ->addColumn('eattach_id', Types::BIGINT)
                 ->addColumn('eattach_size', Types::INTEGER, ['Default' => 0, 'Notnull' => false])
@@ -183,19 +183,19 @@ class Migration extends AbstractMigration
                 'attachedById',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_attachment', $foreignKeyConstraint1);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_attachment', $foreignKeyConstraint1);
             $foreignKeyConstraint2 = new ForeignKeyConstraint(
                 ['request_id'],
-                'cia_ferias_claim_request',
+                'ohrm_claim_request',
                 ['id'],
                 'claimRequestId',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_attachment', $foreignKeyConstraint2);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_attachment', $foreignKeyConstraint2);
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_expense'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_expense')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_expense'])) {
+            $this->getSchemaHelper()->createTable('ohrm_expense')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('expense_type_id', Types::INTEGER, ['Notnull' => false])
                 ->addColumn('date', Types::DATE_MUTABLE, ['Notnull' => false])
@@ -207,34 +207,34 @@ class Migration extends AbstractMigration
                 ->create();
             $foreignKeyConstraint1 = new ForeignKeyConstraint(
                 ['expense_type_id'],
-                'cia_ferias_expense_type',
+                'ohrm_expense_type',
                 ['id'],
                 'expenseTypeId',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_expense', $foreignKeyConstraint1);
+            $this->getSchemaHelper()->addForeignKey('ohrm_expense', $foreignKeyConstraint1);
             $foreignKeyConstraint2 = new ForeignKeyConstraint(
                 ['request_id'],
-                'cia_ferias_claim_request',
+                'ohrm_claim_request',
                 ['id'],
                 'claimRequsetId',
                 ['onDelete' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_expense', $foreignKeyConstraint2);
+            $this->getSchemaHelper()->addForeignKey('ohrm_expense', $foreignKeyConstraint2);
         }
 
         $this->changeClaimExpenseTypeTableStatusToBoolean();
         $this->modifyClaimTables();
 
         // Fix MariaDB 12.0 version compatibility issue for the installer
-        $migration580 = new \CiaFerias\Installer\Migration\V5_8_0\Migration();
+        $migration580 = new \OrangeHRM\Installer\Migration\V5_8_0\Migration();
         $migration580->correctingCurrencyIdColumnInconsistencies();
 
         $this->modifyClaimRequestCurrencyToForeignKey();
 
         if (!$this->checkClaimExists()) {
             $this->getConnection()->createQueryBuilder()
-                ->insert('cia_ferias_module_default_page')
+                ->insert('ohrm_module_default_page')
                 ->values(
                     [
                         'module_id' => ':module_id',
@@ -250,7 +250,7 @@ class Migration extends AbstractMigration
                 ->executeQuery();
 
             $this->getConnection()->createQueryBuilder()
-                ->insert('cia_ferias_module_default_page')
+                ->insert('ohrm_module_default_page')
                 ->values(
                     [
                         'module_id' => ':module_id',
@@ -266,7 +266,7 @@ class Migration extends AbstractMigration
                 ->executeQuery();
 
             $this->getConnection()->createQueryBuilder()
-                ->insert('cia_ferias_module_default_page')
+                ->insert('ohrm_module_default_page')
                 ->values(
                     [
                         'module_id' => ':module_id',
@@ -284,7 +284,7 @@ class Migration extends AbstractMigration
             $viewClaimModuleScreenId = $this->getConnection()
                 ->createQueryBuilder()
                 ->select('id')
-                ->from('cia_ferias_screen')
+                ->from('ohrm_screen')
                 ->where('action_url = :action_url')
                 ->setParameter('action_url', 'ViewClaimModule')
                 ->executeQuery()
@@ -294,7 +294,7 @@ class Migration extends AbstractMigration
             $claimMenuItemId = $this->getConnection()
                 ->createQueryBuilder()
                 ->select('id')
-                ->from('cia_ferias_menu_item')
+                ->from('ohrm_menu_item')
                 ->Where('menu_title = :menu_title')
                 ->setParameter('menu_title', 'Claim')
                 ->executeQuery()
@@ -410,10 +410,10 @@ class Migration extends AbstractMigration
     private function modifyClaimTables(): void
     {
         $this->getConnection()->executeStatement(
-            'ALTER TABLE cia_ferias_claim_request CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci'
+            'ALTER TABLE ohrm_claim_request CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci'
         );
 
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_claim_event', [
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_claim_event', [
             'is_deleted' => ['Type' => Type::getType(Types::BOOLEAN), 'Notnull' => true, 'Default' => 0],
             'status' => [
                 'Type' => Type::getType(Types::BOOLEAN),
@@ -423,7 +423,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_claim_request', [
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_claim_request', [
             'reference_id' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::STRING),
@@ -449,7 +449,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_expense_type', [
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_expense_type', [
             'name' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::STRING),
@@ -468,7 +468,7 @@ class Migration extends AbstractMigration
             ]
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_claim_event', [
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_claim_event', [
             'name' => [
                 'Notnull' => true,
                 'Type' => Type::getType(Types::STRING),
@@ -482,7 +482,7 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_expense', [
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_expense', [
             'date' => [
                 'Type' => Type::getType(Types::DATETIME_MUTABLE)
             ],
@@ -495,14 +495,14 @@ class Migration extends AbstractMigration
             ],
         ]);
 
-        $this->getSchemaHelper()->dropColumn('cia_ferias_claim_attachment', 'attached_by_name');
+        $this->getSchemaHelper()->dropColumn('ohrm_claim_attachment', 'attached_by_name');
 
-        $this->getSchemaHelper()->renameColumn('cia_ferias_claim_request', 'currency', 'currency_id');
+        $this->getSchemaHelper()->renameColumn('ohrm_claim_request', 'currency', 'currency_id');
     }
 
     private function modifyClaimRequestCurrencyToForeignKey(): void
     {
-        $tableDetails = $this->getSchemaManager()->introspectTable('cia_ferias_claim_request');
+        $tableDetails = $this->getSchemaManager()->introspectTable('ohrm_claim_request');
         $foreignKey = $tableDetails->hasForeignKey('fk_currency_id') ? $tableDetails->getForeignKey('fk_currency_id') : null;
         if (!$foreignKey instanceof ForeignKeyConstraint) {
             $foreignKeyConstraint = new ForeignKeyConstraint(
@@ -512,14 +512,14 @@ class Migration extends AbstractMigration
                 'fk_currency_id',
                 ['onDelete' => 'RESTRICT', 'onUpdate' => 'CASCADE']
             );
-            $this->getSchemaHelper()->addForeignKey('cia_ferias_claim_request', $foreignKeyConstraint);
+            $this->getSchemaHelper()->addForeignKey('ohrm_claim_request', $foreignKeyConstraint);
         }
     }
 
     private function changeClaimExpenseTypeTableStatusToBoolean(): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_expense_type', 'expenseType')
+            ->update('ohrm_expense_type', 'expenseType')
             ->set('expenseType.status', ':status')
             ->where('expenseType.status = :currentStatus')
             ->setParameter('currentStatus', 'on')
@@ -531,7 +531,7 @@ class Migration extends AbstractMigration
             ->executeStatement();
 
         $q = $this->createQueryBuilder();
-        $q->update('cia_ferias_expense_type', 'expenseType')
+        $q->update('ohrm_expense_type', 'expenseType')
             ->set('expenseType.status', ':status')
             ->where($q->expr()->isNull('expenseType.status'))
             ->setParameter(
@@ -545,7 +545,7 @@ class Migration extends AbstractMigration
     private function changeClaimEventTableStatusToBoolean(): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_claim_event', 'claimEvent')
+            ->update('ohrm_claim_event', 'claimEvent')
             ->set('claimEvent.status', ':status')
             ->where('claimEvent.status = :currentStatus')
             ->setParameter('currentStatus', 'on')
@@ -557,7 +557,7 @@ class Migration extends AbstractMigration
             ->executeStatement();
 
         $q = $this->createQueryBuilder();
-        $q->update('cia_ferias_claim_event', 'claimEvent')
+        $q->update('ohrm_claim_event', 'claimEvent')
             ->set('claimEvent.status', ':status')
             ->where($q->expr()->isNull('claimEvent.status'))
             ->setParameter(
@@ -579,7 +579,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'lang_string')
+            ->update('ohrm_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -599,7 +599,7 @@ class Migration extends AbstractMigration
     private function insertI18nGroups(): void
     {
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_i18n_group')
+            ->insert('ohrm_i18n_group')
             ->values([
                 'name' => ':name',
                 'title' => ':title',
@@ -621,7 +621,7 @@ class Migration extends AbstractMigration
         ?string $additionalParams
     ): void {
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_menu_item')
+            ->insert('ohrm_menu_item')
             ->values([
                 'menu_title' => ':menu_title',
                 'screen_id' => ':screen_id',
@@ -647,7 +647,7 @@ class Migration extends AbstractMigration
     {
         return $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('cia_ferias_menu_item')
+            ->from('ohrm_menu_item')
             ->where('menu_title = :menu_title')
             ->setParameter('menu_title', $menu_title)
             ->andWhere('parent_id = :parent_id')
@@ -660,7 +660,7 @@ class Migration extends AbstractMigration
     {
         return $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('cia_ferias_screen')
+            ->from('ohrm_screen')
             ->where('name = :name')
             ->setParameter('name', $name)
             ->executeQuery()
@@ -671,7 +671,7 @@ class Migration extends AbstractMigration
     {
         return $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('cia_ferias_menu_item')
+            ->from('ohrm_menu_item')
             ->where('menu_title = :menu_title')
             ->setParameter('menu_title', 'Claim')
             ->executeQuery()
@@ -692,8 +692,8 @@ class Migration extends AbstractMigration
             'View Create Expense'
         ];
         $qb = $this->createQueryBuilder()
-            ->delete('cia_ferias_screen');
-        $qb->andWhere($qb->expr()->in('cia_ferias_screen.name', ':screenName'))
+            ->delete('ohrm_screen');
+        $qb->andWhere($qb->expr()->in('ohrm_screen.name', ':screenName'))
             ->setParameter('screenName', $screenNames, Connection::PARAM_STR_ARRAY)
             ->executeQuery();
     }
@@ -706,7 +706,7 @@ class Migration extends AbstractMigration
         int $priority
     ): void {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_workflow_state_machine')
+            ->insert('ohrm_workflow_state_machine')
             ->values(
                 [
                     'workflow' => ':workflow',
@@ -731,7 +731,7 @@ class Migration extends AbstractMigration
     private function deleteClaimWorkflowStates(): void
     {
         $this->createQueryBuilder()
-            ->delete('cia_ferias_workflow_state_machine')
+            ->delete('ohrm_workflow_state_machine')
             ->where('workflow = :workflow')
             ->setParameter('workflow', 'CLAIM')
             ->executeQuery();
@@ -739,15 +739,15 @@ class Migration extends AbstractMigration
 
     private function removeMarketplaceTables(): void
     {
-        if ($this->getSchemaManager()->tablesExist('cia_ferias_marketplace_addon')) {
-            $this->getSchemaManager()->dropTable('cia_ferias_marketplace_addon');
+        if ($this->getSchemaManager()->tablesExist('ohrm_marketplace_addon')) {
+            $this->getSchemaManager()->dropTable('ohrm_marketplace_addon');
         }
     }
 
     private function updateI18nGroups(): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'langString')
+            ->update('ohrm_i18n_lang_string', 'langString')
             ->set('langString.group_id', ':groupId')
             ->setParameter('groupId', $this->getLangHelper()->getGroupIdByName('general'));
         $qb->andWhere($qb->expr()->in('langString.unit_id', ':unitIdToChangeGroup'))
@@ -759,15 +759,15 @@ class Migration extends AbstractMigration
     {
         $id = $this->getConnection()->createQueryBuilder()
             ->select('id')
-            ->from('cia_ferias_i18n_lang_string', 'langString')
+            ->from('ohrm_i18n_lang_string', 'langString')
             ->andWhere('langString.unit_id = :unitId')
             ->setParameter('unitId', $unitId)
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->delete('cia_ferias_i18n_translate')
-            ->andWhere('cia_ferias_i18n_translate.lang_string_id = :id')
+            ->delete('ohrm_i18n_translate')
+            ->andWhere('ohrm_i18n_translate.lang_string_id = :id')
             ->setParameter('id', $id)
             ->executeQuery();
     }

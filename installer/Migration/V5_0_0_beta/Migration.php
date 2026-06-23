@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_0_0_beta;
+namespace OrangeHRM\Installer\Migration\V5_0_0_beta;
 
 use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -34,7 +34,7 @@ class Migration extends AbstractMigration
     public function up(): void
     {
         $this->getSchemaHelper()->renameColumn('hs_hr_config', '`key`', 'name');
-        $this->getSchemaHelper()->addColumn('cia_ferias_menu_item', '`additional_params`', Types::TEXT, [
+        $this->getSchemaHelper()->addColumn('ohrm_menu_item', '`additional_params`', Types::TEXT, [
             'Notnull' => false,
             'Default' => null,
             'Comment' => '(DC2Type:json)',
@@ -54,20 +54,20 @@ class Migration extends AbstractMigration
         $this->updateMenuItemIconNames('maintenance', 'Maintenance');
         $this->updateMenuItemIconNames('buzz', 'Buzz');
 
-        $this->getSchemaHelper()->createTable('cia_ferias_api_permission')
+        $this->getSchemaHelper()->createTable('ohrm_api_permission')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('module_id', Types::INTEGER, ['Notnull' => false])
             ->addColumn('data_group_id', Types::INTEGER, ['Notnull' => false])
             ->addColumn('api_name', Types::STRING, ['Length' => 255])
             ->addUniqueIndex(['api_name'], 'api_name')
             ->setPrimaryKey(['id'])
-            ->addForeignKeyConstraint('cia_ferias_module', ['module_id'], ['id'], [], 'fk_cia_ferias_module_module_id')
+            ->addForeignKeyConstraint('ohrm_module', ['module_id'], ['id'], [], 'fk_ohrm_module_module_id')
             ->addForeignKeyConstraint(
-                'cia_ferias_data_group',
+                'ohrm_data_group',
                 ['data_group_id'],
                 ['id'],
                 [],
-                'fk_cia_ferias_data_group_data_group_id'
+                'fk_ohrm_data_group_data_group_id'
             )
             ->create();
 
@@ -81,7 +81,7 @@ class Migration extends AbstractMigration
         $this->updateScreenModuleId('pim', 'pimCsvImport', 'Data Import');
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_menu_item', 'menuItem')
+            ->update('ohrm_menu_item', 'menuItem')
             ->set('menuItem.screen_id', ':screenId')
             ->setParameter(
                 'screenId',
@@ -94,11 +94,11 @@ class Migration extends AbstractMigration
             ->setParameter('menuTitle', 'Performance')
             ->executeQuery();
 
-        $this->getSchemaHelper()->dropColumn('cia_ferias_leave_request_comment', 'created_by_name');
-        $this->getSchemaHelper()->dropColumn('cia_ferias_leave_comment', 'created_by_name');
-        $this->getSchemaHelper()->dropColumn('cia_ferias_leave_entitlement', 'created_by_name');
+        $this->getSchemaHelper()->dropColumn('ohrm_leave_request_comment', 'created_by_name');
+        $this->getSchemaHelper()->dropColumn('ohrm_leave_comment', 'created_by_name');
+        $this->getSchemaHelper()->dropColumn('ohrm_leave_entitlement', 'created_by_name');
 
-        $this->getSchemaHelper()->createTable('cia_ferias_mail_queue', 'utf8mb4')
+        $this->getSchemaHelper()->createTable('ohrm_mail_queue', 'utf8mb4')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('to_list', Types::TEXT, ['Comment' => '(DC2Type:array)'])
             ->addColumn('cc_list', Types::TEXT, ['Notnull' => false, 'Default' => null, 'Comment' => '(DC2Type:array)'])
@@ -117,13 +117,13 @@ class Migration extends AbstractMigration
             ->create();
 
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_display_field',
+            'ohrm_display_field',
             'class_name',
             Types::STRING,
             ['Length' => 255, 'Notnull' => false, 'Default' => null]
         );
         $this->getSchemaHelper()->addColumn(
-            'cia_ferias_filter_field',
+            'ohrm_filter_field',
             'class_name',
             Types::STRING,
             ['Length' => 255, 'Notnull' => false, 'Default' => null]
@@ -131,62 +131,62 @@ class Migration extends AbstractMigration
 
         $this->updateReportDisplayFieldByGroup(
             'Personal',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
         );
         $this->updateReportDisplayFieldByGroup(
             'Contact Details',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
         );
         $this->updateReportDisplayFieldByGroup(
             'Emergency Contacts',
-            'CiaFerias\\Core\\Report\\DisplayField\\EmergencyContact\\EmergencyContact'
+            'OrangeHRM\\Core\\Report\\DisplayField\\EmergencyContact\\EmergencyContact'
         );
         $this->updateReportDisplayFieldByGroup(
             'Dependents',
-            'CiaFerias\\Core\\Report\\DisplayField\\Dependent\\Dependent'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Dependent\\Dependent'
         );
         $this->updateReportDisplayFieldByGroup(
             'Immigration',
-            'CiaFerias\\Core\\Report\\DisplayField\\Immigration\\Immigration'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Immigration\\Immigration'
         );
         $this->updateReportDisplayFieldByGroup(
             'Job',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
         );
-        $this->updateReportDisplayFieldByGroup('Salary', 'CiaFerias\\Core\\Report\\DisplayField\\Salary\\Salary');
+        $this->updateReportDisplayFieldByGroup('Salary', 'OrangeHRM\\Core\\Report\\DisplayField\\Salary\\Salary');
         $this->updateReportDisplayFieldByGroup(
             'Subordinates',
-            'CiaFerias\\Core\\Report\\DisplayField\\Subordinate\\Subordinate'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Subordinate\\Subordinate'
         );
         $this->updateReportDisplayFieldByGroup(
             'Supervisors',
-            'CiaFerias\\Core\\Report\\DisplayField\\Supervisor\\Supervisor'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Supervisor\\Supervisor'
         );
         $this->updateReportDisplayFieldByGroup(
             'Work Experience',
-            'CiaFerias\\Core\\Report\\DisplayField\\WorkExperience\\WorkExperience'
+            'OrangeHRM\\Core\\Report\\DisplayField\\WorkExperience\\WorkExperience'
         );
         $this->updateReportDisplayFieldByGroup(
             'Education',
-            'CiaFerias\\Core\\Report\\DisplayField\\Education\\Education'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Education\\Education'
         );
-        $this->updateReportDisplayFieldByGroup('Skills', 'CiaFerias\\Core\\Report\\DisplayField\\Skill\\Skill');
+        $this->updateReportDisplayFieldByGroup('Skills', 'OrangeHRM\\Core\\Report\\DisplayField\\Skill\\Skill');
         $this->updateReportDisplayFieldByGroup(
             'Languages',
-            'CiaFerias\\Core\\Report\\DisplayField\\Language\\Language'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Language\\Language'
         );
-        $this->updateReportDisplayFieldByGroup('License', 'CiaFerias\\Core\\Report\\DisplayField\\License\\License');
+        $this->updateReportDisplayFieldByGroup('License', 'OrangeHRM\\Core\\Report\\DisplayField\\License\\License');
         $this->updateReportDisplayFieldByGroup(
             'Memberships',
-            'CiaFerias\\Core\\Report\\DisplayField\\Membership\\Membership'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Membership\\Membership'
         );
         $this->updateReportDisplayFieldByGroup(
             'Custom Fields',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericBasicDisplayField'
         );
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_display_field', 'reportDisplayField')
+            ->update('ohrm_display_field', 'reportDisplayField')
             ->set('reportDisplayField.is_value_list', ':isValueList')
             ->setParameter('isValueList', false, ParameterType::BOOLEAN)
             ->andWhere('reportDisplayField.display_field_group_id = :groupId')
@@ -194,35 +194,35 @@ class Migration extends AbstractMigration
             ->executeQuery();
         $this->updateReportDisplayFieldByFieldAlias(
             'empBirthday',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'licenseExpiryDate',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'empGender',
-            'CiaFerias\\Core\\Report\\DisplayField\\Personal\\EmployeeGender'
+            'OrangeHRM\\Core\\Report\\DisplayField\\Personal\\EmployeeGender'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'address',
-            'CiaFerias\\Core\\Report\\DisplayField\\ContactDetail\\EmployeeAddress'
+            'OrangeHRM\\Core\\Report\\DisplayField\\ContactDetail\\EmployeeAddress'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'empContStartDate',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'empContEndDate',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'empJoinedDate',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
         $this->updateReportDisplayFieldByFieldAlias(
             'terminationDate',
-            'CiaFerias\\Core\\Report\\DisplayField\\GenericDateDisplayField'
+            'OrangeHRM\\Core\\Report\\DisplayField\\GenericDateDisplayField'
         );
 
         $this->renameReportDisplayFieldAlias('nationality', 'employeeNationality');
@@ -232,30 +232,30 @@ class Migration extends AbstractMigration
 
         $this->updateReportFilterFieldByFieldName(
             'employee_name',
-            'CiaFerias\\Core\\Report\\FilterField\\EmployeeNumber'
+            'OrangeHRM\\Core\\Report\\FilterField\\EmployeeNumber'
         );
-        $this->updateReportFilterFieldByFieldName('pay_grade', 'CiaFerias\\Core\\Report\\FilterField\\PayGrade');
+        $this->updateReportFilterFieldByFieldName('pay_grade', 'OrangeHRM\\Core\\Report\\FilterField\\PayGrade');
         $this->updateReportFilterFieldByFieldName(
             'education',
-            'CiaFerias\\Core\\Report\\FilterField\\EmployeeEducation'
+            'OrangeHRM\\Core\\Report\\FilterField\\EmployeeEducation'
         );
         $this->updateReportFilterFieldByFieldName(
             'employment_status',
-            'CiaFerias\\Core\\Report\\FilterField\\EmploymentStatus'
+            'OrangeHRM\\Core\\Report\\FilterField\\EmploymentStatus'
         );
         $this->updateReportFilterFieldByFieldName(
             'service_period',
-            'CiaFerias\\Core\\Report\\FilterField\\ServicePeriod'
+            'OrangeHRM\\Core\\Report\\FilterField\\ServicePeriod'
         );
-        $this->updateReportFilterFieldByFieldName('joined_date', 'CiaFerias\\Core\\Report\\FilterField\\JoinedDate');
-        $this->updateReportFilterFieldByFieldName('job_title', 'CiaFerias\\Core\\Report\\FilterField\\JobTitle');
-        $this->updateReportFilterFieldByFieldName('language', 'CiaFerias\\Core\\Report\\FilterField\\EmployeeLanguage');
-        $this->updateReportFilterFieldByFieldName('skill', 'CiaFerias\\Core\\Report\\FilterField\\EmployeeSkill');
-        $this->updateReportFilterFieldByFieldName('age_group', 'CiaFerias\\Core\\Report\\FilterField\\AgeGroup');
-        $this->updateReportFilterFieldByFieldName('sub_unit', 'CiaFerias\\Core\\Report\\FilterField\\Subunit');
-        $this->updateReportFilterFieldByFieldName('gender', 'CiaFerias\\Core\\Report\\FilterField\\EmployeeGender');
-        $this->updateReportFilterFieldByFieldName('location', 'CiaFerias\\Core\\Report\\FilterField\\Location');
-        $this->updateReportFilterFieldByFieldName('include', 'CiaFerias\\Core\\Report\\FilterField\\IncludeEmployee');
+        $this->updateReportFilterFieldByFieldName('joined_date', 'OrangeHRM\\Core\\Report\\FilterField\\JoinedDate');
+        $this->updateReportFilterFieldByFieldName('job_title', 'OrangeHRM\\Core\\Report\\FilterField\\JobTitle');
+        $this->updateReportFilterFieldByFieldName('language', 'OrangeHRM\\Core\\Report\\FilterField\\EmployeeLanguage');
+        $this->updateReportFilterFieldByFieldName('skill', 'OrangeHRM\\Core\\Report\\FilterField\\EmployeeSkill');
+        $this->updateReportFilterFieldByFieldName('age_group', 'OrangeHRM\\Core\\Report\\FilterField\\AgeGroup');
+        $this->updateReportFilterFieldByFieldName('sub_unit', 'OrangeHRM\\Core\\Report\\FilterField\\Subunit');
+        $this->updateReportFilterFieldByFieldName('gender', 'OrangeHRM\\Core\\Report\\FilterField\\EmployeeGender');
+        $this->updateReportFilterFieldByFieldName('location', 'OrangeHRM\\Core\\Report\\FilterField\\Location');
+        $this->updateReportFilterFieldByFieldName('include', 'OrangeHRM\\Core\\Report\\FilterField\\IncludeEmployee');
 
         $this->renameSelectedReportFilterFieldWhereCondition('=', 'eq');
         $this->renameSelectedReportFilterFieldWhereCondition('<>', 'neq');
@@ -268,102 +268,102 @@ class Migration extends AbstractMigration
 
         $this->updateEmailProcessorClassByEmailName(
             'leave.apply',
-            'CiaFerias\\Leave\\Mail\\Processor\\LeaveAllocateEmailProcessor'
+            'OrangeHRM\\Leave\\Mail\\Processor\\LeaveAllocateEmailProcessor'
         );
         $this->updateEmailProcessorClassByEmailName(
             'leave.assign',
-            'CiaFerias\\Leave\\Mail\\Processor\\LeaveAllocateEmailProcessor'
+            'OrangeHRM\\Leave\\Mail\\Processor\\LeaveAllocateEmailProcessor'
         );
         $this->updateEmailProcessorClassByEmailName(
             'leave.approve',
-            'CiaFerias\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
+            'OrangeHRM\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
         );
         $this->updateEmailProcessorClassByEmailName(
             'leave.cancel',
-            'CiaFerias\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
+            'OrangeHRM\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
         );
         $this->updateEmailProcessorClassByEmailName(
             'leave.reject',
-            'CiaFerias\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
+            'OrangeHRM\\Leave\\Mail\\Processor\\LeaveStatusChangeEmailProcessor'
         );
 
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.apply',
             'supervisor',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/apply/leaveApplicationBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/apply/leaveApplicationBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.apply',
             'subscriber',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubscriberBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/apply/leaveApplicationSubscriberBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.assign',
             'ess',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.assign',
             'supervisor',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubjectForSupervisors.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentBodyForSupervisors.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubjectForSupervisors.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentBodyForSupervisors.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.assign',
             'subscriber',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubscriberSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubscriberBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubscriberSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/assign/leaveAssignmentSubscriberBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.approve',
             'ess',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/approve/leaveApprovalBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/approve/leaveApprovalBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.approve',
             'subscriber',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubscriberSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubscriberBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubscriberSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/approve/leaveApprovalSubscriberBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.reject',
             'ess',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/reject/leaveRejectionBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/reject/leaveRejectionBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.reject',
             'subscriber',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubscriberSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubscriberBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubscriberSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/reject/leaveRejectionSubscriberBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.cancel',
             'supervisor',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationBody.html.twig'
         );
         $this->updateEmailTemplateSubjectAndBodyByEmailNameAndRecipientRole(
             'leave.cancel',
             'ess',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubject.txt.twig',
-            '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationBody.html.twig'
+            '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubject.txt.twig',
+            '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationBody.html.twig'
         );
         $this->createQueryBuilder()
-            ->update('cia_ferias_email_template', 'emailTemplate')
+            ->update('ohrm_email_template', 'emailTemplate')
             ->set('emailTemplate.subject', ':subject')
             ->setParameter(
                 'subject',
-                '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt.twig'
+                '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubscriberSubject.txt.twig'
             )
             ->set('emailTemplate.body', ':body')
             ->setParameter(
                 'body',
-                '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubscriberBody.html.twig'
+                '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveEmployeeCancellationSubscriberBody.html.twig'
             )
             ->andWhere('emailTemplate.email_id = :emailId')
             ->setParameter('emailId', $this->getEmailIdByName('leave.cancel'))
@@ -373,16 +373,16 @@ class Migration extends AbstractMigration
             ->setParameter('performerRole', 'ess')
             ->executeQuery();
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_email_template', 'emailTemplate')
+            ->update('ohrm_email_template', 'emailTemplate')
             ->set('emailTemplate.subject', ':subject')
             ->setParameter(
                 'subject',
-                '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubscriberSubject.txt.twig'
+                '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubscriberSubject.txt.twig'
             )
             ->set('emailTemplate.body', ':body')
             ->setParameter(
                 'body',
-                '/ciaFeriasLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubscriberBody.html.twig'
+                '/orangehrmLeavePlugin/Mail/templates/en_US/cancel/leaveCancellationSubscriberBody.html.twig'
             )
             ->andWhere('emailTemplate.email_id = :emailId')
             ->setParameter('emailId', $this->getEmailIdByName('leave.cancel'))
@@ -407,7 +407,7 @@ class Migration extends AbstractMigration
     private function updateHomePage(string $userRole, string $url): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_home_page', 'homePage')
+            ->update('ohrm_home_page', 'homePage')
             ->set('homePage.action', ':url')
             ->setParameter('url', $url)
             ->andWhere('homePage.user_role_id = :userRoleId')
@@ -424,7 +424,7 @@ class Migration extends AbstractMigration
         if (!isset($this->emails[$name])) {
             $qb = $this->getConnection()->createQueryBuilder()
                 ->select('email.id')
-                ->from('cia_ferias_email', 'email')
+                ->from('ohrm_email', 'email')
                 ->where('email.name = :name')
                 ->setParameter('name', $name)
                 ->setMaxResults(1);
@@ -440,7 +440,7 @@ class Migration extends AbstractMigration
     private function updateEmailProcessorClassByEmailName(string $emailName, string $className): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_email_processor', 'emailProcessor')
+            ->update('ohrm_email_processor', 'emailProcessor')
             ->set('emailProcessor.class_name', ':className')
             ->setParameter('className', $className)
             ->andWhere('emailProcessor.email_id = :emailId')
@@ -461,7 +461,7 @@ class Migration extends AbstractMigration
         string $body
     ): void {
         $this->createQueryBuilder()
-            ->update('cia_ferias_email_template', 'emailTemplate')
+            ->update('ohrm_email_template', 'emailTemplate')
             ->set('emailTemplate.subject', ':subject')
             ->setParameter('subject', $subject)
             ->set('emailTemplate.body', ':body')
@@ -482,7 +482,7 @@ class Migration extends AbstractMigration
         if (!isset($this->reportDisplayGroups[$groupName])) {
             $qb = $this->getConnection()->createQueryBuilder()
                 ->select('reportDisplayGroup.id')
-                ->from('cia_ferias_display_field_group', 'reportDisplayGroup')
+                ->from('ohrm_display_field_group', 'reportDisplayGroup')
                 ->where('reportDisplayGroup.name = :groupName')
                 ->setParameter('groupName', $groupName)
                 ->setMaxResults(1);
@@ -498,7 +498,7 @@ class Migration extends AbstractMigration
     private function updateReportDisplayFieldByGroup(string $groupName, string $className): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_display_field', 'reportDisplayField')
+            ->update('ohrm_display_field', 'reportDisplayField')
             ->set('reportDisplayField.class_name', ':className')
             ->setParameter('className', $className)
             ->andWhere('reportDisplayField.display_field_group_id = :groupId')
@@ -513,7 +513,7 @@ class Migration extends AbstractMigration
     private function updateReportFilterFieldByFieldName(string $name, string $className): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_filter_field', 'reportFilterField')
+            ->update('ohrm_filter_field', 'reportFilterField')
             ->set('reportFilterField.class_name', ':className')
             ->setParameter('className', $className)
             ->andWhere('reportFilterField.name = :name')
@@ -528,7 +528,7 @@ class Migration extends AbstractMigration
     private function renameReportDisplayFieldAlias(string $oldAlias, string $newAlias): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_display_field', 'reportDisplayField')
+            ->update('ohrm_display_field', 'reportDisplayField')
             ->set('reportDisplayField.field_alias', ':newAlias')
             ->setParameter('newAlias', $newAlias)
             ->andWhere('reportDisplayField.field_alias = :oldAlias')
@@ -543,7 +543,7 @@ class Migration extends AbstractMigration
     private function renameSelectedReportFilterFieldWhereCondition(string $oldValue, string $newValue): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_selected_filter_field', 'selectedReportFilterField')
+            ->update('ohrm_selected_filter_field', 'selectedReportFilterField')
             ->set('selectedReportFilterField.where_condition', ':newAlias')
             ->setParameter('newAlias', $newValue)
             ->andWhere('selectedReportFilterField.where_condition = :oldAlias')
@@ -558,7 +558,7 @@ class Migration extends AbstractMigration
     private function updateReportDisplayFieldByFieldAlias(string $fieldAlias, string $className): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_display_field', 'reportDisplayField')
+            ->update('ohrm_display_field', 'reportDisplayField')
             ->set('reportDisplayField.class_name', ':className')
             ->setParameter('className', $className)
             ->andWhere('reportDisplayField.field_alias = :fieldAlias')
@@ -574,7 +574,7 @@ class Migration extends AbstractMigration
     private function updateScreenModuleId(string $module, string $url, string $screenName): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_screen', 'screen')
+            ->update('ohrm_screen', 'screen')
             ->set('screen.module_id', ':moduleId')
             ->setParameter(
                 'moduleId',
@@ -590,7 +590,7 @@ class Migration extends AbstractMigration
     private function updateMenuItemIconNames(string $iconName, string $menuTitle): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_menu_item', 'menuItem')
+            ->update('ohrm_menu_item', 'menuItem')
             ->set('menuItem.additional_params', ':additionalParams')
             ->setParameter('additionalParams', '{"icon":"' . $iconName . '"}')
             ->andWhere('menuItem.menu_title = :menuTitle')

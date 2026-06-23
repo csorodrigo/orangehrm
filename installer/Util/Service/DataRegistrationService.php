@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util\Service;
+namespace OrangeHRM\Installer\Util\Service;
 
 use GuzzleHttp\Client;
-use CiaFerias\Config\Config;
-use CiaFerias\Installer\Util\Logger;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Installer\Util\Logger;
 use Throwable;
 
 class DataRegistrationService

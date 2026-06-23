@@ -1,28 +1,20 @@
-name: cia-ferias
-
 services:
-  cia-ferias:
+  orangehrm:
     build: .
-    image: cia-ferias:local
     ports:
       - "8081:80"
     depends_on:
-      - cia-ferias-db
-    environment:
-      CIA_FERIAS_DB_HOST: cia-ferias-db
-      CIA_FERIAS_DB_PORT: 3306
-      CIA_FERIAS_DB_NAME: cia_ferias
-      CIA_FERIAS_DB_ROOT_USER: root
-      CIA_FERIAS_DB_ROOT_PASSWORD: cia_ferias_root
-      CIA_FERIAS_DB_USER: cia_ferias
-      CIA_FERIAS_DB_PASSWORD: cia_ferias
+      - mysql
 
-  cia-ferias-db:
+  mysql:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: cia_ferias_root
+      MYSQL_ROOT_PASSWORD: orangehrm
+      MYSQL_DATABASE: orangehrm
+      MYSQL_USER: orangehrm
+      MYSQL_PASSWORD: orangehrm
     volumes:
-      - cia_ferias_mysql:/var/lib/mysql
+      - orangehrm_mysql:/var/lib/mysql
 
 volumes:
-  cia_ferias_mysql:
+  orangehrm_mysql:

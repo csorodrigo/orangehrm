@@ -32,7 +32,7 @@ describe('Leave- Configure - Work Week', function () {
     it('Verify work week is loaded', function () {
       cy.loginTo(this.user, '/leave/defineWorkWeek');
       cy.wait('@getWorkWeek');
-      cy.getOXD('pageTitle').should('include.text', 'Semana de trabalho');
+      cy.getOXD('pageTitle').should('include.text', 'Work Week');
     });
   });
 
@@ -42,28 +42,28 @@ describe('Leave- Configure - Work Week', function () {
       cy.loginTo(this.user, '/leave/defineWorkWeek');
       cy.wait('@getWorkWeek');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Segunda-feira').selectOption('Meio dia');
-        cy.getOXDInput('Quarta-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Domingo').selectOption('Dia inteiro');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Monday').selectOption('Half Day');
+        cy.getOXDInput('Wednesday').selectOption('Non-working Day');
+        cy.getOXDInput('Sunday').selectOption('Full Day');
+        cy.getOXD('button').contains('Save').click();
       });
-      cy.toast('success', 'Salvo com sucesso');
+      cy.toast('success', 'Successfully Saved');
     });
 
     it('Update Work week to all Half Days', function () {
       cy.loginTo(this.user, '/leave/defineWorkWeek');
       cy.wait('@getWorkWeek');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Segunda-feira').selectOption('Meio dia');
-        cy.getOXDInput('Terça-feira').selectOption('Meio dia');
-        cy.getOXDInput('Quarta-feira').selectOption('Meio dia');
-        cy.getOXDInput('Quinta-feira').selectOption('Meio dia');
-        cy.getOXDInput('Sexta-feira').selectOption('Meio dia');
-        cy.getOXDInput('Sábado').selectOption('Meio dia');
-        cy.getOXDInput('Domingo').selectOption('Meio dia');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Monday').selectOption('Half Day');
+        cy.getOXDInput('Tuesday').selectOption('Half Day');
+        cy.getOXDInput('Wednesday').selectOption('Half Day');
+        cy.getOXDInput('Thursday').selectOption('Half Day');
+        cy.getOXDInput('Friday').selectOption('Half Day');
+        cy.getOXDInput('Saturday').selectOption('Half Day');
+        cy.getOXDInput('Sunday').selectOption('Half Day');
+        cy.getOXD('button').contains('Save').click();
       });
-      cy.toast('success', 'Salvo com sucesso');
+      cy.toast('success', 'Successfully Saved');
     });
   });
 
@@ -73,8 +73,8 @@ describe('Leave- Configure - Work Week', function () {
       cy.loginTo(this.user, '/leave/defineWorkWeek');
       cy.wait('@getWorkWeek');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Segunda-feira').selectOption('-- Selecionar --');
-        cy.getOXDInput('Segunda-feira').isInvalid('Obrigatório');
+        cy.getOXDInput('Monday').selectOption('-- Select --');
+        cy.getOXDInput('Monday').isInvalid('Required');
       });
     });
 
@@ -82,16 +82,16 @@ describe('Leave- Configure - Work Week', function () {
       cy.loginTo(this.user, '/leave/defineWorkWeek');
       cy.wait('@getWorkWeek');
       cy.getOXD('form').within(() => {
-        cy.getOXDInput('Segunda-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Terça-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Quarta-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Quinta-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Sexta-feira').selectOption('Dia não útil');
-        cy.getOXDInput('Sábado').selectOption('Dia não útil');
-        cy.getOXDInput('Domingo').selectOption('Dia não útil');
-        cy.getOXD('button').contains('Salvar').click();
+        cy.getOXDInput('Monday').selectOption('Non-working Day');
+        cy.getOXDInput('Tuesday').selectOption('Non-working Day');
+        cy.getOXDInput('Wednesday').selectOption('Non-working Day');
+        cy.getOXDInput('Thursday').selectOption('Non-working Day');
+        cy.getOXDInput('Friday').selectOption('Non-working Day');
+        cy.getOXDInput('Saturday').selectOption('Non-working Day');
+        cy.getOXDInput('Sunday').selectOption('Non-working Day');
+        cy.getOXD('button').contains('Save').click();
       });
-      cy.toast('warn', 'Pelo menos um dia deve ser um dia útil');
+      cy.toast('warn', 'At least one day should be a working day');
     });
   });
 });

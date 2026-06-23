@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
@@ -42,7 +42,7 @@ class ConfigHelper
         if ($this->connection instanceof Connection) {
             return $this->connection;
         }
-        return \CiaFerias\Installer\Util\Connection::getConnection();
+        return \OrangeHRM\Installer\Util\Connection::getConnection();
     }
 
     /**

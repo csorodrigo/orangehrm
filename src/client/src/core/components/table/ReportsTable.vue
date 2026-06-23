@@ -18,9 +18,9 @@
  -->
 
 <template>
-  <div class="cia-ferias-background-container">
+  <div class="orangehrm-background-container">
     <slot :generate-report="generateReport"></slot>
-    <div v-if="headers.length !== 0" class="cia-ferias-paper-container">
+    <div v-if="headers.length !== 0" class="orangehrm-paper-container">
       <oxd-report-table
         :items="items"
         :headers="headers"
@@ -52,9 +52,9 @@
 <script>
 import {computed, onBeforeMount, ref, watch} from 'vue';
 import {APIService} from '@/core/util/services/api.service';
-import {navigate} from '@cia-ferias/core/util/helper/navigation';
-import usePaginate from '@cia-ferias/core/util/composable/usePaginate';
-import {CellAdapter, OxdMultilineCell, OxdReportTable} from '@cia-ferias/oxd';
+import {navigate} from '@ohrm/core/util/helper/navigation';
+import usePaginate from '@ohrm/core/util/composable/usePaginate';
+import {CellAdapter, OxdMultilineCell, OxdReportTable} from '@ohrm/oxd';
 
 export default {
   name: 'ReportsTable',

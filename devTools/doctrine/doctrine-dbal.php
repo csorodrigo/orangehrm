@@ -19,7 +19,7 @@
 
 use Doctrine\DBAL\Tools\Console\ConsoleRunner as DBALConsoleRunner;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\ORM\Doctrine;
 
 require_once 'bootstrap.php';
 

@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_2;
+namespace OrangeHRM\Installer\Migration\V4_2;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -39,14 +39,14 @@ class Migration extends AbstractMigration
 
         $this->getSchemaHelper()
             ->addColumn(
-                'cia_ferias_job_candidate',
+                'ohrm_job_candidate',
                 'consent_to_keep_data',
                 Types::BOOLEAN,
                 ['Notnull' => true, 'Default' => false]
             );
 
         $this->createQueryBuilder()
-            ->insert('cia_ferias_module')
+            ->insert('ohrm_module')
             ->values(
                 [
                     'name' => ':name',
@@ -72,7 +72,7 @@ class Migration extends AbstractMigration
 
         $maintainenceMenuId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Maintenance')
             ->executeQuery()
@@ -100,7 +100,7 @@ class Migration extends AbstractMigration
 
         $purgeRecordsMenuId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Purge Records')
             ->executeQuery()
@@ -148,7 +148,7 @@ class Migration extends AbstractMigration
         int     $status
     ): void {
         $this->createQueryBuilder()
-            ->insert('cia_ferias_menu_item')
+            ->insert('ohrm_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',
@@ -178,7 +178,7 @@ class Migration extends AbstractMigration
     {
         $screenId = $this->getConnection()->createQueryBuilder()
             ->select('screen.id')
-            ->from('cia_ferias_screen', 'screen')
+            ->from('ohrm_screen', 'screen')
             ->where('screen.action_url = :actionUrl')
             ->setParameter('actionUrl', $actionUrl)
             ->executeQuery()

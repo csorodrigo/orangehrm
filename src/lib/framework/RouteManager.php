@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework;
+namespace OrangeHRM\Framework;
 
-use CiaFerias\Config\Config;
+use OrangeHRM\Config\Config;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\RouteCollection;
@@ -42,7 +42,7 @@ class RouteManager
             self::$routes = new RouteCollection();
 
             //TODO:: move to resolve along with caching
-            $plugins = Config::get('cia_ferias_plugins');
+            $plugins = Config::get('ohrm_plugins');
             foreach ($plugins as $plugin) {
                 $routePath = realpath(__DIR__ . '/../../plugins/' . $plugin . '/config/routes.yaml');
                 if ($routePath) {

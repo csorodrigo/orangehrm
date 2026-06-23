@@ -15,7 +15,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {urlFor} from '@cia-ferias/core/util/helper/url';
+import {urlFor} from '@ohrm/core/util/helper/url';
 
 /**
  * @param path

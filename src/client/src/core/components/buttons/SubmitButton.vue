@@ -19,7 +19,7 @@
 
 <template>
   <oxd-button
-    class="cia-ferias-left-space"
+    class="orangehrm-left-space"
     display-type="secondary"
     :label="$t('general.save')"
     type="submit"

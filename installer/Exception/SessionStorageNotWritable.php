@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Exception;
+namespace OrangeHRM\Installer\Exception;
 
 use Exception;
 

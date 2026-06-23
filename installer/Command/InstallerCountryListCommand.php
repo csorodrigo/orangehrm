@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Command;
+namespace OrangeHRM\Installer\Command;
 
-use CiaFerias\Installer\Framework\InstallerCommand;
-use CiaFerias\Installer\Util\InstanceCreationHelper;
+use OrangeHRM\Installer\Framework\InstallerCommand;
+use OrangeHRM\Installer\Util\InstanceCreationHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;

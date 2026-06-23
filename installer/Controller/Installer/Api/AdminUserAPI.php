@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Installer\Api;
+namespace OrangeHRM\Installer\Controller\Installer\Api;
 
 use InvalidArgumentException;
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\StateContainer;
 
 class AdminUserAPI extends AbstractInstallerRestController
 {

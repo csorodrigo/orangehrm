@@ -16,7 +16,7 @@
  */
 
 import {ref, computed} from 'vue';
-import {OxdForm} from '@cia-ferias/oxd';
+import {OxdForm} from '@ohrm/oxd';
 
 type useFormArgs = {
   refName?: string;

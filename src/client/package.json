@@ -1,5 +1,5 @@
 {
-  "name": "cia-ferias",
+  "name": "orangehrm",
   "version": "5.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint --max-warnings=0 --mode production"
   },
   "dependencies": {
-    "@cia-ferias/oxd": "file:vendor/cia-ferias-oxd",
+    "@ohrm/oxd": "2.0.3",
     "axios": "~1.13.1",
     "core-js": "^3.35.1",
     "date-fns": "^2.30.0",

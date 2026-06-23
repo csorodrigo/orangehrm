@@ -1,5 +1,5 @@
 {
-  "name": "cia-ferias-installer",
+  "name": "orangehrm-installer",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint --max-warnings=0 --mode production"
   },
   "dependencies": {
-    "@cia-ferias/oxd": "file:vendor/cia-ferias-oxd",
+    "@ohrm/oxd": "2.0.2",
     "axios": "~1.13.1",
     "core-js": "^3.35.1",
     "vue": "^3.4.19"

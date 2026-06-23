@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\DevTools\Command;
+namespace OrangeHRM\DevTools\Command;
 
-use CiaFerias\Core\Traits\EventDispatcherTrait;
-use CiaFerias\Framework\Framework;
-use CiaFerias\Framework\Http\Request;
+use OrangeHRM\Core\Traits\EventDispatcherTrait;
+use OrangeHRM\Framework\Framework;
+use OrangeHRM\Framework\Http\Request;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

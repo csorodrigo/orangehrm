@@ -17,37 +17,37 @@
  */
  -->
 <template>
-  <div class="cia-ferias-installer-task">
+  <div class="orangehrm-installer-task">
     <div
       v-for="task in tasks"
       :key="task"
-      class="cia-ferias-installer-task-item"
+      class="orangehrm-installer-task-item"
     >
       <oxd-text
         tag="p"
         :class="{
-          'cia-ferias-installer-task-item-name': true,
+          'orangehrm-installer-task-item-name': true,
           '--active': task.state === 1,
           '--error': task.state === 3,
         }"
       >
         {{ task.name }}
       </oxd-text>
-      <div class="cia-ferias-installer-task-item-progress">
+      <div class="orangehrm-installer-task-item-progress">
         <oxd-loading-spinner v-if="task.state === 1" :with-container="false" />
         <div
           v-else-if="task.state === 2"
-          class="cia-ferias-installer-task-icon --done"
+          class="orangehrm-installer-task-icon --done"
         >
           <oxd-icon name="check" />
         </div>
         <div
           v-else-if="task.state === 3"
-          class="cia-ferias-installer-task-icon --error"
+          class="orangehrm-installer-task-icon --error"
         >
           <oxd-icon name="exclamation" />
         </div>
-        <div v-else class="cia-ferias-installer-task-icon --pending">
+        <div v-else class="orangehrm-installer-task-icon --pending">
           <oxd-icon name="dash" />
         </div>
       </div>
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import {OxdIcon, OxdSpinner} from '@cia-ferias/oxd';
+import {OxdIcon, OxdSpinner} from '@ohrm/oxd';
 
 export default {
   name: 'InstallerTasks',
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cia-ferias-installer-task {
+.orangehrm-installer-task {
   &-item {
     width: 70%;
     max-width: 320px;

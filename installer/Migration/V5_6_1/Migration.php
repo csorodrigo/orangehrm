@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_6_1;
+namespace OrangeHRM\Installer\Migration\V5_6_1;
 
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -47,15 +47,15 @@ class Migration extends AbstractMigration
 
         $this->updateDisplayFieldClassById(
             $empLocationFieldId,
-            'CiaFerias\Core\Report\DisplayField\GenericBasicDisplayFieldWithAggregate'
+            'OrangeHRM\Core\Report\DisplayField\GenericBasicDisplayFieldWithAggregate'
         );
         $this->updateDisplayFieldClassById(
             $empContStartDateFieldId,
-            'CiaFerias\Core\Report\DisplayField\GenericDateDisplayFieldWithAggregate'
+            'OrangeHRM\Core\Report\DisplayField\GenericDateDisplayFieldWithAggregate'
         );
         $this->updateDisplayFieldClassById(
             $empContEndDateFieldId,
-            'CiaFerias\Core\Report\DisplayField\GenericDateDisplayFieldWithAggregate'
+            'OrangeHRM\Core\Report\DisplayField\GenericDateDisplayFieldWithAggregate'
         );
 
     }
@@ -68,7 +68,7 @@ class Migration extends AbstractMigration
     {
         $qb = $this->createQueryBuilder()
             ->select('field.display_field_id')
-            ->from('cia_ferias_display_field', 'field')
+            ->from('ohrm_display_field', 'field')
             ->where('field.field_alias = :displayFieldName')
             ->setParameter('displayFieldName', $name)
             ->setMaxResults(1);
@@ -83,10 +83,10 @@ class Migration extends AbstractMigration
     private function updateDisplayFieldClassById(int $id, string $className): void
     {
         $this->createQueryBuilder()
-            ->update('cia_ferias_display_field')
-            ->set('cia_ferias_display_field.class_name', ':className')
+            ->update('ohrm_display_field')
+            ->set('ohrm_display_field.class_name', ':className')
             ->setParameter('className', $className)
-            ->where('cia_ferias_display_field.display_field_id = :displayFieldId')
+            ->where('ohrm_display_field.display_field_id = :displayFieldId')
             ->setParameter('displayFieldId', $id)
             ->executeQuery();
     }

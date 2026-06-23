@@ -4,7 +4,7 @@
 
 apiv2_core_data_groups:
   description: 'API-v2 Core - Data Groups'
-  api: CiaFerias\Core\Api\Rest\DataGroupAPI
+  api: OrangeHRM\Core\Api\Rest\DataGroupAPI
   module: core
   allowed:
     read: true
@@ -17,7 +17,7 @@ apiv2_core_data_groups:
 
 apiv2_core_about_organization:
   description: 'API-v2 Core - About'
-  api: CiaFerias\Core\Api\Rest\AboutOrganizationAPI
+  api: OrangeHRM\Core\Api\Rest\AboutOrganizationAPI
   module: core
   allowed:
     read: true
@@ -34,7 +34,7 @@ apiv2_core_about_organization:
 
 apiv2_admin_education:
   description: 'API-v2 Admin - Education'
-  api: CiaFerias\Admin\Api\EducationAPI
+  api: OrangeHRM\Admin\Api\EducationAPI
   module: admin
   allowed:
     read: true
@@ -47,7 +47,7 @@ apiv2_admin_education:
 
 apiv2_admin_employment_status:
   description: 'API-v2 Admin - Employment Status'
-  api: CiaFerias\Admin\Api\EmploymentStatusAPI
+  api: OrangeHRM\Admin\Api\EmploymentStatusAPI
   module: admin
   allowed:
     read: true
@@ -60,7 +60,7 @@ apiv2_admin_employment_status:
 
 apiv2_admin_job_category:
   description: 'API-v2 Admin - Job Categories'
-  api: CiaFerias\Admin\Api\JobCategoryAPI
+  api: OrangeHRM\Admin\Api\JobCategoryAPI
   module: admin
   allowed:
     read: true
@@ -72,7 +72,7 @@ apiv2_admin_job_category:
 
 apiv2_admin_job_specification:
   description: 'API-v2 Admin - Job Specification'
-  api: CiaFerias\Admin\Api\JobSpecificationAPI
+  api: OrangeHRM\Admin\Api\JobSpecificationAPI
   module: admin
   allowed:
     read: true
@@ -85,7 +85,7 @@ apiv2_admin_job_specification:
 
 apiv2_admin_job_title:
   description: 'API-v2 Admin - Job Titles'
-  api: CiaFerias\Admin\Api\JobTitleAPI
+  api: OrangeHRM\Admin\Api\JobTitleAPI
   module: admin
   allowed:
     read: true
@@ -98,7 +98,7 @@ apiv2_admin_job_title:
 
 apiv2_admin_language:
   description: 'API-v2 Admin - Languages'
-  api: CiaFerias\Admin\Api\LanguageAPI
+  api: OrangeHRM\Admin\Api\LanguageAPI
   module: admin
   allowed:
     read: true
@@ -110,7 +110,7 @@ apiv2_admin_language:
 
 apiv2_admin_license:
   description: 'API-v2 Admin - Licenses'
-  api: CiaFerias\Admin\Api\LicenseAPI
+  api: OrangeHRM\Admin\Api\LicenseAPI
   module: admin
   allowed:
     read: true
@@ -122,7 +122,7 @@ apiv2_admin_license:
 
 apiv2_admin_membership:
   description: 'API-v2 Admin - Memberships'
-  api: CiaFerias\Admin\Api\MembershipAPI
+  api: OrangeHRM\Admin\Api\MembershipAPI
   module: admin
   allowed:
     read: true
@@ -134,7 +134,7 @@ apiv2_admin_membership:
 
 apiv2_admin_nationality:
   description: 'API-v2 Admin - Nationalities'
-  api: CiaFerias\Admin\Api\NationalityAPI
+  api: OrangeHRM\Admin\Api\NationalityAPI
   module: admin
   allowed:
     read: true
@@ -146,7 +146,7 @@ apiv2_admin_nationality:
 
 apiv2_admin_organization:
   description: 'API-v2 Admin - General Information'
-  api: CiaFerias\Admin\Api\OrganizationAPI
+  api: OrangeHRM\Admin\Api\OrganizationAPI
   module: admin
   allowed:
     read: true
@@ -158,7 +158,7 @@ apiv2_admin_organization:
 
 apiv2_admin_paygrade_currency:
   description: 'API-v2 Admin - Pay Grade Currencies'
-  api: CiaFerias\Admin\Api\PayGradeCurrencyAPI
+  api: OrangeHRM\Admin\Api\PayGradeCurrencyAPI
   module: admin
   allowed:
     read: true
@@ -170,7 +170,7 @@ apiv2_admin_paygrade_currency:
 
 apiv2_admin_paygrade_allowed_currency:
   description: 'API-v2 Admin - Pay Grade Allowed Currencies'
-  api: CiaFerias\Admin\Api\PayGradeAllowedCurrencyAPI
+  api: OrangeHRM\Admin\Api\PayGradeAllowedCurrencyAPI
   module: admin
   allowed:
     read: true
@@ -182,7 +182,7 @@ apiv2_admin_paygrade_allowed_currency:
 
 apiv2_admin_skill:
   description: 'API-v2 Admin - Skills'
-  api: CiaFerias\Admin\Api\SkillAPI
+  api: OrangeHRM\Admin\Api\SkillAPI
   module: admin
   allowed:
     read: true
@@ -194,7 +194,7 @@ apiv2_admin_skill:
 
 apiv2_admin_subunit:
   description: 'API-v2 Admin - Organization Structure'
-  api: CiaFerias\Admin\Api\SubunitAPI
+  api: OrangeHRM\Admin\Api\SubunitAPI
   module: admin
   allowed:
     read: true
@@ -207,7 +207,7 @@ apiv2_admin_subunit:
 
 apiv2_admin_user:
   description: 'API-v2 Admin - Users'
-  api: CiaFerias\Admin\Api\UserAPI
+  api: OrangeHRM\Admin\Api\UserAPI
   module: admin
   allowed:
     read: true
@@ -219,7 +219,7 @@ apiv2_admin_user:
 
 apiv2_admin_email_configuration:
   description: 'API-v2 Admin - Email Configuration'
-  api: CiaFerias\Admin\Api\EmailConfigurationAPI
+  api: OrangeHRM\Admin\Api\EmailConfigurationAPI
   module: admin
   allowed:
     read: true
@@ -231,7 +231,7 @@ apiv2_admin_email_configuration:
 
 apiv2_admin_oauth_client:
   description: 'API-v2 Admin - OAuth Clients'
-  api: CiaFerias\OAuth\Api\OAuthClientAPI
+  api: OrangeHRM\OAuth\Api\OAuthClientAPI
   module: admin
   allowed:
     read: true
@@ -243,7 +243,7 @@ apiv2_admin_oauth_client:
 
 apiv2_admin_location:
   description: 'API-v2 Admin - Locations'
-  api: CiaFerias\Admin\Api\LocationAPI
+  api: OrangeHRM\Admin\Api\LocationAPI
   module: admin
   allowed:
     read: true
@@ -255,7 +255,7 @@ apiv2_admin_location:
 
 apiv2_admin_pay_grade:
   description: 'API-v2 Admin - Pay Grade'
-  api: CiaFerias\Admin\Api\PayGradeAPI
+  api: OrangeHRM\Admin\Api\PayGradeAPI
   module: admin
   allowed:
     read: true
@@ -267,7 +267,7 @@ apiv2_admin_pay_grade:
 
 apiv2_admin_modules:
   description: 'API-v2 Admin - Modules'
-  api: CiaFerias\Admin\Api\ModulesAPI
+  api: OrangeHRM\Admin\Api\ModulesAPI
   module: admin
   allowed:
     read: true
@@ -279,7 +279,7 @@ apiv2_admin_modules:
 
 apiv2_admin_work_shift:
   description: 'API-v2 Admin - Work Shift'
-  api: CiaFerias\Admin\Api\WorkShiftAPI
+  api: OrangeHRM\Admin\Api\WorkShiftAPI
   module: admin
   allowed:
     read: true
@@ -291,7 +291,7 @@ apiv2_admin_work_shift:
 
 apiv2_admin_work_shift_employee:
   description: 'API-v2 Admin - Work Shift Employee'
-  api: CiaFerias\Admin\Api\WorkShiftEmployeeAPI
+  api: OrangeHRM\Admin\Api\WorkShiftEmployeeAPI
   module: admin
   allowed:
     read: true
@@ -303,7 +303,7 @@ apiv2_admin_work_shift_employee:
 
 apiv2_admin_email_subscriptions:
   description: 'API-v2 Admin - Email Subscription'
-  api: CiaFerias\Admin\Api\EmailSubscriptionAPI
+  api: OrangeHRM\Admin\Api\EmailSubscriptionAPI
   module: admin
   allowed:
     read: true
@@ -315,7 +315,7 @@ apiv2_admin_email_subscriptions:
 
 apiv2_admin_email_subscribers:
   description: 'API-v2 Admin - Email Subscriber'
-  api: CiaFerias\Admin\Api\EmailSubscriberAPI
+  api: OrangeHRM\Admin\Api\EmailSubscriberAPI
   module: admin
   allowed:
     read: true
@@ -327,7 +327,7 @@ apiv2_admin_email_subscribers:
 
 apiv2_admin_validation_user_name:
   description: 'Admin-v2 Admin - User Name Validation'
-  api: CiaFerias\Admin\Api\ValidationUserNameAPI
+  api: OrangeHRM\Admin\Api\ValidationUserNameAPI
   module: admin
   allowed:
     read: true
@@ -343,7 +343,7 @@ apiv2_admin_validation_user_name:
 
 apiv2_pim_custom_field:
   description: 'API-v2 PIM - Custom Fields'
-  api: CiaFerias\Pim\Api\CustomFieldAPI
+  api: OrangeHRM\Pim\Api\CustomFieldAPI
   module: pim
   allowed:
     read: true
@@ -355,7 +355,7 @@ apiv2_pim_custom_field:
 
 apiv2_pim_optional_field:
   description: 'API-v2 PIM - Optional Fields'
-  api: CiaFerias\Pim\Api\OptionalFieldAPI
+  api: OrangeHRM\Pim\Api\OptionalFieldAPI
   module: pim
   allowed:
     read: true
@@ -367,7 +367,7 @@ apiv2_pim_optional_field:
 
 apiv2_pim_reporting_method:
   description: 'API-v2 PIM - Reporting Methods'
-  api: CiaFerias\Pim\Api\ReportingMethodConfigurationAPI
+  api: OrangeHRM\Pim\Api\ReportingMethodConfigurationAPI
   module: pim
   allowed:
     read: true
@@ -379,7 +379,7 @@ apiv2_pim_reporting_method:
 
 apiv2_pim_termination_reason:
   description: 'API-v2 PIM - Termination Reasons'
-  api: CiaFerias\Pim\Api\TerminationReasonConfigurationAPI
+  api: OrangeHRM\Pim\Api\TerminationReasonConfigurationAPI
   module: pim
   allowed:
     read: true
@@ -391,7 +391,7 @@ apiv2_pim_termination_reason:
 
 apiv2_pim_employee:
   description: 'API-v2 PIM - Employees'
-  api: CiaFerias\Pim\Api\EmployeeAPI
+  api: OrangeHRM\Pim\Api\EmployeeAPI
   module: pim
   allowed:
     read: true
@@ -406,7 +406,7 @@ apiv2_pim_employee:
 
 apiv2_pim_employee_emergency_contact:
   description: 'API-v2 PIM - Employee Emergency Contacts'
-  api: CiaFerias\Pim\Api\EmpEmergencyContactAPI
+  api: OrangeHRM\Pim\Api\EmpEmergencyContactAPI
   module: pim
   allowed:
     read: true
@@ -421,7 +421,7 @@ apiv2_pim_employee_emergency_contact:
 
 apiv2_pim_employee_contact_detail:
   description: 'API-v2 PIM - Employee Contact Details'
-  api: CiaFerias\Pim\Api\EmployeeContactDetailsAPI
+  api: OrangeHRM\Pim\Api\EmployeeContactDetailsAPI
   module: pim
   allowed:
     read: true
@@ -436,7 +436,7 @@ apiv2_pim_employee_contact_detail:
 
 apiv2_pim_employee_dependent:
   description: 'API-v2 PIM - Employee Dependents'
-  api: CiaFerias\Pim\Api\EmployeeDependentAPI
+  api: OrangeHRM\Pim\Api\EmployeeDependentAPI
   module: pim
   allowed:
     read: true
@@ -451,7 +451,7 @@ apiv2_pim_employee_dependent:
 
 apiv2_pim_employee_education:
   description: 'API-v2 PIM - Employee Education'
-  api: CiaFerias\Pim\Api\EmployeeEducationAPI
+  api: OrangeHRM\Pim\Api\EmployeeEducationAPI
   module: pim
   allowed:
     read: true
@@ -466,7 +466,7 @@ apiv2_pim_employee_education:
 
 apiv2_pim_employee_immigration:
   description: 'API-v2 PIM - Employee Immigration Records'
-  api: CiaFerias\Pim\Api\EmployeeImmigrationRecordAPI
+  api: OrangeHRM\Pim\Api\EmployeeImmigrationRecordAPI
   module: pim
   allowed:
     read: true
@@ -481,7 +481,7 @@ apiv2_pim_employee_immigration:
 
 apiv2_pim_employee_job_detail:
   description: 'API-v2 PIM - Employee Job Details'
-  api: CiaFerias\Pim\Api\EmployeeJobDetailAPI
+  api: OrangeHRM\Pim\Api\EmployeeJobDetailAPI
   module: pim
   allowed:
     read: true
@@ -496,7 +496,7 @@ apiv2_pim_employee_job_detail:
 
 apiv2_pim_employee_language:
   description: 'API-v2 PIM - Employee Languages'
-  api: CiaFerias\Pim\Api\EmployeeLanguageAPI
+  api: OrangeHRM\Pim\Api\EmployeeLanguageAPI
   module: pim
   allowed:
     read: true
@@ -511,7 +511,7 @@ apiv2_pim_employee_language:
 
 apiv2_pim_employee_license:
   description: 'API-v2 PIM - Employee License'
-  api: CiaFerias\Pim\Api\EmployeeLicenseAPI
+  api: OrangeHRM\Pim\Api\EmployeeLicenseAPI
   module: pim
   allowed:
     read: true
@@ -526,7 +526,7 @@ apiv2_pim_employee_license:
 
 apiv2_pim_employee_personal_detail:
   description: 'API-v2 PIM - Employee Personal Details'
-  api: CiaFerias\Pim\Api\EmployeePersonalDetailAPI
+  api: OrangeHRM\Pim\Api\EmployeePersonalDetailAPI
   module: pim
   allowed:
     read: true
@@ -541,7 +541,7 @@ apiv2_pim_employee_personal_detail:
 
 apiv2_pim_employee_picture:
   description: 'API-v2 PIM - Employee Photograph'
-  api: CiaFerias\Pim\Api\EmployeePictureAPI
+  api: OrangeHRM\Pim\Api\EmployeePictureAPI
   module: pim
   allowed:
     read: true
@@ -556,7 +556,7 @@ apiv2_pim_employee_picture:
 
 apiv2_pim_employee_salary_component:
   description: 'API-v2 PIM - Employee Salary Components'
-  api: CiaFerias\Pim\Api\EmployeeSalaryComponentAPI
+  api: OrangeHRM\Pim\Api\EmployeeSalaryComponentAPI
   module: pim
   allowed:
     read: true
@@ -570,7 +570,7 @@ apiv2_pim_employee_salary_component:
 
 apiv2_pim_employee_skill:
   description: 'API-v2 PIM - Employee Skills'
-  api: CiaFerias\Pim\Api\EmployeeSkillAPI
+  api: OrangeHRM\Pim\Api\EmployeeSkillAPI
   module: pim
   allowed:
     read: true
@@ -585,7 +585,7 @@ apiv2_pim_employee_skill:
 
 apiv2_pim_employee_termination:
   description: 'API-v2 PIM - Employee Termination'
-  api: CiaFerias\Pim\Api\EmployeeTerminationAPI
+  api: OrangeHRM\Pim\Api\EmployeeTerminationAPI
   module: pim
   allowed:
     read: true
@@ -600,7 +600,7 @@ apiv2_pim_employee_termination:
 
 apiv2_pim_employee_work_experience:
   description: 'API-v2 PIM - Employee Work Experience'
-  api: CiaFerias\Pim\Api\EmployeeWorkExperienceAPI
+  api: OrangeHRM\Pim\Api\EmployeeWorkExperienceAPI
   module: pim
   allowed:
     read: true
@@ -615,7 +615,7 @@ apiv2_pim_employee_work_experience:
 
 apiv2_pim_employee_employment_contract:
   description: 'API-v2 PIM - Employee Employment Contract'
-  api: CiaFerias\Pim\Api\EmploymentContractAPI
+  api: OrangeHRM\Pim\Api\EmploymentContractAPI
   module: pim
   allowed:
     read: true
@@ -630,7 +630,7 @@ apiv2_pim_employee_employment_contract:
 
 apiv2_pim_employee_attachment:
   description: 'API-v2 PIM - Employee Attachments'
-  api: CiaFerias\Pim\Api\EmployeeAttachmentAPI
+  api: OrangeHRM\Pim\Api\EmployeeAttachmentAPI
   module: pim
   allowed:
     read: true
@@ -645,7 +645,7 @@ apiv2_pim_employee_attachment:
 
 apiv2_pim_employee_custom_field:
   description: 'API-v2 PIM - Employee Custom Field'
-  api: CiaFerias\Pim\Api\EmployeeCustomFieldAPI
+  api: OrangeHRM\Pim\Api\EmployeeCustomFieldAPI
   module: pim
   allowed:
     read: true
@@ -660,7 +660,7 @@ apiv2_pim_employee_custom_field:
 
 apiv2_pim_employee_allowed_language:
   description: 'API-v2 PIM - Employee Allowed Language'
-  api: CiaFerias\Pim\Api\EmployeeAllowedLanguageAPI
+  api: OrangeHRM\Pim\Api\EmployeeAllowedLanguageAPI
   module: pim
   allowed:
     read: true
@@ -673,7 +673,7 @@ apiv2_pim_employee_allowed_language:
 
 apiv2_pim_employee_allowed_license:
   description: 'API-v2 PIM - Employee Allowed Licenses'
-  api: CiaFerias\Pim\Api\EmployeeAllowedLicenseAPI
+  api: OrangeHRM\Pim\Api\EmployeeAllowedLicenseAPI
   module: pim
   allowed:
     read: true
@@ -686,7 +686,7 @@ apiv2_pim_employee_allowed_license:
 
 apiv2_pim_employee_allowed_skill:
   description: 'API-v2 PIM - Employee Allowed Skills'
-  api: CiaFerias\Pim\Api\EmployeeAllowedSkillAPI
+  api: OrangeHRM\Pim\Api\EmployeeAllowedSkillAPI
   module: pim
   allowed:
     read: true
@@ -699,7 +699,7 @@ apiv2_pim_employee_allowed_skill:
 
 apiv2_pim_report_to_supervisor:
   description: 'API-v2 PIM - Employee Report To Supervisors'
-  api: CiaFerias\Pim\Api\EmployeeSupervisorAPI
+  api: OrangeHRM\Pim\Api\EmployeeSupervisorAPI
   module: pim
   allowed:
     read: true
@@ -714,7 +714,7 @@ apiv2_pim_report_to_supervisor:
 
 apiv2_pim_report_to_subordinate:
   description: 'API-v2 PIM - Employee Report To Subordinates'
-  api: CiaFerias\Pim\Api\EmployeeSubordinateAPI
+  api: OrangeHRM\Pim\Api\EmployeeSubordinateAPI
   module: pim
   allowed:
     read: true
@@ -729,7 +729,7 @@ apiv2_pim_report_to_subordinate:
 
 apiv2_pim_report_to_allowed_employees:
   description: 'API-v2 PIM - Employee Allowed Supervisors/Subordinates'
-  api: CiaFerias\Pim\Api\EmployeeAllowedReportToEmployeeAPI
+  api: OrangeHRM\Pim\Api\EmployeeAllowedReportToEmployeeAPI
   module: pim
   allowed:
     read: true
@@ -742,7 +742,7 @@ apiv2_pim_report_to_allowed_employees:
 
 apiv2_pim_employee_memberships:
   description: 'API-v2 PIM - Employee Memberships'
-  api: CiaFerias\Pim\Api\EmployeeMembershipAPI
+  api: OrangeHRM\Pim\Api\EmployeeMembershipAPI
   module: pim
   allowed:
     read: true
@@ -757,7 +757,7 @@ apiv2_pim_employee_memberships:
 
 apiv2_pim_tax_exemptions:
   description: 'API-v2 PIM - Tax Exemptions'
-  api: CiaFerias\Pim\Api\EmpUsTaxExemptionAPI
+  api: OrangeHRM\Pim\Api\EmpUsTaxExemptionAPI
   module: pim
   allowed:
     read: true
@@ -772,7 +772,7 @@ apiv2_pim_tax_exemptions:
 
 apiv2_pim_employee_work_shift:
   description: 'API-v2 PIM - Employee Work Shift'
-  api: CiaFerias\Pim\Api\EmployeeWorkShiftAPI
+  api: OrangeHRM\Pim\Api\EmployeeWorkShiftAPI
   module: pim
   allowed:
     read: true
@@ -785,7 +785,7 @@ apiv2_pim_employee_work_shift:
 
 apiv2_pim_employee_count:
   description: 'API-v2 PIM - Employee Count'
-  api: CiaFerias\Pim\Api\EmployeeCountAPI
+  api: OrangeHRM\Pim\Api\EmployeeCountAPI
   module: pim
   allowed:
     read: true
@@ -797,7 +797,7 @@ apiv2_pim_employee_count:
 
 apiv2_pim_employee_csv_import:
   description: 'API-v2 PIM - Employee CSV Import'
-  api: CiaFerias\Pim\Api\EmployeeCSVImportAPI
+  api: OrangeHRM\Pim\Api\EmployeeCSVImportAPI
   module: pim
   allowed:
     read: true
@@ -809,7 +809,7 @@ apiv2_pim_employee_csv_import:
 
 apiv2_pim_defined_reports:
   description: 'API-v2 PIM - Defined Reports'
-  api: CiaFerias\Pim\Api\PimDefinedReportAPI
+  api: OrangeHRM\Pim\Api\PimDefinedReportAPI
   module: pim
   allowed:
     read: true
@@ -821,7 +821,7 @@ apiv2_pim_defined_reports:
 
 apiv2_pim_reports:
   description: 'API-v2 PIM - Reports'
-  api: CiaFerias\Pim\Api\PimReportAPI
+  api: OrangeHRM\Pim\Api\PimReportAPI
   module: pim
   allowed:
     read: true
@@ -833,7 +833,7 @@ apiv2_pim_reports:
 
 apiv2_pim_reports_data:
   description: 'API-v2 PIM - Reports Data'
-  api: CiaFerias\Pim\Api\PimReportDataAPI
+  api: OrangeHRM\Pim\Api\PimReportDataAPI
   module: pim
   allowed:
     read: true
@@ -845,7 +845,7 @@ apiv2_pim_reports_data:
 
 apiv2_pim_update_password:
   description: 'API-v2 PIM - Password Update'
-  api: CiaFerias\Pim\Api\UpdatePasswordAPI
+  api: OrangeHRM\Pim\Api\UpdatePasswordAPI
   module: pim
   allowed:
     read: false
@@ -858,7 +858,7 @@ apiv2_pim_update_password:
 
 apiv2_pim_validation_work_email:
   description: 'API-v2 PIM - Work Email Validation'
-  api: CiaFerias\Pim\Api\ValidationEmployeeEmailAPI
+  api: OrangeHRM\Pim\Api\ValidationEmployeeEmailAPI
   module: pim
   allowed:
     read: true
@@ -875,7 +875,7 @@ apiv2_pim_validation_work_email:
 
 apiv2_leave_holiday:
   description: 'API-v2 Leave - Holidays'
-  api: CiaFerias\Leave\Api\HolidayAPI
+  api: OrangeHRM\Leave\Api\HolidayAPI
   module: leave
   allowed:
     read: true
@@ -888,7 +888,7 @@ apiv2_leave_holiday:
 
 apiv2_leave_workweek:
   description: 'API-v2 Leave - Work Week'
-  api: CiaFerias\Leave\Api\WorkWeekAPI
+  api: OrangeHRM\Leave\Api\WorkWeekAPI
   module: leave
   allowed:
     read: true
@@ -901,7 +901,7 @@ apiv2_leave_workweek:
 
 apiv2_leave_eligible_leave_types:
   description: 'API-v2 Leave - Eligible Leave Types'
-  api: CiaFerias\Leave\Api\EligibleLeaveTypeAPI
+  api: OrangeHRM\Leave\Api\EligibleLeaveTypeAPI
   module: leave
   allowed:
     read: true
@@ -917,7 +917,7 @@ apiv2_leave_eligible_leave_types:
 
 apiv2_leave_leave_types:
   description: 'API-v2 Leave - Leave Types'
-  api: CiaFerias\Leave\Api\LeaveTypeAPI
+  api: OrangeHRM\Leave\Api\LeaveTypeAPI
   module: leave
   allowed:
     read: true
@@ -930,7 +930,7 @@ apiv2_leave_leave_types:
 
 apiv2_leave_leave_period:
   description: 'API-v2 Leave - Leave Period'
-  api: CiaFerias\Leave\Api\LeavePeriodAPI
+  api: OrangeHRM\Leave\Api\LeavePeriodAPI
   module: leave
   allowed:
     read: true
@@ -943,7 +943,7 @@ apiv2_leave_leave_period:
 
 apiv2_leave_my_leave_requests:
   description: 'API-v2 Leave - My Leave Requests'
-  api: CiaFerias\Leave\Api\MyLeaveRequestAPI
+  api: OrangeHRM\Leave\Api\MyLeaveRequestAPI
   module: leave
   allowed:
     read: true
@@ -956,7 +956,7 @@ apiv2_leave_my_leave_requests:
 
 apiv2_leave_employee_leave_requests:
   description: 'API-v2 Leave - Employee Leave Requests'
-  api: CiaFerias\Leave\Api\EmployeeLeaveRequestAPI
+  api: OrangeHRM\Leave\Api\EmployeeLeaveRequestAPI
   module: leave
   allowed:
     read: true
@@ -970,7 +970,7 @@ apiv2_leave_employee_leave_requests:
 
 apiv2_leave_employee_bulk_leave_requests:
   description: 'API-v2 Leave - Employee Bulk Leave Requests'
-  api: CiaFerias\Leave\Api\EmployeeBulkLeaveRequestAPI
+  api: OrangeHRM\Leave\Api\EmployeeBulkLeaveRequestAPI
   module: leave
   allowed:
     read: false
@@ -983,7 +983,7 @@ apiv2_leave_employee_bulk_leave_requests:
 
 apiv2_leave_leave_entitlements:
   description: 'API-v2 Leave - Leave Entitlements'
-  api: CiaFerias\Leave\Api\LeaveEntitlementAPI
+  api: OrangeHRM\Leave\Api\LeaveEntitlementAPI
   module: leave
   allowed:
     read: true
@@ -999,7 +999,7 @@ apiv2_leave_leave_entitlements:
 
 apiv2_leave_leave_balance:
   description: 'API-v2 Leave - Leave Balance'
-  api: CiaFerias\Leave\Api\LeaveBalanceAPI
+  api: OrangeHRM\Leave\Api\LeaveBalanceAPI
   module: leave
   allowed:
     read: true
@@ -1015,7 +1015,7 @@ apiv2_leave_leave_balance:
 
 apiv2_leave_employee_leave_entitlements:
   description: 'API-v2 Leave - Employee Leave Entitlements'
-  api: CiaFerias\Leave\Api\EmployeeLeaveEntitlementAPI
+  api: OrangeHRM\Leave\Api\EmployeeLeaveEntitlementAPI
   module: leave
   allowed:
     read: true
@@ -1027,7 +1027,7 @@ apiv2_leave_employee_leave_entitlements:
 
 apiv2_leave_leave_entitlements_validation:
   description: 'API-v2 Leave - Leave Entitlements Validation'
-  api: CiaFerias\Leave\Api\ValidationLeaveEntitlementValueAPI
+  api: OrangeHRM\Leave\Api\ValidationLeaveEntitlementValueAPI
   module: leave
   allowed:
     read: true
@@ -1039,7 +1039,7 @@ apiv2_leave_leave_entitlements_validation:
 
 apiv2_leave_overlap_leaves:
   description: 'API-v2 Leave - Overlap Leaves'
-  api: CiaFerias\Leave\Api\LeaveOverlapAPI
+  api: OrangeHRM\Leave\Api\LeaveOverlapAPI
   module: leave
   allowed:
     read: true
@@ -1055,7 +1055,7 @@ apiv2_leave_overlap_leaves:
 
 apiv2_leave_leave_request_comment:
   description: 'API-v2 Leave - Leave Request Comment'
-  api: CiaFerias\Leave\Api\LeaveRequestCommentAPI
+  api: OrangeHRM\Leave\Api\LeaveRequestCommentAPI
   module: leave
   allowed:
     read: true
@@ -1071,7 +1071,7 @@ apiv2_leave_leave_request_comment:
 
 apiv2_leave_leave_comment:
   description: 'API-v2 Leave - Leave Comment'
-  api: CiaFerias\Leave\Api\LeaveCommentAPI
+  api: OrangeHRM\Leave\Api\LeaveCommentAPI
   module: leave
   allowed:
     read: true
@@ -1087,7 +1087,7 @@ apiv2_leave_leave_comment:
 
 apiv2_leave_leaves:
   description: 'API-v2 Leave - Leave'
-  api: CiaFerias\Leave\Api\LeaveAPI
+  api: OrangeHRM\Leave\Api\LeaveAPI
   module: leave
   allowed:
     read: true
@@ -1103,7 +1103,7 @@ apiv2_leave_leaves:
 
 apiv2_leave_bulk_leaves:
   description: 'API-v2 Leave - Employee Bulk Leaves'
-  api: CiaFerias\Leave\Api\BulkLeaveAPI
+  api: OrangeHRM\Leave\Api\BulkLeaveAPI
   module: leave
   allowed:
     read: false
@@ -1116,7 +1116,7 @@ apiv2_leave_bulk_leaves:
 
 apiv2_leave_reports:
   description: 'API-v2 Leave - Reports'
-  api: CiaFerias\Leave\Api\LeaveReportAPI
+  api: OrangeHRM\Leave\Api\LeaveReportAPI
   module: leave
   allowed:
     read: true
@@ -1132,7 +1132,7 @@ apiv2_leave_reports:
 
 apiv2_leave_reports_data:
   description: 'API-v2 Leave - Reports Data'
-  api: CiaFerias\Leave\Api\LeaveReportDataAPI
+  api: OrangeHRM\Leave\Api\LeaveReportDataAPI
   module: leave
   allowed:
     read: true

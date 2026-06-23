@@ -43,7 +43,7 @@ const OXD_ELEMENTS = {
   button: '.oxd-button',
   inputGroup: '.oxd-input-group',
   pageContext: '.oxd-layout-context',
-  pageTitle: '.cia-ferias-main-title',
+  pageTitle: '.orangehrm-main-title',
   numRecords: '.oxd-text--span',
   option: '.oxd-select-option',
   selectWrapper: '.oxd-select-wrapper',

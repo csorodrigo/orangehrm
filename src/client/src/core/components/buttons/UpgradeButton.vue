@@ -18,25 +18,31 @@
  -->
 
 <template>
-  <div class="cia-ferias-upgrade-container">
-    <oxd-glass-button
-      :label="$t('general.upgrade')"
-      size="large"
-      class="cia-ferias-upgrade-button"
+  <div class="orangehrm-upgrade-container">
+    <a
+      class="orangehrm-upgrade-link"
+      target="_blank"
+      href="https://orangehrm.com/open-source/upgrade-to-advanced"
     >
-      <template #icon>
-        <oxd-icon
-          type="svg"
-          name="upgrade"
-          class="cia-ferias-upgrade-icon"
-        ></oxd-icon>
-      </template>
-    </oxd-glass-button>
+      <oxd-glass-button
+        :label="$t('general.upgrade')"
+        size="large"
+        class="orangehrm-upgrade-button"
+      >
+        <template #icon>
+          <oxd-icon
+            type="svg"
+            name="upgrade"
+            class="orangehrm-upgrade-icon"
+          ></oxd-icon>
+        </template>
+      </oxd-glass-button>
+    </a>
   </div>
 </template>
 
 <script>
-import {OxdGlassButton, OxdIcon} from '@cia-ferias/oxd';
+import {OxdGlassButton, OxdIcon} from '@ohrm/oxd';
 
 export default {
   name: 'UpgradeButton',

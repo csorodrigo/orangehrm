@@ -18,13 +18,13 @@
  */
 
 use Composer\Autoload\ClassLoader;
-use CiaFerias\Config\Config;
-use CiaFerias\Core\Service\CacheService;
-use CiaFerias\Framework\Filesystem\Filesystem;
-use CiaFerias\Framework\ServiceContainer;
-use CiaFerias\Framework\Services;
-use CiaFerias\FunctionalTesting\Service\DatabaseBackupService;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Core\Service\CacheService;
+use OrangeHRM\Framework\Filesystem\Filesystem;
+use OrangeHRM\Framework\ServiceContainer;
+use OrangeHRM\Framework\Services;
+use OrangeHRM\FunctionalTesting\Service\DatabaseBackupService;
+use OrangeHRM\ORM\Doctrine;
 
 require realpath(__DIR__ . '/../../../vendor/autoload.php');
 
@@ -34,15 +34,15 @@ if (Config::PRODUCT_MODE === Config::MODE_PROD) {
 }
 $filesystem = new Symfony\Component\Filesystem\Filesystem();
 $filesystem->symlink(
-    realpath(__DIR__ . '/plugins/ciaFeriasFunctionalTestingPlugin'),
-    Config::get(Config::PLUGINS_DIR) . '/ciaFeriasFunctionalTestingPlugin',
+    realpath(__DIR__ . '/plugins/orangehrmFunctionalTestingPlugin'),
+    Config::get(Config::PLUGINS_DIR) . '/orangehrmFunctionalTestingPlugin',
     true
 );
-echo "\nSuccessfully copied `src/test/functional/tools/plugins/ciaFeriasFunctionalTestingPlugin` " .
-    "to src/plugins/ciaFeriasFunctionalTestingPlugin\n";
+echo "\nSuccessfully copied `src/test/functional/tools/plugins/orangehrmFunctionalTestingPlugin` " .
+    "to src/plugins/orangehrmFunctionalTestingPlugin\n";
 
 $loader = new ClassLoader();
-$loader->addPsr4('CiaFerias\\FunctionalTesting\\', [realpath(__DIR__ . '/plugins/ciaFeriasFunctionalTestingPlugin')]);
+$loader->addPsr4('OrangeHRM\\FunctionalTesting\\', [realpath(__DIR__ . '/plugins/orangehrmFunctionalTestingPlugin')]);
 $loader->register();
 ServiceContainer::getContainer()->register(Services::CACHE)->setFactory([CacheService::class, 'getCache']);
 ServiceContainer::getContainer()->register(Services::DOCTRINE)->setFactory([Doctrine::class, 'getEntityManager']);

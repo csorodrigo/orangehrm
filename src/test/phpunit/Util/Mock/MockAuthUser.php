@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Tests\Util\Mock;
+namespace OrangeHRM\Tests\Util\Mock;
 
 use Exception;
-use CiaFerias\Authentication\Auth\User;
+use OrangeHRM\Authentication\Auth\User;
 
 class MockAuthUser extends User
 {

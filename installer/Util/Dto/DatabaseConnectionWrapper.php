@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util\Dto;
+namespace OrangeHRM\Installer\Util\Dto;
 
 use Doctrine\DBAL\Connection as DBALConnection;
 use InvalidArgumentException;
-use CiaFerias\Installer\Exception\SystemCheckException;
-use CiaFerias\Installer\Util\Logger;
-use CiaFerias\Installer\Util\Messages;
-use CiaFerias\Installer\Util\StateContainer;
-use CiaFerias\Installer\Util\SystemCheck;
+use OrangeHRM\Installer\Exception\SystemCheckException;
+use OrangeHRM\Installer\Util\Logger;
+use OrangeHRM\Installer\Util\Messages;
+use OrangeHRM\Installer\Util\StateContainer;
+use OrangeHRM\Installer\Util\SystemCheck;
 use Throwable;
 
 class DatabaseConnectionWrapper

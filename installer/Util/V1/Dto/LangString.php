@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util\V1\Dto;
+namespace OrangeHRM\Installer\Util\V1\Dto;
 
 class LangString
 {

@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller;
+namespace OrangeHRM\Installer\Controller;
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Exception\MigrationException;
-use CiaFerias\Installer\Exception\NotImplementedException;
-use CiaFerias\Installer\Util\Logger;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Exception\MigrationException;
+use OrangeHRM\Installer\Exception\NotImplementedException;
+use OrangeHRM\Installer\Util\Logger;
 use Throwable;
 
 abstract class AbstractInstallerRestController extends AbstractInstallerController

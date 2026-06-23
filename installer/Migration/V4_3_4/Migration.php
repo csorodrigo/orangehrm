@@ -17,10 +17,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_3_4;
+namespace OrangeHRM\Installer\Migration\V4_3_4;
 
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -29,8 +29,8 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_employee_subscription'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_employee_subscription')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_employee_subscription'])) {
+            $this->getSchemaHelper()->createTable('ohrm_employee_subscription')
                 ->addColumn('id', Types::INTEGER, ['Unsigned' => true, 'Autoincrement' => true])
                 ->addColumn('employee_id', Types::INTEGER, ['Length' => 7, 'Notnull' => true])
                 ->addColumn('status', Types::SMALLINT, ['Length' => 6, 'Notnull' => true])

@@ -4,7 +4,7 @@
 
 apiv2_time_time_sheet_config:
   description: 'API-v2 Time - Time Sheet Start Day Configuration'
-  api: CiaFerias\Time\Api\TimeConfigPeriodAPI
+  api: OrangeHRM\Time\Api\TimeConfigPeriodAPI
   module: time
   allowed:
     read: true
@@ -16,7 +16,7 @@ apiv2_time_time_sheet_config:
 
 apiv2_time_customers:
   description: 'API-v2 Time - Customers'
-  api: CiaFerias\Time\Api\CustomerAPI
+  api: OrangeHRM\Time\Api\CustomerAPI
   module: time
   allowed:
     read: true
@@ -29,7 +29,7 @@ apiv2_time_customers:
 
 apiv2_time_validation_customer_name:
   description: 'API-v2 Time - Customer Name Validation'
-  api: CiaFerias\Time\Api\ValidationCustomerNameAPI
+  api: OrangeHRM\Time\Api\ValidationCustomerNameAPI
   module: time
   allowed:
     read: true
@@ -41,7 +41,7 @@ apiv2_time_validation_customer_name:
 
 apiv2_time_project_activities:
   description: 'API-v2 Time - Project Activities'
-  api: CiaFerias\Time\Api\ProjectActivityAPI
+  api: OrangeHRM\Time\Api\ProjectActivityAPI
   module: time
   allowed:
     read: true
@@ -55,7 +55,7 @@ apiv2_time_project_activities:
 
 apiv2_time_projects:
   description: 'API-v2 Time - Projects'
-  api: CiaFerias\Time\Api\ProjectAPI
+  api: OrangeHRM\Time\Api\ProjectAPI
   module: time
   allowed:
     read: true
@@ -69,7 +69,7 @@ apiv2_time_projects:
 
 apiv2_time_project_name_validator:
   description: 'API-v2 Time - Project Name Validation'
-  api: CiaFerias\Time\Api\ValidateProjectNameAPI
+  api: OrangeHRM\Time\Api\ValidateProjectNameAPI
   module: time
   allowed:
     read: true
@@ -81,7 +81,7 @@ apiv2_time_project_name_validator:
 
 apiv2_time_my_timesheets_entries:
   description: 'API-v2 Time - My Timesheet Entries'
-  api: CiaFerias\Time\Api\MyTimesheetItemAPI
+  api: OrangeHRM\Time\Api\MyTimesheetItemAPI
   module: time
   allowed:
     read: true
@@ -94,7 +94,7 @@ apiv2_time_my_timesheets_entries:
 
 apiv2_time_employees_timesheets_entries:
   description: 'API-v2 Time - Employee Timesheet Entries'
-  api: CiaFerias\Time\Api\EmployeeTimesheetItemAPI
+  api: OrangeHRM\Time\Api\EmployeeTimesheetItemAPI
   module: time
   allowed:
     read: true
@@ -107,7 +107,7 @@ apiv2_time_employees_timesheets_entries:
 
 apiv2_time_my_timesheet:
   description: 'API-v2 Time - My Timesheet'
-  api: CiaFerias\Time\Api\MyTimesheetAPI
+  api: OrangeHRM\Time\Api\MyTimesheetAPI
   module: time
   allowed:
     read: true
@@ -121,7 +121,7 @@ apiv2_time_my_timesheet:
 
 apiv2_time_timesheet_action_log:
   description: 'API-v2 Time - Timesheet action log'
-  api: CiaFerias\Time\Api\TimesheetActionLogAPI
+  api: OrangeHRM\Time\Api\TimesheetActionLogAPI
   module: time
   allowed:
     read: true
@@ -134,7 +134,7 @@ apiv2_time_timesheet_action_log:
 
 apiv2_time_timesheet_comment:
   description: 'API-v2 Time - Timesheet comment'
-  api: CiaFerias\Time\Api\TimesheetCommentAPI
+  api: OrangeHRM\Time\Api\TimesheetCommentAPI
   module: time
   allowed:
     read: true
@@ -148,7 +148,7 @@ apiv2_time_timesheet_comment:
 
 apiv2_time_config_time_format:
   description: 'API-v2 Time - Time Config Format'
-  api: CiaFerias\Time\Api\TimesheetTimeFormatAPI
+  api: OrangeHRM\Time\Api\TimesheetTimeFormatAPI
   module: time
   allowed:
     read: true
@@ -161,7 +161,7 @@ apiv2_time_config_time_format:
 
 apiv2_time_validation_project_activity_name:
   description: 'API-v2 Time - Project Activity Name Validation'
-  api: CiaFerias\Time\Api\ValidationProjectActivityNameAPI
+  api: OrangeHRM\Time\Api\ValidationProjectActivityNameAPI
   module: time
   allowed:
     read: true
@@ -174,7 +174,7 @@ apiv2_time_validation_project_activity_name:
 
 apiv2_time_project_activity_unique_validation:
   description: 'API-v2 Time - Project Activity Unique Validation'
-  api: CiaFerias\Time\Api\TimesheetProjectActivityUniqueValidationAPI
+  api: OrangeHRM\Time\Api\TimesheetProjectActivityUniqueValidationAPI
   module: time
   allowed:
     read: true
@@ -187,7 +187,7 @@ apiv2_time_project_activity_unique_validation:
 
 apiv2_time_copy_activities:
   description: 'API-v2 Time - Project Copy activities'
-  api: CiaFerias\Time\Api\CopyProjectActivityAPI
+  api: OrangeHRM\Time\Api\CopyProjectActivityAPI
   module: time
   allowed:
     read: true
@@ -200,7 +200,7 @@ apiv2_time_copy_activities:
 
 apiv2_time_employee_timesheets:
   description: 'API-v2 Time - Employee Timesheets'
-  api: CiaFerias\Time\Api\EmployeeTimesheetAPI
+  api: OrangeHRM\Time\Api\EmployeeTimesheetAPI
   module: time
   allowed:
     read: true
@@ -213,7 +213,7 @@ apiv2_time_employee_timesheets:
 
 apiv2_time_employee_timesheet_list:
   description: 'API-v2 Time - Employee Timesheet List'
-  api: CiaFerias\Time\Api\EmployeeTimesheetListAPI
+  api: OrangeHRM\Time\Api\EmployeeTimesheetListAPI
   module: time
   allowed:
     read: true
@@ -226,7 +226,7 @@ apiv2_time_employee_timesheet_list:
 
 apiv2_time_default_timesheet:
   description: 'API-v2 Time - Default Timesheet'
-  api: CiaFerias\Time\Api\DefaultTimesheetAPI
+  api: OrangeHRM\Time\Api\DefaultTimesheetAPI
   module: time
   allowed:
     read: true
@@ -239,7 +239,7 @@ apiv2_time_default_timesheet:
 
 apiv2_time_reports:
   description: 'API-v2 Time - Reports'
-  api: CiaFerias\Time\Api\TimeReportAPI
+  api: OrangeHRM\Time\Api\TimeReportAPI
   module: time
   allowed:
     read: true
@@ -253,7 +253,7 @@ apiv2_time_reports:
 
 apiv2_time_reports_data:
   description: 'API-v2 Time - Reports Data'
-  api: CiaFerias\Time\Api\TimeReportDataAPI
+  api: OrangeHRM\Time\Api\TimeReportDataAPI
   module: time
   allowed:
     read: true
@@ -267,7 +267,7 @@ apiv2_time_reports_data:
 
 apiv2_time_project_admins:
   description: 'API-v2 Time - Project Admins'
-  api: CiaFerias\Time\Api\ProjectAdminAPI
+  api: OrangeHRM\Time\Api\ProjectAdminAPI
   module: time
   allowed:
     read: true
@@ -284,7 +284,7 @@ apiv2_time_project_admins:
 
 apiv2_attendance_configuration:
   description: 'API-v2 Attendance - Attendance Configuration'
-  api: CiaFerias\Attendance\Api\AttendanceConfigurationAPI
+  api: OrangeHRM\Attendance\Api\AttendanceConfigurationAPI
   module: attendance
   allowed:
     read: true
@@ -296,7 +296,7 @@ apiv2_attendance_configuration:
 
 apiv2_attendance_employee_latest_attendance_record:
   description: 'API-v2 Attendance - Employee Latest Attendance Record'
-  api: CiaFerias\Attendance\Api\EmployeeLatestAttendanceRecordAPI
+  api: OrangeHRM\Attendance\Api\EmployeeLatestAttendanceRecordAPI
   module: attendance
   allowed:
     read: true
@@ -309,7 +309,7 @@ apiv2_attendance_employee_latest_attendance_record:
 
 apiv2_attendance_punch_in_overlaps:
   description: 'API-v2 Attendance - Punch In Overlaps'
-  api: CiaFerias\Attendance\Api\AttendancePunchInRecordOverlapAPI
+  api: OrangeHRM\Attendance\Api\AttendancePunchInRecordOverlapAPI
   module: attendance
   allowed:
     read: true
@@ -322,7 +322,7 @@ apiv2_attendance_punch_in_overlaps:
 
 apiv2_attendance_punch_out_overlaps:
   description: 'API-v2 Attendance - Punch Out Overlaps'
-  api: CiaFerias\Attendance\Api\AttendancePunchOutRecordOverlapAPI
+  api: OrangeHRM\Attendance\Api\AttendancePunchOutRecordOverlapAPI
   module: attendance
   allowed:
     read: true
@@ -335,7 +335,7 @@ apiv2_attendance_punch_out_overlaps:
 
 apiv2_attendance_my_attendance_record:
   description: 'API-v2 Attendance - My Attendance Record'
-  api: CiaFerias\Attendance\Api\MyAttendanceRecordAPI
+  api: OrangeHRM\Attendance\Api\MyAttendanceRecordAPI
   module: attendance
   allowed:
     read: false
@@ -348,7 +348,7 @@ apiv2_attendance_my_attendance_record:
 
 apiv2_attendance_employee_attendance_record:
   description: 'API-v2 Attendance - Employee Attendance Record'
-  api: CiaFerias\Attendance\Api\EmployeeAttendanceRecordAPI
+  api: OrangeHRM\Attendance\Api\EmployeeAttendanceRecordAPI
   module: attendance
   allowed:
     read: false
@@ -363,7 +363,7 @@ apiv2_attendance_employee_attendance_record:
 
 apiv2_attendance_timezones:
   description: 'API-v2 Attendance - Timezones'
-  api: CiaFerias\Attendance\Api\TimezonesAPI
+  api: OrangeHRM\Attendance\Api\TimezonesAPI
   module: attendance
   allowed:
     read: true
@@ -376,7 +376,7 @@ apiv2_attendance_timezones:
 
 apiv2_attendance_current_date_time:
   description: 'API-v2 Attendance - Current DateTime'
-  api: CiaFerias\Attendance\Api\CurrentDateTimeAPI
+  api: OrangeHRM\Attendance\Api\CurrentDateTimeAPI
   module: attendance
   allowed:
     read: true
@@ -389,7 +389,7 @@ apiv2_attendance_current_date_time:
 
 apiv2_attendance_record:
   description: 'API-v2 Attendance - Attendance Record'
-  api: CiaFerias\Attendance\Api\AttendanceRecordAPI
+  api: OrangeHRM\Attendance\Api\AttendanceRecordAPI
   module: attendance
   allowed:
     read: true
@@ -402,7 +402,7 @@ apiv2_attendance_record:
 
 apiv2_attendance_edit_punch_in_overlaps:
   description: 'API-v2 Attendance - Edit Punch In Overlaps'
-  api: CiaFerias\Attendance\Api\AttendanceEditPunchInRecordOverlapAPI
+  api: OrangeHRM\Attendance\Api\AttendanceEditPunchInRecordOverlapAPI
   module: attendance
   allowed:
     read: true
@@ -415,7 +415,7 @@ apiv2_attendance_edit_punch_in_overlaps:
 
 apiv2_attendance_edit_punch_out_overlaps:
   description: 'API-v2 Attendance - Edit Punch Out Overlaps'
-  api: CiaFerias\Attendance\Api\AttendanceEditPunchOutRecordOverlapAPI
+  api: OrangeHRM\Attendance\Api\AttendanceEditPunchOutRecordOverlapAPI
   module: attendance
   allowed:
     read: true
@@ -428,7 +428,7 @@ apiv2_attendance_edit_punch_out_overlaps:
 
 apiv2_attendance_employee_attendance_summary:
   description: 'API-v2 Attendance - Employee Attendance Summary'
-  api: CiaFerias\Attendance\Api\EmployeeAttendanceSummaryAPI
+  api: OrangeHRM\Attendance\Api\EmployeeAttendanceSummaryAPI
   module: attendance
   allowed:
     read: true
@@ -447,7 +447,7 @@ apiv2_attendance_employee_attendance_summary:
 
 apiv2_maintenance_purge_employee:
   description: 'API-v2 Maintenance - Purge Employee'
-  api: CiaFerias\Maintenance\Api\PurgeEmployeeAPI
+  api: OrangeHRM\Maintenance\Api\PurgeEmployeeAPI
   module: maintenance
   allowed:
     read: true
@@ -464,7 +464,7 @@ apiv2_maintenance_purge_employee:
 
 apiv2_admin_localization:
   description: 'API-v2 Admin - Localization'
-  api: CiaFerias\Admin\Api\LocalizationAPI
+  api: OrangeHRM\Admin\Api\LocalizationAPI
   module: admin
   allowed:
     read: true
@@ -480,7 +480,7 @@ apiv2_admin_localization:
 
 apiv2_pim_validation_other_email:
   description: 'API-v2 PIM - Other Email Validation'
-  api: CiaFerias\Pim\Api\ValidationEmployeeOtherEmailAPI
+  api: OrangeHRM\Pim\Api\ValidationEmployeeOtherEmailAPI
   module: pim
   allowed:
     read: true

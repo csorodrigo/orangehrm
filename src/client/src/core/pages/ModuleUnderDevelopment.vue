@@ -18,20 +18,27 @@
  -->
 
 <template>
-  <div class="cia-ferias-background-container">
-    <div class="cia-ferias-card-container">
-      <div class="cia-ferias-module-under-development">
-        <oxd-text tag="h4" class="cia-ferias-module-under-development-heading">
+  <div class="orangehrm-background-container">
+    <div class="orangehrm-card-container">
+      <div class="orangehrm-module-under-development">
+        <oxd-text tag="h4" class="orangehrm-module-under-development-heading">
           {{ $t('general.launching_soon') }}
         </oxd-text>
         <img
           :src="moduleUnderDevelopment"
-          class="cia-ferias-module-under-development-img"
+          class="orangehrm-module-under-development-img"
           alt="this module is under development"
         />
-        <oxd-text tag="p" class="cia-ferias-module-under-development-text">
+        <oxd-text tag="p" class="orangehrm-module-under-development-text">
           {{ $t('general.page_under_development') }}
-          Contate o suporte interno para acompanhar a liberação.
+          <a
+            target="_blank"
+            class="orangehrm-module-under-development-link"
+            href="https://sourceforge.net/projects/orangehrm/files/latest/download"
+          >
+            {{ $t('general.click_here') }}
+          </a>
+          {{ $t('general.download_latest_release') }}
         </oxd-text>
       </div>
     </div>
@@ -49,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cia-ferias-module-under-development {
+.orangehrm-module-under-development {
   text-align: center;
   &-img {
     max-width: 100%;

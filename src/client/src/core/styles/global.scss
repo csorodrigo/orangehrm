@@ -1,5 +1,6 @@
-.cia-ferias-header-container,
-.cia-ferias-dialog-header-container {
+
+.orangehrm-header-container,
+.orangehrm-dialog-header-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -10,30 +11,30 @@
   }
 }
 
-.cia-ferias-header-container {
+.orangehrm-header-container {
   padding: 25px;
 }
 
-.cia-ferias-dialog-header-container {
+.orangehrm-dialog-header-container {
   padding: 1.2rem;
 }
 
-.cia-ferias-main-title {
+.orangehrm-main-title {
   font-size: 16px !important;
   font-weight: 700 !important;
 }
 
-.cia-ferias-sub-title {
+.orangehrm-sub-title {
   padding: 0.25rem 0 !important;
   font-size: 14px !important;
   font-weight: 700 !important;
 }
 
-.cia-ferias-left-space {
+.orangehrm-left-space {
   margin-left: 10px;
 }
 
-.cia-ferias-card-container {
+.orangehrm-card-container {
   background-color: $oxd-white-color;
   border-radius: 1.2rem;
   padding: 25px;
@@ -46,7 +47,7 @@
   }
 }
 
-.cia-ferias-container {
+.orangehrm-container {
   background-color: $oxd-interface-gray-lighten-2-color;
   /*border-radius: 1.2rem;*/
   padding: 0.5rem;
@@ -64,46 +65,46 @@
   }
 }
 
-.cia-ferias-paper-container {
+.orangehrm-paper-container {
   background-color: $oxd-white-color;
   border-radius: 1.2rem;
 }
 
-.cia-ferias-horizontal-padding {
+.orangehrm-horizontal-padding {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-.cia-ferias-dialog-horizontal-padding {
+.orangehrm-dialog-horizontal-padding {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
 }
 
-.cia-ferias-vertical-padding {
+.orangehrm-vertical-padding {
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
-.cia-ferias-dialog-vertical-padding {
+.orangehrm-dialog-vertical-padding {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
 }
 
-.cia-ferias-top-padding {
+.orangehrm-top-padding {
   padding-top: 25px;
 }
 
-.cia-ferias-horizontal-margin {
+.orangehrm-horizontal-margin {
   margin-left: 25px;
   margin-right: 25px;
 }
 
-.cia-ferias-dialog-horizontal-margin {
+.orangehrm-dialog-horizontal-margin {
   margin-left: 1.2rem;
   margin-right: 1.2rem;
 }
 
-.cia-ferias-bottom-container {
+.orangehrm-bottom-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -111,27 +112,27 @@
   padding: 25px;
 }
 
-.cia-ferias-background-container {
+.orangehrm-background-container {
   padding: 1.5rem 0;
   flex: 1;
 }
 
-.cia-ferias-input-hint {
+.orangehrm-input-hint {
   font-size: 0.75rem;
   margin-top: -15px;
   padding-bottom: 1rem;
 }
 
-.cia-ferias-clear-margins {
+.orangehrm-clear-margins {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.cia-ferias-copyright-wrapper {
+.orangehrm-copyright-wrapper {
   margin: 0.5rem 0;
 }
 
-.cia-ferias-copyright {
+.orangehrm-copyright {
   font-size: 0.8rem;
   text-align: center;
 
@@ -140,21 +141,21 @@
   }
 }
 
-.cia-ferias-form-action {
+.orangehrm-form-action {
   gap: 5px;
   flex-wrap: wrap !important;
 }
 
-.cia-ferias-dialog-modal {
+.orangehrm-dialog-modal {
   width: 90%;
   max-width: 600px;
 }
 
-.cia-ferias-dialog-popup {
+.orangehrm-dialog-popup {
   max-width: 450px;
 }
 
-.cia-ferias-input-field-bottom-space {
+.orangehrm-input-field-bottom-space {
   margin-bottom: 1rem;
 }
 

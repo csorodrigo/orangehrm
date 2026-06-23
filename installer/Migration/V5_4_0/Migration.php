@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V5_4_0;
+namespace OrangeHRM\Installer\Migration\V5_4_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
-use CiaFerias\Installer\Util\V1\LangStringHelper;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\LangStringHelper;
 
 class Migration extends AbstractMigration
 {
@@ -43,7 +43,7 @@ class Migration extends AbstractMigration
         $this->updateLangStringVersion($this->getVersion());
 
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_module')
+            ->insert('ohrm_module')
             ->values(
                 [
                     'name' => ':name',
@@ -57,7 +57,7 @@ class Migration extends AbstractMigration
             ->executeQuery();
 
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_module')
+            ->insert('ohrm_module')
             ->values(
                 [
                     'name' => ':name',
@@ -83,7 +83,7 @@ class Migration extends AbstractMigration
         $this->changePermissionForTimeConfigPeriodAPI();
         $this->changePermissionForEmployeeWorkShiftAPI();
 
-        $this->getSchemaHelper()->createTable('cia_ferias_enforce_password')
+        $this->getSchemaHelper()->createTable('ohrm_enforce_password')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('user_id', Types::INTEGER, ['Notnull' => true])
             ->addColumn('enforce_request_date', Types::DATETIME_MUTABLE, ['Notnull' => false])
@@ -96,24 +96,24 @@ class Migration extends AbstractMigration
             'reset_code',
             ['reset_code']
         );
-        $this->getSchemaManager()->createIndex($resetCode, 'cia_ferias_enforce_password');
+        $this->getSchemaManager()->createIndex($resetCode, 'ohrm_enforce_password');
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['user_id'],
-            'cia_ferias_user',
+            'ohrm_user',
             ['id'],
             'enforcePasswordUser',
             ['onDelete' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_enforce_password', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_enforce_password', $foreignKeyConstraint);
 
         $this->modifyDefaultRequiredPasswordStrength();
         $this->modifyDefaultPasswordEnforcement();
 
         $this->createOAuth2Tables();
 
-        // https://github.com/ciaFerias/cia-ferias/issues/1622
-        $this->getSchemaHelper()->addOrChangeColumns('cia_ferias_migration_log', [
+        // https://github.com/orangehrm/orangehrm/issues/1622
+        $this->getSchemaHelper()->addOrChangeColumns('ohrm_migration_log', [
             'php_version' => ['Type' => Type::getType(Types::STRING), 'Length' => 255],
         ]);
     }
@@ -129,7 +129,7 @@ class Migration extends AbstractMigration
     private function updateLangStringVersion(string $version): void
     {
         $qb = $this->createQueryBuilder()
-            ->update('cia_ferias_i18n_lang_string', 'lang_string')
+            ->update('ohrm_i18n_lang_string', 'lang_string')
             ->set('lang_string.version', ':version')
             ->setParameter('version', $version);
         $qb->andWhere($qb->expr()->isNull('lang_string.version'))
@@ -180,7 +180,7 @@ class Migration extends AbstractMigration
 
     private function createOAuth2Tables(): void
     {
-        $this->getSchemaHelper()->createTable('cia_ferias_oauth2_client')
+        $this->getSchemaHelper()->createTable('ohrm_oauth2_client')
             ->addColumn('id', Types::BIGINT, ['Autoincrement' => true])
             ->addColumn('name', Types::STRING, ['Length' => 255])
             ->addColumn('client_id', Types::STRING, ['Length' => 255])
@@ -192,7 +192,7 @@ class Migration extends AbstractMigration
             ->setPrimaryKey(['id'])
             ->create();
 
-        $this->getSchemaHelper()->createTable('cia_ferias_oauth2_authorization_code')
+        $this->getSchemaHelper()->createTable('ohrm_oauth2_authorization_code')
             ->addColumn('id', Types::BIGINT, ['Autoincrement' => true])
             ->addColumn('authorization_code', Types::STRING, ['Length' => 255])
             ->addColumn('client_id', Types::BIGINT)
@@ -205,14 +205,14 @@ class Migration extends AbstractMigration
             ->create();
         $foreignKeyConstraintClientId = new ForeignKeyConstraint(
             ['client_id'],
-            'cia_ferias_oauth2_client',
+            'ohrm_oauth2_client',
             ['id'],
             'auth_code_client_id',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_oauth2_authorization_code', $foreignKeyConstraintClientId);
+        $this->getSchemaHelper()->addForeignKey('ohrm_oauth2_authorization_code', $foreignKeyConstraintClientId);
 
-        $this->getSchemaHelper()->createTable('cia_ferias_oauth2_access_token')
+        $this->getSchemaHelper()->createTable('ohrm_oauth2_access_token')
             ->addColumn('id', Types::BIGINT, ['Autoincrement' => true])
             ->addColumn('access_token', Types::STRING, ['Length' => 255])
             ->addColumn('client_id', Types::BIGINT)
@@ -224,14 +224,14 @@ class Migration extends AbstractMigration
             ->create();
         $foreignKeyAccessTokenClientId = new ForeignKeyConstraint(
             ['client_id'],
-            'cia_ferias_oauth2_client',
+            'ohrm_oauth2_client',
             ['id'],
             'access_token_client_id',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_oauth2_access_token', $foreignKeyAccessTokenClientId);
+        $this->getSchemaHelper()->addForeignKey('ohrm_oauth2_access_token', $foreignKeyAccessTokenClientId);
 
-        $this->getSchemaHelper()->createTable('cia_ferias_oauth2_refresh_token')
+        $this->getSchemaHelper()->createTable('ohrm_oauth2_refresh_token')
             ->addColumn('id', Types::BIGINT, ['Autoincrement' => true])
             ->addColumn('refresh_token', Types::STRING, ['Length' => 255])
             ->addColumn('access_token', Types::STRING, ['Length' => 255])
@@ -242,15 +242,15 @@ class Migration extends AbstractMigration
             ->create();
         $foreignKeyAccessToken = new ForeignKeyConstraint(
             ['access_token'],
-            'cia_ferias_oauth2_access_token',
+            'ohrm_oauth2_access_token',
             ['access_token'],
             'oauth2_access_token',
             ['onDelete' => 'CASCADE']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_oauth2_refresh_token', $foreignKeyAccessToken);
+        $this->getSchemaHelper()->addForeignKey('ohrm_oauth2_refresh_token', $foreignKeyAccessToken);
 
         $this->getConnection()->createQueryBuilder()
-            ->insert('cia_ferias_oauth2_client')
+            ->insert('ohrm_oauth2_client')
             ->values(
                 [
                     'name' => ':name',
@@ -261,10 +261,10 @@ class Migration extends AbstractMigration
                     'enabled' => ':enabled',
                 ]
             )
-            ->setParameter('name', "CIA Férias Mobile App")
-            ->setParameter('client_id', 'cia_ferias_mobile_app')
+            ->setParameter('name', "OrangeHRM Mobile App")
+            ->setParameter('client_id', 'orangehrm_mobile_app')
             ->setParameter('client_secret', null)
-            ->setParameter('redirect_uri', 'com.ciaferias.opensource://oauthredirect')
+            ->setParameter('redirect_uri', 'com.orangehrm.opensource://oauthredirect')
             ->setParameter('is_confidential', false, Types::BOOLEAN)
             ->setParameter('enabled', true, Types::BOOLEAN)
             ->executeQuery();

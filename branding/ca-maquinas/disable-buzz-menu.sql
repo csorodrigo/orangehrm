@@ -1,26 +1,26 @@
-UPDATE cia_ferias_module
+UPDATE ohrm_module
 SET status = 0
 WHERE name = 'buzz';
 
-UPDATE cia_ferias_menu_item
+UPDATE ohrm_menu_item
 SET status = 0
 WHERE menu_title = 'Comunicados'
    OR screen_id IN (
      SELECT id
-     FROM cia_ferias_screen
+     FROM ohrm_screen
      WHERE module_id IN (
        SELECT id
-       FROM cia_ferias_module
+       FROM ohrm_module
        WHERE name = 'buzz'
      )
    );
 
-UPDATE cia_ferias_menu_item
+UPDATE ohrm_menu_item
 SET status = 0
 WHERE parent_id IS NULL
   AND menu_title IN ('Ponto', 'Meus Dados', 'Desempenho', 'Time', 'My Info', 'Performance');
 
-UPDATE cia_ferias_menu_item
+UPDATE ohrm_menu_item
 SET order_hint = CASE menu_title
   WHEN 'Administração' THEN 200
   WHEN 'Admin' THEN 200
@@ -38,7 +38,7 @@ SET order_hint = CASE menu_title
 END
 WHERE parent_id IS NULL;
 
-UPDATE cia_ferias_menu_item
+UPDATE ohrm_menu_item
 SET order_hint = CASE id
   WHEN 82 THEN 100
   WHEN 1 THEN 200
@@ -59,7 +59,7 @@ UPDATE hs_hr_employee
 SET work_station = 3
 WHERE emp_number IN (6, 7, 10);
 
-UPDATE cia_ferias_subunit
+UPDATE ohrm_subunit
 SET unit_id = 'MAT',
     name = 'Matriz',
     description = NULL,
@@ -68,7 +68,7 @@ SET unit_id = 'MAT',
     level = 1
 WHERE id = 2;
 
-UPDATE cia_ferias_subunit
+UPDATE ohrm_subunit
 SET unit_id = 'ADM',
     name = 'administração',
     description = NULL,
@@ -77,11 +77,11 @@ SET unit_id = 'ADM',
     level = 1
 WHERE id = 3;
 
-UPDATE cia_ferias_subunit
+UPDATE ohrm_subunit
 SET lft = 1,
     rgt = 6,
     level = 0
 WHERE id = 1;
 
-DELETE FROM cia_ferias_subunit
+DELETE FROM ohrm_subunit
 WHERE id IN (4, 5, 6);

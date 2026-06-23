@@ -1,76 +1,76 @@
 installer_home:
   path: /
-  controller: CiaFerias\Installer\Controller\HomeController::handle
+  controller: OrangeHRM\Installer\Controller\HomeController::handle
   methods: [ GET ]
 
 installer_welcome:
   path: /welcome
-  controller: CiaFerias\Installer\Controller\WelcomeController::handle
+  controller: OrangeHRM\Installer\Controller\WelcomeController::handle
   methods: [ GET ]
 
 upgrader_database_config:
   path: /upgrader/database-config
-  controller: CiaFerias\Installer\Controller\Upgrader\DatabaseConfigurationController::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\DatabaseConfigurationController::handle
   methods: [ GET ]
 
 upgrader_system_check:
   path: /upgrader/system-check
-  controller: CiaFerias\Installer\Controller\Upgrader\SystemCheckController::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\SystemCheckController::handle
   methods: [ GET ]
 
 upgrader_current_version:
   path: /upgrader/current-version
-  controller: CiaFerias\Installer\Controller\Upgrader\CurrentVersionDetailsController::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\CurrentVersionDetailsController::handle
   methods: [ GET ]
 
 upgrader_complete:
   path: /upgrader/complete
-  controller: CiaFerias\Installer\Controller\Upgrader\UpgraderCompleteController::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\UpgraderCompleteController::handle
   methods: [ GET ]
 
 upgrader_process:
   path: /upgrader/process
-  controller: CiaFerias\Installer\Controller\Upgrader\UpgraderController::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\UpgraderController::handle
   methods: [ GET ]
 
 installer_database_config:
   path: /installer/database-config
-  controller: CiaFerias\Installer\Controller\Installer\DatabaseConfigController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\DatabaseConfigController::handle
   methods: [ GET ]
 
 installer_system_check:
   path: /installer/system-check
-  controller: CiaFerias\Installer\Controller\Installer\SystemCheckController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\SystemCheckController::handle
   methods: [ GET ]
 
 installer_instance_creation:
   path: /installer/instance-creation
-  controller: CiaFerias\Installer\Controller\Installer\InstanceCreationController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\InstanceCreationController::handle
   methods: [ GET ]
 
 installer_admin_user_creation:
   path: /installer/admin-user-creation
-  controller: CiaFerias\Installer\Controller\Installer\AdminUserCreationController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\AdminUserCreationController::handle
   methods: [ GET ]
 
 installer_licence_acceptance:
   path: /installer/licence-acceptance
-  controller: CiaFerias\Installer\Controller\Installer\LicenceAcceptanceController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\LicenceAcceptanceController::handle
   methods: [ GET ]
 
 installer_process:
   path: /installer/process
-  controller: CiaFerias\Installer\Controller\Installer\InstallerController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\InstallerController::handle
   methods: [ GET ]
 
 installer_confirmation:
   path: /installer/confirmation
-  controller: CiaFerias\Installer\Controller\Installer\ConfirmationController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\ConfirmationController::handle
   methods: [ GET ]
 
 installer_complete:
   path: /installer/complete
-  controller: CiaFerias\Installer\Controller\Installer\InstallerCompleteController::handle
+  controller: OrangeHRM\Installer\Controller\Installer\InstallerCompleteController::handle
   methods: [ GET ]
 
 #####################################
@@ -79,42 +79,42 @@ installer_complete:
 
 api_upgrader_database_config:
   path: /upgrader/api/database-config
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\DatabaseConfigAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\DatabaseConfigAPI::handle
   methods: [ GET, POST ]
 
 api_upgrader_pre_migration_check:
   path: /upgrader/api/installation/pre-migration
-  controller: CiaFerias\Installer\Controller\Installer\Api\PreMigrationCheck::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\PreMigrationCheck::handle
   methods: [ POST ]
 
 api_upgrader_migration:
   path: /upgrader/api/migration
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\MigrationAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\MigrationAPI::handle
   methods: [ GET, POST ]
 
 api_upgrader_write_config:
   path: /upgrader/api/config-file
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\ConfigFileAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\ConfigFileAPI::handle
   methods: [ POST ]
 
 api_upgrader_versions:
   path: /upgrader/api/versions
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\VersionAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\VersionAPI::handle
   methods: [ GET ]
 
 api_upgrader_current_version:
   path: /upgrader/api/current-version
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\CurrentVersionAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\CurrentVersionAPI::handle
   methods: [ GET, POST ]
 
 api_upgrader_system_check:
   path: /upgrader/api/system-check
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\SystemCheckAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\SystemCheckAPI::handle
   methods: [ GET ]
 
 api_upgrader_start_registration:
   path: /upgrader/api/send-data/upgrader-start
-  controller: CiaFerias\Installer\Controller\Upgrader\Api\UpgraderDataRegistrationAPI::handle
+  controller: OrangeHRM\Installer\Controller\Upgrader\Api\UpgraderDataRegistrationAPI::handle
   methods: [ POST ]
 
 #####################################
@@ -123,85 +123,85 @@ api_upgrader_start_registration:
 
 api_installer_database_config:
   path: /installer/api/database-config
-  controller: CiaFerias\Installer\Controller\Installer\Api\DatabaseConfigAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\DatabaseConfigAPI::handle
   methods: [ GET, POST ]
 
 api_installer_system_check:
   path: /installer/api/system-check
-  controller: CiaFerias\Installer\Controller\Installer\Api\SystemCheckAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\SystemCheckAPI::handle
   methods: [ GET ]
 
 api_installer_license:
   path: /installer/api/license
-  controller: CiaFerias\Installer\Controller\Installer\Api\LicenseFileAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\LicenseFileAPI::handle
   methods: [ GET ]
 
 api_installer_countries:
   path: /installer/api/countries
-  controller: CiaFerias\Installer\Controller\Installer\Api\CountryAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\CountryAPI::handle
   methods: [ GET ]
 
 api_installer_languages:
   path: /installer/api/languages
-  controller: CiaFerias\Installer\Controller\Installer\Api\LanguageAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\LanguageAPI::handle
   methods: [ GET ]
 
 api_installer_timezones:
   path: /installer/api/timezones
-  controller: CiaFerias\Installer\Controller\Installer\Api\TimezoneAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\TimezoneAPI::handle
   methods: [ GET ]
 
 api_installer_instance:
   path: /installer/api/instance
-  controller: CiaFerias\Installer\Controller\Installer\Api\InstanceAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\InstanceAPI::handle
   methods: [ GET, POST ]
 
 api_installer_admin_user:
   path: /installer/api/admin-user
-  controller: CiaFerias\Installer\Controller\Installer\Api\AdminUserAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\AdminUserAPI::handle
   methods: [ GET, POST ]
 
 api_installer_versions:
   path: /installer/api/versions
-  controller: CiaFerias\Installer\Controller\Installer\Api\VersionAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\VersionAPI::handle
   methods: [ GET ]
 
 api_installer_database:
   path: /installer/api/installation/database
-  controller: CiaFerias\Installer\Controller\Installer\Api\InstallationDatabaseAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\InstallationDatabaseAPI::handle
   methods: [ POST ]
 
 api_installer_pre_migration_check:
   path: /installer/api/installation/pre-migration
-  controller: CiaFerias\Installer\Controller\Installer\Api\PreMigrationCheck::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\PreMigrationCheck::handle
   methods: [ POST ]
 
 api_installer_migration:
   path: /installer/api/installation/migration
-  controller: CiaFerias\Installer\Controller\Installer\Api\MigrationAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\MigrationAPI::handle
   methods: [ GET, POST ]
 
 api_installer_instance_creation:
   path: /installer/api/installation/instance
-  controller: CiaFerias\Installer\Controller\Installer\Api\InstallationInstanceAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\InstallationInstanceAPI::handle
   methods: [ POST ]
 
 api_installer_database_user:
   path: /installer/api/installation/database-user
-  controller: CiaFerias\Installer\Controller\Installer\Api\InstallationDatabaseUserAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\InstallationDatabaseUserAPI::handle
   methods: [ POST ]
 
 api_installer_write_config:
   path: /installer/api/installation/config-file
-  controller: CiaFerias\Installer\Controller\Installer\Api\ConfigFileAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\ConfigFileAPI::handle
   methods: [ POST ]
 
 api_installer_start_registration:
   path: /installer/api/send-data/installer-start
-  controller: CiaFerias\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\InstallerDataRegistrationAPI::handle
   methods: [ POST ]
 
 api_installer_clean_up_install:
   path: /installer/api/clean-up-install
-  controller: CiaFerias\Installer\Controller\Installer\Api\CleanUpInstallAPI::handle
+  controller: OrangeHRM\Installer\Controller\Installer\Api\CleanUpInstallAPI::handle
   methods: [ POST ]

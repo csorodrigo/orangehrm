@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Command;
+namespace OrangeHRM\Installer\Command;
 
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Authentication\Utility\PasswordStrengthValidation;
-use CiaFerias\Installer\Exception\InvalidArgumentException;
-use CiaFerias\Installer\Util\Service\InstallerPasswordStrengthService;
-use CiaFerias\Installer\Util\SystemCheck;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Authentication\Utility\PasswordStrengthValidation;
+use OrangeHRM\Installer\Exception\InvalidArgumentException;
+use OrangeHRM\Installer\Util\Service\InstallerPasswordStrengthService;
+use OrangeHRM\Installer\Util\SystemCheck;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\ConsoleSectionOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -141,7 +141,7 @@ trait InstallerCommandHelperTrait
     {
         $this->getIO()->title('System Check');
         $this->getIO()->block(
-            'In order for your CIA Férias installation to function properly, please ensure that all of the system check items listed below are green. If any are red, please take the necessary steps to fix them.'
+            'In order for your OrangeHRM installation to function properly, please ensure that all of the system check items listed below are green. If any are red, please take the necessary steps to fix them.'
         );
         foreach ($systemCheckResults as $category) {
             $rows = [];

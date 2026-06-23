@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Subscriber;
+namespace OrangeHRM\Installer\Subscriber;
 
 use Exception;
-use CiaFerias\Core\Traits\ServiceContainerTrait;
-use CiaFerias\Framework\Event\AbstractEventSubscriber;
-use CiaFerias\Framework\Logger\Logger;
-use CiaFerias\Framework\Services;
+use OrangeHRM\Core\Traits\ServiceContainerTrait;
+use OrangeHRM\Framework\Event\AbstractEventSubscriber;
+use OrangeHRM\Framework\Logger\Logger;
+use OrangeHRM\Framework\Services;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 

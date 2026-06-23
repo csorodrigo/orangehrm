@@ -17,15 +17,15 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader\Api;
+namespace OrangeHRM\Installer\Controller\Upgrader\Api;
 
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Exception\SystemCheckException;
-use CiaFerias\Installer\Util\StateContainer;
-use CiaFerias\Installer\Util\UpgraderConfigUtility;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Exception\SystemCheckException;
+use OrangeHRM\Installer\Util\StateContainer;
+use OrangeHRM\Installer\Util\UpgraderConfigUtility;
 
 class DatabaseConfigAPI extends AbstractInstallerRestController
 {

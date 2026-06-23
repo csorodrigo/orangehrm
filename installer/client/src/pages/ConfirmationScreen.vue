@@ -19,16 +19,16 @@
 
 <template>
   <oxd-form
-    class="cia-ferias-installer-page"
+    class="orangehrm-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+    <oxd-text tag="h5" class="orangehrm-installer-page-title">
       Confirmation
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="cia-ferias-installer-page-content">
-      All the information required for CIA Férias installation collected in the
+    <oxd-text tag="p" class="orangehrm-installer-page-content">
+      All the information required for OrangeHRM installation collected in the
       earlier steps are given below. On confirmation the installer will create
       the database, database users, configuration file, etc
     </oxd-text>
@@ -50,7 +50,7 @@
     <oxd-text class="confirmation-text-info">{{ database.dbUser }}</oxd-text>
     <br />
     <oxd-text class="confirmation-text-section">
-      CIA Férias Admin Username
+      OrangeHRM Admin Username
     </oxd-text>
     <oxd-text class="confirmation-text-info">{{ adminUserName }}</oxd-text>
     <br v-if="database.enableDataEncryption" />
@@ -70,15 +70,14 @@
       v-if="database.enableDataEncryption"
       class="confirmation-text-info"
     >
-      Please backup encryption key located at
-      lib/confs/cryptokeys/key.cia-ferias
+      Please backup encryption key located at lib/confs/cryptokeys/key.ohrm
     </oxd-text>
     <br />
     <br />
-    <oxd-text class="cia-ferias-installer-page-content">
+    <oxd-text class="orangehrm-installer-page-content">
       Click <b>Install</b> to continue
     </oxd-text>
-    <oxd-form-actions class="cia-ferias-installer-page-action">
+    <oxd-form-actions class="orangehrm-installer-page-action">
       <oxd-button
         display-type="ghost"
         label="Back"
@@ -86,7 +85,7 @@
         @click="navigateUrl"
       />
       <oxd-button
-        class="cia-ferias-left-space"
+        class="orangehrm-left-space"
         display-type="secondary"
         label="Install"
         type="submit"

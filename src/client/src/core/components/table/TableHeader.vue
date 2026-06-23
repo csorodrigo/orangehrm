@@ -19,8 +19,8 @@
 
 <template>
   <div v-if="!loading">
-    <oxd-divider v-if="showDivider" class="cia-ferias-horizontal-margin" />
-    <div class="cia-ferias-horizontal-padding cia-ferias-vertical-padding">
+    <oxd-divider v-if="showDivider" class="orangehrm-horizontal-margin" />
+    <div class="orangehrm-horizontal-padding orangehrm-vertical-padding">
       <div v-if="selected > 0">
         <oxd-text tag="span">
           {{ $t('general.n_records_selected', {count: selected}) }}
@@ -29,7 +29,7 @@
           :label="$t('general.delete_selected')"
           icon-name="trash-fill"
           display-type="label-danger"
-          class="cia-ferias-horizontal-margin"
+          class="orangehrm-horizontal-margin"
           @click="$emit('delete', $event)"
         />
       </div>

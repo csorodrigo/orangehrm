@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader\Api;
+namespace OrangeHRM\Installer\Controller\Upgrader\Api;
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\StateContainer;
 
 class CurrentVersionAPI extends AbstractInstallerRestController
 {

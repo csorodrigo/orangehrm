@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 use Doctrine\DBAL\Connection as DBALConnection;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Core\Traits\ServiceContainerTrait;
-use CiaFerias\Framework\Logger\Logger;
-use CiaFerias\Framework\Services;
+use OrangeHRM\Core\Traits\ServiceContainerTrait;
+use OrangeHRM\Framework\Logger\Logger;
+use OrangeHRM\Framework\Services;
 use Throwable;
 
 class Connection

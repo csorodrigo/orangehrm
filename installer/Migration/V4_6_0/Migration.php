@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_6_0;
+namespace OrangeHRM\Installer\Migration\V4_6_0;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\UniqueConstraint;
 use Doctrine\DBAL\Types\Types;
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 use Symfony\Component\Yaml\Yaml;
 
 class Migration extends AbstractMigration
@@ -32,8 +32,8 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_group'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_group')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_group'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_group')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('name', Types::STRING, ['Length' => 255])
                 ->addColumn('title', Types::STRING, ['Length' => 255, 'Default' => null, 'Notnull' => false])
@@ -41,8 +41,8 @@ class Migration extends AbstractMigration
                 ->create();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_language'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_language')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_language'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_language')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('name', Types::STRING, ['Length' => 255, 'Default' => null, 'Notnull' => false])
                 ->addColumn('code', Types::STRING, ['Length' => 100, 'Notnull' => true])
@@ -62,8 +62,8 @@ class Migration extends AbstractMigration
                 ->create();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_lang_string'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_lang_string')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_lang_string'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_lang_string')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('unit_id', Types::INTEGER, ['Notnull' => true])
                 ->addColumn('source_id', Types::INTEGER)
@@ -79,8 +79,8 @@ class Migration extends AbstractMigration
                 ->create();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_translate'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_translate')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_translate'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_translate')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('lang_string_id', Types::INTEGER, ['Notnull' => false])
                 ->addColumn('language_id', Types::INTEGER, ['Notnull' => false])
@@ -97,8 +97,8 @@ class Migration extends AbstractMigration
                 ->create();
         }
 
-        if (!$this->getSchemaHelper()->tableExists(['cia_ferias_i18n_source'])) {
-            $this->getSchemaHelper()->createTable('cia_ferias_i18n_source')
+        if (!$this->getSchemaHelper()->tableExists(['ohrm_i18n_source'])) {
+            $this->getSchemaHelper()->createTable('ohrm_i18n_source')
                 ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
                 ->addColumn('source', Types::TEXT, ['Length' => 18, 'Notnull' => false])
                 ->addColumn('modified_at', Types::DATETIME_MUTABLE, ['Notnull' => false,])
@@ -108,42 +108,42 @@ class Migration extends AbstractMigration
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['group_id'],
-            'cia_ferias_i18n_group',
+            'ohrm_i18n_group',
             ['id'],
             'groupId',
             ['onDelete' => 'SET NULL']
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_lang_string', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_i18n_lang_string', $foreignKeyConstraint);
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['language_id'],
-            'cia_ferias_i18n_language',
+            'ohrm_i18n_language',
             ['id'],
             'languageId',
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_translate', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_i18n_translate', $foreignKeyConstraint);
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['lang_string_id'],
-            'cia_ferias_i18n_lang_string',
+            'ohrm_i18n_lang_string',
             ['id'],
             'langStringId',
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_translate', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_i18n_translate', $foreignKeyConstraint);
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['source_id'],
-            'cia_ferias_i18n_source',
+            'ohrm_i18n_source',
             ['id'],
             'sourceId',
         );
-        $this->getSchemaHelper()->addForeignKey('cia_ferias_i18n_lang_string', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('ohrm_i18n_lang_string', $foreignKeyConstraint);
 
         $uniqueConstraint = new UniqueConstraint(
             'translateUniqueId',
             ['lang_string_id', 'language_id']
         );
-        $this->getSchemaHelper()->getSchemaManager()->createUniqueConstraint($uniqueConstraint, 'cia_ferias_i18n_translate');
+        $this->getSchemaHelper()->getSchemaManager()->createUniqueConstraint($uniqueConstraint, 'ohrm_i18n_translate');
         $this->getDataGroupHelper()->insertScreenPermissions(__DIR__ . '/permission/screen.yaml');
         $languages = $this->readlanguageYaml(__DIR__ . '/language/languages.yaml');
         $this->insertLanguages($languages);
@@ -152,7 +152,7 @@ class Migration extends AbstractMigration
 
         $adminMenuId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Admin')
             ->andWhere('level = :level')
@@ -161,7 +161,7 @@ class Migration extends AbstractMigration
             ->fetchOne();
         $adminConfigurationMenuId = $this->createQueryBuilder()
             ->select('menu_item.id')
-            ->from('cia_ferias_menu_item', 'menu_item')
+            ->from('ohrm_menu_item', 'menu_item')
             ->where('menu_item.menu_title = :menuTitle')
             ->setParameter('menuTitle', 'Configuration')
             ->andWhere('level = :level')
@@ -171,7 +171,7 @@ class Migration extends AbstractMigration
             ->executeQuery()
             ->fetchOne();
         $this->createQueryBuilder()
-            ->insert('cia_ferias_menu_item')
+            ->insert('ohrm_menu_item')
             ->values(
                 [
                     'menu_title' => ':menuTitle',
@@ -226,7 +226,7 @@ class Migration extends AbstractMigration
     {
         foreach ($languages as $language) {
             $this->createQueryBuilder()
-                ->insert('cia_ferias_i18n_language')
+                ->insert('ohrm_i18n_language')
                 ->values(
                     [
                         'name' => ':name',
@@ -251,7 +251,7 @@ class Migration extends AbstractMigration
     {
         foreach ($groups as $group) {
             $this->createQueryBuilder()
-                ->insert('cia_ferias_i18n_group')
+                ->insert('ohrm_i18n_group')
                 ->values(
                     [
                         'name' => ':name',

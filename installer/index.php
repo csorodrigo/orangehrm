@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Exception\SessionStorageNotWritable;
-use CiaFerias\Installer\Framework\HttpKernel;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Exception\SessionStorageNotWritable;
+use OrangeHRM\Installer\Framework\HttpKernel;
 use Symfony\Component\ErrorHandler\Debug;
 
 function trimVersion($currentVersion, $points)

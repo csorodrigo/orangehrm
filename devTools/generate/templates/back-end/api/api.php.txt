@@ -16,24 +16,24 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\{API_NAMESPACE}\Api;
+namespace OrangeHRM\{API_NAMESPACE}\Api;
 
-use CiaFerias\Core\Api\CommonParams;
-use CiaFerias\Core\Api\V2\CrudEndpoint;
-use CiaFerias\Core\Api\V2\Endpoint;
-use CiaFerias\Core\Api\V2\EndpointCollectionResult;
-use CiaFerias\Core\Api\V2\EndpointResourceResult;
-use CiaFerias\Core\Api\V2\EndpointResult;
-use CiaFerias\Core\Api\V2\Exception\RecordNotFoundException;
-use CiaFerias\Core\Api\V2\Model\ArrayModel;
-use CiaFerias\Core\Api\V2\ParameterBag;
-use CiaFerias\Core\Api\V2\RequestParams;
-use CiaFerias\Core\Api\V2\Validator\ParamRule;
-use CiaFerias\Core\Api\V2\Validator\ParamRuleCollection;
-use CiaFerias\Core\Api\V2\Validator\Rule;
-use CiaFerias\Core\Api\V2\Validator\Rules;
-use CiaFerias\Core\Dto\Base64Attachment;
-use CiaFerias\Entity\{ENTITY_CLASS};
+use OrangeHRM\Core\Api\CommonParams;
+use OrangeHRM\Core\Api\V2\CrudEndpoint;
+use OrangeHRM\Core\Api\V2\Endpoint;
+use OrangeHRM\Core\Api\V2\EndpointCollectionResult;
+use OrangeHRM\Core\Api\V2\EndpointResourceResult;
+use OrangeHRM\Core\Api\V2\EndpointResult;
+use OrangeHRM\Core\Api\V2\Exception\RecordNotFoundException;
+use OrangeHRM\Core\Api\V2\Model\ArrayModel;
+use OrangeHRM\Core\Api\V2\ParameterBag;
+use OrangeHRM\Core\Api\V2\RequestParams;
+use OrangeHRM\Core\Api\V2\Validator\ParamRule;
+use OrangeHRM\Core\Api\V2\Validator\ParamRuleCollection;
+use OrangeHRM\Core\Api\V2\Validator\Rule;
+use OrangeHRM\Core\Api\V2\Validator\Rules;
+use OrangeHRM\Core\Dto\Base64Attachment;
+use OrangeHRM\Entity\{ENTITY_CLASS};
 
 class {API_CLASS}API extends Endpoint implements CrudEndpoint
 {

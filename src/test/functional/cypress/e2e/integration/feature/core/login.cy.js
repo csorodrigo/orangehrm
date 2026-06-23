@@ -27,9 +27,9 @@ describe('Core - Login Page', function () {
   it('should login as admin', function () {
     cy.visit('/auth/login');
     cy.getOXD('form').within(() => {
-      cy.getOXDInput('Usuário').type(this.user.username);
-      cy.getOXDInput('Senha').type(this.user.password);
-      cy.getOXD('button').contains('Entrar').click();
+      cy.getOXDInput('Username').type(this.user.username);
+      cy.getOXDInput('Password').type(this.user.password);
+      cy.getOXD('button').contains('Login').click();
     });
     cy.wait('@postLogin')
       .its('response.headers')
@@ -39,8 +39,8 @@ describe('Core - Login Page', function () {
 
   it('login form validations should work', function () {
     cy.visit('/auth/login');
-    cy.getOXD('button').contains('Entrar').click();
-    cy.getOXDInput('Usuário').isInvalid('Obrigatório');
-    cy.getOXDInput('Senha').isInvalid('Obrigatório');
+    cy.getOXD('button').contains('Login').click();
+    cy.getOXDInput('Username').isInvalid('Required');
+    cy.getOXDInput('Password').isInvalid('Required');
   });
 });

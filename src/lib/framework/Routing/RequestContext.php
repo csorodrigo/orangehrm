@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Routing;
+namespace OrangeHRM\Framework\Routing;
 
 use Symfony\Component\Routing\RequestContext as RoutingRequestContext;
 

@@ -16,7 +16,7 @@
  */
 
 import usei18n from './usei18n';
-import {buildLocale} from '@cia-ferias/oxd';
+import {buildLocale} from '@ohrm/oxd';
 
 export default function useLocale() {
   const {$t} = usei18n();

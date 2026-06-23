@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_1_2;
+namespace OrangeHRM\Installer\Migration\V4_1_2;
 
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -30,7 +30,7 @@ class Migration extends AbstractMigration
     {
         $adminUserRoleId = $this->createQueryBuilder()
             ->select('user_role.id')
-            ->from('cia_ferias_user_role', 'user_role')
+            ->from('ohrm_user_role', 'user_role')
             ->where('user_role.name = :role')
             ->setParameter('role', 'Admin')
             ->executeQuery()
@@ -38,14 +38,14 @@ class Migration extends AbstractMigration
 
         $timeModuleId = $this->createQueryBuilder()
             ->select('module.id')
-            ->from('cia_ferias_module', 'module')
+            ->from('ohrm_module', 'module')
             ->where('module.name = :module')
             ->setParameter('module', 'time')
             ->executeQuery()
             ->fetchOne();
 
         $this->createQueryBuilder()
-            ->update('cia_ferias_module_default_page', 'module_default')
+            ->update('ohrm_module_default_page', 'module_default')
             ->set('module_default.priority', ':priority')
             ->setParameter('priority', 200)
             ->where('module_default.module_id = :moduleId')

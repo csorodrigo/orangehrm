@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller;
+namespace OrangeHRM\Installer\Controller;
 
-use CiaFerias\Config\Config;
-use CiaFerias\Framework\Http\RedirectResponse;
-use CiaFerias\Framework\Http\Request;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Framework\Http\RedirectResponse;
+use OrangeHRM\Framework\Http\Request;
 
 class HomeController extends AbstractInstallerController
 {

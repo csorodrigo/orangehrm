@@ -39,7 +39,7 @@ $dbHost = $c->getDbHost();
 $dbPort = $c->getDbPort();
 $dbName = $c->getDbName();
 
-$tempFile = tempnam(sys_get_temp_dir(), 'ciaferiastestdb');
+$tempFile = tempnam(sys_get_temp_dir(), 'ohrmtestdb');
 
 
 if ($argc > 1) {
@@ -80,7 +80,7 @@ unlink($tempFile);
 
 echo "test db {$testDb} created.\n";
 
-$coreFixtureService = new \CiaFerias\Tests\Util\CoreFixtureService();
+$coreFixtureService = new \OrangeHRM\Tests\Util\CoreFixtureService();
 $coreFixtureService->saveToFixtures();
 
 echo "core fixtures generated.\n";

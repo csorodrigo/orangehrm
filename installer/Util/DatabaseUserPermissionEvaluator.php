@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 use DateTime;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Types\Types;
 use Exception;
-use CiaFerias\Installer\Util\V1\SchemaHelper;
+use OrangeHRM\Installer\Util\V1\SchemaHelper;
 
 class DatabaseUserPermissionEvaluator
 {
@@ -60,7 +60,7 @@ class DatabaseUserPermissionEvaluator
 
     protected function evalCreatePermission(): void
     {
-        $this->getSchemaHelper()->createTable('_cia_ferias_temp_table')
+        $this->getSchemaHelper()->createTable('_ohrm_temp_table')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('col_string', Types::STRING, ['Notnull' => true, 'Length' => 255])
             ->addColumn('col_nullable', Types::STRING, ['Notnull' => false, 'Default' => null, 'Length' => 255])
@@ -78,7 +78,7 @@ class DatabaseUserPermissionEvaluator
     {
         for ($i = 0; $i < 10; $i++) {
             $this->getConnection()->createQueryBuilder()
-                ->insert('_cia_ferias_temp_table')
+                ->insert('_ohrm_temp_table')
                 ->setValue('col_string', ':valueString')
                 ->setValue('col_nullable', ':valueNullable')
                 ->setValue('col_date', ':valueDate')
@@ -98,7 +98,7 @@ class DatabaseUserPermissionEvaluator
 
         $count = $this->getConnection()->createQueryBuilder()
             ->select('COUNT(*)')
-            ->from('_cia_ferias_temp_table')
+            ->from('_ohrm_temp_table')
             ->executeQuery()
             ->fetchOne();
         if ($count != 10) {
@@ -107,12 +107,12 @@ class DatabaseUserPermissionEvaluator
 
         // Start - order by test
         $this->getConnection()->createQueryBuilder()
-            ->select('_cia_ferias_temp_table.id')
-            ->from('_cia_ferias_temp_table')
-            ->andWhere('_cia_ferias_temp_table.col_nullable = :valueString')
-            ->andWhere('_cia_ferias_temp_table.col_bool = :valueTrue')
-            ->addOrderBy('_cia_ferias_temp_table.col_string', 'DESC')
-            ->addOrderBy('_cia_ferias_temp_table.id')
+            ->select('_ohrm_temp_table.id')
+            ->from('_ohrm_temp_table')
+            ->andWhere('_ohrm_temp_table.col_nullable = :valueString')
+            ->andWhere('_ohrm_temp_table.col_bool = :valueTrue')
+            ->addOrderBy('_ohrm_temp_table.col_string', 'DESC')
+            ->addOrderBy('_ohrm_temp_table.id')
             ->setParameter('valueString', 'String')
             ->setParameter('valueTrue', false, Types::BOOLEAN)
             ->executeQuery();
@@ -120,8 +120,8 @@ class DatabaseUserPermissionEvaluator
 
         // Start - sub query test
         $affectedRows = $this->getConnection()->createQueryBuilder()
-            ->delete('_cia_ferias_temp_table')
-            ->where('_cia_ferias_temp_table.col_string = :valueString')
+            ->delete('_ohrm_temp_table')
+            ->where('_ohrm_temp_table.col_string = :valueString')
             ->setParameter('valueString', 'String 8')
             ->executeStatement();
         if ($affectedRows != 1) {
@@ -129,14 +129,14 @@ class DatabaseUserPermissionEvaluator
         }
 
         $q = $this->getConnection()->createQueryBuilder()
-            ->select('COUNT(_cia_ferias_temp_table.id)')
-            ->from('_cia_ferias_temp_table')
-            ->andWhere('_cia_ferias_temp_table.col_nullable = _temp_table.col_nullable')
-            ->andWhere('_cia_ferias_temp_table.col_bool = _temp_table.col_bool');
+            ->select('COUNT(_ohrm_temp_table.id)')
+            ->from('_ohrm_temp_table')
+            ->andWhere('_ohrm_temp_table.col_nullable = _temp_table.col_nullable')
+            ->andWhere('_ohrm_temp_table.col_bool = _temp_table.col_bool');
 
         $results = $this->getConnection()->createQueryBuilder()
             ->select('_temp_table.id', sprintf('(%s) AS groupCount', $q->getSQL()))
-            ->from('_cia_ferias_temp_table', '_temp_table')
+            ->from('_ohrm_temp_table', '_temp_table')
             ->executeQuery();
         $expected = [
             ['id' => '1', 'groupCount' => '0'],
@@ -160,7 +160,7 @@ class DatabaseUserPermissionEvaluator
         // Start - having clause test
         $results = $this->getConnection()->createQueryBuilder()
             ->select('_temp_table.id, _temp_table.col_bool')
-            ->from('_cia_ferias_temp_table', '_temp_table')
+            ->from('_ohrm_temp_table', '_temp_table')
             ->andWhere('_temp_table.id < 3')
             ->orWhere('_temp_table.id > 6')
             ->andHaving('_temp_table.col_bool = :valueTrue')
@@ -180,10 +180,10 @@ class DatabaseUserPermissionEvaluator
 
         // Start - update query test
         $affectedRows = $this->getConnection()->createQueryBuilder()
-            ->update('_cia_ferias_temp_table')
-            ->set('_cia_ferias_temp_table.col_nullable', ':updatedString')
-            ->andWhere('_cia_ferias_temp_table.col_nullable = :valueString')
-            ->andWhere('_cia_ferias_temp_table.col_bool = :valueTrue')
+            ->update('_ohrm_temp_table')
+            ->set('_ohrm_temp_table.col_nullable', ':updatedString')
+            ->andWhere('_ohrm_temp_table.col_nullable = :valueString')
+            ->andWhere('_ohrm_temp_table.col_bool = :valueTrue')
             ->setParameter('updatedString', '[Updated] String')
             ->setParameter('valueString', 'String')
             ->setParameter('valueTrue', true, Types::BOOLEAN)
@@ -194,8 +194,8 @@ class DatabaseUserPermissionEvaluator
         // End - update query test
 
         $count = $this->getConnection()->createQueryBuilder()
-            ->select('COUNT(_cia_ferias_temp_table.id)')
-            ->from('_cia_ferias_temp_table')
+            ->select('COUNT(_ohrm_temp_table.id)')
+            ->from('_ohrm_temp_table')
             ->executeQuery()
             ->fetchOne();
         if ($count != 9) {
@@ -204,9 +204,9 @@ class DatabaseUserPermissionEvaluator
 
         // Start - delete query test
         $affectedRows = $this->getConnection()->createQueryBuilder()
-            ->delete('_cia_ferias_temp_table')
-            ->andWhere('_cia_ferias_temp_table.col_nullable = :valueString')
-            ->andWhere('_cia_ferias_temp_table.col_bool = :valueTrue')
+            ->delete('_ohrm_temp_table')
+            ->andWhere('_ohrm_temp_table.col_nullable = :valueString')
+            ->andWhere('_ohrm_temp_table.col_bool = :valueTrue')
             ->setParameter('valueString', 'String')
             ->setParameter('valueTrue', false, Types::BOOLEAN)
             ->executeStatement();
@@ -216,8 +216,8 @@ class DatabaseUserPermissionEvaluator
         // End - delete query test
 
         $count = $this->getConnection()->createQueryBuilder()
-            ->select('COUNT(_cia_ferias_temp_table.id)')
-            ->from('_cia_ferias_temp_table')
+            ->select('COUNT(_ohrm_temp_table.id)')
+            ->from('_ohrm_temp_table')
             ->executeQuery()
             ->fetchOne();
         if ($count != 6) {
@@ -227,25 +227,25 @@ class DatabaseUserPermissionEvaluator
 
     protected function evalAlterPermission(): void
     {
-        $this->getSchemaHelper()->addColumn('_cia_ferias_temp_table', '`col_blob`', Types::BLOB);
+        $this->getSchemaHelper()->addColumn('_ohrm_temp_table', '`col_blob`', Types::BLOB);
         $this->getSchemaHelper()->changeColumn(
-            '_cia_ferias_temp_table',
+            '_ohrm_temp_table',
             'col_blob',
             ['Default' => null, 'Notnull' => false]
         );
-        $this->getSchemaHelper()->renameColumn('_cia_ferias_temp_table', 'col_blob', 'col_blob_changed');
-        $this->getSchemaHelper()->dropColumn('_cia_ferias_temp_table', 'col_blob_changed');
+        $this->getSchemaHelper()->renameColumn('_ohrm_temp_table', 'col_blob', 'col_blob_changed');
+        $this->getSchemaHelper()->dropColumn('_ohrm_temp_table', 'col_blob_changed');
     }
 
     protected function evalForeignKeyPermission(): void
     {
         $this->getSchemaHelper()->addColumn(
-            '_cia_ferias_temp_table',
+            '_ohrm_temp_table',
             'foreign_id',
             Types::INTEGER,
             ['Default' => null, 'Notnull' => false]
         );
-        $this->getSchemaHelper()->createTable('_cia_ferias_temp_foreign_table')
+        $this->getSchemaHelper()->createTable('_ohrm_temp_foreign_table')
             ->addColumn('id', Types::INTEGER, ['Autoincrement' => true])
             ->addColumn('col', Types::STRING, ['Length' => 255])
             ->setPrimaryKey(['id'])
@@ -253,15 +253,15 @@ class DatabaseUserPermissionEvaluator
 
         $foreignKeyConstraint = new ForeignKeyConstraint(
             ['foreign_id'],
-            '_cia_ferias_temp_foreign_table',
+            '_ohrm_temp_foreign_table',
             ['id'],
             'fk_id',
             ['onDelete' => 'SET NULL', 'onUpdate' => 'NO ACTION']
         );
-        $this->getSchemaHelper()->addForeignKey('_cia_ferias_temp_table', $foreignKeyConstraint);
+        $this->getSchemaHelper()->addForeignKey('_ohrm_temp_table', $foreignKeyConstraint);
 
         $this->getConnection()->createQueryBuilder()
-            ->delete('_cia_ferias_temp_table')
+            ->delete('_ohrm_temp_table')
             ->executeStatement();
 
         for ($i = 0; $i < 10; $i++) {
@@ -269,7 +269,7 @@ class DatabaseUserPermissionEvaluator
             if ($i % 2 == 0) {
                 $id = 100 + $i;
                 $this->getConnection()->createQueryBuilder()
-                    ->insert('_cia_ferias_temp_foreign_table')
+                    ->insert('_ohrm_temp_foreign_table')
                     ->setValue('id', ':valueId')
                     ->setValue('col', ':valueString')
                     ->setParameter('valueId', $id)
@@ -278,7 +278,7 @@ class DatabaseUserPermissionEvaluator
             }
 
             $this->getConnection()->createQueryBuilder()
-                ->insert('_cia_ferias_temp_table')
+                ->insert('_ohrm_temp_table')
                 ->setValue('col_string', ':valueString')
                 ->setValue('col_nullable', ':valueNullable')
                 ->setValue('col_date', ':valueDate')
@@ -299,8 +299,8 @@ class DatabaseUserPermissionEvaluator
         }
 
         $count = $this->getConnection()->createQueryBuilder()
-            ->select('COUNT(_cia_ferias_temp_foreign_table.id)')
-            ->from('_cia_ferias_temp_foreign_table')
+            ->select('COUNT(_ohrm_temp_foreign_table.id)')
+            ->from('_ohrm_temp_foreign_table')
             ->executeQuery()
             ->fetchOne();
         if ($count != 5) {
@@ -309,10 +309,10 @@ class DatabaseUserPermissionEvaluator
 
         $results = $this->getConnection()->createQueryBuilder()
             ->select('_temp_foreign_table.id', '_temp_foreign_table.col', '_temp_table.col_string')
-            ->from('_cia_ferias_temp_table', '_temp_table')
+            ->from('_ohrm_temp_table', '_temp_table')
             ->leftJoin(
                 '_temp_table',
-                '_cia_ferias_temp_foreign_table',
+                '_ohrm_temp_foreign_table',
                 '_temp_foreign_table',
                 '_temp_foreign_table.id = _temp_table.foreign_id'
             )
@@ -332,14 +332,14 @@ class DatabaseUserPermissionEvaluator
             }
         }
 
-        $this->getSchemaHelper()->dropForeignKeys('_cia_ferias_temp_table', ['fk_id']);
+        $this->getSchemaHelper()->dropForeignKeys('_ohrm_temp_table', ['fk_id']);
     }
 
     protected function evalDropPermission(): void
     {
         $this->getSchemaHelper()->disableConstraints();
-        $this->getConnection()->createSchemaManager()->dropTable('_cia_ferias_temp_foreign_table');
-        $this->getConnection()->createSchemaManager()->dropTable('_cia_ferias_temp_table');
+        $this->getConnection()->createSchemaManager()->dropTable('_ohrm_temp_foreign_table');
+        $this->getConnection()->createSchemaManager()->dropTable('_ohrm_temp_table');
         $this->getSchemaHelper()->enableConstraints();
     }
 
@@ -347,13 +347,13 @@ class DatabaseUserPermissionEvaluator
     {
         try {
             $this->getSchemaHelper()->disableConstraints();
-            $this->getConnection()->createSchemaManager()->dropTable('_cia_ferias_temp_foreign_table');
+            $this->getConnection()->createSchemaManager()->dropTable('_ohrm_temp_foreign_table');
             $this->getSchemaHelper()->enableConstraints();
         } catch (Exception $e) {
         }
         try {
             $this->getSchemaHelper()->disableConstraints();
-            $this->getConnection()->createSchemaManager()->dropTable('_cia_ferias_temp_table');
+            $this->getConnection()->createSchemaManager()->dropTable('_ohrm_temp_table');
             $this->getSchemaHelper()->enableConstraints();
         } catch (Exception $e) {
         }

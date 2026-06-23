@@ -17,14 +17,14 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\DevTools\Command;
+namespace OrangeHRM\DevTools\Command;
 
 use InvalidArgumentException;
-use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
-use CiaFerias\DevTools\Command\Util\EchoSqlLogger;
-use CiaFerias\Entity\ApiPermission;
-use CiaFerias\Entity\DataGroup;
-use CiaFerias\Entity\Module;
+use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
+use OrangeHRM\DevTools\Command\Util\EchoSqlLogger;
+use OrangeHRM\Entity\ApiPermission;
+use OrangeHRM\Entity\DataGroup;
+use OrangeHRM\Entity\Module;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -124,7 +124,7 @@ class AddDataGroupCommand extends Command
 
         if ($isApi) {
             $apiClassName = $this->io->ask(
-                'Enter API full qualified class name (e.g. <fg=yellow>CiaFerias\Admin\Api\JobTitleAPI</>)',
+                'Enter API full qualified class name (e.g. <fg=yellow>OrangeHRM\Admin\Api\JobTitleAPI</>)',
                 null,
                 function (?string $value = null) {
                     if (!class_exists($value)) {
@@ -265,7 +265,7 @@ class AddDataGroupCommand extends Command
         $canUpdate = (int)$dataGroup->canUpdate();
         $canDelete = (int)$dataGroup->canDelete();
         $this->printBlock(
-            "INSERT INTO cia_ferias_data_group (`name`, `description`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ($name, $description, $canRead, $canCreate, $canUpdate, $canDelete);"
+            "INSERT INTO ohrm_data_group (`name`, `description`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ($name, $description, $canRead, $canCreate, $canUpdate, $canDelete);"
         );
     }
 
@@ -298,13 +298,13 @@ class AddDataGroupCommand extends Command
         $dataGroup = $apiPermission->getDataGroup()->getName();
         $apiName = $this->getEntityManager()->getConnection()->quote($apiPermission->getApiName());
         $this->printBlock(
-            "SET @{$module}_module_id := (SELECT `id` FROM cia_ferias_module WHERE name = '$module' LIMIT 1);"
+            "SET @{$module}_module_id := (SELECT `id` FROM ohrm_module WHERE name = '$module' LIMIT 1);"
         );
         $this->printBlock(
-            "SET @{$dataGroup}_data_group_id := (SELECT `id` FROM cia_ferias_data_group WHERE name = '$dataGroup' LIMIT 1);"
+            "SET @{$dataGroup}_data_group_id := (SELECT `id` FROM ohrm_data_group WHERE name = '$dataGroup' LIMIT 1);"
         );
         $this->printBlock(
-            "INSERT INTO cia_ferias_api_permission (`api_name`, `module_id`, `data_group_id`) VALUES ($apiName, @{$module}_module_id, @{$dataGroup}_data_group_id);"
+            "INSERT INTO ohrm_api_permission (`api_name`, `module_id`, `data_group_id`) VALUES ($apiName, @{$module}_module_id, @{$dataGroup}_data_group_id);"
         );
     }
 

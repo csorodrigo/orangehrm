@@ -17,9 +17,9 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Migration\V4_8_0;
+namespace OrangeHRM\Installer\Migration\V4_8_0;
 
-use CiaFerias\Installer\Util\V1\AbstractMigration;
+use OrangeHRM\Installer\Util\V1\AbstractMigration;
 
 class Migration extends AbstractMigration
 {
@@ -28,11 +28,11 @@ class Migration extends AbstractMigration
      */
     public function up(): void
     {
-        $this->insertConfig('help.url', '');
+        $this->insertConfig('help.url', 'https://opensourcehelp.orangehrm.com'); //has access issues.
         $this->insertConfig('help.processorClass', 'ZendeskHelpProcessor');
 
         $this->createQueryBuilder()
-            ->insert('cia_ferias_i18n_group')
+            ->insert('ohrm_i18n_group')
             ->values(
                 [
                     'name' => ':name',

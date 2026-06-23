@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\DevTools\Command\Util\Platforms;
+namespace OrangeHRM\DevTools\Command\Util\Platforms;
 
 class MySQL57Platform extends \Doctrine\DBAL\Platforms\MySQL57Platform
 {

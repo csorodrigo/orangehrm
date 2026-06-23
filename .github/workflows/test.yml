@@ -46,7 +46,7 @@ jobs:
           cd src/client
           yarn install
 
-      - name: Install CIA Férias
+      - name: Install OrangeHRM
         run: |
           php8.3 installer/cli_install.php
           mysqldump -V
@@ -55,7 +55,7 @@ jobs:
       - name: Configure LDAP server
         if: "${{ github.event_name == 'push' }}"
         run: |
-          cd src/plugins/ciaFeriasLDAPAuthenticationPlugin/test/config
+          cd src/plugins/orangehrmLDAPAuthenticationPlugin/test/config
           docker run --detach --rm --name openldap \
             --network ${{ job.container.network }} \
             -p 389:1389 \
@@ -156,29 +156,30 @@ jobs:
           php8.3 -f /usr/bin/composer install -d src
           php8.3 -f /usr/bin/composer install -d devTools/core
 
-      - name: Install CIA Férias with empty database password
+      - name: Install OrangeHRM with empty database password
         run: |
-          sed -i 's/orangehrmDatabaseUser: cia_ferias/orangehrmDatabaseUser: cia_ferias_1/g' installer/cli_install_config.yaml
-          sed -i 's/orangehrmDatabasePassword: cia_ferias/orangehrmDatabasePassword: ~/g' installer/cli_install_config.yaml
+          sed -i 's/useSameDbUserForOrangeHRM: y/useSameDbUserForOrangeHRM: n/g' installer/cli_install_config.yaml
+          sed -i 's/orangehrmDatabaseUser: ~/orangehrmDatabaseUser: orangehrm_1/g' installer/cli_install_config.yaml
           php8.3 installer/cli_install.php
 
-      - name: Install CIA Férias with database user
+      - name: Install OrangeHRM with database user
         run: |
           php devTools/core/console.php i:reset
           git checkout installer/cli_install_config.yaml
-          sed -i 's/orangehrmDatabaseUser: cia_ferias/orangehrmDatabaseUser: cia_ferias_2/g' installer/cli_install_config.yaml
-          sed -i 's/orangehrmDatabasePassword: cia_ferias/orangehrmDatabasePassword: CiaFeriasDB2026/g' installer/cli_install_config.yaml
-          sed -i 's/databaseName: cia_ferias/databaseName: db/g' installer/cli_install_config.yaml
+          sed -i 's/useSameDbUserForOrangeHRM: y/useSameDbUserForOrangeHRM: n/g' installer/cli_install_config.yaml
+          sed -i 's/orangehrmDatabaseUser: ~/orangehrmDatabaseUser: orangehrm_2/g' installer/cli_install_config.yaml
+          sed -i 's/orangehrmDatabasePassword: ~/orangehrmDatabasePassword: 0rang3h!m/g' installer/cli_install_config.yaml
+          sed -i 's/databaseName: orangehrm_mysql/databaseName: db/g' installer/cli_install_config.yaml
           php8.3 installer/cli_install.php
 
-      - name: Install CIA Férias with existing database
+      - name: Install OrangeHRM with existing database
         run: |
           php devTools/core/console.php i:reset
           git checkout installer/cli_install_config.yaml
           sed -i 's/isExistingDatabase: n/isExistingDatabase: y/g' installer/cli_install_config.yaml
-          sed -i 's/privilegedDatabaseUser: root/privilegedDatabaseUser: cia_ferias_2/g' installer/cli_install_config.yaml
-          sed -i 's/privilegedDatabasePassword: root/privilegedDatabasePassword: CiaFeriasDB2026/g' installer/cli_install_config.yaml
-          sed -i 's/databaseName: cia_ferias/databaseName: db/g' installer/cli_install_config.yaml
+          sed -i 's/privilegedDatabaseUser: root/privilegedDatabaseUser: orangehrm_2/g' installer/cli_install_config.yaml
+          sed -i 's/privilegedDatabasePassword: root/privilegedDatabasePassword: 0rang3h!m/g' installer/cli_install_config.yaml
+          sed -i 's/databaseName: orangehrm_mysql/databaseName: db/g' installer/cli_install_config.yaml
           mysql -u root -proot -h 127.0.0.1 -e "CREATE DATABASE db;"
           php8.3 installer/cli_install.php
 

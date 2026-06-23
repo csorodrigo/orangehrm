@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\ORM;
+namespace OrangeHRM\ORM;
 
 use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 

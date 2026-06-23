@@ -22,7 +22,7 @@ namespace Doctrine\Migrations;
 use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Doctrine\Migrations\Configuration\Migration\ConfigurationArray;
 use Doctrine\Migrations\Tools\Console\ConsoleRunner;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\ORM\Doctrine;
 
 require_once 'bootstrap.php';
 
@@ -37,7 +37,7 @@ $config = new ConfigurationArray(
         ],
 
         'migrations_paths' => [
-            'CiaFerias\Migrations' => __DIR__ . '/migrations',
+            'OrangeHRM\Migrations' => __DIR__ . '/migrations',
         ],
 
         'all_or_nothing' => true,

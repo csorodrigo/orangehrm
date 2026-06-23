@@ -17,12 +17,12 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Installer\Api;
+namespace OrangeHRM\Installer\Controller\Installer\Api;
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Util\AppSetupUtility;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Util\AppSetupUtility;
 
-class MigrationAPI extends \CiaFerias\Installer\Controller\Upgrader\Api\MigrationAPI
+class MigrationAPI extends \OrangeHRM\Installer\Controller\Upgrader\Api\MigrationAPI
 {
     /**
      * @inheritDoc

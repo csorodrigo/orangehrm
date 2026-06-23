@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Console\Scheduling;
+namespace OrangeHRM\Framework\Console\Scheduling;
 
 use Crunz\Event;
-use CiaFerias\Framework\Console\ArrayInput;
-use CiaFerias\Framework\Console\Command;
-use CiaFerias\Framework\Console\Console;
-use CiaFerias\Framework\Logger\LoggerFactory;
+use OrangeHRM\Framework\Console\ArrayInput;
+use OrangeHRM\Framework\Console\Command;
+use OrangeHRM\Framework\Console\Console;
+use OrangeHRM\Framework\Logger\LoggerFactory;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 

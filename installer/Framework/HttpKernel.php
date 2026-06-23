@@ -17,26 +17,26 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Framework;
+namespace OrangeHRM\Installer\Framework;
 
 use Exception;
-use CiaFerias\Config\Config;
-use CiaFerias\Framework\Event\EventDispatcher;
-use CiaFerias\Framework\Filesystem\Filesystem;
-use CiaFerias\Framework\Http\ControllerResolver;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\RequestStack;
-use CiaFerias\Framework\Http\Session\NativeSessionStorage;
-use CiaFerias\Framework\Http\Session\Session;
-use CiaFerias\Framework\Logger\Logger;
-use CiaFerias\Framework\Routing\RequestContext;
-use CiaFerias\Framework\Routing\UrlMatcher;
-use CiaFerias\Framework\ServiceContainer;
-use CiaFerias\Framework\Services;
-use CiaFerias\Installer\Exception\SessionStorageNotWritable;
-use CiaFerias\Installer\Subscriber\ExceptionSubscriber;
-use CiaFerias\Installer\Subscriber\LoggerSubscriber;
-use CiaFerias\Installer\Util\SystemCheck;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Framework\Event\EventDispatcher;
+use OrangeHRM\Framework\Filesystem\Filesystem;
+use OrangeHRM\Framework\Http\ControllerResolver;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\RequestStack;
+use OrangeHRM\Framework\Http\Session\NativeSessionStorage;
+use OrangeHRM\Framework\Http\Session\Session;
+use OrangeHRM\Framework\Logger\Logger;
+use OrangeHRM\Framework\Routing\RequestContext;
+use OrangeHRM\Framework\Routing\UrlMatcher;
+use OrangeHRM\Framework\ServiceContainer;
+use OrangeHRM\Framework\Services;
+use OrangeHRM\Installer\Exception\SessionStorageNotWritable;
+use OrangeHRM\Installer\Subscriber\ExceptionSubscriber;
+use OrangeHRM\Installer\Subscriber\LoggerSubscriber;
+use OrangeHRM\Installer\Util\SystemCheck;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\HttpFoundation\Response;
@@ -208,7 +208,7 @@ class HttpKernel extends BaseHttpKernel
         $isSecure = $request->isSecure();
         $path = $request->getBasePath();
         $options = [
-            'name' => $isSecure ? 'cia-ferias' : '_cia-ferias',
+            'name' => $isSecure ? 'orangehrm' : '_orangehrm',
             'cookie_secure' => $isSecure,
             'cookie_httponly' => true,
             'cookie_path' => $path,

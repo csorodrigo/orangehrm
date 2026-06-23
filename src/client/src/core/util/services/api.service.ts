@@ -25,7 +25,7 @@ import axios, {
 } from 'axios';
 import {WebStorage} from '../helper/storage';
 import {ComponentInternalInstance, getCurrentInstance} from 'vue';
-import {reloadPage} from '@cia-ferias/core/util/helper/navigation';
+import {reloadPage} from '@ohrm/core/util/helper/navigation';
 
 interface ErrorResponse {
   error: {

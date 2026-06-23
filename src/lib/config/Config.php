@@ -17,44 +17,44 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Config;
+namespace OrangeHRM\Config;
 
 use Conf;
-use CiaFerias\ORM\Exception\ConfigNotFoundException;
+use OrangeHRM\ORM\Exception\ConfigNotFoundException;
 
 class Config
 {
-    public const PLUGINS = 'cia_ferias_plugins';
-    public const PLUGIN_PATHS = 'cia_ferias_plugin_paths';
-    public const PLUGIN_CONFIGS = 'cia_ferias_plugin_configs';
-    public const BASE_DIR = 'cia_ferias_base_dir';
-    public const SRC_DIR = 'cia_ferias_src_dir';
-    public const PLUGINS_DIR = 'cia_ferias_plugins_dir';
-    public const PUBLIC_DIR = 'cia_ferias_public_dir';
-    public const LOG_DIR = 'cia_ferias_log_dir';
-    public const CACHE_DIR = 'cia_ferias_cache_dir';
-    public const CONFIG_DIR = 'cia_ferias_config_dir';
-    public const CRYPTO_KEY_DIR = 'cia_ferias_crypto_key_dir';
-    public const SESSION_DIR = 'cia_ferias_session_dir';
-    public const DOCTRINE_PROXY_DIR = 'cia_ferias_doctrine_proxy_dir';
-    public const APP_TEMPLATE_DIR = 'cia_ferias_app_template_dir';
-    public const TEST_DIR = 'cia_ferias_test_dir';
-    public const CONF_FILE_PATH = 'cia_ferias_conf_file_path';
-    public const I18N_ENABLED = 'cia_ferias_i18n_enabled';
-    public const DATE_FORMATTING_ENABLED = 'cia_ferias_date_formatting_enabled';
-    public const VUE_BUILD_TIMESTAMP = 'cia_ferias_vue_build_timestamp';
-    public const MAX_SESSION_IDLE_TIME = 'cia_ferias_max_session_idle_time';
+    public const PLUGINS = 'ohrm_plugins';
+    public const PLUGIN_PATHS = 'ohrm_plugin_paths';
+    public const PLUGIN_CONFIGS = 'ohrm_plugin_configs';
+    public const BASE_DIR = 'ohrm_base_dir';
+    public const SRC_DIR = 'ohrm_src_dir';
+    public const PLUGINS_DIR = 'ohrm_plugins_dir';
+    public const PUBLIC_DIR = 'ohrm_public_dir';
+    public const LOG_DIR = 'ohrm_log_dir';
+    public const CACHE_DIR = 'ohrm_cache_dir';
+    public const CONFIG_DIR = 'ohrm_config_dir';
+    public const CRYPTO_KEY_DIR = 'ohrm_crypto_key_dir';
+    public const SESSION_DIR = 'ohrm_session_dir';
+    public const DOCTRINE_PROXY_DIR = 'ohrm_doctrine_proxy_dir';
+    public const APP_TEMPLATE_DIR = 'ohrm_app_template_dir';
+    public const TEST_DIR = 'ohrm_test_dir';
+    public const CONF_FILE_PATH = 'ohrm_conf_file_path';
+    public const I18N_ENABLED = 'ohrm_i18n_enabled';
+    public const DATE_FORMATTING_ENABLED = 'ohrm_date_formatting_enabled';
+    public const VUE_BUILD_TIMESTAMP = 'ohrm_vue_build_timestamp';
+    public const MAX_SESSION_IDLE_TIME = 'ohrm_max_session_idle_time';
 
     public const MODE_DEV = 'dev';
     public const MODE_PROD = 'prod';
     public const MODE_TEST = 'test';
     public const MODE_DEMO = 'demo';
 
-    public const PRODUCT_NAME = 'CIA Férias';
+    public const PRODUCT_NAME = 'OrangeHRM OS';
     public const PRODUCT_VERSION = '5.8.1';
-    public const CIA_FERIAS_API_VERSION = '2.7.0';
+    public const ORANGEHRM_API_VERSION = '2.7.0';
     public const PRODUCT_MODE = self::MODE_DEV;
-    public const REGISTRATION_URL = '';
+    public const REGISTRATION_URL = 'https://ospenguin.orangehrm.com';
 
     public const DEFAULT_MAX_SESSION_IDLE_TIME = 1800;
 

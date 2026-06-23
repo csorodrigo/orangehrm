@@ -17,23 +17,23 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Command;
+namespace OrangeHRM\Installer\Command;
 
 use InvalidArgumentException;
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Config\Config;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Controller\Upgrader\Api\ConfigFileAPI;
-use CiaFerias\Installer\Controller\Upgrader\Api\UpgraderDataRegistrationAPI;
-use CiaFerias\Installer\Exception\SystemCheckException;
-use CiaFerias\Installer\Framework\InstallerCommand;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\Connection;
-use CiaFerias\Installer\Util\DatabaseUserPermissionEvaluator;
-use CiaFerias\Installer\Util\Logger;
-use CiaFerias\Installer\Util\StateContainer;
-use CiaFerias\Installer\Util\SystemCheck;
-use CiaFerias\Installer\Util\UpgraderConfigUtility;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Controller\Upgrader\Api\ConfigFileAPI;
+use OrangeHRM\Installer\Controller\Upgrader\Api\UpgraderDataRegistrationAPI;
+use OrangeHRM\Installer\Exception\SystemCheckException;
+use OrangeHRM\Installer\Framework\InstallerCommand;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\Connection;
+use OrangeHRM\Installer\Util\DatabaseUserPermissionEvaluator;
+use OrangeHRM\Installer\Util\Logger;
+use OrangeHRM\Installer\Util\StateContainer;
+use OrangeHRM\Installer\Util\SystemCheck;
+use OrangeHRM\Installer\Util\UpgraderConfigUtility;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -87,10 +87,10 @@ class UpgradeCommand extends InstallerCommand
         $this->getIO()->title('Database Information');
         $this->getIO()->block('Please provide the database information of the database you are going to upgrade.');
         $this->getIO()->caution(
-            "IMPORTANT: Make sure it's a copy of the database of your current CIA Férias installation and not the original database. It's highly discouraged to use the original database for upgrading since it won't be recoverable if an error occurred during the upgrade."
+            "IMPORTANT: Make sure it's a copy of the database of your current OrangeHRM installation and not the original database. It's highly discouraged to use the original database for upgrading since it won't be recoverable if an error occurred during the upgrade."
         );
         $this->getIO()->warning(
-            "ENCRYPTION: If you have enabled data encryption in your current version, you need to copy the file 'lib/confs/cryptokeys/key.cia-ferias' from your current installation to corresponding location in the new version."
+            "ENCRYPTION: If you have enabled data encryption in your current version, you need to copy the file 'lib/confs/cryptokeys/key.ohrm' from your current installation to corresponding location in the new version."
         );
 
         if ($input->isInteractive()) {
@@ -160,7 +160,7 @@ class UpgradeCommand extends InstallerCommand
 
         $this->getIO()->title('Current Version Details');
         $this->getIO()->block(
-            'Select your current CIA Férias version here. You can find the version at the bottom of the CIA Férias login page. The upgrader only supports versions listed in the dropdown. Selecting a different version would lead to an upgrade failure and a database corruption.'
+            'Select your current OrangeHRM version here. You can find the version at the bottom of the OrangeHRM login page. OrangeHRM Upgrader only supports versions listed in the dropdown. Selecting a different version would lead to an upgrade failure and a database corruption.'
         );
 
         $appSetupUtility = new AppSetupUtility();
@@ -169,7 +169,7 @@ class UpgradeCommand extends InstallerCommand
         $versions = array_keys(AppSetupUtility::MIGRATIONS_MAP);
         array_pop($versions);
         if ($input->isInteractive() && $currentVersion == null) {
-            $question = new ChoiceQuestion('Current CIA Férias Version ' . self::REQUIRED_TAG, $versions);
+            $question = new ChoiceQuestion('Current OrangeHRM Version ' . self::REQUIRED_TAG, $versions);
             $question->setValidator(function ($value) use ($versions) {
                 if (!in_array($value, $versions, true)) {
                     throw new InvalidArgumentException('Invalid version.');
@@ -186,8 +186,8 @@ class UpgradeCommand extends InstallerCommand
         }
         $this->getIO()->note("Current version: $currentVersion");
 
-        $this->getIO()->title('Upgrading CIA Férias');
-        $fromAndToVersions = "from <comment>CIA Férias $currentVersion</comment> to <comment>CIA Férias " . Config::PRODUCT_VERSION . '</comment>';
+        $this->getIO()->title('Upgrading OrangeHRM');
+        $fromAndToVersions = "from <comment>OrangeHRM $currentVersion</comment> to <comment>OrangeHRM " . Config::PRODUCT_VERSION . '</comment>';
         $continue = $this->getIO()->confirm("Do you want to start the upgrader $fromAndToVersions?", true);
         if ($continue !== true) {
             $this->getIO()->info('Aborted');
@@ -195,7 +195,7 @@ class UpgradeCommand extends InstallerCommand
         }
         if (!$input->isInteractive()) {
             $this->getIO()->info(
-                "Upgrading from CIA Férias $currentVersion to CIA Férias " . Config::PRODUCT_VERSION . '.'
+                "Upgrading from OrangeHRM $currentVersion to OrangeHRM " . Config::PRODUCT_VERSION . '.'
             );
         }
         $step1 = $this->startSection($output, self::STEP_1);

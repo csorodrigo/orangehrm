@@ -1,5 +1,5 @@
 import {h, defineComponent, Transition, App, reactive, toRefs} from 'vue';
-import {OxdOverlay, OxdSpinner} from '@cia-ferias/oxd';
+import {OxdOverlay, OxdSpinner} from '@ohrm/oxd';
 
 export interface LoaderAPI {
   startLoading: () => void;
@@ -21,13 +21,13 @@ const Loader = defineComponent({
   render() {
     return h(
       Transition,
-      {name: 'cia-ferias-loader-fade', tag: 'div'},
+      {name: 'orangehrm-loader-fade', tag: 'div'},
       {
         default: () => {
           if (this.show) {
             return h(
               OxdOverlay,
-              {show: true, centered: true, class: 'cia-ferias-loader'},
+              {show: true, centered: true, class: 'orangehrm-loader'},
               h(OxdSpinner, {withContainer: false}),
             );
           }

@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-use CiaFerias\Config\Config;
+use OrangeHRM\Config\Config;
 
 require realpath(__DIR__ . '/src/vendor/autoload.php');
 

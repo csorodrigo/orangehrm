@@ -1446,21 +1446,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cia-ferias/oxd@file:vendor/cia-ferias-oxd::locator=cia-ferias-installer%40workspace%3A.":
-  version: 2.0.2-cia.0
-  resolution: "@cia-ferias/oxd@file:vendor/cia-ferias-oxd#vendor/cia-ferias-oxd::hash=14c28b&locator=cia-ferias-installer%40workspace%3A."
-  dependencies:
-    "@revolist/vue3-datagrid": "npm:^3.2.17"
-    chart.js: "npm:^4.1.2"
-    date-fns: "npm:^2.29.3"
-    mitt: "npm:^3.0.0"
-    nanoid: "npm:^4.0.0"
-  peerDependencies:
-    vue: 3.x
-  checksum: 10/474ed9cd83238f2e5d49a93f2f438464aec9b0a1bdb6534483e79780ed33109c3a42fe2bc10ec963e93f6a5705e802f5abb26ae4a2845d606e045310f6110a07
-  languageName: node
-  linkType: hard
-
 "@eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -1700,6 +1685,21 @@ __metadata:
     mkdirp: "npm:^1.0.4"
     rimraf: "npm:^3.0.2"
   checksum: 10/52dc02259d98da517fae4cb3a0a3850227bdae4939dda1980b788a7670636ca2b4a01b58df03dd5f65c1e3cb70c50fa8ce5762b582b3f499ec30ee5ce1fd9380
+  languageName: node
+  linkType: hard
+
+"@ohrm/oxd@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@ohrm/oxd@npm:2.0.2"
+  dependencies:
+    "@revolist/vue3-datagrid": "npm:^3.2.17"
+    chart.js: "npm:^4.1.2"
+    date-fns: "npm:^2.29.3"
+    mitt: "npm:^3.0.0"
+    nanoid: "npm:^4.0.0"
+  peerDependencies:
+    vue: 3.x
+  checksum: 10/a541c129eddaf93bfffac45cad11821a4ba664ab345399209e8a712424c80212818440e595782d51a0443099223b4993315c65dd8ad8a0e09e7e5e5767751338
   languageName: node
   linkType: hard
 
@@ -3619,32 +3619,6 @@ __metadata:
   checksum: 10/dfc058f60c3889793befe77349c3cd1a5452d21bed5ff60cb34382bee7bbdccc5c4c2ff2b77eab8c411c54d84f93963dacf593b9d901b43b93b7ad2a422aa163
   languageName: node
   linkType: hard
-
-"cia-ferias-installer@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "cia-ferias-installer@workspace:."
-  dependencies:
-    "@cia-ferias/oxd": "file:vendor/cia-ferias-oxd"
-    "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
-    "@typescript-eslint/parser": "npm:^5.62.0"
-    "@vue/cli-plugin-babel": "npm:~5.0.8"
-    "@vue/cli-plugin-eslint": "npm:~5.0.8"
-    "@vue/cli-plugin-typescript": "npm:~5.0.8"
-    "@vue/cli-service": "npm:~5.0.8"
-    "@vue/eslint-config-typescript": "npm:^9.1.0"
-    axios: "npm:~1.13.1"
-    core-js: "npm:^3.35.1"
-    eslint: "npm:^7.32.0"
-    eslint-config-prettier: "npm:^8.10.0"
-    eslint-plugin-prettier: "npm:^4.2.1"
-    eslint-plugin-vue: "npm:^8.7.1"
-    prettier: "npm:^2.8.8"
-    sass: "npm:^1.70.0"
-    sass-loader: "npm:^12.6.0"
-    typescript: "npm:~4.5.5"
-    vue: "npm:^3.4.19"
-  languageName: unknown
-  linkType: soft
 
 "clean-css@npm:^5.2.2":
   version: 5.3.1
@@ -7233,6 +7207,32 @@ __metadata:
   checksum: 10/8d071828f40090a8e1c6e8f350c6eb065808e9ab2b3e57fa37e0d5ae78cb46dac00117c8f12c3c8b8da2923454afbd8265e08c10b69881170c5b269f451e7fef
   languageName: node
   linkType: hard
+
+"orangehrm-installer@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "orangehrm-installer@workspace:."
+  dependencies:
+    "@ohrm/oxd": "npm:2.0.2"
+    "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
+    "@typescript-eslint/parser": "npm:^5.62.0"
+    "@vue/cli-plugin-babel": "npm:~5.0.8"
+    "@vue/cli-plugin-eslint": "npm:~5.0.8"
+    "@vue/cli-plugin-typescript": "npm:~5.0.8"
+    "@vue/cli-service": "npm:~5.0.8"
+    "@vue/eslint-config-typescript": "npm:^9.1.0"
+    axios: "npm:~1.13.1"
+    core-js: "npm:^3.35.1"
+    eslint: "npm:^7.32.0"
+    eslint-config-prettier: "npm:^8.10.0"
+    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-vue: "npm:^8.7.1"
+    prettier: "npm:^2.8.8"
+    sass: "npm:^1.70.0"
+    sass-loader: "npm:^12.6.0"
+    typescript: "npm:~4.5.5"
+    vue: "npm:^3.4.19"
+  languageName: unknown
+  linkType: soft
 
 "p-finally@npm:^1.0.0":
   version: 1.0.0

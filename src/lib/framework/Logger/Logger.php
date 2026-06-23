@@ -17,7 +17,7 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Logger;
+namespace OrangeHRM\Framework\Logger;
 
 use Monolog\Logger as BaseLogger;
 

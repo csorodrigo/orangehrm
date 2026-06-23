@@ -17,18 +17,18 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader\Api;
+namespace OrangeHRM\Installer\Controller\Upgrader\Api;
 
 use Doctrine\DBAL\Connection;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\DataRegistrationUtility;
-use CiaFerias\Installer\Util\Logger;
-use CiaFerias\Installer\Util\StateContainer;
-use CiaFerias\Installer\Util\SystemConfig\SystemConfiguration;
-use CiaFerias\ORM\Doctrine;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\DataRegistrationUtility;
+use OrangeHRM\Installer\Util\Logger;
+use OrangeHRM\Installer\Util\StateContainer;
+use OrangeHRM\Installer\Util\SystemConfig\SystemConfiguration;
+use OrangeHRM\ORM\Doctrine;
 use Throwable;
 
 class ConfigFileAPI extends AbstractInstallerRestController

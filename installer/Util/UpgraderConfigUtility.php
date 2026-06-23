@@ -17,13 +17,13 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Util;
+namespace OrangeHRM\Installer\Util;
 
 use Doctrine\DBAL\Connection as DBALConnection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
-use CiaFerias\Installer\Exception\SystemCheckException;
-use CiaFerias\Installer\Util\Dto\DatabaseConnectionWrapper;
+use OrangeHRM\Installer\Exception\SystemCheckException;
+use OrangeHRM\Installer\Util\Dto\DatabaseConnectionWrapper;
 
 class UpgraderConfigUtility
 {
@@ -32,7 +32,7 @@ class UpgraderConfigUtility
      */
     public function checkDatabaseStatus(): bool
     {
-        return $this->getSchemaManager()->tablesExist(['cia_ferias_upgrade_status']);
+        return $this->getSchemaManager()->tablesExist(['ohrm_upgrade_status']);
     }
 
     /**

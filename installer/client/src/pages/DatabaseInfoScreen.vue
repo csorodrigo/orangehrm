@@ -18,37 +18,37 @@
  -->
 <template>
   <oxd-form
-    class="cia-ferias-installer-page"
+    class="orangehrm-installer-page"
     :loading="isLoading"
     @submit-valid="onSubmit"
   >
-    <oxd-text tag="h5" class="cia-ferias-installer-page-title">
+    <oxd-text tag="h5" class="orangehrm-installer-page-title">
       Database Information
     </oxd-text>
     <br />
-    <oxd-text tag="p" class="cia-ferias-installer-page-content">
+    <oxd-text tag="p" class="orangehrm-installer-page-content">
       Please provide the database information of the database you are going to
       upgrade.
     </oxd-text>
     <br />
-    <Notice title="important" class="cia-ferias-installer-page-notice">
-      <oxd-text tag="p" class="cia-ferias-installer-page-content">
-        Make sure it's a copy of the database of your current CIA Férias
+    <Notice title="important" class="orangehrm-installer-page-notice">
+      <oxd-text tag="p" class="orangehrm-installer-page-content">
+        Make sure it's a copy of the database of your current OrangeHRM
         installation and not the original database. It's highly discouraged to
         use the original database for upgrading since it won't be recoverable if
         an error occurred during the upgrade.
       </oxd-text>
     </Notice>
     <br />
-    <Notice title="encryption" class="cia-ferias-installer-page-notice">
-      <oxd-text tag="p" class="cia-ferias-installer-page-content">
+    <Notice title="encryption" class="orangehrm-installer-page-notice">
+      <oxd-text tag="p" class="orangehrm-installer-page-content">
         If you have enabled data encryption in your current version, you need to
-        copy the file 'lib/confs/cryptokeys/key.cia-ferias' from your current
+        copy the file 'lib/confs/cryptokeys/key.ohrm' from your current
         installation to corresponding location in the new version.
       </oxd-text>
     </Notice>
     <br />
-    <oxd-grid :cols="3" class="cia-ferias-full-width-grid">
+    <oxd-grid :cols="3" class="orangehrm-full-width-grid">
       <oxd-grid-item>
         <oxd-input-field
           v-model="database.dbHost"
@@ -57,7 +57,7 @@
           required
         />
       </oxd-grid-item>
-      <oxd-grid-item class="cia-ferias-database-info-port">
+      <oxd-grid-item class="orangehrm-database-info-port">
         <oxd-input-field
           v-model="database.dbPort"
           label="Database Host Port"
@@ -89,18 +89,18 @@
         />
       </oxd-grid-item>
     </oxd-grid>
-    <oxd-text class="cia-ferias-installer-page-content">
+    <oxd-text class="orangehrm-installer-page-content">
       Click <b>Next</b> to continue
     </oxd-text>
     <br />
     <oxd-text
       v-show="errorMessage"
-      class="cia-ferias-installer-page-content cia-ferias-database-info-error"
+      class="orangehrm-installer-page-content orangehrm-database-info-error"
     >
       <b>{{ errorMessage }}</b>
     </oxd-text>
 
-    <oxd-form-actions class="cia-ferias-installer-page-action">
+    <oxd-form-actions class="orangehrm-installer-page-action">
       <required-text />
       <oxd-button
         display-type="ghost"
@@ -109,7 +109,7 @@
         @click="navigateUrl"
       />
       <oxd-button
-        class="cia-ferias-left-space"
+        class="orangehrm-left-space"
         display-type="secondary"
         label="Next"
         type="submit"
@@ -190,10 +190,10 @@ export default {
 </script>
 <style src="./installer-page.scss" lang="scss" scoped></style>
 <style lang="scss" scoped>
-.cia-ferias-database-info-port {
+.orangehrm-database-info-port {
   width: 50%;
 }
-.cia-ferias-database-info-error {
+.orangehrm-database-info-error {
   color: $oxd-feedback-danger-color;
 }
 </style>

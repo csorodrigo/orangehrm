@@ -16,11 +16,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\{API_NAMESPACE}\Api\Model;
+namespace OrangeHRM\{API_NAMESPACE}\Api\Model;
 
-use CiaFerias\Core\Api\V2\Serializer\ModelTrait;
-use CiaFerias\Core\Api\V2\Serializer\Normalizable;
-use CiaFerias\Entity\{ENTITY_CLASS};
+use OrangeHRM\Core\Api\V2\Serializer\ModelTrait;
+use OrangeHRM\Core\Api\V2\Serializer\Normalizable;
+use OrangeHRM\Entity\{ENTITY_CLASS};
 
 class {API_CLASS}Model implements Normalizable
 {

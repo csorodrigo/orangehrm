@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader\Api;
+namespace OrangeHRM\Installer\Controller\Upgrader\Api;
 
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Controller\AbstractInstallerRestController;
-use CiaFerias\Installer\Util\AppSetupUtility;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Controller\AbstractInstallerRestController;
+use OrangeHRM\Installer\Util\AppSetupUtility;
 
 class VersionAPI extends AbstractInstallerRestController
 {

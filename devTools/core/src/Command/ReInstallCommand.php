@@ -17,20 +17,20 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\DevTools\Command;
+namespace OrangeHRM\DevTools\Command;
 
 use Closure;
-use CiaFerias\Authentication\Dto\UserCredential;
-use CiaFerias\Config\Config;
-use CiaFerias\Core\Traits\ORM\EntityManagerHelperTrait;
-use CiaFerias\Entity\Organization;
-use CiaFerias\Entity\User;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Framework\Http\Response;
-use CiaFerias\Installer\Framework\HttpKernel;
-use CiaFerias\Installer\Util\AppSetupUtility;
-use CiaFerias\Installer\Util\Connection;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Authentication\Dto\UserCredential;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Core\Traits\ORM\EntityManagerHelperTrait;
+use OrangeHRM\Entity\Organization;
+use OrangeHRM\Entity\User;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
+use OrangeHRM\Installer\Framework\HttpKernel;
+use OrangeHRM\Installer\Util\AppSetupUtility;
+use OrangeHRM\Installer\Util\Connection;
+use OrangeHRM\Installer\Util\StateContainer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -84,7 +84,7 @@ class ReInstallCommand extends Command
         /** @var User $user */
         $user = $this->tryClosure(fn () => $this->getRepository(User::class)->findOneBy(['createdBy' => null]));
 
-        $organizationName = $org ? $org->getName() : 'CIA Férias';
+        $organizationName = $org ? $org->getName() : 'OrangeHRM';
         $countryCode = $org ? $org->getCountry() : 'US';
 
         if ($user instanceof User) {
@@ -137,7 +137,7 @@ class ReInstallCommand extends Command
 
         if (isset($adminHashedPassword)) {
             $qb = Connection::getConnection()->createQueryBuilder()
-                ->update('cia_ferias_user', 'user')
+                ->update('ohrm_user', 'user')
                 ->set('user.user_password', ':hashedPassword')
                 ->setParameter('hashedPassword', $adminHashedPassword);
             $qb->where($qb->expr()->isNull('user.created_by'))

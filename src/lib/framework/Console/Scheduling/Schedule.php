@@ -17,11 +17,11 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Framework\Console\Scheduling;
+namespace OrangeHRM\Framework\Console\Scheduling;
 
 use DateTimeZone;
 use InvalidArgumentException;
-use CiaFerias\Framework\Console\Console;
+use OrangeHRM\Framework\Console\Console;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function array_filter;
@@ -53,7 +53,7 @@ class Schedule
      */
     public function add(CommandInfo $commandInfo): Task
     {
-        if ($commandInfo->getCommand() === 'cia-ferias:run-schedule') {
+        if ($commandInfo->getCommand() === 'orangehrm:run-schedule') {
             throw new InvalidArgumentException('Invalid command');
         }
 
@@ -101,7 +101,7 @@ class Schedule
     protected function generateUniqueId(string $command): string
     {
         while (true) {
-            $id = uniqid("cia_ferias_$command", true);
+            $id = uniqid("orangehrm_$command", true);
             if (!array_key_exists($id, $this->tasks)) {
                 return $id;
             }

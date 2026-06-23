@@ -17,16 +17,16 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace CiaFerias\Installer\Controller\Upgrader;
+namespace OrangeHRM\Installer\Controller\Upgrader;
 
-use CiaFerias\Config\Config;
-use CiaFerias\Core\Helper\VueControllerHelper;
-use CiaFerias\Core\Vue\Component;
-use CiaFerias\Core\Vue\Prop;
-use CiaFerias\Framework\Http\Request;
-use CiaFerias\Installer\Controller\AbstractInstallerVueController;
-use CiaFerias\Installer\Util\Logger;
-use CiaFerias\Installer\Util\StateContainer;
+use OrangeHRM\Config\Config;
+use OrangeHRM\Core\Helper\VueControllerHelper;
+use OrangeHRM\Core\Vue\Component;
+use OrangeHRM\Core\Vue\Prop;
+use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Installer\Controller\AbstractInstallerVueController;
+use OrangeHRM\Installer\Util\Logger;
+use OrangeHRM\Installer\Util\StateContainer;
 
 class UpgraderCompleteController extends AbstractInstallerVueController
 {
@@ -44,7 +44,7 @@ class UpgraderCompleteController extends AbstractInstallerVueController
         StateContainer::getInstance()->clean();
 
         Logger::getLogger()->info(
-            'CIA Férias ' . Config::PRODUCT_VERSION . ' status: ' . var_export(Config::isInstalled(), true)
+            'OrangeHRM ' . Config::PRODUCT_VERSION . ' status: ' . var_export(Config::isInstalled(), true)
         );
     }
 }
